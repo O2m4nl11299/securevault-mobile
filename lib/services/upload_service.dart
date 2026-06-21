@@ -1,4 +1,4 @@
-import 'dart:io';
+﻿import 'dart:io';
 import 'package:dio/dio.dart';
 import '../crypto/sv02_codec.dart';
 import 'api_client.dart';
@@ -21,16 +21,14 @@ class UploadResult {
   });
 }
 
-/// server.js'in streaming upload akışıyla birebir eşleşir:
+/// server.js'in streaming upload akisiyla birebir eslesir:
 ///   POST /upload/init           -> { uploadId }
-///   POST /upload/chunk/:id  xN  -> { received, total }   (SIRALI — server zorunlu kılıyor)
+///   POST /upload/chunk/:id  xN  -> { received, total }   (SIRALI - server zorunlu kiliyor)
 ///   POST /upload/finalize/:id   -> { token, ttl }
 ///
-/// Anahtar HİÇBİR ZAMAN sunucuya gönderilmez. İndirme linki tamamen cihazda
-/// kurulur (token sunucudan, keyB64 cihazda üretilmiş) ve OS paylaşım
-/// menüsüyle iletilir — web'in /send-link akışındaki (keyB64'ün e-posta
-/// gövdesi için sunucuya kısa süreliğine gönderilmesi) zero-knowledge
-/// tavizine mobilde ihtiyaç yok.
+/// Anahtar HICBIR ZAMAN sunucuya gonderilmez. Indirme linki tamamen cihazda
+/// kurulur (token sunucudan, keyB64 cihazda uretilmis) ve OS paylasim
+/// menusuyle iletilir.
 class UploadService {
   final Dio _dio = ApiClient.instance.dio;
 
@@ -38,12 +36,13 @@ class UploadService {
     required String filePath,
     required String originalName,
     required String recipientEmail,
+    String? extraPassword,
     void Function(int sent, int total)? onProgress,
   }) async {
     final file = File(filePath);
     final totalSize = await file.length();
     if (totalSize <= 0) {
-      throw UploadException('Dosya boş görünüyor, başka bir dosya seçin.');
+      throw UploadException('Dosya bos gorunuyor, baska bir dosya secin.');
     }
 
     final key = Sv02Codec.generateKey();
@@ -62,8 +61,15 @@ class UploadService {
     }
 
     final fin = await _finalize(uploadId);
+
+    // Ek sifre varsa, web ile birebir ayni sekilde #keyB64|HASH16 ekini uret.
+    var pwdSuffix = '';
+    if (extraPassword != null && extraPassword.isNotEmpty) {
+      pwdSuffix = '|${await Sv02Codec.hashPassword(extraPassword)}';
+    }
+
     final downloadUrl =
-        '$_baseUrl/dl/${fin.token}#${Uri.encodeComponent(keyB64)}';
+        '$_baseUrl/dl/${fin.token}#${Uri.encodeComponent(keyB64)}$pwdSuffix';
 
     return UploadResult(
       token: fin.token,
@@ -89,7 +95,7 @@ class UploadService {
       if (res.statusCode == 200 && res.data['uploadId'] != null) {
         return res.data['uploadId'] as String;
       }
-      throw UploadException(_serverError(res, 'Yükleme başlatılamadı.'));
+      throw UploadException(_serverError(res, 'Yukleme baslatilamadi.'));
     } on DioException catch (e) {
       throw UploadException(_networkError(e));
     }
@@ -103,7 +109,7 @@ class UploadService {
         options: Options(contentType: 'application/octet-stream'),
       );
       if (res.statusCode != 200) {
-        throw UploadException(_serverError(res, 'Parça yüklenemedi.'));
+        throw UploadException(_serverError(res, 'Parca yuklenemedi.'));
       }
     } on DioException catch (e) {
       throw UploadException(_networkError(e));
@@ -119,7 +125,7 @@ class UploadService {
           ttl: (res.data['ttl'] as num).toInt(),
         );
       }
-      throw UploadException(_serverError(res, 'Yükleme tamamlanamadı.'));
+      throw UploadException(_serverError(res, 'Yukleme tamamlanamadi.'));
     } on DioException catch (e) {
       throw UploadException(_networkError(e));
     }
@@ -136,11 +142,11 @@ class UploadService {
       case DioExceptionType.connectionTimeout:
       case DioExceptionType.sendTimeout:
       case DioExceptionType.receiveTimeout:
-        return 'Sunucuya bağlanılamadı (zaman aşımı). İnternet bağlantınızı kontrol edin.';
+        return 'Sunucuya baglanilamadi (zaman asimi). Internet baglantinizi kontrol edin.';
       case DioExceptionType.connectionError:
-        return 'Bağlantı kurulamadı. İnternet bağlantınızı kontrol edin.';
+        return 'Baglanti kurulamadi. Internet baglantinizi kontrol edin.';
       default:
-        return 'Beklenmeyen bir hata oluştu: ${e.message}';
+        return 'Beklenmeyen bir hata olustu: ${e.message}';
     }
   }
 }
@@ -150,3 +156,4 @@ class _FinalizeResult {
   final int ttl;
   _FinalizeResult({required this.token, required this.ttl});
 }
+

@@ -1,4 +1,4 @@
-import 'package:file_picker/file_picker.dart';
+﻿import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:share_plus/share_plus.dart';
 import '../services/upload_service.dart';
@@ -7,15 +7,14 @@ enum _Phase { idle, working, done, error }
 
 class UploadScreen extends StatefulWidget {
   const UploadScreen({super.key});
-
   @override
   State<UploadScreen> createState() => _UploadScreenState();
 }
 
 class _UploadScreenState extends State<UploadScreen> {
   final _emailCtrl = TextEditingController();
+  final _extraPwdCtrl = TextEditingController();
   final _uploadService = UploadService();
-
   PlatformFile? _pickedFile;
   _Phase _phase = _Phase.idle;
   double _progress = 0;
@@ -40,26 +39,27 @@ class _UploadScreenState extends State<UploadScreen> {
     final file = _pickedFile;
     final path = file?.path;
     if (file == null || path == null) {
-      setState(() => _error = 'Önce bir dosya seçin.');
+      setState(() => _error = 'Once bir dosya secin.');
       return;
     }
     final email = _emailCtrl.text.trim();
     if (!_isValidEmail(email)) {
-      setState(() => _error = 'Geçerli bir e-posta adresi girin.');
+      setState(() => _error = 'Gecerli bir e-posta adresi girin.');
       return;
     }
-
     setState(() {
       _phase = _Phase.working;
       _progress = 0;
       _error = null;
     });
-
     try {
       final result = await _uploadService.uploadFile(
         filePath: path,
         originalName: file.name,
         recipientEmail: email,
+        extraPassword: _extraPwdCtrl.text.trim().isEmpty
+            ? null
+            : _extraPwdCtrl.text.trim(),
         onProgress: (sent, total) {
           if (!mounted) return;
           setState(() => _progress = total > 0 ? sent / total : 0);
@@ -87,15 +87,13 @@ class _UploadScreenState extends State<UploadScreen> {
       _phase = _Phase.idle;
       _progress = 0;
       _emailCtrl.clear();
+      _extraPwdCtrl.clear();
     });
   }
 
   Future<void> _share(String url) async {
-    // NOT: share_plus çok yeni bir sürümde (13.x); eski `Share.share(...)`
-    // statik metodu kaldırılmış olabilir. Bu satır derleme hatası verirse
-    // (örn. "ShareParams bulunamadı"), çıktıyı paylaş — birlikte düzeltiriz.
     await SharePlus.instance.share(
-      ShareParams(text: url, subject: 'Şifreli dosya — SecureVault'),
+      ShareParams(text: url, subject: 'Sifreli dosya - SecureVault'),
     );
   }
 
@@ -107,13 +105,14 @@ class _UploadScreenState extends State<UploadScreen> {
   @override
   void dispose() {
     _emailCtrl.dispose();
+    _extraPwdCtrl.dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Dosya Gönder')),
+      appBar: AppBar(title: const Text('Dosya Gonder')),
       body: SafeArea(
         child: SingleChildScrollView(
           padding: const EdgeInsets.all(24),
@@ -135,7 +134,7 @@ class _UploadScreenState extends State<UploadScreen> {
           icon: const Icon(Icons.attach_file),
           label: Text(
             _pickedFile == null
-                ? 'Dosya Seç'
+                ? 'Dosya Sec'
                 : '${_pickedFile!.name} (${_formatSize(_pickedFile!.size)})',
             overflow: TextOverflow.ellipsis,
           ),
@@ -146,11 +145,25 @@ class _UploadScreenState extends State<UploadScreen> {
           enabled: !busy,
           keyboardType: TextInputType.emailAddress,
           decoration: const InputDecoration(
-            labelText: 'Alıcının e-posta adresi',
-            helperText: 'Kayıt amaçlı — dosya bu adrese otomatik gönderilmez,\n'
-                'linki bir sonraki ekranda istediğiniz uygulamadan paylaşırsınız.',
+            labelText: 'Alicinin e-posta adresi',
+            helperText: 'Kayit amacli - dosya bu adrese otomatik gonderilmez,\n'
+                'linki bir sonraki ekranda istediginiz uygulamadan paylasirsiniz.',
             helperMaxLines: 2,
             border: OutlineInputBorder(),
+          ),
+        ),
+        const SizedBox(height: 16),
+        TextField(
+          controller: _extraPwdCtrl,
+          enabled: !busy,
+          obscureText: true,
+          decoration: const InputDecoration(
+            labelText: 'Ek sifre korumasi (opsiyonel)',
+            helperText: 'Belirlerseniz, aliciya bu sifreyi ayrica iletmeniz\n'
+                'gerekir. Dosya, sifre girilmeden indirilemez.',
+            helperMaxLines: 2,
+            border: OutlineInputBorder(),
+            prefixIcon: Icon(Icons.lock_outline),
           ),
         ),
         if (_error != null) ...[
@@ -162,14 +175,14 @@ class _UploadScreenState extends State<UploadScreen> {
           LinearProgressIndicator(value: _progress == 0 ? null : _progress),
           const SizedBox(height: 8),
           Text(
-            'Şifreleniyor ve yükleniyor... %${(_progress * 100).toStringAsFixed(0)}',
+            'Sifreleniyor ve yukleniyor... %${(_progress * 100).toStringAsFixed(0)}',
             textAlign: TextAlign.center,
             style: const TextStyle(color: Colors.grey),
           ),
         ] else
           FilledButton(
             onPressed: _startUpload,
-            child: const Text('Şifrele ve Yükle'),
+            child: const Text('Sifrele ve Yukle'),
           ),
       ],
     );
@@ -179,23 +192,37 @@ class _UploadScreenState extends State<UploadScreen> {
     final ttlText = result.ttlSeconds < 3600
         ? '${(result.ttlSeconds / 60).round()} dakika'
         : '${(result.ttlSeconds / 3600).round()} saat';
-
+    final hasPwd = _extraPwdCtrl.text.trim().isNotEmpty;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         const Icon(Icons.check_circle, color: Colors.greenAccent, size: 56),
         const SizedBox(height: 12),
         Text(
-          'Dosya şifrelenip yüklendi.',
+          'Dosya sifrelenip yuklendi.',
           textAlign: TextAlign.center,
           style: Theme.of(context).textTheme.titleMedium,
         ),
         const SizedBox(height: 4),
         Text(
-          'Bu link $ttlText içinde geçersiz olur ve sadece BİR KEZ kullanılabilir.',
+          'Bu link $ttlText icinde gecersiz olur ve sadece BIR KEZ kullanilabilir.',
           textAlign: TextAlign.center,
           style: const TextStyle(color: Colors.grey),
         ),
+        if (hasPwd) ...[
+          const SizedBox(height: 8),
+          Container(
+            padding: const EdgeInsets.all(10),
+            decoration: BoxDecoration(
+              color: Colors.amber.withValues(alpha: 0.12),
+              borderRadius: BorderRadius.circular(8),
+            ),
+            child: const Text(
+              'Ek sifre belirlediniz. Aliciya bu sifreyi ayrica (linkten farkli bir kanaldan) iletmeyi unutmayin.',
+              style: TextStyle(color: Colors.amber, fontSize: 12),
+            ),
+          ),
+        ],
         const SizedBox(height: 16),
         Container(
           padding: const EdgeInsets.all(12),
@@ -212,14 +239,15 @@ class _UploadScreenState extends State<UploadScreen> {
         FilledButton.icon(
           onPressed: () => _share(result.downloadUrl),
           icon: const Icon(Icons.share),
-          label: const Text('Linki Paylaş'),
+          label: const Text('Linki Paylas'),
         ),
         const SizedBox(height: 8),
         OutlinedButton(
           onPressed: _reset,
-          child: const Text('Başka bir dosya gönder'),
+          child: const Text('Baska bir dosya gonder'),
         ),
       ],
     );
   }
 }
+

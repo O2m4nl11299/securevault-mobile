@@ -1,35 +1,44 @@
-import 'dart:convert';
+﻿import 'dart:convert';
 import 'dart:io';
 import 'dart:math';
 import 'dart:typed_data';
 
 import 'package:cryptography/cryptography.dart';
 
-/// SecureVault web client'ı (public/app.js) ile BYTE-BYTE uyumlu SV02 codec.
+/// SecureVault web client'Ä± (public/app.js) ile BYTE-BYTE uyumlu SV02 codec.
 ///
-/// Format (spike'ta doğrulandı — bkz. securevault-spike):
+/// Format (spike'ta doÄŸrulandÄ± â€” bkz. securevault-spike):
 ///   [HEADER 8B]  MAGIC("SV02") + uint32_BE(chunkSize)
-///   [FRAME×N]    uint32_BE(12+ct) + IV(12) + ciphertext(+16B GCM tag SONA ekli)
+///   [FRAMEÃ—N]    uint32_BE(12+ct) + IV(12) + ciphertext(+16B GCM tag SONA ekli)
 ///
-/// ÖNEMLİ: `Cryptography.instance.aesGcm(...)` kullanıyoruz, `AesGcm.with256bits()`
-/// DEĞİL — ilki main()'de çağrılan `FlutterCryptography.enable()` sayesinde
-/// native (CryptoKit/Conscrypt) backend'e yönlenir; ikincisi her zaman saf-Dart
-/// kalır (spike'ta saf-Dart ~18 MB/s ölçüldü, üretimde bu kabul edilemez).
+/// Ã–NEMLÄ°: `Cryptography.instance.aesGcm(...)` kullanÄ±yoruz, `AesGcm.with256bits()`
+/// DEÄÄ°L â€” ilki main()'de Ã§aÄŸrÄ±lan `FlutterCryptography.enable()` sayesinde
+/// native (CryptoKit/Conscrypt) backend'e yÃ¶nlenir; ikincisi her zaman saf-Dart
+/// kalÄ±r (spike'ta saf-Dart ~18 MB/s Ã¶lÃ§Ã¼ldÃ¼, Ã¼retimde bu kabul edilemez).
 class Sv02Codec {
-  static const int chunkSize = 5 * 1024 * 1024; // 5 MB — server.js R2_MIN_PART_SIZE ile aynı
+  static const int chunkSize = 5 * 1024 * 1024; // 5 MB â€” server.js R2_MIN_PART_SIZE ile aynÄ±
   static const List<int> _magic = [0x53, 0x56, 0x30, 0x32]; // "SV02"
   static final Random _rnd = Random.secure();
 
   static AesGcm get _algo => Cryptography.instance.aesGcm(secretKeyLength: 32);
 
-  /// 32 byte rastgele AES-256 anahtarı üretir.
+  /// 32 byte rastgele AES-256 anahtarÄ± Ã¼retir.
   static SecretKey generateKey() {
     final bytes = List<int>.generate(32, (_) => _rnd.nextInt(256));
     return SecretKey(bytes);
   }
 
-  /// Anahtarı URL fragment'inde paylaşılabilir base64url string'e çevirir
-  /// (server.js base64url'i kabul ediyor — bkz. isValidKeyB64).
+  /// Web'deki hashPassword ile BIREBIR ayni: SHA-256 -> base64 -> ilk 16 char.
+  /// Ek sifre korumasi icin link'e eklenen #keyB64|HASH16 ekini uretir.
+  /// Dosya sifrelemesini DEGISTIRMEZ; sadece indirme tarafinda erisim
+  /// kontrolu olarak kullanilir (web ile capraz-uyumlu).
+  static Future<String> hashPassword(String pwd) async {
+    final digest = await Sha256().hash(utf8.encode(pwd));
+    return base64.encode(digest.bytes).substring(0, 16);
+  }
+
+  /// AnahtarÄ± URL fragment'inde paylaÅŸÄ±labilir base64url string'e Ã§evirir
+  /// (server.js base64url'i kabul ediyor â€” bkz. isValidKeyB64).
   static Future<String> keyToBase64Url(SecretKey key) async {
     final bytes = await key.extractBytes();
     return base64Url.encode(bytes).replaceAll('=', '');
@@ -38,13 +47,13 @@ class Sv02Codec {
   static Uint8List _u32be(int n) =>
       (ByteData(4)..setUint32(0, n, Endian.big)).buffer.asUint8List();
 
-  /// Dosyayı SV02 formatında STREAM halinde şifreler — sabit RAM (~5MB),
-  /// spike'ta 2GB dosyada doğrulandı. Her yield edilen parça, sırayla
-  /// `/upload/chunk/:id`'e POST edilmeli (server sıralı gönderim zorunlu
-  /// kılıyor — paralel istek 429 döner).
+  /// DosyayÄ± SV02 formatÄ±nda STREAM halinde ÅŸifreler â€” sabit RAM (~5MB),
+  /// spike'ta 2GB dosyada doÄŸrulandÄ±. Her yield edilen parÃ§a, sÄ±rayla
+  /// `/upload/chunk/:id`'e POST edilmeli (server sÄ±ralÄ± gÃ¶nderim zorunlu
+  /// kÄ±lÄ±yor â€” paralel istek 429 dÃ¶ner).
   ///
-  /// İlk yield: 8B header + ilk frame birlikte (header'ı ayrı göndermeye
-  /// gerek yok, server toplam baytı sayıyor, frame sınırını kendi ayırıyor).
+  /// Ä°lk yield: 8B header + ilk frame birlikte (header'Ä± ayrÄ± gÃ¶ndermeye
+  /// gerek yok, server toplam baytÄ± sayÄ±yor, frame sÄ±nÄ±rÄ±nÄ± kendi ayÄ±rÄ±yor).
   static Stream<Uint8List> encryptStream(String filePath, SecretKey key) async* {
     final file = File(filePath);
     final buf = BytesBuilder(copy: false);
@@ -81,21 +90,21 @@ class Sv02Codec {
     }
   }
 
-  /// Kullanıcının yapıştırdığı/URL fragment'inden gelen base64url anahtarı
-  /// SecretKey'e çevirir.
+  /// KullanÄ±cÄ±nÄ±n yapÄ±ÅŸtÄ±rdÄ±ÄŸÄ±/URL fragment'inden gelen base64url anahtarÄ±
+  /// SecretKey'e Ã§evirir.
   static SecretKey keyFromBase64Url(String keyB64) {
     final normalized = keyB64.replaceAll('-', '+').replaceAll('_', '/');
     final bytes = base64.decode(base64.normalize(normalized));
     if (bytes.length != 32) {
-      throw FormatException('Anahtar 32 byte olmalı, geldi: ${bytes.length}');
+      throw FormatException('Anahtar 32 byte olmalÄ±, geldi: ${bytes.length}');
     }
     return SecretKey(bytes);
   }
 
-  /// Şifreli bir bayt akışını (örn. HTTP indirme stream'i) SV02 formatından
-  /// çözüp düz veri parçaları olarak yield eder. Sabit RAM ile çalışır —
-  /// spike'ta dosya bazlı sürümü 2GB'da doğrulandı, burada aynı mantık
-  /// genel bir `Stream<List<int>>` girdisine uyarlandı.
+  /// Åifreli bir bayt akÄ±ÅŸÄ±nÄ± (Ã¶rn. HTTP indirme stream'i) SV02 formatÄ±ndan
+  /// Ã§Ã¶zÃ¼p dÃ¼z veri parÃ§alarÄ± olarak yield eder. Sabit RAM ile Ã§alÄ±ÅŸÄ±r â€”
+  /// spike'ta dosya bazlÄ± sÃ¼rÃ¼mÃ¼ 2GB'da doÄŸrulandÄ±, burada aynÄ± mantÄ±k
+  /// genel bir `Stream<List<int>>` girdisine uyarlandÄ±.
   static Stream<Uint8List> decryptStream(
     Stream<List<int>> input,
     SecretKey key,
@@ -112,7 +121,7 @@ class Sv02Codec {
         if (buf.length < 8) continue;
         for (var i = 0; i < 4; i++) {
           if (buf[i] != _magic[i]) {
-            throw const FormatException('Geçersiz format: SV02 başlığı yok');
+            throw const FormatException('GeÃ§ersiz format: SV02 baÅŸlÄ±ÄŸÄ± yok');
           }
         }
         off = 8;
@@ -126,7 +135,7 @@ class Sv02Codec {
           off = buf.length;
           break;
         }
-        if (off + 4 + payloadSize > buf.length) break; // tam frame henüz gelmedi
+        if (off + 4 + payloadSize > buf.length) break; // tam frame henÃ¼z gelmedi
         final iv = buf.sublist(off + 4, off + 16);
         final ctTag = buf.sublist(off + 16, off + 4 + payloadSize);
         final ct = ctTag.sublist(0, ctTag.length - 16);
@@ -149,3 +158,5 @@ class Sv02Codec {
     return out;
   }
 }
+
+
