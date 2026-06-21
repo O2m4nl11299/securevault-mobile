@@ -55,7 +55,7 @@ class _HomeScreenState extends State<HomeScreen> {
           IconButton(
             onPressed: _logout,
             icon: const Icon(Icons.logout),
-            tooltip: 'Ã‡Ä±kÄ±ÅŸ yap',
+            tooltip: 'Çıkış yap',
           ),
         ],
       ),
@@ -66,7 +66,7 @@ class _HomeScreenState extends State<HomeScreen> {
             const Icon(Icons.check_circle, color: Colors.greenAccent, size: 56),
             const SizedBox(height: 16),
             Text(
-              'GiriÅŸ yapÄ±ldÄ±: ${_username ?? "..."}',
+              'Giriş yapıldı: ${_username ?? "..."}',
               style: Theme.of(context).textTheme.titleMedium,
             ),
             const SizedBox(height: 4),
@@ -80,7 +80,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 MaterialPageRoute(builder: (_) => const UploadScreen()),
               ),
               icon: const Icon(Icons.upload_file),
-              label: const Text('Dosya GÃ¶nder'),
+              label: const Text('Dosya Gönder'),
             ),
             const SizedBox(height: 12),
             OutlinedButton.icon(
@@ -88,7 +88,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 MaterialPageRoute(builder: (_) => const TextEncryptScreen()),
               ),
               icon: const Icon(Icons.text_fields),
-              label: const Text('Metin Sifrele'),
+              label: const Text('Metin Şifrele'),
             ),
             const SizedBox(height: 12),
             OutlinedButton.icon(
@@ -96,7 +96,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 MaterialPageRoute(builder: (_) => const DownloadScreen()),
               ),
               icon: const Icon(Icons.download),
-              label: const Text('Dosya Ä°ndir'),
+              label: const Text('Dosya İndir'),
             ),
             const SizedBox(height: 32),
             TextButton(
@@ -104,7 +104,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 MaterialPageRoute(builder: (_) => const DeleteAccountScreen()),
               ),
               style: TextButton.styleFrom(foregroundColor: Colors.redAccent),
-              child: const Text('HesabÄ±mÄ± Sil'),
+              child: const Text('Hesabımı Sil'),
             ),
           ],
         ),
