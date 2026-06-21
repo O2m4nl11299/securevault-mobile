@@ -1,9 +1,9 @@
-import 'package:dio/dio.dart';
+﻿import 'package:dio/dio.dart';
 import 'api_client.dart';
 import 'secure_storage_service.dart';
 
-/// Sunucudan dönen Türkçe hata mesajını taşıyan exception.
-/// UI doğrudan `e.toString()` ile bunu kullanıcıya gösterebilir.
+/// Sunucudan donen Turkce hata mesajini tasiyan exception.
+/// UI dogrudan `e.toString()` ile bunu kullaniciya gosterebilir.
 class AuthException implements Exception {
   final String message;
   AuthException(this.message);
@@ -12,7 +12,7 @@ class AuthException implements Exception {
 }
 
 /// server.js'teki /auth/* ve /api/delete-account endpoint'lerinin
-/// birebir karşılığı. Sözleşmeler kodun kendisinden doğrulandı:
+/// birebir karsiligi. Sozlesmeler kodun kendisinden dogrulandi:
 ///   POST /auth/register  { username, password } -> { success, recoveryToken }
 ///   POST /auth/login     { username, password } -> { success, sessionToken, plan }
 ///   POST /auth/recover   { username, recoveryToken, newPassword } -> { success }
@@ -32,7 +32,7 @@ class AuthService {
       if (res.statusCode == 200 && res.data['success'] == true) {
         return res.data['recoveryToken'] as String;
       }
-      throw AuthException(_serverError(res, 'Kayıt başarısız.'));
+      throw AuthException(_serverError(res, 'Kayit basarisiz.'));
     } on DioException catch (e) {
       throw AuthException(_networkError(e));
     }
@@ -58,7 +58,7 @@ class AuthService {
         );
         return;
       }
-      throw AuthException(_serverError(res, 'Giriş başarısız.'));
+      throw AuthException(_serverError(res, 'Giris basarisiz.'));
     } on DioException catch (e) {
       throw AuthException(_networkError(e));
     }
@@ -76,7 +76,7 @@ class AuthService {
         'newPassword': newPassword,
       });
       if (res.statusCode == 200 && res.data['success'] == true) return;
-      throw AuthException(_serverError(res, 'Kurtarma başarısız.'));
+      throw AuthException(_serverError(res, 'Kurtarma basarisiz.'));
     } on DioException catch (e) {
       throw AuthException(_networkError(e));
     }
@@ -91,16 +91,16 @@ class AuthService {
         await logout();
         return;
       }
-      throw AuthException(_serverError(res, 'Hesap silme başarısız.'));
+      throw AuthException(_serverError(res, 'Hesap silme basarisiz.'));
     } on DioException catch (e) {
       throw AuthException(_networkError(e));
     }
   }
 
-  /// Uygulama açılışında diskte token varsa onu Dio'ya yükler.
-  /// NOT: Token'ın sunucuda hâlâ geçerli olduğunu DOĞRULAMAZ — Redis'teki
-  /// session 24 saatte düşer. Süresi dolmuşsa, ilk yetkili istek 401 döner;
-  /// o noktada ekranlarda logout() çağrılıp giriş ekranına dönülmeli.
+  /// Uygulama acilisinda diskte token varsa onu Dio'ya yukler.
+  /// NOT: Token'in sunucuda hala gecerli oldugunu DOGRULAMAZ - Redis'teki
+  /// session 24 saatte duser. Suresi dolmussa, ilk yetkili istek 401 doner;
+  /// o noktada ekranlarda logout() cagrilip giris ekranina donulmeli.
   Future<bool> tryAutoLogin() async {
     final token = await SecureStorageService.readToken();
     if (token == null) return false;
@@ -124,11 +124,11 @@ class AuthService {
       case DioExceptionType.connectionTimeout:
       case DioExceptionType.sendTimeout:
       case DioExceptionType.receiveTimeout:
-        return 'Sunucuya bağlanılamadı (zaman aşımı). İnternet bağlantınızı kontrol edin.';
+        return 'Sunucuya baglanilamadi (zaman asimi). Internet baglantinizi kontrol edin.';
       case DioExceptionType.connectionError:
-        return 'Bağlantı kurulamadı. İnternet bağlantınızı kontrol edin.';
+        return 'Baglanti kurulamadi. Internet baglantinizi kontrol edin.';
       default:
-        return 'Beklenmeyen bir hata oluştu: ${e.message}';
+        return 'Beklenmeyen bir hata olustu. Lutfen tekrar deneyin.';
     }
   }
 }

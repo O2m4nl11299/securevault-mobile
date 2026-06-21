@@ -1,9 +1,9 @@
 ﻿import 'package:dio/dio.dart';
 import '../config/app_config.dart';
 
-/// Tüm backend isteklerinin geçtiği tek Dio örneği.
-/// Oturum token'ı `x-session-token` header'ında taşınır (server.js'in
-/// beklediği format — Bearer DEĞİL, özel header).
+/// Tum backend isteklerinin gectigi tek Dio ornegi.
+/// Oturum token'i `x-session-token` header'inda tasinir (server.js'in
+/// bekledigi format - Bearer DEGIL, ozel header).
 class ApiClient {
   ApiClient._internal() {
     _dio = Dio(
@@ -12,12 +12,11 @@ class ApiClient {
         connectTimeout: const Duration(seconds: 15),
         receiveTimeout: const Duration(seconds: 30),
         headers: {'Content-Type': 'application/json'},
-        // 4xx'lerde DioException firlatma — body'deki {error: "..."} alanini
+        // 4xx'lerde DioException firlatma - body'deki {error: "..."} alanini
         // kendimiz okuyup kullaniciya Turkce mesaji dogrudan gosterebilelim.
         validateStatus: (status) => status != null && status < 500,
       ),
     );
-
     _dio.interceptors.add(
       InterceptorsWrapper(
         onResponse: (response, handler) {
@@ -42,13 +41,13 @@ class ApiClient {
   bool _handlingExpiry = false;
 
   /// main()'de bir kez atanir. Sunucu, sakladigimiz token'i artik tanimadigini
-  /// bildirdiginde (401 + sessionExpired:true) cagrilir — uygulama bunu
+  /// bildirdiginde (401 + sessionExpired:true) cagrilir - uygulama bunu
   /// "tekrar giris yap" ekranina yonlendirmek icin kullanir.
   void Function()? onSessionExpired;
 
   /// Sunucu, gecerli bir kimlikle (anon ya da free) kota/boyut sinirinin
   /// asildigini bildirdiginde (403 + upgrade:true) cagrilir. Oturumu
-  /// ETKILEMEZ — sadece premium upsell mesaji/ekrani gostermek icin kullanilir.
+  /// ETKILEMEZ - sadece premium upsell mesaji/ekrani gostermek icin kullanilir.
   void Function(String message)? onUpgradeRequired;
 
   Dio get dio => _dio;
@@ -58,7 +57,7 @@ class ApiClient {
     _sessionToken = token;
     if (token != null) {
       _dio.options.headers['x-session-token'] = token;
-      _handlingExpiry = false; // yeni oturum — bayragi sifirla
+      _handlingExpiry = false; // yeni oturum - bayragi sifirla
     } else {
       _dio.options.headers.remove('x-session-token');
     }
