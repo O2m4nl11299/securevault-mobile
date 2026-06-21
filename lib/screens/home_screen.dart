@@ -1,13 +1,14 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import '../services/auth_service.dart';
 import '../services/secure_storage_service.dart';
 import 'login_screen.dart';
 import 'upload_screen.dart';
+import 'text_encrypt_screen.dart';
 import 'download_screen.dart';
 import 'delete_account_screen.dart';
 
-/// Giriş sonrası ana ekran — şimdilik yer tutucu.
-/// Sıradaki adımda buraya dosya yükleme akışı eklenecek.
+/// GiriÅŸ sonrasÄ± ana ekran â€” ÅŸimdilik yer tutucu.
+/// SÄ±radaki adÄ±mda buraya dosya yÃ¼kleme akÄ±ÅŸÄ± eklenecek.
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
@@ -54,7 +55,7 @@ class _HomeScreenState extends State<HomeScreen> {
           IconButton(
             onPressed: _logout,
             icon: const Icon(Icons.logout),
-            tooltip: 'Çıkış yap',
+            tooltip: 'Ã‡Ä±kÄ±ÅŸ yap',
           ),
         ],
       ),
@@ -65,7 +66,7 @@ class _HomeScreenState extends State<HomeScreen> {
             const Icon(Icons.check_circle, color: Colors.greenAccent, size: 56),
             const SizedBox(height: 16),
             Text(
-              'Giriş yapıldı: ${_username ?? "..."}',
+              'GiriÅŸ yapÄ±ldÄ±: ${_username ?? "..."}',
               style: Theme.of(context).textTheme.titleMedium,
             ),
             const SizedBox(height: 4),
@@ -79,7 +80,15 @@ class _HomeScreenState extends State<HomeScreen> {
                 MaterialPageRoute(builder: (_) => const UploadScreen()),
               ),
               icon: const Icon(Icons.upload_file),
-              label: const Text('Dosya Gönder'),
+              label: const Text('Dosya GÃ¶nder'),
+            ),
+            const SizedBox(height: 12),
+            OutlinedButton.icon(
+              onPressed: () => Navigator.of(context).push(
+                MaterialPageRoute(builder: (_) => const TextEncryptScreen()),
+              ),
+              icon: const Icon(Icons.text_fields),
+              label: const Text('Metin Sifrele'),
             ),
             const SizedBox(height: 12),
             OutlinedButton.icon(
@@ -87,7 +96,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 MaterialPageRoute(builder: (_) => const DownloadScreen()),
               ),
               icon: const Icon(Icons.download),
-              label: const Text('Dosya İndir'),
+              label: const Text('Dosya Ä°ndir'),
             ),
             const SizedBox(height: 32),
             TextButton(
@@ -95,7 +104,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 MaterialPageRoute(builder: (_) => const DeleteAccountScreen()),
               ),
               style: TextButton.styleFrom(foregroundColor: Colors.redAccent),
-              child: const Text('Hesabımı Sil'),
+              child: const Text('HesabÄ±mÄ± Sil'),
             ),
           ],
         ),
@@ -103,3 +112,5 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 }
+
+

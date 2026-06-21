@@ -1,5 +1,6 @@
 ﻿import 'dart:io';
 import 'package:dio/dio.dart';
+import 'package:path_provider/path_provider.dart';
 import '../crypto/sv02_codec.dart';
 import 'api_client.dart';
 
@@ -31,6 +32,35 @@ class UploadResult {
 /// menusuyle iletilir.
 class UploadService {
   final Dio _dio = ApiClient.instance.dio;
+
+  /// Duz metni gecici bir .txt dosyasina yazip, ayni sifreli yukleme
+  /// akisindan gecirir (web ile birebir ayni: metin -> metin.txt -> upload).
+  /// Islem bitince gecici dosya silinir.
+  Future<UploadResult> uploadText({
+    required String text,
+    required String recipientEmail,
+    String? extraPassword,
+    void Function(int sent, int total)? onProgress,
+  }) async {
+    final dir = await getTemporaryDirectory();
+    final tmp = File('${dir.path}/metin_${DateTime.now().millisecondsSinceEpoch}.txt');
+    try {
+      await tmp.writeAsString(text);
+      return await uploadFile(
+        filePath: tmp.path,
+        originalName: 'metin.txt',
+        recipientEmail: recipientEmail,
+        extraPassword: extraPassword,
+        onProgress: onProgress,
+      );
+    } finally {
+      if (await tmp.exists()) {
+        try {
+          await tmp.delete();
+        } catch (_) {}
+      }
+    }
+  }
 
   Future<UploadResult> uploadFile({
     required String filePath,
@@ -156,4 +186,6 @@ class _FinalizeResult {
   final int ttl;
   _FinalizeResult({required this.token, required this.ttl});
 }
+
+
 
