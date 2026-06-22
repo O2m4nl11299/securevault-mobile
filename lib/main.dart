@@ -2,6 +2,7 @@
 import 'package:cryptography_flutter/cryptography_flutter.dart';
 import 'services/api_client.dart';
 import 'services/secure_storage_service.dart';
+import 'services/auth_service.dart';
 import 'screens/login_screen.dart';
 import 'screens/home_screen.dart';
 
@@ -77,18 +78,8 @@ class _StartupGateState extends State<_StartupGate> {
   }
 
   Future<void> _check() async {
-    final token = await SecureStorageService.readToken();
-    if (token != null) {
-      // "Beni hatirla" isaretliyse oturumu geri yukle; degilse sakli
-      // oturumu temizleyip giris ekranina don.
-      final remember = await SecureStorageService.readRemember();
-      if (remember) {
-        ApiClient.instance.setSessionToken(token);
-        _loggedIn = true;
-      } else {
-        await SecureStorageService.clear();
-      }
-    }
+    // Tek kaynak: remember kontrolu + token geri yukleme AuthService'te.
+    _loggedIn = await AuthService().tryAutoLogin();
     if (!mounted) return;
     setState(() => _checking = false);
   }
