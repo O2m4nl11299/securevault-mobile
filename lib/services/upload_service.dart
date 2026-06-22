@@ -15,10 +15,12 @@ class UploadResult {
   final String token;
   final String downloadUrl;
   final int ttlSeconds;
+  final bool emailSent;
   UploadResult({
     required this.token,
     required this.downloadUrl,
     required this.ttlSeconds,
+    required this.emailSent,
   });
 }
 
@@ -101,11 +103,48 @@ class UploadService {
     final downloadUrl =
         '$_baseUrl/dl/${fin.token}#${Uri.encodeComponent(keyB64)}$pwdSuffix';
 
+    // Web'deki gibi sunucu uzerinden otomatik e-posta gonderimi. Anahtar
+    // (keyB64) bu istekte sunucuya gider; sunucu maili atip ANAHTARI SAKLAMAZ.
+    // Basarisiz olursa upload yine de gecerli — kullanici 'Linki Paylas' ile
+    // manuel iletebilir, bu yuzden hatayi yutuyoruz.
+    // server.js isValidKeyB64, base64 padding ('=') bekliyor; uretirken
+    // kaldirdigimiz padding'i burada geri ekliyoruz.
+    final padded = keyB64 + ('=' * ((4 - keyB64.length % 4) % 4));
+    final emailSent = await _sendLink(
+      token: fin.token,
+      keyB64WithPwd: '$padded$pwdSuffix',
+      recipientEmail: recipientEmail,
+      originalName: originalName,
+    );
+
     return UploadResult(
       token: fin.token,
       downloadUrl: downloadUrl,
       ttlSeconds: fin.ttl,
+      emailSent: emailSent,
     );
+  }
+
+  /// server.js POST /send-link ile birebir: { token, keyB64, recipientEmail,
+  /// originalName }. keyB64 alani, ek sifre varsa 'KEY|HASH16' formatinda
+  /// gonderilir (web de boyle yapiyor). Basarili olursa true doner.
+  Future<bool> _sendLink({
+    required String token,
+    required String keyB64WithPwd,
+    required String recipientEmail,
+    required String originalName,
+  }) async {
+    try {
+      final res = await _dio.post('/send-link', data: {
+        'token': token,
+        'keyB64': keyB64WithPwd,
+        'recipientEmail': recipientEmail,
+        'originalName': originalName,
+      });
+      return res.statusCode == 200;
+    } catch (_) {
+      return false;
+    }
   }
 
   String get _baseUrl {

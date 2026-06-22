@@ -203,6 +203,17 @@ class _UploadScreenState extends State<UploadScreen> {
           textAlign: TextAlign.center,
           style: Theme.of(context).textTheme.titleMedium,
         ),
+        const SizedBox(height: 6),
+        Text(
+          result.emailSent
+              ? '📧 İndirme linki ${_emailCtrl.text.trim()} adresine gönderildi.'
+              : '⚠ E-posta gönderilemedi. Linki aşağıdan paylaşabilirsiniz.',
+          textAlign: TextAlign.center,
+          style: TextStyle(
+            fontSize: 12,
+            color: result.emailSent ? Colors.greenAccent : Colors.amber,
+          ),
+        ),
         const SizedBox(height: 4),
         Text(
           'Bu link $ttlText icinde gecersiz olur ve sadece BIR KEZ kullanilabilir.',
