@@ -41,6 +41,7 @@ class AuthService {
   Future<void> login({
     required String username,
     required String password,
+    required bool remember,
   }) async {
     try {
       final res = await _dio.post('/auth/login', data: {
@@ -55,6 +56,7 @@ class AuthService {
           token: token,
           plan: plan,
           username: username,
+          remember: remember,
         );
         return;
       }
@@ -104,6 +106,13 @@ class AuthService {
   Future<bool> tryAutoLogin() async {
     final token = await SecureStorageService.readToken();
     if (token == null) return false;
+    // "Beni hatirla" isaretli degilse, onceki oturumu otomatik acma:
+    // saklanan oturumu temizle ve giris ekranina don.
+    final remember = await SecureStorageService.readRemember();
+    if (!remember) {
+      await SecureStorageService.clear();
+      return false;
+    }
     ApiClient.instance.setSessionToken(token);
     return true;
   }

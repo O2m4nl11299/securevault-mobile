@@ -21,6 +21,7 @@ class _LoginScreenState extends State<LoginScreen> {
   final _authService = AuthService();
 
   bool _loading = false;
+  bool _remember = true;
   String? _error;
 
   @override
@@ -45,6 +46,7 @@ class _LoginScreenState extends State<LoginScreen> {
       await _authService.login(
         username: _usernameCtrl.text.trim(),
         password: _passwordCtrl.text,
+        remember: _remember,
       );
       if (!mounted) return;
       Navigator.of(context).pushReplacement(
@@ -107,6 +109,21 @@ class _LoginScreenState extends State<LoginScreen> {
                     validator: (v) =>
                         (v == null || v.length < 8) ? 'En az 8 karakter' : null,
                     onFieldSubmitted: (_) => _submit(),
+                  ),
+                  const SizedBox(height: 4),
+                  CheckboxListTile(
+                    value: _remember,
+                    onChanged: _loading
+                        ? null
+                        : (v) => setState(() => _remember = v ?? true),
+                    title: const Text('Beni hatırla'),
+                    subtitle: const Text(
+                      'Kapatıp açtığınızda oturum açık kalsın',
+                      style: TextStyle(fontSize: 12),
+                    ),
+                    controlAffinity: ListTileControlAffinity.leading,
+                    contentPadding: EdgeInsets.zero,
+                    dense: true,
                   ),
                   if (_error != null) ...[
                     const SizedBox(height: 12),

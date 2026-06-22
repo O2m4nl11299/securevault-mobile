@@ -79,8 +79,15 @@ class _StartupGateState extends State<_StartupGate> {
   Future<void> _check() async {
     final token = await SecureStorageService.readToken();
     if (token != null) {
-      ApiClient.instance.setSessionToken(token);
-      _loggedIn = true;
+      // "Beni hatirla" isaretliyse oturumu geri yukle; degilse sakli
+      // oturumu temizleyip giris ekranina don.
+      final remember = await SecureStorageService.readRemember();
+      if (remember) {
+        ApiClient.instance.setSessionToken(token);
+        _loggedIn = true;
+      } else {
+        await SecureStorageService.clear();
+      }
     }
     if (!mounted) return;
     setState(() => _checking = false);
