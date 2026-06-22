@@ -6,6 +6,7 @@ import 'upload_screen.dart';
 import 'text_encrypt_screen.dart';
 import 'download_screen.dart';
 import 'delete_account_screen.dart';
+import 'info_screen.dart';
 
 /// GiriÅŸ sonrasÄ± ana ekran â€” ÅŸimdilik yer tutucu.
 /// SÄ±radaki adÄ±mda buraya dosya yÃ¼kleme akÄ±ÅŸÄ± eklenecek.
@@ -52,6 +53,13 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: AppBar(
         title: const Text('SecureVault'),
         actions: [
+          IconButton(
+            onPressed: () => Navigator.of(context).push(
+              MaterialPageRoute(builder: (_) => const InfoScreen()),
+            ),
+            icon: const Icon(Icons.info_outline),
+            tooltip: 'Bilgi ve Güvenlik',
+          ),
           IconButton(
             onPressed: _logout,
             icon: const Icon(Icons.logout),
