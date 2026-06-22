@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../services/secure_storage_service.dart';
+import 'terms_screen.dart';
 
 /// Web sitesindeki bilgi panellerinin mobil karsiligi. Dosya limiti,
 /// oturum acan kullanicinin planina gore (sade, sadece deger) gosterilir.
@@ -86,6 +87,27 @@ class _InfoScreenState extends State<InfoScreen> {
             _bullet(context, '🏥', 'Sağlık Profesyonelleri', 'Hasta raporu ve test sonuçları.'),
             _bullet(context, '🚀', 'Girişimler', 'Yatırımcıya sunulan gizli dokümanlar.'),
             _bullet(context, '👤', 'Bireyler', 'Kimlik fotokopisi, pasaport, banka belgesi.'),
+
+            const SizedBox(height: 24),
+            _section(context, 'SORUMLULUK REDDİ'),
+            const Padding(
+              padding: EdgeInsets.symmetric(vertical: 4),
+              child: Text(
+                'SecureVault geçici bir aktarım aracıdır, kalıcı depolama değildir. '
+                'Dosyalar kısa süre sonra otomatik silinir; içeriğe erişemeyiz ve '
+                'veri kaybından sorumlu tutulamayız. Önemli dosyalarınızın yedeğini '
+                'kendiniz saklayın.',
+                style: TextStyle(fontSize: 13, height: 1.5, color: Colors.grey),
+              ),
+            ),
+            const SizedBox(height: 8),
+            OutlinedButton.icon(
+              onPressed: () => Navigator.of(context).push(
+                MaterialPageRoute(builder: (_) => const TermsScreen()),
+              ),
+              icon: const Icon(Icons.gavel, size: 18),
+              label: const Text('Kullanım Şartlarını Oku'),
+            ),
 
             const SizedBox(height: 16),
           ],

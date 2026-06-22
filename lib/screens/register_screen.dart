@@ -1,10 +1,10 @@
-﻿import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../services/auth_service.dart';
+import 'terms_screen.dart';
 
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({super.key});
-
   @override
   State<RegisterScreen> createState() => _RegisterScreenState();
 }
@@ -14,9 +14,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
   final _usernameCtrl = TextEditingController();
   final _passwordCtrl = TextEditingController();
   final _authService = AuthService();
-
   bool _loading = false;
   bool _kvkkAccepted = false;
+  bool _termsAccepted = false;
   String? _error;
   String? _recoveryToken; // basarili kayittan sonra TEK SEFER gosterilir
 
@@ -25,7 +25,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
     if (!await launchUrl(uri, mode: LaunchMode.externalApplication)) {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('Sayfa acilamadi.')),
+          const SnackBar(content: Text('Sayfa açılamadı.')),
         );
       }
     }
@@ -34,7 +34,11 @@ class _RegisterScreenState extends State<RegisterScreen> {
   Future<void> _submit() async {
     if (!_formKey.currentState!.validate()) return;
     if (!_kvkkAccepted) {
-      setState(() => _error = 'Devam etmek icin KVKK Aydinlatma Metni ve Kullanim Sozlesmesi\'ni onaylamaniz gerekiyor.');
+      setState(() => _error = 'Devam etmek için KVKK Aydınlatma Metni ve Kullanım Sözleşmesi\'ni onaylamanız gerekiyor.');
+      return;
+    }
+    if (!_termsAccepted) {
+      setState(() => _error = 'Devam etmek için Kullanım Şartları ve Sorumluluk Reddi\'ni onaylamanız gerekiyor.');
       return;
     }
     setState(() {
@@ -67,16 +71,16 @@ class _RegisterScreenState extends State<RegisterScreen> {
     // gondermez - kullanici kaydetmeden ekrandan cikarsa kod kaybolur.
     if (_recoveryToken != null) {
       return Scaffold(
-        appBar: AppBar(title: const Text('Hesap Olusturuldu')),
+        appBar: AppBar(title: const Text('Hesap Oluşturuldu')),
         body: Padding(
           padding: const EdgeInsets.all(24),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               const Text(
-                'Kurtarma kodunuz - bunu guvenli bir yere kaydedin. '
-                'Sifrenizi unutursaniz hesabiniza sadece bu kodla geri '
-                'donebilirsiniz ve bu kod bir daha gosterilmeyecek.',
+                'Kurtarma kodunuz - bunu güvenli bir yere kaydedin. '
+                'Şifrenizi unutursanız hesabınıza sadece bu kodla geri '
+                'dönebilirsiniz ve bu kod bir daha gösterilmeyecek.',
                 style: TextStyle(fontWeight: FontWeight.bold),
               ),
               const SizedBox(height: 16),
@@ -94,16 +98,15 @@ class _RegisterScreenState extends State<RegisterScreen> {
               const SizedBox(height: 24),
               FilledButton(
                 onPressed: () => Navigator.of(context).popUntil((r) => r.isFirst),
-                child: const Text('Kaydettim, giris ekranina don'),
+                child: const Text('Kaydettim, giriş ekranına dön'),
               ),
             ],
           ),
         ),
       );
     }
-
     return Scaffold(
-      appBar: AppBar(title: const Text('Kayit Ol')),
+      appBar: AppBar(title: const Text('Kayıt Ol')),
       body: Center(
         child: SingleChildScrollView(
           padding: const EdgeInsets.all(24),
@@ -116,12 +119,12 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 TextFormField(
                   controller: _usernameCtrl,
                   decoration: const InputDecoration(
-                    labelText: 'Kullanici adi (3-32 karakter)',
+                    labelText: 'Kullanıcı adı (3-32 karakter)',
                     border: OutlineInputBorder(),
                   ),
                   validator: (v) {
                     final t = v?.trim() ?? '';
-                    if (t.length < 3 || t.length > 32) return '3-32 karakter olmali';
+                    if (t.length < 3 || t.length > 32) return '3-32 karakter olmalı';
                     return null;
                   },
                 ),
@@ -130,13 +133,14 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   controller: _passwordCtrl,
                   obscureText: true,
                   decoration: const InputDecoration(
-                    labelText: 'Sifre (en az 8 karakter)',
+                    labelText: 'Şifre (en az 8 karakter)',
                     border: OutlineInputBorder(),
                   ),
                   validator: (v) =>
-                      (v == null || v.length < 8) ? 'En az 8 karakter olmali' : null,
+                      (v == null || v.length < 8) ? 'En az 8 karakter olmalı' : null,
                 ),
                 const SizedBox(height: 16),
+                // KVKK + Kullanim Sozlesmesi onayi
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -152,11 +156,11 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         padding: const EdgeInsets.only(top: 12),
                         child: Wrap(
                           children: [
-                            const Text('Okudum, onayliyorum: '),
+                            const Text('Okudum, onaylıyorum: '),
                             GestureDetector(
                               onTap: () => _openLink('kvkk.html'),
                               child: Text(
-                                'KVKK Aydinlatma Metni',
+                                'KVKK Aydınlatma Metni',
                                 style: TextStyle(
                                   color: Theme.of(context).colorScheme.primary,
                                   decoration: TextDecoration.underline,
@@ -167,7 +171,42 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             GestureDetector(
                               onTap: () => _openLink('sozlesme.html'),
                               child: Text(
-                                'Kullanim Sozlesmesi',
+                                'Kullanım Sözleşmesi',
+                                style: TextStyle(
+                                  color: Theme.of(context).colorScheme.primary,
+                                  decoration: TextDecoration.underline,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                // Kullanim Sartlari ve Sorumluluk Reddi onayi (uygulama ici ekran)
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Checkbox(
+                      value: _termsAccepted,
+                      onChanged: (v) => setState(() {
+                        _termsAccepted = v ?? false;
+                        if (_termsAccepted) _error = null;
+                      }),
+                    ),
+                    Expanded(
+                      child: Padding(
+                        padding: const EdgeInsets.only(top: 12),
+                        child: Wrap(
+                          children: [
+                            const Text('Okudum, onaylıyorum: '),
+                            GestureDetector(
+                              onTap: () => Navigator.of(context).push(
+                                MaterialPageRoute(builder: (_) => const TermsScreen()),
+                              ),
+                              child: Text(
+                                'Kullanım Şartları ve Sorumluluk Reddi',
                                 style: TextStyle(
                                   color: Theme.of(context).colorScheme.primary,
                                   decoration: TextDecoration.underline,
@@ -193,7 +232,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           width: 20,
                           child: CircularProgressIndicator(strokeWidth: 2),
                         )
-                      : const Text('Kayit Ol'),
+                      : const Text('Kayıt Ol'),
                 ),
               ],
             ),
