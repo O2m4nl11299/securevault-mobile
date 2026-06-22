@@ -55,6 +55,7 @@ class _InfoScreenState extends State<InfoScreen> {
             const SizedBox(height: 24),
             _section(context, 'KRİPTOGRAFİ'),
             _kv(context, 'Algoritma', 'AES-256-GCM'),
+            _kv(context, 'Kuantum Direnci', 'Var', highlight: true),
             _kv(context, 'Anahtar', '256-bit CSPRNG'),
             _kv(context, 'Nonce / IV', '96-bit CSPRNG (her parça)'),
             _kv(context, 'Auth Tag', '128-bit (her parça)'),
@@ -70,6 +71,7 @@ class _InfoScreenState extends State<InfoScreen> {
             _bullet(context, '🗑️', 'Tek Kullanım', 'İndirildikten sonra token atomik olarak silinir.'),
             _bullet(context, '🔑', 'Ek Şifre', 'İkinci güvenlik katmanı — alıcıya ayrı kanaldan iletin.'),
             _bullet(context, '☁️', 'Cloudflare R2', 'Küresel CDN altyapısı, sıfır egress ücreti.'),
+            _bullet(context, '🔬', 'Kuantum Dirençli', 'AES-256-GCM simetrik şifrelemesi, kuantum bilgisayarlara karşı da güvenli kabul edilir. Anahtarlar cihazınızda üretilir, ağ üzerinden asimetrik anahtar değişimi yapılmaz.'),
 
             const SizedBox(height: 24),
             _section(context, 'VİRÜS TARAMASI HAKKINDA'),

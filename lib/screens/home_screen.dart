@@ -1,4 +1,5 @@
 ﻿import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 import '../services/auth_service.dart';
 import '../services/secure_storage_service.dart';
 import 'login_screen.dart';
@@ -36,6 +37,16 @@ class _HomeScreenState extends State<HomeScreen> {
       _username = username;
       _plan = plan;
     });
+  }
+
+  Future<void> _openWebsite() async {
+    final uri = Uri.parse('https://sifreliveritransferi.com');
+    if (!await launchUrl(uri, mode: LaunchMode.externalApplication)) {
+      if (!mounted) return;
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Site açılamadı.')),
+      );
+    }
   }
 
   Future<void> _logout() async {
@@ -113,6 +124,12 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               style: TextButton.styleFrom(foregroundColor: Colors.redAccent),
               child: const Text('Hesabımı Sil'),
+            ),
+            const SizedBox(height: 24),
+            TextButton.icon(
+              onPressed: _openWebsite,
+              icon: const Icon(Icons.language, size: 18),
+              label: const Text('sifreliveritransferi.com'),
             ),
           ],
         ),
