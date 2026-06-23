@@ -1,0 +1,263 @@
+import 'package:file_picker/file_picker.dart';
+import 'package:flutter/material.dart';
+import 'package:share_plus/share_plus.dart';
+import '../services/upload_service.dart';
+
+enum _Phase { idle, working, done, error }
+
+class FolderUploadScreen extends StatefulWidget {
+  const FolderUploadScreen({super.key});
+  @override
+  State<FolderUploadScreen> createState() => _FolderUploadScreenState();
+}
+
+class _FolderUploadScreenState extends State<FolderUploadScreen> {
+  final _emailCtrl = TextEditingController();
+  final _extraPwdCtrl = TextEditingController();
+  final _uploadService = UploadService();
+  String? _folderPath;
+  String? _folderName;
+  _Phase _phase = _Phase.idle;
+  double _progress = 0;
+  String? _error;
+  UploadResult? _result;
+
+  Future<void> _pickFolder() async {
+    final path = await FilePicker.getDirectoryPath();
+    if (path == null) return;
+    final parts = path.split(RegExp(r'[\\/]')).where((s) => s.isNotEmpty).toList();
+    setState(() {
+      _folderPath = path;
+      _folderName = parts.isNotEmpty ? parts.last : 'klasör';
+      _result = null;
+      _error = null;
+      _phase = _Phase.idle;
+    });
+  }
+
+  bool _isValidEmail(String v) =>
+      RegExp(r'^[^@\s]+@[^@\s]+\.[^@\s]+$').hasMatch(v);
+
+  Future<void> _start() async {
+    final path = _folderPath;
+    if (path == null) {
+      setState(() => _error = 'Önce bir klasör seçin.');
+      return;
+    }
+    final email = _emailCtrl.text.trim();
+    if (!_isValidEmail(email)) {
+      setState(() => _error = 'Geçerli bir e-posta adresi girin.');
+      return;
+    }
+    setState(() {
+      _phase = _Phase.working;
+      _progress = 0;
+      _error = null;
+    });
+    try {
+      final result = await _uploadService.uploadFolder(
+        folderPath: path,
+        recipientEmail: email,
+        extraPassword: _extraPwdCtrl.text.trim().isEmpty
+            ? null
+            : _extraPwdCtrl.text.trim(),
+        onProgress: (sent, total) {
+          if (!mounted) return;
+          setState(() => _progress = total > 0 ? sent / total : 0);
+        },
+      );
+      if (!mounted) return;
+      setState(() {
+        _result = result;
+        _phase = _Phase.done;
+      });
+    } catch (e) {
+      if (!mounted) return;
+      setState(() {
+        _error = e.toString();
+        _phase = _Phase.error;
+      });
+    }
+  }
+
+  void _reset() {
+    setState(() {
+      _folderPath = null;
+      _folderName = null;
+      _result = null;
+      _error = null;
+      _phase = _Phase.idle;
+      _progress = 0;
+      _emailCtrl.clear();
+      _extraPwdCtrl.clear();
+    });
+  }
+
+  Future<void> _share(String url) async {
+    await SharePlus.instance.share(
+      ShareParams(text: url, subject: 'Şifreli klasör - SecureVault'),
+    );
+  }
+
+  @override
+  void dispose() {
+    _emailCtrl.dispose();
+    _extraPwdCtrl.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: const Text('Klasör Gönder')),
+      body: SafeArea(
+        child: SingleChildScrollView(
+          padding: const EdgeInsets.all(24),
+          child: _phase == _Phase.done && _result != null
+              ? _buildSuccess(context, _result!)
+              : _buildForm(context),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildForm(BuildContext context) {
+    final busy = _phase == _Phase.working;
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        OutlinedButton.icon(
+          onPressed: busy ? null : _pickFolder,
+          icon: const Icon(Icons.folder_open),
+          label: Text(
+            _folderName == null ? 'Klasör Seç' : _folderName!,
+            overflow: TextOverflow.ellipsis,
+          ),
+        ),
+        const SizedBox(height: 8),
+        const Text(
+          'Seçtiğiniz klasör, içindeki tüm dosyalarla birlikte tek bir .zip '
+          'dosyasında toplanıp şifrelenir. Alıcı, inen zip dosyasını kendi '
+          'cihazında açar.',
+          style: TextStyle(fontSize: 12, color: Colors.grey),
+        ),
+        const SizedBox(height: 16),
+        TextField(
+          controller: _emailCtrl,
+          enabled: !busy,
+          keyboardType: TextInputType.emailAddress,
+          decoration: const InputDecoration(
+            labelText: 'Alıcının e-posta adresi',
+            helperText: 'İndirme linki bu adrese otomatik gönderilir.',
+            helperMaxLines: 2,
+            border: OutlineInputBorder(),
+          ),
+        ),
+        const SizedBox(height: 16),
+        TextField(
+          controller: _extraPwdCtrl,
+          enabled: !busy,
+          obscureText: true,
+          decoration: const InputDecoration(
+            labelText: 'Ek şifre koruması (opsiyonel)',
+            helperText: 'Belirlerseniz, alıcıya bu şifreyi ayrıca iletmeniz gerekir.',
+            helperMaxLines: 2,
+            border: OutlineInputBorder(),
+            prefixIcon: Icon(Icons.lock_outline),
+          ),
+        ),
+        if (_error != null) ...[
+          const SizedBox(height: 12),
+          Text(_error!, style: const TextStyle(color: Colors.redAccent)),
+        ],
+        const SizedBox(height: 24),
+        if (busy) ...[
+          const Text(
+            'Klasör paketleniyor ve şifreleniyor...',
+            textAlign: TextAlign.center,
+            style: TextStyle(color: Colors.grey),
+          ),
+          const SizedBox(height: 8),
+          LinearProgressIndicator(value: _progress == 0 ? null : _progress),
+        ] else
+          FilledButton(
+            onPressed: _start,
+            child: const Text('Paketle, Şifrele ve Gönder'),
+          ),
+      ],
+    );
+  }
+
+  Widget _buildSuccess(BuildContext context, UploadResult result) {
+    final ttlText = result.ttlSeconds < 3600
+        ? '${(result.ttlSeconds / 60).round()} dakika'
+        : '${(result.ttlSeconds / 3600).round()} saat';
+    final hasPwd = _extraPwdCtrl.text.trim().isNotEmpty;
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        const Icon(Icons.check_circle, color: Colors.greenAccent, size: 56),
+        const SizedBox(height: 12),
+        Text(
+          'Klasör paketlenip şifrelendi ve yüklendi.',
+          textAlign: TextAlign.center,
+          style: Theme.of(context).textTheme.titleMedium,
+        ),
+        const SizedBox(height: 6),
+        Text(
+          result.emailSent
+              ? '📧 İndirme linki ${_emailCtrl.text.trim()} adresine gönderildi.'
+              : '⚠ E-posta gönderilemedi. Linki aşağıdan paylaşabilirsiniz.',
+          textAlign: TextAlign.center,
+          style: TextStyle(
+            fontSize: 12,
+            color: result.emailSent ? Colors.greenAccent : Colors.amber,
+          ),
+        ),
+        const SizedBox(height: 4),
+        Text(
+          'Bu link $ttlText içinde geçersiz olur ve sadece BİR KEZ kullanılabilir.',
+          textAlign: TextAlign.center,
+          style: const TextStyle(color: Colors.grey),
+        ),
+        if (hasPwd) ...[
+          const SizedBox(height: 8),
+          Container(
+            padding: const EdgeInsets.all(10),
+            decoration: BoxDecoration(
+              color: Colors.amber.withValues(alpha: 0.12),
+              borderRadius: BorderRadius.circular(8),
+            ),
+            child: const Text(
+              'Ek şifre belirlediniz. Alıcıya bu şifreyi ayrıca iletmeyi unutmayın.',
+              style: TextStyle(color: Colors.amber, fontSize: 12),
+            ),
+          ),
+        ],
+        const SizedBox(height: 16),
+        Container(
+          padding: const EdgeInsets.all(12),
+          decoration: BoxDecoration(
+            border: Border.all(color: Theme.of(context).colorScheme.outline),
+            borderRadius: BorderRadius.circular(8),
+          ),
+          child: SelectableText(
+            result.downloadUrl,
+            style: const TextStyle(fontFamily: 'monospace', fontSize: 12),
+          ),
+        ),
+        const SizedBox(height: 16),
+        FilledButton.icon(
+          onPressed: () => _share(result.downloadUrl),
+          icon: const Icon(Icons.share),
+          label: const Text('Linki Paylaş'),
+        ),
+        const SizedBox(height: 8),
+        OutlinedButton(
+          onPressed: _reset,
+          child: const Text('Başka bir klasör gönder'),
+        ),
+      ],
+    );
+  }
+}

@@ -1,6 +1,7 @@
 ﻿import 'dart:io';
 import 'package:dio/dio.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:archive/archive_io.dart';
 import '../crypto/sv02_codec.dart';
 import 'api_client.dart';
 
@@ -59,6 +60,58 @@ class UploadService {
       if (await tmp.exists()) {
         try {
           await tmp.delete();
+        } catch (_) {}
+      }
+    }
+  }
+
+  /// Bir klasoru (icindeki tum dosyalarla, alt klasorler dahil) SIKISTIRMASIZ
+  /// bir zip'e toplar ve ayni sifreli yukleme akisindan gecirir. Alici, inen
+  /// zip dosyasini kendi cihazinda acar. Islem bitince gecici zip silinir.
+  /// (Metin akisiyla ayni desen: klasor -> klasor.zip -> uploadFile.)
+  Future<UploadResult> uploadFolder({
+    required String folderPath,
+    required String recipientEmail,
+    String? extraPassword,
+    void Function(int sent, int total)? onProgress,
+  }) async {
+    final dir = Directory(folderPath);
+    if (!await dir.exists()) {
+      throw UploadException('Klasor bulunamadi.');
+    }
+
+    // Klasor adini zip dosya adi olarak kullan (yoksa 'klasor').
+    final rawName = folderPath.split(RegExp(r'[\\/]')).where((s) => s.isNotEmpty).toList();
+    final folderName = rawName.isNotEmpty ? rawName.last : 'klasor';
+
+    final tmpDir = await getTemporaryDirectory();
+    final zipPath = '${tmpDir.path}/${folderName}_${DateTime.now().millisecondsSinceEpoch}.zip';
+
+    try {
+      // SIKISTIRMASIZ (store) zip: hizli, telefonu yormaz.
+      final encoder = ZipFileEncoder();
+      encoder.create(zipPath, level: 0); // level 0 = store, sikistirma yok
+      await encoder.addDirectory(dir, includeDirName: true);
+      encoder.closeSync();
+
+      final zipFile = File(zipPath);
+      final zipSize = await zipFile.length();
+      if (zipSize <= 0) {
+        throw UploadException('Klasor bos gorunuyor.');
+      }
+
+      return await uploadFile(
+        filePath: zipPath,
+        originalName: '$folderName.zip',
+        recipientEmail: recipientEmail,
+        extraPassword: extraPassword,
+        onProgress: onProgress,
+      );
+    } finally {
+      final zf = File(zipPath);
+      if (await zf.exists()) {
+        try {
+          await zf.delete();
         } catch (_) {}
       }
     }

@@ -4,6 +4,7 @@ import '../services/auth_service.dart';
 import '../services/secure_storage_service.dart';
 import 'login_screen.dart';
 import 'upload_screen.dart';
+import 'folder_upload_screen.dart';
 import 'text_encrypt_screen.dart';
 import 'download_screen.dart';
 import 'delete_account_screen.dart';
@@ -100,6 +101,14 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               icon: const Icon(Icons.upload_file),
               label: const Text('Dosya Gönder'),
+            ),
+            const SizedBox(height: 12),
+            FilledButton.icon(
+              onPressed: () => Navigator.of(context).push(
+                MaterialPageRoute(builder: (_) => const FolderUploadScreen()),
+              ),
+              icon: const Icon(Icons.drive_folder_upload),
+              label: const Text('Klasör Gönder'),
             ),
             const SizedBox(height: 12),
             OutlinedButton.icon(
