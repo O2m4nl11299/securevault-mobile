@@ -19,6 +19,12 @@ class _TextEncryptScreenState extends State<TextEncryptScreen> {
   String? _error;
   UploadResult? _result;
   int _charCount = 0;
+  final List<_LogLine> _logs = [];
+
+  void _addLog(String type, String msg) {
+    if (!mounted) return;
+    setState(() => _logs.add(_LogLine(type, msg, DateTime.now())));
+  }
 
   @override
   void initState() {
@@ -45,6 +51,7 @@ class _TextEncryptScreenState extends State<TextEncryptScreen> {
     setState(() {
       _phase = _Phase.working;
       _error = null;
+      _logs.clear();
     });
     try {
       final result = await _uploadService.uploadText(
@@ -53,6 +60,7 @@ class _TextEncryptScreenState extends State<TextEncryptScreen> {
         extraPassword: _extraPwdCtrl.text.trim().isEmpty
             ? null
             : _extraPwdCtrl.text.trim(),
+        onLog: _addLog,
       );
       if (!mounted) return;
       setState(() {
@@ -163,10 +171,8 @@ class _TextEncryptScreenState extends State<TextEncryptScreen> {
         const SizedBox(height: 24),
         if (busy) ...[
           const LinearProgressIndicator(),
-          const SizedBox(height: 8),
-          const Text('Sifreleniyor ve yukleniyor...',
-              textAlign: TextAlign.center,
-              style: TextStyle(color: Colors.grey)),
+          const SizedBox(height: 12),
+          _buildLogBox(context),
         ] else
           FilledButton(
             onPressed: _start,
@@ -248,4 +254,51 @@ class _TextEncryptScreenState extends State<TextEncryptScreen> {
       ],
     );
   }
+
+  Widget _buildLogBox(BuildContext context) {
+    if (_logs.isEmpty) return const SizedBox.shrink();
+    return Container(
+      width: double.infinity,
+      constraints: const BoxConstraints(maxHeight: 180),
+      padding: const EdgeInsets.all(10),
+      decoration: BoxDecoration(
+        color: Colors.black.withValues(alpha: 0.35),
+        borderRadius: BorderRadius.circular(8),
+        border: Border.all(color: Theme.of(context).colorScheme.outline),
+      ),
+      child: SingleChildScrollView(
+        reverse: true,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: _logs.map((l) {
+            final color = l.type == 'ok'
+                ? Colors.greenAccent
+                : l.type == 'err'
+                    ? Colors.redAccent
+                    : Colors.grey.shade400;
+            final ts =
+                '${l.time.hour.toString().padLeft(2, '0')}:${l.time.minute.toString().padLeft(2, '0')}:${l.time.second.toString().padLeft(2, '0')}';
+            return Padding(
+              padding: const EdgeInsets.symmetric(vertical: 2),
+              child: Text(
+                '$ts  ${l.msg}',
+                style: TextStyle(
+                  fontFamily: 'monospace',
+                  fontSize: 11,
+                  color: color,
+                ),
+              ),
+            );
+          }).toList(),
+        ),
+      ),
+    );
+  }
+}
+
+class _LogLine {
+  final String type;
+  final String msg;
+  final DateTime time;
+  _LogLine(this.type, this.msg, this.time);
 }

@@ -44,6 +44,7 @@ class UploadService {
     required String recipientEmail,
     String? extraPassword,
     void Function(int sent, int total)? onProgress,
+    void Function(String type, String msg)? onLog,
   }) async {
     final dir = await getTemporaryDirectory();
     final tmp = File('${dir.path}/metin_${DateTime.now().millisecondsSinceEpoch}.txt');
@@ -55,6 +56,7 @@ class UploadService {
         recipientEmail: recipientEmail,
         extraPassword: extraPassword,
         onProgress: onProgress,
+        onLog: onLog,
       );
     } finally {
       if (await tmp.exists()) {
@@ -74,6 +76,7 @@ class UploadService {
     required String recipientEmail,
     String? extraPassword,
     void Function(int sent, int total)? onProgress,
+    void Function(String type, String msg)? onLog,
   }) async {
     final dir = Directory(folderPath);
     if (!await dir.exists()) {
@@ -88,6 +91,7 @@ class UploadService {
     final zipPath = '${tmpDir.path}/${folderName}_${DateTime.now().millisecondsSinceEpoch}.zip';
 
     try {
+      onLog?.call('info', 'Klasör paketleniyor (sıkıştırmasız zip)...');
       // SIKISTIRMASIZ (store) zip: hizli, telefonu yormaz.
       final encoder = ZipFileEncoder();
       encoder.create(zipPath, level: 0); // level 0 = store, sikistirma yok
@@ -100,12 +104,14 @@ class UploadService {
         throw UploadException('Klasor bos gorunuyor.');
       }
 
+      onLog?.call('ok', '✅ Paketleme tamamlandı.');
       return await uploadFile(
         filePath: zipPath,
         originalName: '$folderName.zip',
         recipientEmail: recipientEmail,
         extraPassword: extraPassword,
         onProgress: onProgress,
+        onLog: onLog,
       );
     } finally {
       final zf = File(zipPath);
@@ -123,6 +129,7 @@ class UploadService {
     required String recipientEmail,
     String? extraPassword,
     void Function(int sent, int total)? onProgress,
+    void Function(String type, String msg)? onLog,
   }) async {
     final file = File(filePath);
     final totalSize = await file.length();
@@ -130,14 +137,17 @@ class UploadService {
       throw UploadException('Dosya bos gorunuyor, baska bir dosya secin.');
     }
 
+    onLog?.call('info', 'AES-256 anahtarı cihazınızda üretiliyor...');
     final key = Sv02Codec.generateKey();
     final keyB64 = await Sv02Codec.keyToBase64Url(key);
 
+    onLog?.call('info', 'Yükleme oturumu başlatılıyor...');
     final uploadId = await _init(
       recipientEmail: recipientEmail,
       originalName: originalName,
     );
 
+    onLog?.call('info', 'Şifreleniyor ve yükleniyor (AES-256-GCM, 5 MB parçalar)...');
     var sent = 0;
     await for (final piece in Sv02Codec.encryptStream(filePath, key)) {
       await _postChunk(uploadId, piece);
@@ -145,6 +155,7 @@ class UploadService {
       onProgress?.call(sent, totalSize);
     }
 
+    onLog?.call('ok', '✅ Şifreli yükleme tamamlandı.');
     final fin = await _finalize(uploadId);
 
     // Ek sifre varsa, web ile birebir ayni sekilde #keyB64|HASH16 ekini uret.
@@ -163,11 +174,18 @@ class UploadService {
     // server.js isValidKeyB64, base64 padding ('=') bekliyor; uretirken
     // kaldirdigimiz padding'i burada geri ekliyoruz.
     final padded = keyB64 + ('=' * ((4 - keyB64.length % 4) % 4));
+    onLog?.call('info', 'İndirme linki e-posta ile gönderiliyor...');
     final emailSent = await _sendLink(
       token: fin.token,
       keyB64WithPwd: '$padded$pwdSuffix',
       recipientEmail: recipientEmail,
       originalName: originalName,
+    );
+    onLog?.call(
+      emailSent ? 'ok' : 'err',
+      emailSent
+          ? '✅ E-posta gönderildi → $recipientEmail'
+          : '⚠ E-posta gönderilemedi — linki manuel paylaşabilirsiniz.',
     );
 
     return UploadResult(

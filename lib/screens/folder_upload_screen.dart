@@ -21,6 +21,12 @@ class _FolderUploadScreenState extends State<FolderUploadScreen> {
   double _progress = 0;
   String? _error;
   UploadResult? _result;
+  final List<_LogLine> _logs = [];
+
+  void _addLog(String type, String msg) {
+    if (!mounted) return;
+    setState(() => _logs.add(_LogLine(type, msg, DateTime.now())));
+  }
 
   Future<void> _pickFolder() async {
     final path = await FilePicker.getDirectoryPath();
@@ -53,6 +59,7 @@ class _FolderUploadScreenState extends State<FolderUploadScreen> {
       _phase = _Phase.working;
       _progress = 0;
       _error = null;
+      _logs.clear();
     });
     try {
       final result = await _uploadService.uploadFolder(
@@ -61,6 +68,7 @@ class _FolderUploadScreenState extends State<FolderUploadScreen> {
         extraPassword: _extraPwdCtrl.text.trim().isEmpty
             ? null
             : _extraPwdCtrl.text.trim(),
+        onLog: _addLog,
         onProgress: (sent, total) {
           if (!mounted) return;
           setState(() => _progress = total > 0 ? sent / total : 0);
@@ -179,6 +187,8 @@ class _FolderUploadScreenState extends State<FolderUploadScreen> {
           ),
           const SizedBox(height: 8),
           LinearProgressIndicator(value: _progress == 0 ? null : _progress),
+          const SizedBox(height: 12),
+          _buildLogBox(context),
         ] else
           FilledButton(
             onPressed: _start,
@@ -260,4 +270,51 @@ class _FolderUploadScreenState extends State<FolderUploadScreen> {
       ],
     );
   }
+
+  Widget _buildLogBox(BuildContext context) {
+    if (_logs.isEmpty) return const SizedBox.shrink();
+    return Container(
+      width: double.infinity,
+      constraints: const BoxConstraints(maxHeight: 180),
+      padding: const EdgeInsets.all(10),
+      decoration: BoxDecoration(
+        color: Colors.black.withValues(alpha: 0.35),
+        borderRadius: BorderRadius.circular(8),
+        border: Border.all(color: Theme.of(context).colorScheme.outline),
+      ),
+      child: SingleChildScrollView(
+        reverse: true,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: _logs.map((l) {
+            final color = l.type == 'ok'
+                ? Colors.greenAccent
+                : l.type == 'err'
+                    ? Colors.redAccent
+                    : Colors.grey.shade400;
+            final ts =
+                '${l.time.hour.toString().padLeft(2, '0')}:${l.time.minute.toString().padLeft(2, '0')}:${l.time.second.toString().padLeft(2, '0')}';
+            return Padding(
+              padding: const EdgeInsets.symmetric(vertical: 2),
+              child: Text(
+                '$ts  ${l.msg}',
+                style: TextStyle(
+                  fontFamily: 'monospace',
+                  fontSize: 11,
+                  color: color,
+                ),
+              ),
+            );
+          }).toList(),
+        ),
+      ),
+    );
+  }
+}
+
+class _LogLine {
+  final String type;
+  final String msg;
+  final DateTime time;
+  _LogLine(this.type, this.msg, this.time);
 }
