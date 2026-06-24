@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart';
 import '../services/auth_service.dart';
 import 'terms_screen.dart';
+import 'kvkk_screen.dart';
+import 'sozlesme_screen.dart';
 
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({super.key});
@@ -19,17 +20,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
   bool _termsAccepted = false;
   String? _error;
   String? _recoveryToken; // basarili kayittan sonra TEK SEFER gosterilir
-
-  Future<void> _openLink(String path) async {
-    final uri = Uri.parse('https://sifreliveritransferi.com/$path');
-    if (!await launchUrl(uri, mode: LaunchMode.externalApplication)) {
-      if (mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('Sayfa açılamadı.')),
-        );
-      }
-    }
-  }
 
   Future<void> _submit() async {
     if (!_formKey.currentState!.validate()) return;
@@ -158,7 +148,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           children: [
                             const Text('Okudum, onaylıyorum: '),
                             GestureDetector(
-                              onTap: () => _openLink('kvkk.html'),
+                              onTap: () => Navigator.of(context).push(
+                                MaterialPageRoute(builder: (_) => const KvkkScreen()),
+                              ),
                               child: Text(
                                 'KVKK Aydınlatma Metni',
                                 style: TextStyle(
@@ -169,7 +161,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             ),
                             const Text(' ve '),
                             GestureDetector(
-                              onTap: () => _openLink('sozlesme.html'),
+                              onTap: () => Navigator.of(context).push(
+                                MaterialPageRoute(builder: (_) => const SozlesmeScreen()),
+                              ),
                               child: Text(
                                 'Kullanım Sözleşmesi',
                                 style: TextStyle(

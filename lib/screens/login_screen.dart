@@ -86,6 +86,15 @@ class _LoginScreenState extends State<LoginScreen> {
                     textAlign: TextAlign.center,
                     style: Theme.of(context).textTheme.headlineMedium,
                   ),
+                  const SizedBox(height: 6),
+                  Text(
+                    'Uçtan Uca Şifreli Dosya Paylaşımı',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: 13,
+                      color: Colors.grey.shade500,
+                    ),
+                  ),
                   const SizedBox(height: 32),
                   TextFormField(
                     controller: _usernameCtrl,

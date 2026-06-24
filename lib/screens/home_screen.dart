@@ -63,7 +63,21 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('SecureVault'),
+        title: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            const Text('SecureVault'),
+            Text(
+              'Uçtan Uca Şifreli Dosya Paylaşımı',
+              style: TextStyle(
+                fontSize: 11,
+                fontWeight: FontWeight.normal,
+                color: Colors.grey.shade400,
+              ),
+            ),
+          ],
+        ),
         actions: [
           IconButton(
             onPressed: () => Navigator.of(context).push(
