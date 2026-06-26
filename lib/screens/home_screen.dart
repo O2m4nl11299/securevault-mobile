@@ -9,6 +9,7 @@ import 'text_encrypt_screen.dart';
 import 'download_screen.dart';
 import 'delete_account_screen.dart';
 import 'info_screen.dart';
+import 'premium_screen.dart';
 
 /// GiriÅŸ sonrasÄ± ana ekran â€” ÅŸimdilik yer tutucu.
 /// SÄ±radaki adÄ±mda buraya dosya yÃ¼kleme akÄ±ÅŸÄ± eklenecek.
@@ -79,6 +80,13 @@ class _HomeScreenState extends State<HomeScreen> {
           ],
         ),
         actions: [
+          IconButton(
+            onPressed: () => Navigator.of(context).push(
+              MaterialPageRoute(builder: (_) => const PremiumScreen()),
+            ),
+            icon: const Icon(Icons.workspace_premium, color: Colors.amber),
+            tooltip: 'Premium',
+          ),
           IconButton(
             onPressed: () => Navigator.of(context).push(
               MaterialPageRoute(builder: (_) => const InfoScreen()),
