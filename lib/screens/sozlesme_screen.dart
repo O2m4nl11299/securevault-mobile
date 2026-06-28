@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../l10n/app_localizations.dart';
 
 /// Kullanım Sözleşmesi — web'deki /sozlesme sayfasıyla aynı içerik, uygulama içi.
 class SozlesmeScreen extends StatelessWidget {
@@ -6,49 +7,35 @@ class SozlesmeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l = AppLocalizations.of(context);
     return Scaffold(
-      appBar: AppBar(title: const Text('Kullanım Sözleşmesi')),
+      appBar: AppBar(title: Text(l.sozTitle)),
       body: SafeArea(
         child: ListView(
           padding: const EdgeInsets.all(20),
           children: [
-            Text('Kullanım Sözleşmesi',
+            Text(l.sozTitle,
                 style: Theme.of(context).textTheme.titleLarge),
             const SizedBox(height: 4),
-            const Text('Son güncelleme: Haziran 2026',
-                style: TextStyle(color: Colors.grey, fontSize: 12)),
+            Text(l.sozLastUpdate,
+                style: const TextStyle(color: Colors.grey, fontSize: 12)),
             const SizedBox(height: 20),
-            _h('1. KABUL'),
-            _p('SecureVault hizmetini kullanarak bu sözleşmeyi kabul etmiş '
-                'sayılırsınız.'),
-            _h('2. HİZMET TANIMI'),
-            _p('SecureVault, istemci tarafı AES-256-GCM şifreleme kullanan, '
-                'sıfır bilgi mimarisine sahip bir dosya paylaşım hizmetidir. '
-                'Dosyalar sunucuda şifreli saklanır ve şifre anahtarı sunucuya '
-                'iletilmez.'),
-            _h('3. KULLANIM KOŞULLARI'),
-            _p('Aşağıdaki içerikleri paylaşmak kesinlikle yasaktır:\n'
-                '• Yasadışı içerik\n'
-                '• Telif hakkı ihlali\n'
-                '• Kötü amaçlı yazılım\n'
-                '• Kişisel verilerin izinsiz paylaşımı'),
-            _h('4. HİZMET SINIRLARI'),
-            _p('• Üye olmayanlar: 5 MB dosya limiti, günde 3 gönderim\n'
-                '• Üyeler: 250 MB dosya limiti\n'
-                '• Tüm dosyalar: 1 saat TTL (indirilmezse otomatik silinir)'),
-            _h('5. SORUMLULUK REDDİ'),
-            _p('SecureVault, paylaşılan dosyaların içeriğinden sorumlu '
-                'değildir. Sıfır bilgi mimarisi gereği dosya içeriğine '
-                'erişilememektedir. Daha kapsamlı bilgi için Kullanım Şartları '
-                've Sorumluluk Reddi ekranını inceleyebilirsiniz.'),
-            _h('6. HİZMET DEĞİŞİKLİKLERİ'),
-            _p('SecureVault, hizmet koşullarını önceden bildirimde bulunmaksızın '
-                'değiştirme hakkını saklı tutar.'),
-            _h('7. HESAP SİLME'),
-            _p('Hesabınızı istediğiniz zaman silebilirsiniz. Silme işlemi tüm '
-                'verilerinizi kalıcı olarak kaldırır.'),
-            _h('8. İLETİŞİM'),
-            _p('Sorularınız için: no-reply@sifreliveritransferi.com'),
+            _h(l.sozH1),
+            _p(l.sozP1),
+            _h(l.sozH2),
+            _p(l.sozP2),
+            _h(l.sozH3),
+            _p(l.sozP3),
+            _h(l.sozH4),
+            _p(l.sozP4),
+            _h(l.sozH5),
+            _p(l.sozP5),
+            _h(l.sozH6),
+            _p(l.sozP6),
+            _h(l.sozH7),
+            _p(l.sozP7),
+            _h(l.sozH8),
+            _p(l.sozP8),
             const SizedBox(height: 16),
           ],
         ),

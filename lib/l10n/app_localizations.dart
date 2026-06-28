@@ -863,6 +863,570 @@ abstract class AppLocalizations {
   /// In tr, this message translates to:
   /// **'Kullanım Şartlarını Oku'**
   String get infoReadTerms;
+
+  /// No description provided for @txtErrEmpty.
+  ///
+  /// In tr, this message translates to:
+  /// **'Şifrelenecek metni girin.'**
+  String get txtErrEmpty;
+
+  /// No description provided for @txtShareSubject.
+  ///
+  /// In tr, this message translates to:
+  /// **'Şifreli metin - SecureVault'**
+  String get txtShareSubject;
+
+  /// No description provided for @txtTitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Metin Şifrele'**
+  String get txtTitle;
+
+  /// No description provided for @txtLabel.
+  ///
+  /// In tr, this message translates to:
+  /// **'Şifrelenecek metin'**
+  String get txtLabel;
+
+  /// No description provided for @txtHint.
+  ///
+  /// In tr, this message translates to:
+  /// **'Şifrelemek istediğiniz metni buraya yazın veya yapıştırın...'**
+  String get txtHint;
+
+  /// No description provided for @txtCharCount.
+  ///
+  /// In tr, this message translates to:
+  /// **'{count} karakter'**
+  String txtCharCount(int count);
+
+  /// No description provided for @txtRecipientHelper.
+  ///
+  /// In tr, this message translates to:
+  /// **'Kayıt amaçlı - linki bir sonraki ekranda paylaşırsınız.'**
+  String get txtRecipientHelper;
+
+  /// No description provided for @txtExtraPwdHelper.
+  ///
+  /// In tr, this message translates to:
+  /// **'Belirlerseniz, alıcıya bu şifreyi ayrıca iletmeniz gerekir.'**
+  String get txtExtraPwdHelper;
+
+  /// No description provided for @txtSuccess.
+  ///
+  /// In tr, this message translates to:
+  /// **'Metin şifrelenip yüklendi.'**
+  String get txtSuccess;
+
+  /// No description provided for @txtExtraPwdWarning.
+  ///
+  /// In tr, this message translates to:
+  /// **'Ek şifre belirlediniz. Alıcıya bu şifreyi ayrıca iletmeyi unutmayın.'**
+  String get txtExtraPwdWarning;
+
+  /// No description provided for @txtEncryptAnother.
+  ///
+  /// In tr, this message translates to:
+  /// **'Başka bir metin şifrele'**
+  String get txtEncryptAnother;
+
+  /// No description provided for @fldErrPick.
+  ///
+  /// In tr, this message translates to:
+  /// **'Önce bir klasör seçin.'**
+  String get fldErrPick;
+
+  /// No description provided for @fldShareSubject.
+  ///
+  /// In tr, this message translates to:
+  /// **'Şifreli klasör - SecureVault'**
+  String get fldShareSubject;
+
+  /// No description provided for @fldTitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Klasör Gönder'**
+  String get fldTitle;
+
+  /// No description provided for @fldDefaultName.
+  ///
+  /// In tr, this message translates to:
+  /// **'klasör'**
+  String get fldDefaultName;
+
+  /// No description provided for @fldPick.
+  ///
+  /// In tr, this message translates to:
+  /// **'Klasör Seç'**
+  String get fldPick;
+
+  /// No description provided for @fldDescription.
+  ///
+  /// In tr, this message translates to:
+  /// **'Seçtiğiniz klasör, içindeki tüm dosyalarla birlikte tek bir .zip dosyasında toplanıp şifrelenir. Alıcı, inen zip dosyasını kendi cihazında açar.'**
+  String get fldDescription;
+
+  /// No description provided for @fldRecipientHelper.
+  ///
+  /// In tr, this message translates to:
+  /// **'İndirme linki bu adrese otomatik gönderilir.'**
+  String get fldRecipientHelper;
+
+  /// No description provided for @fldPackaging.
+  ///
+  /// In tr, this message translates to:
+  /// **'Klasör paketleniyor ve şifreleniyor...'**
+  String get fldPackaging;
+
+  /// No description provided for @fldPackButton.
+  ///
+  /// In tr, this message translates to:
+  /// **'Paketle, Şifrele ve Gönder'**
+  String get fldPackButton;
+
+  /// No description provided for @fldSuccess.
+  ///
+  /// In tr, this message translates to:
+  /// **'Klasör paketlenip şifrelendi ve yüklendi.'**
+  String get fldSuccess;
+
+  /// No description provided for @fldSendAnother.
+  ///
+  /// In tr, this message translates to:
+  /// **'Başka bir klasör gönder'**
+  String get fldSendAnother;
+
+  /// No description provided for @dlErrInvalid.
+  ///
+  /// In tr, this message translates to:
+  /// **'Geçersiz veya tanınmayan SecureVault linki.'**
+  String get dlErrInvalid;
+
+  /// No description provided for @dlErrPwdProtected.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bu link ek şifre korumalı — mobil uygulamada bu özellik henüz desteklenmiyor. Linki bir tarayıcıda açın.'**
+  String get dlErrPwdProtected;
+
+  /// No description provided for @dlSaved.
+  ///
+  /// In tr, this message translates to:
+  /// **'Kaydedildi: {path}'**
+  String dlSaved(String path);
+
+  /// No description provided for @dlSaveFailed.
+  ///
+  /// In tr, this message translates to:
+  /// **'Kaydetme başarısız: {error}'**
+  String dlSaveFailed(String error);
+
+  /// No description provided for @dlTitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Dosya İndir'**
+  String get dlTitle;
+
+  /// No description provided for @dlLinkLabel.
+  ///
+  /// In tr, this message translates to:
+  /// **'SecureVault linki'**
+  String get dlLinkLabel;
+
+  /// No description provided for @dlPasteTooltip.
+  ///
+  /// In tr, this message translates to:
+  /// **'Panodan yapıştır'**
+  String get dlPasteTooltip;
+
+  /// No description provided for @dlDownloading.
+  ///
+  /// In tr, this message translates to:
+  /// **'İndiriliyor ve şifresi çözülüyor... %{percent}'**
+  String dlDownloading(String percent);
+
+  /// No description provided for @dlButton.
+  ///
+  /// In tr, this message translates to:
+  /// **'İndir ve Şifresini Çöz'**
+  String get dlButton;
+
+  /// No description provided for @dlNote.
+  ///
+  /// In tr, this message translates to:
+  /// **'Not: link tek kullanımlıktır — bir kez indirildikten sonra tekrar çalışmaz.'**
+  String get dlNote;
+
+  /// No description provided for @dlSuccess.
+  ///
+  /// In tr, this message translates to:
+  /// **'{fileName}\nşifresi çözülerek kaydedildi.'**
+  String dlSuccess(String fileName);
+
+  /// No description provided for @dlSaveToDevice.
+  ///
+  /// In tr, this message translates to:
+  /// **'Cihaza Kaydet'**
+  String get dlSaveToDevice;
+
+  /// No description provided for @dlShare.
+  ///
+  /// In tr, this message translates to:
+  /// **'Paylaş'**
+  String get dlShare;
+
+  /// No description provided for @dlLargeFileNote.
+  ///
+  /// In tr, this message translates to:
+  /// **'Dosya büyük olduğu için doğrudan kaydetme yerine paylaşım menüsünü kullanın (örn. bir dosya yöneticisine veya Drive\'a).'**
+  String get dlLargeFileNote;
+
+  /// No description provided for @dlDownloadAnother.
+  ///
+  /// In tr, this message translates to:
+  /// **'Başka bir link indir'**
+  String get dlDownloadAnother;
+
+  /// No description provided for @delErrConfirm.
+  ///
+  /// In tr, this message translates to:
+  /// **'Lütfen önce onay kutusunu işaretleyin.'**
+  String get delErrConfirm;
+
+  /// No description provided for @delErrPwd.
+  ///
+  /// In tr, this message translates to:
+  /// **'Şifreni gir.'**
+  String get delErrPwd;
+
+  /// No description provided for @delDeleted.
+  ///
+  /// In tr, this message translates to:
+  /// **'Hesabın kalıcı olarak silindi.'**
+  String get delDeleted;
+
+  /// No description provided for @delTitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Hesabı Sil'**
+  String get delTitle;
+
+  /// No description provided for @delIrreversible.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bu işlem geri alınamaz.'**
+  String get delIrreversible;
+
+  /// No description provided for @delExplanation.
+  ///
+  /// In tr, this message translates to:
+  /// **'Hesabın ve tüm bilgilerin (kullanıcı adı, şifre hash\'i, kurtarma kodu) kalıcı olarak silinir. Bu işlemden sonra aynı kullanıcı adıyla tekrar giriş yapamazsın.'**
+  String get delExplanation;
+
+  /// No description provided for @delPwdLabel.
+  ///
+  /// In tr, this message translates to:
+  /// **'Şifren (onay için)'**
+  String get delPwdLabel;
+
+  /// No description provided for @delConfirmCheck.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bunun geri alınamaz olduğunu anlıyorum.'**
+  String get delConfirmCheck;
+
+  /// No description provided for @delButton.
+  ///
+  /// In tr, this message translates to:
+  /// **'Hesabımı Kalıcı Olarak Sil'**
+  String get delButton;
+
+  /// No description provided for @sozTitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Kullanım Sözleşmesi'**
+  String get sozTitle;
+
+  /// No description provided for @sozLastUpdate.
+  ///
+  /// In tr, this message translates to:
+  /// **'Son güncelleme: Haziran 2026'**
+  String get sozLastUpdate;
+
+  /// No description provided for @sozH1.
+  ///
+  /// In tr, this message translates to:
+  /// **'1. KABUL'**
+  String get sozH1;
+
+  /// No description provided for @sozP1.
+  ///
+  /// In tr, this message translates to:
+  /// **'SecureVault hizmetini kullanarak bu sözleşmeyi kabul etmiş sayılırsınız.'**
+  String get sozP1;
+
+  /// No description provided for @sozH2.
+  ///
+  /// In tr, this message translates to:
+  /// **'2. HİZMET TANIMI'**
+  String get sozH2;
+
+  /// No description provided for @sozP2.
+  ///
+  /// In tr, this message translates to:
+  /// **'SecureVault, istemci tarafı AES-256-GCM şifreleme kullanan, sıfır bilgi mimarisine sahip bir dosya paylaşım hizmetidir. Dosyalar sunucuda şifreli saklanır ve şifre anahtarı sunucuya iletilmez.'**
+  String get sozP2;
+
+  /// No description provided for @sozH3.
+  ///
+  /// In tr, this message translates to:
+  /// **'3. KULLANIM KOŞULLARI'**
+  String get sozH3;
+
+  /// No description provided for @sozP3.
+  ///
+  /// In tr, this message translates to:
+  /// **'Aşağıdaki içerikleri paylaşmak kesinlikle yasaktır:\n• Yasadışı içerik\n• Telif hakkı ihlali\n• Kötü amaçlı yazılım\n• Kişisel verilerin izinsiz paylaşımı'**
+  String get sozP3;
+
+  /// No description provided for @sozH4.
+  ///
+  /// In tr, this message translates to:
+  /// **'4. HİZMET SINIRLARI'**
+  String get sozH4;
+
+  /// No description provided for @sozP4.
+  ///
+  /// In tr, this message translates to:
+  /// **'• Üye olmayanlar: 5 MB dosya limiti, günde 3 gönderim\n• Üyeler: 250 MB dosya limiti\n• Tüm dosyalar: 1 saat TTL (indirilmezse otomatik silinir)'**
+  String get sozP4;
+
+  /// No description provided for @sozH5.
+  ///
+  /// In tr, this message translates to:
+  /// **'5. SORUMLULUK REDDİ'**
+  String get sozH5;
+
+  /// No description provided for @sozP5.
+  ///
+  /// In tr, this message translates to:
+  /// **'SecureVault, paylaşılan dosyaların içeriğinden sorumlu değildir. Sıfır bilgi mimarisi gereği dosya içeriğine erişilememektedir. Daha kapsamlı bilgi için Kullanım Şartları ve Sorumluluk Reddi ekranını inceleyebilirsiniz.'**
+  String get sozP5;
+
+  /// No description provided for @sozH6.
+  ///
+  /// In tr, this message translates to:
+  /// **'6. HİZMET DEĞİŞİKLİKLERİ'**
+  String get sozH6;
+
+  /// No description provided for @sozP6.
+  ///
+  /// In tr, this message translates to:
+  /// **'SecureVault, hizmet koşullarını önceden bildirimde bulunmaksızın değiştirme hakkını saklı tutar.'**
+  String get sozP6;
+
+  /// No description provided for @sozH7.
+  ///
+  /// In tr, this message translates to:
+  /// **'7. HESAP SİLME'**
+  String get sozH7;
+
+  /// No description provided for @sozP7.
+  ///
+  /// In tr, this message translates to:
+  /// **'Hesabınızı istediğiniz zaman silebilirsiniz. Silme işlemi tüm verilerinizi kalıcı olarak kaldırır.'**
+  String get sozP7;
+
+  /// No description provided for @sozH8.
+  ///
+  /// In tr, this message translates to:
+  /// **'8. İLETİŞİM'**
+  String get sozH8;
+
+  /// No description provided for @sozP8.
+  ///
+  /// In tr, this message translates to:
+  /// **'Sorularınız için: no-reply@sifreliveritransferi.com'**
+  String get sozP8;
+
+  /// No description provided for @kvkkTitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'KVKK Aydınlatma Metni'**
+  String get kvkkTitle;
+
+  /// No description provided for @kvkkH1.
+  ///
+  /// In tr, this message translates to:
+  /// **'1. VERİ SORUMLUSU'**
+  String get kvkkH1;
+
+  /// No description provided for @kvkkP1.
+  ///
+  /// In tr, this message translates to:
+  /// **'SecureVault (sifreliveritransferi.com) olarak, 6698 sayılı Kişisel Verilerin Korunması Kanunu kapsamında veri sorumlusu sıfatıyla hareket etmekteyiz.'**
+  String get kvkkP1;
+
+  /// No description provided for @kvkkH2.
+  ///
+  /// In tr, this message translates to:
+  /// **'2. İŞLENEN KİŞİSEL VERİLER'**
+  String get kvkkH2;
+
+  /// No description provided for @kvkkP2a.
+  ///
+  /// In tr, this message translates to:
+  /// **'Sistemimiz sıfır bilgi (zero-knowledge) mimarisi ile tasarlanmıştır. İşlenen veriler:'**
+  String get kvkkP2a;
+
+  /// No description provided for @kvkkP2b.
+  ///
+  /// In tr, this message translates to:
+  /// **'• Kullanıcı adı: SHA-256 hash olarak saklanır. Orijinal kullanıcı adı sunucuda tutulmaz.\n• Şifre: Argon2id algoritması ile hash\'lenerek saklanır. Düz metin şifre asla tutulmaz.\n• IP adresi: SHA-256 hash olarak kısa süreli (24 saat) Redis\'te tutulur.\n• E-posta adresi (alıcı): Yalnızca link gönderimi için kullanılır, saklanmaz.\n• Dosya içeriği: Sunucuya şifreli olarak ulaşır. Şifre anahtarı sunucuya hiçbir zaman gönderilmez.'**
+  String get kvkkP2b;
+
+  /// No description provided for @kvkkH3.
+  ///
+  /// In tr, this message translates to:
+  /// **'3. VERİLERİN İŞLENME AMACI'**
+  String get kvkkH3;
+
+  /// No description provided for @kvkkP3.
+  ///
+  /// In tr, this message translates to:
+  /// **'• Kullanıcı hesabının oluşturulması ve yönetimi\n• Güvenli dosya paylaşımı hizmetinin sunulması\n• Hizmet kötüye kullanımının önlenmesi'**
+  String get kvkkP3;
+
+  /// No description provided for @kvkkH4.
+  ///
+  /// In tr, this message translates to:
+  /// **'4. VERİLERİN SAKLANMA SÜRESİ'**
+  String get kvkkH4;
+
+  /// No description provided for @kvkkP4.
+  ///
+  /// In tr, this message translates to:
+  /// **'• Kullanıcı hesabı: 90 gün aktif kullanım olmaması halinde otomatik silinir.\n• Dosyalar: İndirildikten sonra anında, indirilmezse 1 saat içinde silinir.\n• IP hash: 24 saat sonra otomatik silinir.'**
+  String get kvkkP4;
+
+  /// No description provided for @kvkkH5.
+  ///
+  /// In tr, this message translates to:
+  /// **'5. VERİ SAHİBİNİN HAKLARI'**
+  String get kvkkH5;
+
+  /// No description provided for @kvkkP5.
+  ///
+  /// In tr, this message translates to:
+  /// **'KVKK madde 11 kapsamında;\n• Verilerinizin işlenip işlenmediğini öğrenme\n• Verilerinizin silinmesini talep etme\n• Hesabınızı \"Hesabımı Sil\" seçeneğinden silebilirsiniz.'**
+  String get kvkkP5;
+
+  /// No description provided for @kvkkH6.
+  ///
+  /// In tr, this message translates to:
+  /// **'6. İLETİŞİM'**
+  String get kvkkH6;
+
+  /// No description provided for @kvkkP6.
+  ///
+  /// In tr, this message translates to:
+  /// **'Sorularınız için: no-reply@sifreliveritransferi.com'**
+  String get kvkkP6;
+
+  /// No description provided for @termsTitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Kullanım Şartları'**
+  String get termsTitle;
+
+  /// No description provided for @termsHeader.
+  ///
+  /// In tr, this message translates to:
+  /// **'Kullanım Şartları ve Sorumluluk Reddi'**
+  String get termsHeader;
+
+  /// No description provided for @termsIntro.
+  ///
+  /// In tr, this message translates to:
+  /// **'SecureVault hizmetini kullanarak aşağıdaki şartları kabul etmiş olursunuz.'**
+  String get termsIntro;
+
+  /// No description provided for @terms1Title.
+  ///
+  /// In tr, this message translates to:
+  /// **'Uçtan Uca Şifreleme — İçeriğe Erişemeyiz'**
+  String get terms1Title;
+
+  /// No description provided for @terms1Body.
+  ///
+  /// In tr, this message translates to:
+  /// **'Dosyalarınız ve metinleriniz, sunucuya yüklenmeden ÖNCE kendi cihazınızda AES-256-GCM ile şifrelenir. Şifre çözme anahtarı hiçbir zaman sunucularımıza gönderilmez. Bu nedenle biz, hizmet sağlayıcı olarak, gönderdiğiniz dosyaların içeriğini görüntüleyemez, okuyamaz veya kurtaramayız (zero-knowledge mimarisi).'**
+  String get terms1Body;
+
+  /// No description provided for @terms2Title.
+  ///
+  /// In tr, this message translates to:
+  /// **'Geçici Aktarım Aracı — Kalıcı Depolama Değildir'**
+  String get terms2Title;
+
+  /// No description provided for @terms2Body.
+  ///
+  /// In tr, this message translates to:
+  /// **'SecureVault bir dosya SAKLAMA / yedekleme hizmeti DEĞİLDİR. Yüklenen dosyalar yalnızca kısa bir süre (varsayılan 1 saat) veya ilk indirme gerçekleştiğinde, hangisi önce olursa, otomatik ve kalıcı olarak silinir. Dosyalarınızın asıl kopyasını her zaman kendi cihazınızda saklayın.'**
+  String get terms2Body;
+
+  /// No description provided for @terms3Title.
+  ///
+  /// In tr, this message translates to:
+  /// **'Veri Kaybından Sorumluluk Kabul Edilmez'**
+  String get terms3Title;
+
+  /// No description provided for @terms3Body.
+  ///
+  /// In tr, this message translates to:
+  /// **'Hizmetin doğası gereği dosyalar otomatik silindiği için, bir dosyanın süresi dolması, indirilememesi veya herhangi bir teknik nedenle kaybolmasından doğabilecek zararlardan SecureVault sorumlu tutulamaz. Önemli verilerinizin yedeğini almak tamamen sizin sorumluluğunuzdadır.'**
+  String get terms3Body;
+
+  /// No description provided for @terms4Title.
+  ///
+  /// In tr, this message translates to:
+  /// **'Üçüncü Taraf Altyapı'**
+  String get terms4Title;
+
+  /// No description provided for @terms4Body.
+  ///
+  /// In tr, this message translates to:
+  /// **'Şifreli veriler, Cloudflare R2 bulut altyapısında geçici olarak barındırılır. Veriler şifreli olduğu için bu sağlayıcı da içeriği göremez. Altyapı sağlayıcısının hizmet kesintileri veya politika değişiklikleri kontrolümüz dışındadır.'**
+  String get terms4Body;
+
+  /// No description provided for @terms5Title.
+  ///
+  /// In tr, this message translates to:
+  /// **'Yasal Kullanım — Sorumluluk Kullanıcıdadır'**
+  String get terms5Title;
+
+  /// No description provided for @terms5Body.
+  ///
+  /// In tr, this message translates to:
+  /// **'SecureVault yalnızca yasal amaçlarla kullanılabilir. Gönderdiğiniz içeriğin yasalara uygunluğundan tamamen siz sorumlusunuz. İçerik şifreli olduğu için denetlenemez; bu nedenle hizmetin kötüye kullanımından doğan her türlü hukuki ve cezai sorumluluk gönderen kullanıcıya aittir.'**
+  String get terms5Body;
+
+  /// No description provided for @terms6Title.
+  ///
+  /// In tr, this message translates to:
+  /// **'Hizmet \"Olduğu Gibi\" Sunulur'**
+  String get terms6Title;
+
+  /// No description provided for @terms6Body.
+  ///
+  /// In tr, this message translates to:
+  /// **'SecureVault, herhangi bir garanti verilmeksizin \"olduğu gibi\" sunulur. Hizmette kesinti, gecikme veya hata olabilir. Hizmetin kesintisiz veya hatasız çalışacağı garanti edilmez.'**
+  String get terms6Body;
+
+  /// No description provided for @termsFooter.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bu metin genel bir bilgilendirme niteliğindedir ve hukuki tavsiye yerine geçmez.'**
+  String get termsFooter;
 }
 
 class _AppLocalizationsDelegate

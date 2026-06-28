@@ -429,4 +429,333 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get infoReadTerms => 'Nutzungsbedingungen lesen';
+
+  @override
+  String get txtErrEmpty => 'Geben Sie den zu verschlüsselnden Text ein.';
+
+  @override
+  String get txtShareSubject => 'Verschlüsselter Text - SecureVault';
+
+  @override
+  String get txtTitle => 'Text verschlüsseln';
+
+  @override
+  String get txtLabel => 'Zu verschlüsselnder Text';
+
+  @override
+  String get txtHint =>
+      'Geben Sie hier den Text ein, den Sie verschlüsseln möchten, oder fügen Sie ihn ein...';
+
+  @override
+  String txtCharCount(int count) {
+    return '$count Zeichen';
+  }
+
+  @override
+  String get txtRecipientHelper =>
+      'Nur zur Erfassung - Sie teilen den Link im nächsten Bildschirm.';
+
+  @override
+  String get txtExtraPwdHelper =>
+      'Wenn gesetzt, müssen Sie dieses Passwort dem Empfänger separat mitteilen.';
+
+  @override
+  String get txtSuccess => 'Text verschlüsselt und hochgeladen.';
+
+  @override
+  String get txtExtraPwdWarning =>
+      'Sie haben ein zusätzliches Passwort festgelegt. Denken Sie daran, es dem Empfänger separat mitzuteilen.';
+
+  @override
+  String get txtEncryptAnother => 'Weiteren Text verschlüsseln';
+
+  @override
+  String get fldErrPick => 'Bitte wählen Sie zuerst einen Ordner aus.';
+
+  @override
+  String get fldShareSubject => 'Verschlüsselter Ordner - SecureVault';
+
+  @override
+  String get fldTitle => 'Ordner senden';
+
+  @override
+  String get fldDefaultName => 'Ordner';
+
+  @override
+  String get fldPick => 'Ordner auswählen';
+
+  @override
+  String get fldDescription =>
+      'Der ausgewählte Ordner wird mit allen darin enthaltenen Dateien in eine einzige .zip-Datei gepackt und verschlüsselt. Der Empfänger öffnet die heruntergeladene Zip-Datei auf seinem eigenen Gerät.';
+
+  @override
+  String get fldRecipientHelper =>
+      'Der Download-Link wird automatisch an diese Adresse gesendet.';
+
+  @override
+  String get fldPackaging => 'Ordner wird gepackt und verschlüsselt...';
+
+  @override
+  String get fldPackButton => 'Packen, verschlüsseln und senden';
+
+  @override
+  String get fldSuccess => 'Ordner gepackt, verschlüsselt und hochgeladen.';
+
+  @override
+  String get fldSendAnother => 'Weiteren Ordner senden';
+
+  @override
+  String get dlErrInvalid => 'Ungültiger oder unbekannter SecureVault-Link.';
+
+  @override
+  String get dlErrPwdProtected =>
+      'Dieser Link ist mit einem zusätzlichen Passwort geschützt — diese Funktion wird in der mobilen App noch nicht unterstützt. Öffnen Sie den Link in einem Browser.';
+
+  @override
+  String dlSaved(String path) {
+    return 'Gespeichert: $path';
+  }
+
+  @override
+  String dlSaveFailed(String error) {
+    return 'Speichern fehlgeschlagen: $error';
+  }
+
+  @override
+  String get dlTitle => 'Datei herunterladen';
+
+  @override
+  String get dlLinkLabel => 'SecureVault-Link';
+
+  @override
+  String get dlPasteTooltip => 'Aus Zwischenablage einfügen';
+
+  @override
+  String dlDownloading(String percent) {
+    return 'Wird heruntergeladen und entschlüsselt... $percent%';
+  }
+
+  @override
+  String get dlButton => 'Herunterladen und entschlüsseln';
+
+  @override
+  String get dlNote =>
+      'Hinweis: Der Link ist einmalig nutzbar — nach dem Herunterladen funktioniert er nicht mehr.';
+
+  @override
+  String dlSuccess(String fileName) {
+    return '$fileName\nentschlüsselt und gespeichert.';
+  }
+
+  @override
+  String get dlSaveToDevice => 'Auf Gerät speichern';
+
+  @override
+  String get dlShare => 'Teilen';
+
+  @override
+  String get dlLargeFileNote =>
+      'Da die Datei groß ist, verwenden Sie das Teilen-Menü, anstatt direkt zu speichern (z. B. in einem Dateimanager oder in Drive).';
+
+  @override
+  String get dlDownloadAnother => 'Weiteren Link herunterladen';
+
+  @override
+  String get delErrConfirm =>
+      'Bitte aktivieren Sie zuerst das Bestätigungskästchen.';
+
+  @override
+  String get delErrPwd => 'Geben Sie Ihr Passwort ein.';
+
+  @override
+  String get delDeleted => 'Ihr Konto wurde dauerhaft gelöscht.';
+
+  @override
+  String get delTitle => 'Konto löschen';
+
+  @override
+  String get delIrreversible =>
+      'Diese Aktion kann nicht rückgängig gemacht werden.';
+
+  @override
+  String get delExplanation =>
+      'Ihr Konto und alle Ihre Informationen (Benutzername, Passwort-Hash, Wiederherstellungscode) werden dauerhaft gelöscht. Danach können Sie sich nicht mehr mit demselben Benutzernamen anmelden.';
+
+  @override
+  String get delPwdLabel => 'Ihr Passwort (zur Bestätigung)';
+
+  @override
+  String get delConfirmCheck =>
+      'Ich verstehe, dass dies nicht rückgängig gemacht werden kann.';
+
+  @override
+  String get delButton => 'Mein Konto dauerhaft löschen';
+
+  @override
+  String get sozTitle => 'Nutzungsvereinbarung';
+
+  @override
+  String get sozLastUpdate => 'Zuletzt aktualisiert: Juni 2026';
+
+  @override
+  String get sozH1 => '1. ANNAHME';
+
+  @override
+  String get sozP1 =>
+      'Durch die Nutzung des SecureVault-Dienstes gilt diese Vereinbarung als von Ihnen akzeptiert.';
+
+  @override
+  String get sozH2 => '2. DIENSTBESCHREIBUNG';
+
+  @override
+  String get sozP2 =>
+      'SecureVault ist ein Dateifreigabedienst mit einer Zero-Knowledge-Architektur, der clientseitige AES-256-GCM-Verschlüsselung verwendet. Dateien werden verschlüsselt auf dem Server gespeichert, und der Schlüssel wird nie an den Server übertragen.';
+
+  @override
+  String get sozH3 => '3. NUTZUNGSBEDINGUNGEN';
+
+  @override
+  String get sozP3 =>
+      'Das Teilen der folgenden Inhalte ist strengstens untersagt:\n• Illegale Inhalte\n• Urheberrechtsverletzungen\n• Schadsoftware\n• Unbefugtes Teilen personenbezogener Daten';
+
+  @override
+  String get sozH4 => '4. DIENSTGRENZEN';
+
+  @override
+  String get sozP4 =>
+      '• Nichtmitglieder: 5 MB Dateilimit, 3 Übertragungen pro Tag\n• Mitglieder: 250 MB Dateilimit\n• Alle Dateien: 1 Stunde TTL (wird automatisch gelöscht, wenn nicht heruntergeladen)';
+
+  @override
+  String get sozH5 => '5. HAFTUNGSAUSSCHLUSS';
+
+  @override
+  String get sozP5 =>
+      'SecureVault ist nicht für den Inhalt der geteilten Dateien verantwortlich. Aufgrund der Zero-Knowledge-Architektur kann auf den Dateiinhalt nicht zugegriffen werden. Weitere Informationen finden Sie im Bildschirm „Nutzungsbedingungen und Haftungsausschluss“.';
+
+  @override
+  String get sozH6 => '6. DIENSTÄNDERUNGEN';
+
+  @override
+  String get sozP6 =>
+      'SecureVault behält sich das Recht vor, seine Nutzungsbedingungen ohne vorherige Ankündigung zu ändern.';
+
+  @override
+  String get sozH7 => '7. KONTOLÖSCHUNG';
+
+  @override
+  String get sozP7 =>
+      'Sie können Ihr Konto jederzeit löschen. Die Löschung entfernt alle Ihre Daten dauerhaft.';
+
+  @override
+  String get sozH8 => '8. KONTAKT';
+
+  @override
+  String get sozP8 => 'Bei Fragen: no-reply@sifreliveritransferi.com';
+
+  @override
+  String get kvkkTitle => 'Datenschutzerklärung (KVKK)';
+
+  @override
+  String get kvkkH1 => '1. VERANTWORTLICHER';
+
+  @override
+  String get kvkkP1 =>
+      'Als SecureVault (sifreliveritransferi.com) handeln wir als Verantwortlicher im Sinne des türkischen Gesetzes Nr. 6698 zum Schutz personenbezogener Daten.';
+
+  @override
+  String get kvkkH2 => '2. VERARBEITETE PERSONENBEZOGENE DATEN';
+
+  @override
+  String get kvkkP2a =>
+      'Unser System ist mit einer Zero-Knowledge-Architektur konzipiert. Verarbeitete Daten:';
+
+  @override
+  String get kvkkP2b =>
+      '• Benutzername: Wird als SHA-256-Hash gespeichert. Der ursprüngliche Benutzername wird nicht auf dem Server aufbewahrt.\n• Passwort: Wird mit dem Argon2id-Algorithmus gehasht gespeichert. Klartext-Passwörter werden niemals aufbewahrt.\n• IP-Adresse: Wird als SHA-256-Hash kurzfristig (24 Stunden) in Redis aufbewahrt.\n• E-Mail-Adresse (Empfänger): Wird nur zum Senden des Links verwendet und nicht gespeichert.\n• Dateiinhalt: Erreicht den Server verschlüsselt. Der Schlüssel wird niemals an den Server gesendet.';
+
+  @override
+  String get kvkkH3 => '3. ZWECK DER DATENVERARBEITUNG';
+
+  @override
+  String get kvkkP3 =>
+      '• Erstellung und Verwaltung des Benutzerkontos\n• Bereitstellung des sicheren Dateifreigabedienstes\n• Verhinderung von Missbrauch des Dienstes';
+
+  @override
+  String get kvkkH4 => '4. SPEICHERDAUER DER DATEN';
+
+  @override
+  String get kvkkP4 =>
+      '• Benutzerkonto: Wird automatisch gelöscht, wenn es 90 Tage lang nicht aktiv genutzt wird.\n• Dateien: Werden sofort nach dem Download gelöscht oder innerhalb von 1 Stunde, wenn sie nicht heruntergeladen werden.\n• IP-Hash: Wird nach 24 Stunden automatisch gelöscht.';
+
+  @override
+  String get kvkkH5 => '5. RECHTE DER BETROFFENEN PERSON';
+
+  @override
+  String get kvkkP5 =>
+      'Gemäß Artikel 11 des KVKK;\n• Zu erfahren, ob Ihre Daten verarbeitet werden\n• Die Löschung Ihrer Daten zu verlangen\n• Sie können Ihr Konto über die Option „Mein Konto löschen“ löschen.';
+
+  @override
+  String get kvkkH6 => '6. KONTAKT';
+
+  @override
+  String get kvkkP6 => 'Bei Fragen: no-reply@sifreliveritransferi.com';
+
+  @override
+  String get termsTitle => 'Nutzungsbedingungen';
+
+  @override
+  String get termsHeader => 'Nutzungsbedingungen und Haftungsausschluss';
+
+  @override
+  String get termsIntro =>
+      'Durch die Nutzung des SecureVault-Dienstes akzeptieren Sie die folgenden Bedingungen.';
+
+  @override
+  String get terms1Title =>
+      'Ende-zu-Ende-Verschlüsselung — Wir haben keinen Zugriff auf den Inhalt';
+
+  @override
+  String get terms1Body =>
+      'Ihre Dateien und Texte werden auf Ihrem eigenen Gerät mit AES-256-GCM verschlüsselt, BEVOR sie auf den Server hochgeladen werden. Der Entschlüsselungsschlüssel wird niemals an unsere Server gesendet. Daher können wir als Dienstanbieter den Inhalt der von Ihnen gesendeten Dateien nicht einsehen, lesen oder wiederherstellen (Zero-Knowledge-Architektur).';
+
+  @override
+  String get terms2Title =>
+      'Temporäres Übertragungstool — Kein dauerhafter Speicher';
+
+  @override
+  String get terms2Body =>
+      'SecureVault ist KEIN Dateispeicher-/Backup-Dienst. Hochgeladene Dateien werden nur für kurze Zeit (standardmäßig 1 Stunde) oder beim ersten Download – je nachdem, was zuerst eintritt – automatisch und dauerhaft gelöscht. Bewahren Sie die Originalkopie Ihrer Dateien immer auf Ihrem eigenen Gerät auf.';
+
+  @override
+  String get terms3Title => 'Keine Haftung für Datenverlust';
+
+  @override
+  String get terms3Body =>
+      'Da Dateien naturgemäß automatisch gelöscht werden, kann SecureVault nicht für Schäden haftbar gemacht werden, die durch das Ablaufen einer Datei, fehlgeschlagenes Herunterladen oder Verlust aus technischen Gründen entstehen. Die Sicherung Ihrer wichtigen Daten liegt vollständig in Ihrer Verantwortung.';
+
+  @override
+  String get terms4Title => 'Drittanbieter-Infrastruktur';
+
+  @override
+  String get terms4Body =>
+      'Verschlüsselte Daten werden vorübergehend in der Cloudflare-R2-Cloud-Infrastruktur gehostet. Da die Daten verschlüsselt sind, kann auch dieser Anbieter den Inhalt nicht sehen. Dienstausfälle oder Richtlinienänderungen des Infrastrukturanbieters liegen außerhalb unserer Kontrolle.';
+
+  @override
+  String get terms5Title =>
+      'Rechtmäßige Nutzung — Verantwortung liegt beim Nutzer';
+
+  @override
+  String get terms5Body =>
+      'SecureVault darf nur für rechtmäßige Zwecke verwendet werden. Sie sind allein für die Rechtmäßigkeit der von Ihnen gesendeten Inhalte verantwortlich. Da der Inhalt verschlüsselt ist, kann er nicht überprüft werden; daher liegt jede rechtliche und strafrechtliche Haftung aus Missbrauch des Dienstes beim sendenden Nutzer.';
+
+  @override
+  String get terms6Title => 'Dienst wird „wie besehen“ bereitgestellt';
+
+  @override
+  String get terms6Body =>
+      'SecureVault wird ohne jegliche Garantie „wie besehen“ bereitgestellt. Es kann zu Unterbrechungen, Verzögerungen oder Fehlern im Dienst kommen. Es wird nicht garantiert, dass der Dienst ohne Unterbrechung oder Fehler funktioniert.';
+
+  @override
+  String get termsFooter =>
+      'Dieser Text dient der allgemeinen Information und stellt keine Rechtsberatung dar.';
 }

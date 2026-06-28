@@ -181,5 +181,134 @@
   "infoWho6Desc": "Kimlik fotokopisi, pasaport, banka belgesi.",
   "infoDisclaimer": "SORUMLULUK REDDİ",
   "infoDisclaimerText": "SecureVault geçici bir aktarım aracıdır, kalıcı depolama değildir. Dosyalar kısa süre sonra otomatik silinir; içeriğe erişemeyiz ve veri kaybından sorumlu tutulamayız. Önemli dosyalarınızın yedeğini kendiniz saklayın.",
-  "infoReadTerms": "Kullanım Şartlarını Oku"
+  "infoReadTerms": "Kullanım Şartlarını Oku",
+  "txtErrEmpty": "Şifrelenecek metni girin.",
+  "txtShareSubject": "Şifreli metin - SecureVault",
+  "txtTitle": "Metin Şifrele",
+  "txtLabel": "Şifrelenecek metin",
+  "txtHint": "Şifrelemek istediğiniz metni buraya yazın veya yapıştırın...",
+  "txtCharCount": "{count} karakter",
+  "@txtCharCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "txtRecipientHelper": "Kayıt amaçlı - linki bir sonraki ekranda paylaşırsınız.",
+  "txtExtraPwdHelper": "Belirlerseniz, alıcıya bu şifreyi ayrıca iletmeniz gerekir.",
+  "txtSuccess": "Metin şifrelenip yüklendi.",
+  "txtExtraPwdWarning": "Ek şifre belirlediniz. Alıcıya bu şifreyi ayrıca iletmeyi unutmayın.",
+  "txtEncryptAnother": "Başka bir metin şifrele",
+  "fldErrPick": "Önce bir klasör seçin.",
+  "fldShareSubject": "Şifreli klasör - SecureVault",
+  "fldTitle": "Klasör Gönder",
+  "fldDefaultName": "klasör",
+  "fldPick": "Klasör Seç",
+  "fldDescription": "Seçtiğiniz klasör, içindeki tüm dosyalarla birlikte tek bir .zip dosyasında toplanıp şifrelenir. Alıcı, inen zip dosyasını kendi cihazında açar.",
+  "fldRecipientHelper": "İndirme linki bu adrese otomatik gönderilir.",
+  "fldPackaging": "Klasör paketleniyor ve şifreleniyor...",
+  "fldPackButton": "Paketle, Şifrele ve Gönder",
+  "fldSuccess": "Klasör paketlenip şifrelendi ve yüklendi.",
+  "fldSendAnother": "Başka bir klasör gönder",
+  "dlErrInvalid": "Geçersiz veya tanınmayan SecureVault linki.",
+  "dlErrPwdProtected": "Bu link ek şifre korumalı — mobil uygulamada bu özellik henüz desteklenmiyor. Linki bir tarayıcıda açın.",
+  "dlSaved": "Kaydedildi: {path}",
+  "@dlSaved": {
+    "placeholders": {
+      "path": {
+        "type": "String"
+      }
+    }
+  },
+  "dlSaveFailed": "Kaydetme başarısız: {error}",
+  "@dlSaveFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "dlTitle": "Dosya İndir",
+  "dlLinkLabel": "SecureVault linki",
+  "dlPasteTooltip": "Panodan yapıştır",
+  "dlDownloading": "İndiriliyor ve şifresi çözülüyor... %{percent}",
+  "@dlDownloading": {
+    "placeholders": {
+      "percent": {
+        "type": "String"
+      }
+    }
+  },
+  "dlButton": "İndir ve Şifresini Çöz",
+  "dlNote": "Not: link tek kullanımlıktır — bir kez indirildikten sonra tekrar çalışmaz.",
+  "dlSuccess": "{fileName}\nşifresi çözülerek kaydedildi.",
+  "@dlSuccess": {
+    "placeholders": {
+      "fileName": {
+        "type": "String"
+      }
+    }
+  },
+  "dlSaveToDevice": "Cihaza Kaydet",
+  "dlShare": "Paylaş",
+  "dlLargeFileNote": "Dosya büyük olduğu için doğrudan kaydetme yerine paylaşım menüsünü kullanın (örn. bir dosya yöneticisine veya Drive'a).",
+  "dlDownloadAnother": "Başka bir link indir",
+  "delErrConfirm": "Lütfen önce onay kutusunu işaretleyin.",
+  "delErrPwd": "Şifreni gir.",
+  "delDeleted": "Hesabın kalıcı olarak silindi.",
+  "delTitle": "Hesabı Sil",
+  "delIrreversible": "Bu işlem geri alınamaz.",
+  "delExplanation": "Hesabın ve tüm bilgilerin (kullanıcı adı, şifre hash'i, kurtarma kodu) kalıcı olarak silinir. Bu işlemden sonra aynı kullanıcı adıyla tekrar giriş yapamazsın.",
+  "delPwdLabel": "Şifren (onay için)",
+  "delConfirmCheck": "Bunun geri alınamaz olduğunu anlıyorum.",
+  "delButton": "Hesabımı Kalıcı Olarak Sil",
+  "sozTitle": "Kullanım Sözleşmesi",
+  "sozLastUpdate": "Son güncelleme: Haziran 2026",
+  "sozH1": "1. KABUL",
+  "sozP1": "SecureVault hizmetini kullanarak bu sözleşmeyi kabul etmiş sayılırsınız.",
+  "sozH2": "2. HİZMET TANIMI",
+  "sozP2": "SecureVault, istemci tarafı AES-256-GCM şifreleme kullanan, sıfır bilgi mimarisine sahip bir dosya paylaşım hizmetidir. Dosyalar sunucuda şifreli saklanır ve şifre anahtarı sunucuya iletilmez.",
+  "sozH3": "3. KULLANIM KOŞULLARI",
+  "sozP3": "Aşağıdaki içerikleri paylaşmak kesinlikle yasaktır:\n• Yasadışı içerik\n• Telif hakkı ihlali\n• Kötü amaçlı yazılım\n• Kişisel verilerin izinsiz paylaşımı",
+  "sozH4": "4. HİZMET SINIRLARI",
+  "sozP4": "• Üye olmayanlar: 5 MB dosya limiti, günde 3 gönderim\n• Üyeler: 250 MB dosya limiti\n• Tüm dosyalar: 1 saat TTL (indirilmezse otomatik silinir)",
+  "sozH5": "5. SORUMLULUK REDDİ",
+  "sozP5": "SecureVault, paylaşılan dosyaların içeriğinden sorumlu değildir. Sıfır bilgi mimarisi gereği dosya içeriğine erişilememektedir. Daha kapsamlı bilgi için Kullanım Şartları ve Sorumluluk Reddi ekranını inceleyebilirsiniz.",
+  "sozH6": "6. HİZMET DEĞİŞİKLİKLERİ",
+  "sozP6": "SecureVault, hizmet koşullarını önceden bildirimde bulunmaksızın değiştirme hakkını saklı tutar.",
+  "sozH7": "7. HESAP SİLME",
+  "sozP7": "Hesabınızı istediğiniz zaman silebilirsiniz. Silme işlemi tüm verilerinizi kalıcı olarak kaldırır.",
+  "sozH8": "8. İLETİŞİM",
+  "sozP8": "Sorularınız için: no-reply@sifreliveritransferi.com",
+  "kvkkTitle": "KVKK Aydınlatma Metni",
+  "kvkkH1": "1. VERİ SORUMLUSU",
+  "kvkkP1": "SecureVault (sifreliveritransferi.com) olarak, 6698 sayılı Kişisel Verilerin Korunması Kanunu kapsamında veri sorumlusu sıfatıyla hareket etmekteyiz.",
+  "kvkkH2": "2. İŞLENEN KİŞİSEL VERİLER",
+  "kvkkP2a": "Sistemimiz sıfır bilgi (zero-knowledge) mimarisi ile tasarlanmıştır. İşlenen veriler:",
+  "kvkkP2b": "• Kullanıcı adı: SHA-256 hash olarak saklanır. Orijinal kullanıcı adı sunucuda tutulmaz.\n• Şifre: Argon2id algoritması ile hash'lenerek saklanır. Düz metin şifre asla tutulmaz.\n• IP adresi: SHA-256 hash olarak kısa süreli (24 saat) Redis'te tutulur.\n• E-posta adresi (alıcı): Yalnızca link gönderimi için kullanılır, saklanmaz.\n• Dosya içeriği: Sunucuya şifreli olarak ulaşır. Şifre anahtarı sunucuya hiçbir zaman gönderilmez.",
+  "kvkkH3": "3. VERİLERİN İŞLENME AMACI",
+  "kvkkP3": "• Kullanıcı hesabının oluşturulması ve yönetimi\n• Güvenli dosya paylaşımı hizmetinin sunulması\n• Hizmet kötüye kullanımının önlenmesi",
+  "kvkkH4": "4. VERİLERİN SAKLANMA SÜRESİ",
+  "kvkkP4": "• Kullanıcı hesabı: 90 gün aktif kullanım olmaması halinde otomatik silinir.\n• Dosyalar: İndirildikten sonra anında, indirilmezse 1 saat içinde silinir.\n• IP hash: 24 saat sonra otomatik silinir.",
+  "kvkkH5": "5. VERİ SAHİBİNİN HAKLARI",
+  "kvkkP5": "KVKK madde 11 kapsamında;\n• Verilerinizin işlenip işlenmediğini öğrenme\n• Verilerinizin silinmesini talep etme\n• Hesabınızı \"Hesabımı Sil\" seçeneğinden silebilirsiniz.",
+  "kvkkH6": "6. İLETİŞİM",
+  "kvkkP6": "Sorularınız için: no-reply@sifreliveritransferi.com",
+  "termsTitle": "Kullanım Şartları",
+  "termsHeader": "Kullanım Şartları ve Sorumluluk Reddi",
+  "termsIntro": "SecureVault hizmetini kullanarak aşağıdaki şartları kabul etmiş olursunuz.",
+  "terms1Title": "Uçtan Uca Şifreleme — İçeriğe Erişemeyiz",
+  "terms1Body": "Dosyalarınız ve metinleriniz, sunucuya yüklenmeden ÖNCE kendi cihazınızda AES-256-GCM ile şifrelenir. Şifre çözme anahtarı hiçbir zaman sunucularımıza gönderilmez. Bu nedenle biz, hizmet sağlayıcı olarak, gönderdiğiniz dosyaların içeriğini görüntüleyemez, okuyamaz veya kurtaramayız (zero-knowledge mimarisi).",
+  "terms2Title": "Geçici Aktarım Aracı — Kalıcı Depolama Değildir",
+  "terms2Body": "SecureVault bir dosya SAKLAMA / yedekleme hizmeti DEĞİLDİR. Yüklenen dosyalar yalnızca kısa bir süre (varsayılan 1 saat) veya ilk indirme gerçekleştiğinde, hangisi önce olursa, otomatik ve kalıcı olarak silinir. Dosyalarınızın asıl kopyasını her zaman kendi cihazınızda saklayın.",
+  "terms3Title": "Veri Kaybından Sorumluluk Kabul Edilmez",
+  "terms3Body": "Hizmetin doğası gereği dosyalar otomatik silindiği için, bir dosyanın süresi dolması, indirilememesi veya herhangi bir teknik nedenle kaybolmasından doğabilecek zararlardan SecureVault sorumlu tutulamaz. Önemli verilerinizin yedeğini almak tamamen sizin sorumluluğunuzdadır.",
+  "terms4Title": "Üçüncü Taraf Altyapı",
+  "terms4Body": "Şifreli veriler, Cloudflare R2 bulut altyapısında geçici olarak barındırılır. Veriler şifreli olduğu için bu sağlayıcı da içeriği göremez. Altyapı sağlayıcısının hizmet kesintileri veya politika değişiklikleri kontrolümüz dışındadır.",
+  "terms5Title": "Yasal Kullanım — Sorumluluk Kullanıcıdadır",
+  "terms5Body": "SecureVault yalnızca yasal amaçlarla kullanılabilir. Gönderdiğiniz içeriğin yasalara uygunluğundan tamamen siz sorumlusunuz. İçerik şifreli olduğu için denetlenemez; bu nedenle hizmetin kötüye kullanımından doğan her türlü hukuki ve cezai sorumluluk gönderen kullanıcıya aittir.",
+  "terms6Title": "Hizmet \"Olduğu Gibi\" Sunulur",
+  "terms6Body": "SecureVault, herhangi bir garanti verilmeksizin \"olduğu gibi\" sunulur. Hizmette kesinti, gecikme veya hata olabilir. Hizmetin kesintisiz veya hatasız çalışacağı garanti edilmez.",
+  "termsFooter": "Bu metin genel bir bilgilendirme niteliğindedir ve hukuki tavsiye yerine geçmez."
 }

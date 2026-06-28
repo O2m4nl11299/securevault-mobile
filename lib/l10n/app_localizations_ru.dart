@@ -427,4 +427,331 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get infoReadTerms => 'Читать условия использования';
+
+  @override
+  String get txtErrEmpty => 'Введите текст для шифрования.';
+
+  @override
+  String get txtShareSubject => 'Зашифрованный текст - SecureVault';
+
+  @override
+  String get txtTitle => 'Зашифровать текст';
+
+  @override
+  String get txtLabel => 'Текст для шифрования';
+
+  @override
+  String get txtHint =>
+      'Введите или вставьте сюда текст, который хотите зашифровать...';
+
+  @override
+  String txtCharCount(int count) {
+    return '$count симв.';
+  }
+
+  @override
+  String get txtRecipientHelper =>
+      'Только для записи - вы поделитесь ссылкой на следующем экране.';
+
+  @override
+  String get txtExtraPwdHelper =>
+      'Если задано, вы должны сообщить этот пароль получателю отдельно.';
+
+  @override
+  String get txtSuccess => 'Текст зашифрован и загружен.';
+
+  @override
+  String get txtExtraPwdWarning =>
+      'Вы установили дополнительный пароль. Не забудьте сообщить его получателю отдельно.';
+
+  @override
+  String get txtEncryptAnother => 'Зашифровать другой текст';
+
+  @override
+  String get fldErrPick => 'Сначала выберите папку.';
+
+  @override
+  String get fldShareSubject => 'Зашифрованная папка - SecureVault';
+
+  @override
+  String get fldTitle => 'Отправить папку';
+
+  @override
+  String get fldDefaultName => 'папка';
+
+  @override
+  String get fldPick => 'Выбрать папку';
+
+  @override
+  String get fldDescription =>
+      'Выбранная папка вместе со всеми файлами внутри упаковывается в один .zip-файл и шифруется. Получатель открывает скачанный zip-файл на своём устройстве.';
+
+  @override
+  String get fldRecipientHelper =>
+      'Ссылка для скачивания автоматически отправляется на этот адрес.';
+
+  @override
+  String get fldPackaging => 'Папка упаковывается и шифруется...';
+
+  @override
+  String get fldPackButton => 'Упаковать, зашифровать и отправить';
+
+  @override
+  String get fldSuccess => 'Папка упакована, зашифрована и загружена.';
+
+  @override
+  String get fldSendAnother => 'Отправить другую папку';
+
+  @override
+  String get dlErrInvalid =>
+      'Недействительная или нераспознанная ссылка SecureVault.';
+
+  @override
+  String get dlErrPwdProtected =>
+      'Эта ссылка защищена дополнительным паролем — эта функция пока не поддерживается в мобильном приложении. Откройте ссылку в браузере.';
+
+  @override
+  String dlSaved(String path) {
+    return 'Сохранено: $path';
+  }
+
+  @override
+  String dlSaveFailed(String error) {
+    return 'Не удалось сохранить: $error';
+  }
+
+  @override
+  String get dlTitle => 'Скачать файл';
+
+  @override
+  String get dlLinkLabel => 'Ссылка SecureVault';
+
+  @override
+  String get dlPasteTooltip => 'Вставить из буфера обмена';
+
+  @override
+  String dlDownloading(String percent) {
+    return 'Скачивание и расшифровка... $percent%';
+  }
+
+  @override
+  String get dlButton => 'Скачать и расшифровать';
+
+  @override
+  String get dlNote =>
+      'Примечание: ссылка одноразовая — после скачивания она больше не работает.';
+
+  @override
+  String dlSuccess(String fileName) {
+    return '$fileName\nрасшифрован и сохранён.';
+  }
+
+  @override
+  String get dlSaveToDevice => 'Сохранить на устройство';
+
+  @override
+  String get dlShare => 'Поделиться';
+
+  @override
+  String get dlLargeFileNote =>
+      'Поскольку файл большой, используйте меню «Поделиться» вместо прямого сохранения (например, в файловый менеджер или на Диск).';
+
+  @override
+  String get dlDownloadAnother => 'Скачать другую ссылку';
+
+  @override
+  String get delErrConfirm => 'Сначала установите флажок подтверждения.';
+
+  @override
+  String get delErrPwd => 'Введите пароль.';
+
+  @override
+  String get delDeleted => 'Ваш аккаунт был безвозвратно удалён.';
+
+  @override
+  String get delTitle => 'Удалить аккаунт';
+
+  @override
+  String get delIrreversible => 'Это действие необратимо.';
+
+  @override
+  String get delExplanation =>
+      'Ваш аккаунт и вся ваша информация (имя пользователя, хеш пароля, код восстановления) будут безвозвратно удалены. После этого вы не сможете снова войти с тем же именем пользователя.';
+
+  @override
+  String get delPwdLabel => 'Ваш пароль (для подтверждения)';
+
+  @override
+  String get delConfirmCheck => 'Я понимаю, что это необратимо.';
+
+  @override
+  String get delButton => 'Безвозвратно удалить мой аккаунт';
+
+  @override
+  String get sozTitle => 'Пользовательское соглашение';
+
+  @override
+  String get sozLastUpdate => 'Последнее обновление: июнь 2026';
+
+  @override
+  String get sozH1 => '1. ПРИНЯТИЕ';
+
+  @override
+  String get sozP1 =>
+      'Используя сервис SecureVault, вы считаетесь принявшим настоящее соглашение.';
+
+  @override
+  String get sozH2 => '2. ОПИСАНИЕ СЕРВИСА';
+
+  @override
+  String get sozP2 =>
+      'SecureVault — это сервис обмена файлами с архитектурой нулевого разглашения, использующий шифрование AES-256-GCM на стороне клиента. Файлы хранятся на сервере в зашифрованном виде, а ключ шифрования никогда не передаётся на сервер.';
+
+  @override
+  String get sozH3 => '3. УСЛОВИЯ ИСПОЛЬЗОВАНИЯ';
+
+  @override
+  String get sozP3 =>
+      'Категорически запрещается передавать следующий контент:\n• Незаконный контент\n• Нарушение авторских прав\n• Вредоносное ПО\n• Несанкционированная передача персональных данных';
+
+  @override
+  String get sozH4 => '4. ОГРАНИЧЕНИЯ СЕРВИСА';
+
+  @override
+  String get sozP4 =>
+      '• Незарегистрированные пользователи: лимит файла 5 МБ, 3 передачи в день\n• Участники: лимит файла 250 МБ\n• Все файлы: TTL 1 час (удаляются автоматически, если не скачаны)';
+
+  @override
+  String get sozH5 => '5. ОТКАЗ ОТ ОТВЕТСТВЕННОСТИ';
+
+  @override
+  String get sozP5 =>
+      'SecureVault не несёт ответственности за содержимое передаваемых файлов. В силу архитектуры нулевого разглашения доступ к содержимому файлов невозможен. Для более подробной информации ознакомьтесь с экраном «Условия использования и Отказ от ответственности».';
+
+  @override
+  String get sozH6 => '6. ИЗМЕНЕНИЯ СЕРВИСА';
+
+  @override
+  String get sozP6 =>
+      'SecureVault оставляет за собой право изменять условия обслуживания без предварительного уведомления.';
+
+  @override
+  String get sozH7 => '7. УДАЛЕНИЕ АККАУНТА';
+
+  @override
+  String get sozP7 =>
+      'Вы можете удалить свой аккаунт в любое время. Удаление безвозвратно стирает все ваши данные.';
+
+  @override
+  String get sozH8 => '8. КОНТАКТЫ';
+
+  @override
+  String get sozP8 => 'По вопросам: no-reply@sifreliveritransferi.com';
+
+  @override
+  String get kvkkTitle => 'Уведомление о конфиденциальности (KVKK)';
+
+  @override
+  String get kvkkH1 => '1. ОПЕРАТОР ДАННЫХ';
+
+  @override
+  String get kvkkP1 =>
+      'В качестве SecureVault (sifreliveritransferi.com) мы действуем как оператор данных в рамках турецкого Закона № 6698 о защите персональных данных.';
+
+  @override
+  String get kvkkH2 => '2. ОБРАБАТЫВАЕМЫЕ ПЕРСОНАЛЬНЫЕ ДАННЫЕ';
+
+  @override
+  String get kvkkP2a =>
+      'Наша система спроектирована с архитектурой нулевого разглашения. Обрабатываемые данные:';
+
+  @override
+  String get kvkkP2b =>
+      '• Имя пользователя: хранится как хеш SHA-256. Исходное имя пользователя на сервере не хранится.\n• Пароль: хранится в виде хеша по алгоритму Argon2id. Пароли в открытом виде никогда не хранятся.\n• IP-адрес: хранится как хеш SHA-256 кратковременно (24 часа) в Redis.\n• Адрес электронной почты (получатель): используется только для отправки ссылки, не хранится.\n• Содержимое файла: поступает на сервер в зашифрованном виде. Ключ шифрования никогда не отправляется на сервер.';
+
+  @override
+  String get kvkkH3 => '3. ЦЕЛЬ ОБРАБОТКИ ДАННЫХ';
+
+  @override
+  String get kvkkP3 =>
+      '• Создание и управление учётной записью пользователя\n• Предоставление сервиса безопасного обмена файлами\n• Предотвращение злоупотребления сервисом';
+
+  @override
+  String get kvkkH4 => '4. СРОК ХРАНЕНИЯ ДАННЫХ';
+
+  @override
+  String get kvkkP4 =>
+      '• Учётная запись: автоматически удаляется при отсутствии активного использования в течение 90 дней.\n• Файлы: удаляются сразу после скачивания или в течение 1 часа, если не скачаны.\n• Хеш IP: автоматически удаляется через 24 часа.';
+
+  @override
+  String get kvkkH5 => '5. ПРАВА СУБЪЕКТА ДАННЫХ';
+
+  @override
+  String get kvkkP5 =>
+      'В рамках статьи 11 KVKK;\n• Узнать, обрабатываются ли ваши данные\n• Потребовать удаления ваших данных\n• Вы можете удалить свою учётную запись через опцию «Удалить мой аккаунт».';
+
+  @override
+  String get kvkkH6 => '6. КОНТАКТЫ';
+
+  @override
+  String get kvkkP6 => 'По вопросам: no-reply@sifreliveritransferi.com';
+
+  @override
+  String get termsTitle => 'Условия использования';
+
+  @override
+  String get termsHeader => 'Условия использования и Отказ от ответственности';
+
+  @override
+  String get termsIntro =>
+      'Используя сервис SecureVault, вы принимаете следующие условия.';
+
+  @override
+  String get terms1Title =>
+      'Сквозное шифрование — Мы не имеем доступа к содержимому';
+
+  @override
+  String get terms1Body =>
+      'Ваши файлы и тексты шифруются с помощью AES-256-GCM на вашем устройстве ДО загрузки на сервер. Ключ расшифровки никогда не отправляется на наши серверы. Поэтому мы, как поставщик услуг, не можем просматривать, читать или восстанавливать содержимое отправляемых вами файлов (архитектура нулевого разглашения).';
+
+  @override
+  String get terms2Title =>
+      'Инструмент временной передачи — Не постоянное хранилище';
+
+  @override
+  String get terms2Body =>
+      'SecureVault НЕ является сервисом хранения / резервного копирования файлов. Загруженные файлы удаляются автоматически и безвозвратно лишь через короткое время (по умолчанию 1 час) или при первом скачивании — в зависимости от того, что наступит раньше. Всегда храните оригинал ваших файлов на собственном устройстве.';
+
+  @override
+  String get terms3Title => 'Ответственность за потерю данных не принимается';
+
+  @override
+  String get terms3Body =>
+      'Поскольку по своей природе файлы удаляются автоматически, SecureVault не может нести ответственность за ущерб, возникший из-за истечения срока действия файла, невозможности его скачивания или потери по любой технической причине. Резервное копирование важных данных полностью является вашей ответственностью.';
+
+  @override
+  String get terms4Title => 'Сторонняя инфраструктура';
+
+  @override
+  String get terms4Body =>
+      'Зашифрованные данные временно размещаются в облачной инфраструктуре Cloudflare R2. Поскольку данные зашифрованы, этот поставщик также не видит содержимое. Перебои в обслуживании или изменения политики поставщика инфраструктуры находятся вне нашего контроля.';
+
+  @override
+  String get terms5Title =>
+      'Законное использование — Ответственность лежит на пользователе';
+
+  @override
+  String get terms5Body =>
+      'SecureVault может использоваться только в законных целях. Вы полностью несёте ответственность за законность отправляемого вами содержимого. Поскольку содержимое зашифровано, его нельзя проверить; поэтому вся юридическая и уголовная ответственность за злоупотребление сервисом лежит на отправляющем пользователе.';
+
+  @override
+  String get terms6Title => 'Сервис предоставляется «как есть»';
+
+  @override
+  String get terms6Body =>
+      'SecureVault предоставляется «как есть» без каких-либо гарантий. В работе сервиса могут возникать перебои, задержки или ошибки. Не гарантируется, что сервис будет работать без перебоев или ошибок.';
+
+  @override
+  String get termsFooter =>
+      'Этот текст носит общий информационный характер и не заменяет юридическую консультацию.';
 }

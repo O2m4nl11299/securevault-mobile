@@ -1,5 +1,6 @@
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
+import '../l10n/app_localizations.dart';
 import 'package:share_plus/share_plus.dart';
 import '../services/upload_service.dart';
 
@@ -34,7 +35,7 @@ class _FolderUploadScreenState extends State<FolderUploadScreen> {
     final parts = path.split(RegExp(r'[\\/]')).where((s) => s.isNotEmpty).toList();
     setState(() {
       _folderPath = path;
-      _folderName = parts.isNotEmpty ? parts.last : 'klasör';
+      _folderName = parts.isNotEmpty ? parts.last : AppLocalizations.of(context).fldDefaultName;
       _result = null;
       _error = null;
       _phase = _Phase.idle;
@@ -47,12 +48,12 @@ class _FolderUploadScreenState extends State<FolderUploadScreen> {
   Future<void> _start() async {
     final path = _folderPath;
     if (path == null) {
-      setState(() => _error = 'Önce bir klasör seçin.');
+      setState(() => _error = AppLocalizations.of(context).fldErrPick);
       return;
     }
     final email = _emailCtrl.text.trim();
     if (!_isValidEmail(email)) {
-      setState(() => _error = 'Geçerli bir e-posta adresi girin.');
+      setState(() => _error = AppLocalizations.of(context).upErrEmail);
       return;
     }
     setState(() {
@@ -103,7 +104,7 @@ class _FolderUploadScreenState extends State<FolderUploadScreen> {
 
   Future<void> _share(String url) async {
     await SharePlus.instance.share(
-      ShareParams(text: url, subject: 'Şifreli klasör - SecureVault'),
+      ShareParams(text: url, subject: AppLocalizations.of(context).fldShareSubject),
     );
   }
 
@@ -116,8 +117,9 @@ class _FolderUploadScreenState extends State<FolderUploadScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final l = AppLocalizations.of(context);
     return Scaffold(
-      appBar: AppBar(title: const Text('Klasör Gönder')),
+      appBar: AppBar(title: Text(l.fldTitle)),
       body: SafeArea(
         child: SingleChildScrollView(
           padding: const EdgeInsets.all(24),
@@ -130,6 +132,7 @@ class _FolderUploadScreenState extends State<FolderUploadScreen> {
   }
 
   Widget _buildForm(BuildContext context) {
+    final l = AppLocalizations.of(context);
     final busy = _phase == _Phase.working;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -138,27 +141,25 @@ class _FolderUploadScreenState extends State<FolderUploadScreen> {
           onPressed: busy ? null : _pickFolder,
           icon: const Icon(Icons.folder_open),
           label: Text(
-            _folderName == null ? 'Klasör Seç' : _folderName!,
+            _folderName == null ? l.fldPick : _folderName!,
             overflow: TextOverflow.ellipsis,
           ),
         ),
         const SizedBox(height: 8),
-        const Text(
-          'Seçtiğiniz klasör, içindeki tüm dosyalarla birlikte tek bir .zip '
-          'dosyasında toplanıp şifrelenir. Alıcı, inen zip dosyasını kendi '
-          'cihazında açar.',
-          style: TextStyle(fontSize: 12, color: Colors.grey),
+        Text(
+          l.fldDescription,
+          style: const TextStyle(fontSize: 12, color: Colors.grey),
         ),
         const SizedBox(height: 16),
         TextField(
           controller: _emailCtrl,
           enabled: !busy,
           keyboardType: TextInputType.emailAddress,
-          decoration: const InputDecoration(
-            labelText: 'Alıcının e-posta adresi',
-            helperText: 'İndirme linki bu adrese otomatik gönderilir.',
+          decoration: InputDecoration(
+            labelText: l.upRecipientEmail,
+            helperText: l.fldRecipientHelper,
             helperMaxLines: 2,
-            border: OutlineInputBorder(),
+            border: const OutlineInputBorder(),
           ),
         ),
         const SizedBox(height: 16),
@@ -166,12 +167,12 @@ class _FolderUploadScreenState extends State<FolderUploadScreen> {
           controller: _extraPwdCtrl,
           enabled: !busy,
           obscureText: true,
-          decoration: const InputDecoration(
-            labelText: 'Ek şifre koruması (opsiyonel)',
-            helperText: 'Belirlerseniz, alıcıya bu şifreyi ayrıca iletmeniz gerekir.',
+          decoration: InputDecoration(
+            labelText: l.upExtraPwd,
+            helperText: l.txtExtraPwdHelper,
             helperMaxLines: 2,
-            border: OutlineInputBorder(),
-            prefixIcon: Icon(Icons.lock_outline),
+            border: const OutlineInputBorder(),
+            prefixIcon: const Icon(Icons.lock_outline),
           ),
         ),
         if (_error != null) ...[
@@ -180,10 +181,10 @@ class _FolderUploadScreenState extends State<FolderUploadScreen> {
         ],
         const SizedBox(height: 24),
         if (busy) ...[
-          const Text(
-            'Klasör paketleniyor ve şifreleniyor...',
+          Text(
+            l.fldPackaging,
             textAlign: TextAlign.center,
-            style: TextStyle(color: Colors.grey),
+            style: const TextStyle(color: Colors.grey),
           ),
           const SizedBox(height: 8),
           LinearProgressIndicator(value: _progress == 0 ? null : _progress),
@@ -192,16 +193,17 @@ class _FolderUploadScreenState extends State<FolderUploadScreen> {
         ] else
           FilledButton(
             onPressed: _start,
-            child: const Text('Paketle, Şifrele ve Gönder'),
+            child: Text(l.fldPackButton),
           ),
       ],
     );
   }
 
   Widget _buildSuccess(BuildContext context, UploadResult result) {
+    final l = AppLocalizations.of(context);
     final ttlText = result.ttlSeconds < 3600
-        ? '${(result.ttlSeconds / 60).round()} dakika'
-        : '${(result.ttlSeconds / 3600).round()} saat';
+        ? l.upMinutes((result.ttlSeconds / 60).round())
+        : l.upHours((result.ttlSeconds / 3600).round());
     final hasPwd = _extraPwdCtrl.text.trim().isNotEmpty;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -209,15 +211,15 @@ class _FolderUploadScreenState extends State<FolderUploadScreen> {
         const Icon(Icons.check_circle, color: Colors.greenAccent, size: 56),
         const SizedBox(height: 12),
         Text(
-          'Klasör paketlenip şifrelendi ve yüklendi.',
+          l.fldSuccess,
           textAlign: TextAlign.center,
           style: Theme.of(context).textTheme.titleMedium,
         ),
         const SizedBox(height: 6),
         Text(
           result.emailSent
-              ? '📧 İndirme linki ${_emailCtrl.text.trim()} adresine gönderildi.'
-              : '⚠ E-posta gönderilemedi. Linki aşağıdan paylaşabilirsiniz.',
+              ? l.upEmailSent(_emailCtrl.text.trim())
+              : l.upEmailFailed,
           textAlign: TextAlign.center,
           style: TextStyle(
             fontSize: 12,
@@ -226,7 +228,7 @@ class _FolderUploadScreenState extends State<FolderUploadScreen> {
         ),
         const SizedBox(height: 4),
         Text(
-          'Bu link $ttlText içinde geçersiz olur ve sadece BİR KEZ kullanılabilir.',
+          l.upLinkExpiry(ttlText),
           textAlign: TextAlign.center,
           style: const TextStyle(color: Colors.grey),
         ),
@@ -238,9 +240,9 @@ class _FolderUploadScreenState extends State<FolderUploadScreen> {
               color: Colors.amber.withValues(alpha: 0.12),
               borderRadius: BorderRadius.circular(8),
             ),
-            child: const Text(
-              'Ek şifre belirlediniz. Alıcıya bu şifreyi ayrıca iletmeyi unutmayın.',
-              style: TextStyle(color: Colors.amber, fontSize: 12),
+            child: Text(
+              l.txtExtraPwdWarning,
+              style: const TextStyle(color: Colors.amber, fontSize: 12),
             ),
           ),
         ],
@@ -260,12 +262,12 @@ class _FolderUploadScreenState extends State<FolderUploadScreen> {
         FilledButton.icon(
           onPressed: () => _share(result.downloadUrl),
           icon: const Icon(Icons.share),
-          label: const Text('Linki Paylaş'),
+          label: Text(l.upShareLink),
         ),
         const SizedBox(height: 8),
         OutlinedButton(
           onPressed: _reset,
-          child: const Text('Başka bir klasör gönder'),
+          child: Text(l.fldSendAnother),
         ),
       ],
     );

@@ -425,4 +425,327 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get infoReadTerms => 'Kullanım Şartlarını Oku';
+
+  @override
+  String get txtErrEmpty => 'Şifrelenecek metni girin.';
+
+  @override
+  String get txtShareSubject => 'Şifreli metin - SecureVault';
+
+  @override
+  String get txtTitle => 'Metin Şifrele';
+
+  @override
+  String get txtLabel => 'Şifrelenecek metin';
+
+  @override
+  String get txtHint =>
+      'Şifrelemek istediğiniz metni buraya yazın veya yapıştırın...';
+
+  @override
+  String txtCharCount(int count) {
+    return '$count karakter';
+  }
+
+  @override
+  String get txtRecipientHelper =>
+      'Kayıt amaçlı - linki bir sonraki ekranda paylaşırsınız.';
+
+  @override
+  String get txtExtraPwdHelper =>
+      'Belirlerseniz, alıcıya bu şifreyi ayrıca iletmeniz gerekir.';
+
+  @override
+  String get txtSuccess => 'Metin şifrelenip yüklendi.';
+
+  @override
+  String get txtExtraPwdWarning =>
+      'Ek şifre belirlediniz. Alıcıya bu şifreyi ayrıca iletmeyi unutmayın.';
+
+  @override
+  String get txtEncryptAnother => 'Başka bir metin şifrele';
+
+  @override
+  String get fldErrPick => 'Önce bir klasör seçin.';
+
+  @override
+  String get fldShareSubject => 'Şifreli klasör - SecureVault';
+
+  @override
+  String get fldTitle => 'Klasör Gönder';
+
+  @override
+  String get fldDefaultName => 'klasör';
+
+  @override
+  String get fldPick => 'Klasör Seç';
+
+  @override
+  String get fldDescription =>
+      'Seçtiğiniz klasör, içindeki tüm dosyalarla birlikte tek bir .zip dosyasında toplanıp şifrelenir. Alıcı, inen zip dosyasını kendi cihazında açar.';
+
+  @override
+  String get fldRecipientHelper =>
+      'İndirme linki bu adrese otomatik gönderilir.';
+
+  @override
+  String get fldPackaging => 'Klasör paketleniyor ve şifreleniyor...';
+
+  @override
+  String get fldPackButton => 'Paketle, Şifrele ve Gönder';
+
+  @override
+  String get fldSuccess => 'Klasör paketlenip şifrelendi ve yüklendi.';
+
+  @override
+  String get fldSendAnother => 'Başka bir klasör gönder';
+
+  @override
+  String get dlErrInvalid => 'Geçersiz veya tanınmayan SecureVault linki.';
+
+  @override
+  String get dlErrPwdProtected =>
+      'Bu link ek şifre korumalı — mobil uygulamada bu özellik henüz desteklenmiyor. Linki bir tarayıcıda açın.';
+
+  @override
+  String dlSaved(String path) {
+    return 'Kaydedildi: $path';
+  }
+
+  @override
+  String dlSaveFailed(String error) {
+    return 'Kaydetme başarısız: $error';
+  }
+
+  @override
+  String get dlTitle => 'Dosya İndir';
+
+  @override
+  String get dlLinkLabel => 'SecureVault linki';
+
+  @override
+  String get dlPasteTooltip => 'Panodan yapıştır';
+
+  @override
+  String dlDownloading(String percent) {
+    return 'İndiriliyor ve şifresi çözülüyor... %$percent';
+  }
+
+  @override
+  String get dlButton => 'İndir ve Şifresini Çöz';
+
+  @override
+  String get dlNote =>
+      'Not: link tek kullanımlıktır — bir kez indirildikten sonra tekrar çalışmaz.';
+
+  @override
+  String dlSuccess(String fileName) {
+    return '$fileName\nşifresi çözülerek kaydedildi.';
+  }
+
+  @override
+  String get dlSaveToDevice => 'Cihaza Kaydet';
+
+  @override
+  String get dlShare => 'Paylaş';
+
+  @override
+  String get dlLargeFileNote =>
+      'Dosya büyük olduğu için doğrudan kaydetme yerine paylaşım menüsünü kullanın (örn. bir dosya yöneticisine veya Drive\'a).';
+
+  @override
+  String get dlDownloadAnother => 'Başka bir link indir';
+
+  @override
+  String get delErrConfirm => 'Lütfen önce onay kutusunu işaretleyin.';
+
+  @override
+  String get delErrPwd => 'Şifreni gir.';
+
+  @override
+  String get delDeleted => 'Hesabın kalıcı olarak silindi.';
+
+  @override
+  String get delTitle => 'Hesabı Sil';
+
+  @override
+  String get delIrreversible => 'Bu işlem geri alınamaz.';
+
+  @override
+  String get delExplanation =>
+      'Hesabın ve tüm bilgilerin (kullanıcı adı, şifre hash\'i, kurtarma kodu) kalıcı olarak silinir. Bu işlemden sonra aynı kullanıcı adıyla tekrar giriş yapamazsın.';
+
+  @override
+  String get delPwdLabel => 'Şifren (onay için)';
+
+  @override
+  String get delConfirmCheck => 'Bunun geri alınamaz olduğunu anlıyorum.';
+
+  @override
+  String get delButton => 'Hesabımı Kalıcı Olarak Sil';
+
+  @override
+  String get sozTitle => 'Kullanım Sözleşmesi';
+
+  @override
+  String get sozLastUpdate => 'Son güncelleme: Haziran 2026';
+
+  @override
+  String get sozH1 => '1. KABUL';
+
+  @override
+  String get sozP1 =>
+      'SecureVault hizmetini kullanarak bu sözleşmeyi kabul etmiş sayılırsınız.';
+
+  @override
+  String get sozH2 => '2. HİZMET TANIMI';
+
+  @override
+  String get sozP2 =>
+      'SecureVault, istemci tarafı AES-256-GCM şifreleme kullanan, sıfır bilgi mimarisine sahip bir dosya paylaşım hizmetidir. Dosyalar sunucuda şifreli saklanır ve şifre anahtarı sunucuya iletilmez.';
+
+  @override
+  String get sozH3 => '3. KULLANIM KOŞULLARI';
+
+  @override
+  String get sozP3 =>
+      'Aşağıdaki içerikleri paylaşmak kesinlikle yasaktır:\n• Yasadışı içerik\n• Telif hakkı ihlali\n• Kötü amaçlı yazılım\n• Kişisel verilerin izinsiz paylaşımı';
+
+  @override
+  String get sozH4 => '4. HİZMET SINIRLARI';
+
+  @override
+  String get sozP4 =>
+      '• Üye olmayanlar: 5 MB dosya limiti, günde 3 gönderim\n• Üyeler: 250 MB dosya limiti\n• Tüm dosyalar: 1 saat TTL (indirilmezse otomatik silinir)';
+
+  @override
+  String get sozH5 => '5. SORUMLULUK REDDİ';
+
+  @override
+  String get sozP5 =>
+      'SecureVault, paylaşılan dosyaların içeriğinden sorumlu değildir. Sıfır bilgi mimarisi gereği dosya içeriğine erişilememektedir. Daha kapsamlı bilgi için Kullanım Şartları ve Sorumluluk Reddi ekranını inceleyebilirsiniz.';
+
+  @override
+  String get sozH6 => '6. HİZMET DEĞİŞİKLİKLERİ';
+
+  @override
+  String get sozP6 =>
+      'SecureVault, hizmet koşullarını önceden bildirimde bulunmaksızın değiştirme hakkını saklı tutar.';
+
+  @override
+  String get sozH7 => '7. HESAP SİLME';
+
+  @override
+  String get sozP7 =>
+      'Hesabınızı istediğiniz zaman silebilirsiniz. Silme işlemi tüm verilerinizi kalıcı olarak kaldırır.';
+
+  @override
+  String get sozH8 => '8. İLETİŞİM';
+
+  @override
+  String get sozP8 => 'Sorularınız için: no-reply@sifreliveritransferi.com';
+
+  @override
+  String get kvkkTitle => 'KVKK Aydınlatma Metni';
+
+  @override
+  String get kvkkH1 => '1. VERİ SORUMLUSU';
+
+  @override
+  String get kvkkP1 =>
+      'SecureVault (sifreliveritransferi.com) olarak, 6698 sayılı Kişisel Verilerin Korunması Kanunu kapsamında veri sorumlusu sıfatıyla hareket etmekteyiz.';
+
+  @override
+  String get kvkkH2 => '2. İŞLENEN KİŞİSEL VERİLER';
+
+  @override
+  String get kvkkP2a =>
+      'Sistemimiz sıfır bilgi (zero-knowledge) mimarisi ile tasarlanmıştır. İşlenen veriler:';
+
+  @override
+  String get kvkkP2b =>
+      '• Kullanıcı adı: SHA-256 hash olarak saklanır. Orijinal kullanıcı adı sunucuda tutulmaz.\n• Şifre: Argon2id algoritması ile hash\'lenerek saklanır. Düz metin şifre asla tutulmaz.\n• IP adresi: SHA-256 hash olarak kısa süreli (24 saat) Redis\'te tutulur.\n• E-posta adresi (alıcı): Yalnızca link gönderimi için kullanılır, saklanmaz.\n• Dosya içeriği: Sunucuya şifreli olarak ulaşır. Şifre anahtarı sunucuya hiçbir zaman gönderilmez.';
+
+  @override
+  String get kvkkH3 => '3. VERİLERİN İŞLENME AMACI';
+
+  @override
+  String get kvkkP3 =>
+      '• Kullanıcı hesabının oluşturulması ve yönetimi\n• Güvenli dosya paylaşımı hizmetinin sunulması\n• Hizmet kötüye kullanımının önlenmesi';
+
+  @override
+  String get kvkkH4 => '4. VERİLERİN SAKLANMA SÜRESİ';
+
+  @override
+  String get kvkkP4 =>
+      '• Kullanıcı hesabı: 90 gün aktif kullanım olmaması halinde otomatik silinir.\n• Dosyalar: İndirildikten sonra anında, indirilmezse 1 saat içinde silinir.\n• IP hash: 24 saat sonra otomatik silinir.';
+
+  @override
+  String get kvkkH5 => '5. VERİ SAHİBİNİN HAKLARI';
+
+  @override
+  String get kvkkP5 =>
+      'KVKK madde 11 kapsamında;\n• Verilerinizin işlenip işlenmediğini öğrenme\n• Verilerinizin silinmesini talep etme\n• Hesabınızı \"Hesabımı Sil\" seçeneğinden silebilirsiniz.';
+
+  @override
+  String get kvkkH6 => '6. İLETİŞİM';
+
+  @override
+  String get kvkkP6 => 'Sorularınız için: no-reply@sifreliveritransferi.com';
+
+  @override
+  String get termsTitle => 'Kullanım Şartları';
+
+  @override
+  String get termsHeader => 'Kullanım Şartları ve Sorumluluk Reddi';
+
+  @override
+  String get termsIntro =>
+      'SecureVault hizmetini kullanarak aşağıdaki şartları kabul etmiş olursunuz.';
+
+  @override
+  String get terms1Title => 'Uçtan Uca Şifreleme — İçeriğe Erişemeyiz';
+
+  @override
+  String get terms1Body =>
+      'Dosyalarınız ve metinleriniz, sunucuya yüklenmeden ÖNCE kendi cihazınızda AES-256-GCM ile şifrelenir. Şifre çözme anahtarı hiçbir zaman sunucularımıza gönderilmez. Bu nedenle biz, hizmet sağlayıcı olarak, gönderdiğiniz dosyaların içeriğini görüntüleyemez, okuyamaz veya kurtaramayız (zero-knowledge mimarisi).';
+
+  @override
+  String get terms2Title => 'Geçici Aktarım Aracı — Kalıcı Depolama Değildir';
+
+  @override
+  String get terms2Body =>
+      'SecureVault bir dosya SAKLAMA / yedekleme hizmeti DEĞİLDİR. Yüklenen dosyalar yalnızca kısa bir süre (varsayılan 1 saat) veya ilk indirme gerçekleştiğinde, hangisi önce olursa, otomatik ve kalıcı olarak silinir. Dosyalarınızın asıl kopyasını her zaman kendi cihazınızda saklayın.';
+
+  @override
+  String get terms3Title => 'Veri Kaybından Sorumluluk Kabul Edilmez';
+
+  @override
+  String get terms3Body =>
+      'Hizmetin doğası gereği dosyalar otomatik silindiği için, bir dosyanın süresi dolması, indirilememesi veya herhangi bir teknik nedenle kaybolmasından doğabilecek zararlardan SecureVault sorumlu tutulamaz. Önemli verilerinizin yedeğini almak tamamen sizin sorumluluğunuzdadır.';
+
+  @override
+  String get terms4Title => 'Üçüncü Taraf Altyapı';
+
+  @override
+  String get terms4Body =>
+      'Şifreli veriler, Cloudflare R2 bulut altyapısında geçici olarak barındırılır. Veriler şifreli olduğu için bu sağlayıcı da içeriği göremez. Altyapı sağlayıcısının hizmet kesintileri veya politika değişiklikleri kontrolümüz dışındadır.';
+
+  @override
+  String get terms5Title => 'Yasal Kullanım — Sorumluluk Kullanıcıdadır';
+
+  @override
+  String get terms5Body =>
+      'SecureVault yalnızca yasal amaçlarla kullanılabilir. Gönderdiğiniz içeriğin yasalara uygunluğundan tamamen siz sorumlusunuz. İçerik şifreli olduğu için denetlenemez; bu nedenle hizmetin kötüye kullanımından doğan her türlü hukuki ve cezai sorumluluk gönderen kullanıcıya aittir.';
+
+  @override
+  String get terms6Title => 'Hizmet \"Olduğu Gibi\" Sunulur';
+
+  @override
+  String get terms6Body =>
+      'SecureVault, herhangi bir garanti verilmeksizin \"olduğu gibi\" sunulur. Hizmette kesinti, gecikme veya hata olabilir. Hizmetin kesintisiz veya hatasız çalışacağı garanti edilmez.';
+
+  @override
+  String get termsFooter =>
+      'Bu metin genel bir bilgilendirme niteliğindedir ve hukuki tavsiye yerine geçmez.';
 }

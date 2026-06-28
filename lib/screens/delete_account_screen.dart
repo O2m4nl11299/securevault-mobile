@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../l10n/app_localizations.dart';
 import '../services/auth_service.dart';
 import 'login_screen.dart';
 
@@ -22,11 +23,11 @@ class _DeleteAccountScreenState extends State<DeleteAccountScreen> {
 
   Future<void> _submit() async {
     if (!_confirmed) {
-      setState(() => _error = 'Lütfen önce onay kutusunu işaretleyin.');
+      setState(() => _error = AppLocalizations.of(context).delErrConfirm);
       return;
     }
     if (_passwordCtrl.text.isEmpty) {
-      setState(() => _error = 'Şifreni gir.');
+      setState(() => _error = AppLocalizations.of(context).delErrPwd);
       return;
     }
 
@@ -41,7 +42,7 @@ class _DeleteAccountScreenState extends State<DeleteAccountScreen> {
       await _authService.deleteAccount(password: _passwordCtrl.text);
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Hesabın kalıcı olarak silindi.')),
+        SnackBar(content: Text(AppLocalizations.of(context).delDeleted)),
       );
       Navigator.of(context).pushAndRemoveUntil(
         MaterialPageRoute(builder: (_) => const LoginScreen()),
@@ -64,8 +65,9 @@ class _DeleteAccountScreenState extends State<DeleteAccountScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final l = AppLocalizations.of(context);
     return Scaffold(
-      appBar: AppBar(title: const Text('Hesabı Sil')),
+      appBar: AppBar(title: Text(l.delTitle)),
       body: SafeArea(
         child: SingleChildScrollView(
           padding: const EdgeInsets.all(24),
@@ -76,26 +78,24 @@ class _DeleteAccountScreenState extends State<DeleteAccountScreen> {
                   color: Colors.orangeAccent, size: 56),
               const SizedBox(height: 12),
               Text(
-                'Bu işlem geri alınamaz.',
+                l.delIrreversible,
                 textAlign: TextAlign.center,
                 style: Theme.of(context).textTheme.titleMedium,
               ),
               const SizedBox(height: 8),
-              const Text(
-                'Hesabın ve tüm bilgilerin (kullanıcı adı, şifre hash\'i, '
-                'kurtarma kodu) kalıcı olarak silinir. Bu işlemden sonra '
-                'aynı kullanıcı adıyla tekrar giriş yapamazsın.',
+              Text(
+                l.delExplanation,
                 textAlign: TextAlign.center,
-                style: TextStyle(color: Colors.grey),
+                style: const TextStyle(color: Colors.grey),
               ),
               const SizedBox(height: 24),
               TextField(
                 controller: _passwordCtrl,
                 obscureText: true,
                 enabled: !_loading,
-                decoration: const InputDecoration(
-                  labelText: 'Şifren (onay için)',
-                  border: OutlineInputBorder(),
+                decoration: InputDecoration(
+                  labelText: l.delPwdLabel,
+                  border: const OutlineInputBorder(),
                 ),
                 onSubmitted: (_) => _submit(),
               ),
@@ -105,9 +105,9 @@ class _DeleteAccountScreenState extends State<DeleteAccountScreen> {
                 onChanged: _loading
                     ? null
                     : (v) => setState(() => _confirmed = v ?? false),
-                title: const Text(
-                  'Bunun geri alınamaz olduğunu anlıyorum.',
-                  style: TextStyle(fontSize: 14),
+                title: Text(
+                  l.delConfirmCheck,
+                  style: const TextStyle(fontSize: 14),
                 ),
                 controlAffinity: ListTileControlAffinity.leading,
                 contentPadding: EdgeInsets.zero,
@@ -131,7 +131,7 @@ class _DeleteAccountScreenState extends State<DeleteAccountScreen> {
                           color: Colors.white,
                         ),
                       )
-                    : const Text('Hesabımı Kalıcı Olarak Sil'),
+                    : Text(l.delButton),
               ),
             ],
           ),
