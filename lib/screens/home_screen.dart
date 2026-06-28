@@ -1,4 +1,5 @@
 ﻿import 'package:flutter/material.dart';
+import '../l10n/app_localizations.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../services/auth_service.dart';
 import '../services/secure_storage_service.dart';
@@ -46,7 +47,7 @@ class _HomeScreenState extends State<HomeScreen> {
     if (!await launchUrl(uri, mode: LaunchMode.externalApplication)) {
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Site açılamadı.')),
+        SnackBar(content: Text(AppLocalizations.of(context).homeSiteError)),
       );
     }
   }
@@ -62,6 +63,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final l = AppLocalizations.of(context);
     return Scaffold(
       appBar: AppBar(
         title: Column(
@@ -70,7 +72,7 @@ class _HomeScreenState extends State<HomeScreen> {
           children: [
             const Text('SecureVault'),
             Text(
-              'Uçtan Uca Şifreli Dosya Paylaşımı',
+              l.appSlogan,
               style: TextStyle(
                 fontSize: 11,
                 fontWeight: FontWeight.normal,
@@ -85,19 +87,19 @@ class _HomeScreenState extends State<HomeScreen> {
               MaterialPageRoute(builder: (_) => const PremiumScreen()),
             ),
             icon: const Icon(Icons.workspace_premium, color: Colors.amber),
-            tooltip: 'Premium',
+            tooltip: l.homeTooltipPremium,
           ),
           IconButton(
             onPressed: () => Navigator.of(context).push(
               MaterialPageRoute(builder: (_) => const InfoScreen()),
             ),
             icon: const Icon(Icons.info_outline),
-            tooltip: 'Bilgi ve Güvenlik',
+            tooltip: l.homeTooltipInfo,
           ),
           IconButton(
             onPressed: _logout,
             icon: const Icon(Icons.logout),
-            tooltip: 'Çıkış yap',
+            tooltip: l.homeTooltipLogout,
           ),
         ],
       ),
@@ -108,12 +110,12 @@ class _HomeScreenState extends State<HomeScreen> {
             const Icon(Icons.check_circle, color: Colors.greenAccent, size: 56),
             const SizedBox(height: 16),
             Text(
-              'Giriş yapıldı: ${_username ?? "..."}',
+              l.homeLoggedInAs(_username ?? "..."),
               style: Theme.of(context).textTheme.titleMedium,
             ),
             const SizedBox(height: 4),
             Text(
-              'Plan: ${_plan ?? "..."}',
+              l.homePlan(_plan ?? "..."),
               style: Theme.of(context).textTheme.bodyMedium,
             ),
             const SizedBox(height: 24),
@@ -122,7 +124,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 MaterialPageRoute(builder: (_) => const UploadScreen()),
               ),
               icon: const Icon(Icons.upload_file),
-              label: const Text('Dosya Gönder'),
+              label: Text(l.homeSendFile),
             ),
             const SizedBox(height: 12),
             FilledButton.icon(
@@ -130,7 +132,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 MaterialPageRoute(builder: (_) => const FolderUploadScreen()),
               ),
               icon: const Icon(Icons.drive_folder_upload),
-              label: const Text('Klasör Gönder'),
+              label: Text(l.homeSendFolder),
             ),
             const SizedBox(height: 12),
             OutlinedButton.icon(
@@ -138,7 +140,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 MaterialPageRoute(builder: (_) => const TextEncryptScreen()),
               ),
               icon: const Icon(Icons.text_fields),
-              label: const Text('Metin Şifrele'),
+              label: Text(l.homeEncryptText),
             ),
             const SizedBox(height: 12),
             OutlinedButton.icon(
@@ -146,7 +148,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 MaterialPageRoute(builder: (_) => const DownloadScreen()),
               ),
               icon: const Icon(Icons.download),
-              label: const Text('Dosya İndir'),
+              label: Text(l.homeDownloadFile),
             ),
             const SizedBox(height: 32),
             TextButton(
@@ -154,7 +156,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 MaterialPageRoute(builder: (_) => const DeleteAccountScreen()),
               ),
               style: TextButton.styleFrom(foregroundColor: Colors.redAccent),
-              child: const Text('Hesabımı Sil'),
+              child: Text(l.homeDeleteAccount),
             ),
             const SizedBox(height: 24),
             TextButton.icon(

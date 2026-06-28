@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../l10n/app_localizations.dart';
 import '../services/auth_service.dart';
 import 'terms_screen.dart';
 import 'kvkk_screen.dart';
@@ -24,11 +25,11 @@ class _RegisterScreenState extends State<RegisterScreen> {
   Future<void> _submit() async {
     if (!_formKey.currentState!.validate()) return;
     if (!_kvkkAccepted) {
-      setState(() => _error = 'Devam etmek için KVKK Aydınlatma Metni ve Kullanım Sözleşmesi\'ni onaylamanız gerekiyor.');
+      setState(() => _error = AppLocalizations.of(context).regErrKvkk);
       return;
     }
     if (!_termsAccepted) {
-      setState(() => _error = 'Devam etmek için Kullanım Şartları ve Sorumluluk Reddi\'ni onaylamanız gerekiyor.');
+      setState(() => _error = AppLocalizations.of(context).regErrTerms);
       return;
     }
     setState(() {
@@ -57,21 +58,20 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final l = AppLocalizations.of(context);
     // Kayit basariliysa, kurtarma kodunu goster. Sunucu bu kodu BIR DAHA
     // gondermez - kullanici kaydetmeden ekrandan cikarsa kod kaybolur.
     if (_recoveryToken != null) {
       return Scaffold(
-        appBar: AppBar(title: const Text('Hesap Oluşturuldu')),
+        appBar: AppBar(title: Text(l.regAccountCreated)),
         body: Padding(
           padding: const EdgeInsets.all(24),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              const Text(
-                'Kurtarma kodunuz - bunu güvenli bir yere kaydedin. '
-                'Şifrenizi unutursanız hesabınıza sadece bu kodla geri '
-                'dönebilirsiniz ve bu kod bir daha gösterilmeyecek.',
-                style: TextStyle(fontWeight: FontWeight.bold),
+              Text(
+                l.regRecoveryInfo,
+                style: const TextStyle(fontWeight: FontWeight.bold),
               ),
               const SizedBox(height: 16),
               Container(
@@ -88,7 +88,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
               const SizedBox(height: 24),
               FilledButton(
                 onPressed: () => Navigator.of(context).popUntil((r) => r.isFirst),
-                child: const Text('Kaydettim, giriş ekranına dön'),
+                child: Text(l.regSavedReturnLogin),
               ),
             ],
           ),
@@ -96,7 +96,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
       );
     }
     return Scaffold(
-      appBar: AppBar(title: const Text('Kayıt Ol')),
+      appBar: AppBar(title: Text(l.regTitle)),
       body: Center(
         child: SingleChildScrollView(
           padding: const EdgeInsets.all(24),
@@ -108,13 +108,13 @@ class _RegisterScreenState extends State<RegisterScreen> {
               children: [
                 TextFormField(
                   controller: _usernameCtrl,
-                  decoration: const InputDecoration(
-                    labelText: 'Kullanıcı adı (3-32 karakter)',
-                    border: OutlineInputBorder(),
+                  decoration: InputDecoration(
+                    labelText: l.regUsernameLabel,
+                    border: const OutlineInputBorder(),
                   ),
                   validator: (v) {
                     final t = v?.trim() ?? '';
-                    if (t.length < 3 || t.length > 32) return '3-32 karakter olmalı';
+                    if (t.length < 3 || t.length > 32) return l.regUsernameError;
                     return null;
                   },
                 ),
@@ -122,12 +122,12 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 TextFormField(
                   controller: _passwordCtrl,
                   obscureText: true,
-                  decoration: const InputDecoration(
-                    labelText: 'Şifre (en az 8 karakter)',
-                    border: OutlineInputBorder(),
+                  decoration: InputDecoration(
+                    labelText: l.regPasswordLabel,
+                    border: const OutlineInputBorder(),
                   ),
                   validator: (v) =>
-                      (v == null || v.length < 8) ? 'En az 8 karakter olmalı' : null,
+                      (v == null || v.length < 8) ? l.regPasswordError : null,
                 ),
                 const SizedBox(height: 16),
                 // KVKK + Kullanim Sozlesmesi onayi
@@ -146,26 +146,26 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         padding: const EdgeInsets.only(top: 12),
                         child: Wrap(
                           children: [
-                            const Text('Okudum, onaylıyorum: '),
+                            Text(l.regIReadAccept),
                             GestureDetector(
                               onTap: () => Navigator.of(context).push(
                                 MaterialPageRoute(builder: (_) => const KvkkScreen()),
                               ),
                               child: Text(
-                                'KVKK Aydınlatma Metni',
+                                l.regKvkkText,
                                 style: TextStyle(
                                   color: Theme.of(context).colorScheme.primary,
                                   decoration: TextDecoration.underline,
                                 ),
                               ),
                             ),
-                            const Text(' ve '),
+                            Text(l.regAnd),
                             GestureDetector(
                               onTap: () => Navigator.of(context).push(
                                 MaterialPageRoute(builder: (_) => const SozlesmeScreen()),
                               ),
                               child: Text(
-                                'Kullanım Sözleşmesi',
+                                l.regAgreementText,
                                 style: TextStyle(
                                   color: Theme.of(context).colorScheme.primary,
                                   decoration: TextDecoration.underline,
@@ -194,13 +194,13 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         padding: const EdgeInsets.only(top: 12),
                         child: Wrap(
                           children: [
-                            const Text('Okudum, onaylıyorum: '),
+                            Text(l.regIReadAccept),
                             GestureDetector(
                               onTap: () => Navigator.of(context).push(
                                 MaterialPageRoute(builder: (_) => const TermsScreen()),
                               ),
                               child: Text(
-                                'Kullanım Şartları ve Sorumluluk Reddi',
+                                l.regTermsText,
                                 style: TextStyle(
                                   color: Theme.of(context).colorScheme.primary,
                                   decoration: TextDecoration.underline,
@@ -226,7 +226,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           width: 20,
                           child: CircularProgressIndicator(strokeWidth: 2),
                         )
-                      : const Text('Kayıt Ol'),
+                      : Text(l.regButton),
                 ),
               ],
             ),

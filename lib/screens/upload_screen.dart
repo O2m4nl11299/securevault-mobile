@@ -1,5 +1,6 @@
 ﻿import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
+import '../l10n/app_localizations.dart';
 import 'package:share_plus/share_plus.dart';
 import '../services/upload_service.dart';
 
@@ -45,12 +46,12 @@ class _UploadScreenState extends State<UploadScreen> {
     final file = _pickedFile;
     final path = file?.path;
     if (file == null || path == null) {
-      setState(() => _error = 'Once bir dosya secin.');
+      setState(() => _error = AppLocalizations.of(context).upErrPickFile);
       return;
     }
     final email = _emailCtrl.text.trim();
     if (!_isValidEmail(email)) {
-      setState(() => _error = 'Gecerli bir e-posta adresi girin.');
+      setState(() => _error = AppLocalizations.of(context).upErrEmail);
       return;
     }
     setState(() {
@@ -101,7 +102,7 @@ class _UploadScreenState extends State<UploadScreen> {
 
   Future<void> _share(String url) async {
     await SharePlus.instance.share(
-      ShareParams(text: url, subject: 'Sifreli dosya - SecureVault'),
+      ShareParams(text: url, subject: AppLocalizations.of(context).upShareSubject),
     );
   }
 
@@ -119,8 +120,9 @@ class _UploadScreenState extends State<UploadScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final l = AppLocalizations.of(context);
     return Scaffold(
-      appBar: AppBar(title: const Text('Dosya Gonder')),
+      appBar: AppBar(title: Text(l.upTitle)),
       body: SafeArea(
         child: SingleChildScrollView(
           padding: const EdgeInsets.all(24),
@@ -133,6 +135,7 @@ class _UploadScreenState extends State<UploadScreen> {
   }
 
   Widget _buildForm(BuildContext context) {
+    final l = AppLocalizations.of(context);
     final busy = _phase == _Phase.working;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -142,7 +145,7 @@ class _UploadScreenState extends State<UploadScreen> {
           icon: const Icon(Icons.attach_file),
           label: Text(
             _pickedFile == null
-                ? 'Dosya Sec'
+                ? l.upPickFile
                 : '${_pickedFile!.name} (${_formatSize(_pickedFile!.size)})',
             overflow: TextOverflow.ellipsis,
           ),
@@ -152,12 +155,11 @@ class _UploadScreenState extends State<UploadScreen> {
           controller: _emailCtrl,
           enabled: !busy,
           keyboardType: TextInputType.emailAddress,
-          decoration: const InputDecoration(
-            labelText: 'Alicinin e-posta adresi',
-            helperText: 'Kayit amacli - dosya bu adrese otomatik gonderilmez,\n'
-                'linki bir sonraki ekranda istediginiz uygulamadan paylasirsiniz.',
+          decoration: InputDecoration(
+            labelText: l.upRecipientEmail,
+            helperText: l.upRecipientHelper,
             helperMaxLines: 2,
-            border: OutlineInputBorder(),
+            border: const OutlineInputBorder(),
           ),
         ),
         const SizedBox(height: 16),
@@ -165,13 +167,12 @@ class _UploadScreenState extends State<UploadScreen> {
           controller: _extraPwdCtrl,
           enabled: !busy,
           obscureText: true,
-          decoration: const InputDecoration(
-            labelText: 'Ek sifre korumasi (opsiyonel)',
-            helperText: 'Belirlerseniz, aliciya bu sifreyi ayrica iletmeniz\n'
-                'gerekir. Dosya, sifre girilmeden indirilemez.',
+          decoration: InputDecoration(
+            labelText: l.upExtraPwd,
+            helperText: l.upExtraPwdHelper,
             helperMaxLines: 2,
-            border: OutlineInputBorder(),
-            prefixIcon: Icon(Icons.lock_outline),
+            border: const OutlineInputBorder(),
+            prefixIcon: const Icon(Icons.lock_outline),
           ),
         ),
         if (_error != null) ...[
@@ -192,16 +193,17 @@ class _UploadScreenState extends State<UploadScreen> {
         ] else
           FilledButton(
             onPressed: _startUpload,
-            child: const Text('Sifrele ve Yukle'),
+            child: Text(l.upEncryptUpload),
           ),
       ],
     );
   }
 
   Widget _buildSuccess(BuildContext context, UploadResult result) {
+    final l = AppLocalizations.of(context);
     final ttlText = result.ttlSeconds < 3600
-        ? '${(result.ttlSeconds / 60).round()} dakika'
-        : '${(result.ttlSeconds / 3600).round()} saat';
+        ? l.upMinutes((result.ttlSeconds / 60).round())
+        : l.upHours((result.ttlSeconds / 3600).round());
     final hasPwd = _extraPwdCtrl.text.trim().isNotEmpty;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -209,15 +211,15 @@ class _UploadScreenState extends State<UploadScreen> {
         const Icon(Icons.check_circle, color: Colors.greenAccent, size: 56),
         const SizedBox(height: 12),
         Text(
-          'Dosya sifrelenip yuklendi.',
+          l.upSuccess,
           textAlign: TextAlign.center,
           style: Theme.of(context).textTheme.titleMedium,
         ),
         const SizedBox(height: 6),
         Text(
           result.emailSent
-              ? '📧 İndirme linki ${_emailCtrl.text.trim()} adresine gönderildi.'
-              : '⚠ E-posta gönderilemedi. Linki aşağıdan paylaşabilirsiniz.',
+              ? l.upEmailSent(_emailCtrl.text.trim())
+              : l.upEmailFailed,
           textAlign: TextAlign.center,
           style: TextStyle(
             fontSize: 12,
@@ -226,7 +228,7 @@ class _UploadScreenState extends State<UploadScreen> {
         ),
         const SizedBox(height: 4),
         Text(
-          'Bu link $ttlText icinde gecersiz olur ve sadece BIR KEZ kullanilabilir.',
+          l.upLinkExpiry(ttlText),
           textAlign: TextAlign.center,
           style: const TextStyle(color: Colors.grey),
         ),
@@ -238,9 +240,9 @@ class _UploadScreenState extends State<UploadScreen> {
               color: Colors.amber.withValues(alpha: 0.12),
               borderRadius: BorderRadius.circular(8),
             ),
-            child: const Text(
-              'Ek sifre belirlediniz. Aliciya bu sifreyi ayrica (linkten farkli bir kanaldan) iletmeyi unutmayin.',
-              style: TextStyle(color: Colors.amber, fontSize: 12),
+            child: Text(
+              l.upExtraPwdWarning,
+              style: const TextStyle(color: Colors.amber, fontSize: 12),
             ),
           ),
         ],
@@ -260,12 +262,12 @@ class _UploadScreenState extends State<UploadScreen> {
         FilledButton.icon(
           onPressed: () => _share(result.downloadUrl),
           icon: const Icon(Icons.share),
-          label: const Text('Linki Paylas'),
+          label: Text(l.upShareLink),
         ),
         const SizedBox(height: 8),
         OutlinedButton(
           onPressed: _reset,
-          child: const Text('Baska bir dosya gonder'),
+          child: Text(l.upSendAnother),
         ),
       ],
     );

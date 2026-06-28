@@ -1,9 +1,13 @@
 {
   "@@locale": "tr",
   "appName": "SecureVault",
-  "@appName": { "description": "Uygulama adi" },
+  "@appName": {
+    "description": "Uygulama adi"
+  },
   "appSlogan": "Uçtan Uca Şifreli Dosya Paylaşımı",
-  "@appSlogan": { "description": "Giris ekrani slogani" },
+  "@appSlogan": {
+    "description": "Giris ekrani slogani"
+  },
   "loginUsername": "Kullanıcı adı",
   "loginPassword": "Şifre",
   "loginMin3": "En az 3 karakter",
@@ -11,5 +15,93 @@
   "loginRemember": "Beni hatırla",
   "loginRememberSub": "Kapatıp açtığınızda oturum açık kalsın",
   "loginButton": "Giriş Yap",
-  "loginNoAccount": "Hesabın yok mu? Kayıt ol"
+  "loginNoAccount": "Hesabın yok mu? Kayıt ol",
+  "homeTooltipPremium": "Premium",
+  "homeTooltipInfo": "Bilgi ve Güvenlik",
+  "homeTooltipLogout": "Çıkış yap",
+  "homeSiteError": "Site açılamadı.",
+  "homeLoggedInAs": "Giriş yapıldı: {username}",
+  "@homeLoggedInAs": {
+    "placeholders": {
+      "username": {
+        "type": "String"
+      }
+    }
+  },
+  "homePlan": "Plan: {plan}",
+  "@homePlan": {
+    "placeholders": {
+      "plan": {
+        "type": "String"
+      }
+    }
+  },
+  "homeSendFile": "Dosya Gönder",
+  "homeSendFolder": "Klasör Gönder",
+  "homeEncryptText": "Metin Şifrele",
+  "homeDownloadFile": "Dosya İndir",
+  "homeDeleteAccount": "Hesabımı Sil",
+  "regErrKvkk": "Devam etmek için KVKK Aydınlatma Metni ve Kullanım Sözleşmesi'ni onaylamanız gerekiyor.",
+  "regErrTerms": "Devam etmek için Kullanım Şartları ve Sorumluluk Reddi'ni onaylamanız gerekiyor.",
+  "regAccountCreated": "Hesap Oluşturuldu",
+  "regRecoveryInfo": "Kurtarma kodunuz - bunu güvenli bir yere kaydedin. Şifrenizi unutursanız hesabınıza sadece bu kodla geri dönebilirsiniz ve bu kod bir daha gösterilmeyecek.",
+  "regSavedReturnLogin": "Kaydettim, giriş ekranına dön",
+  "regTitle": "Kayıt Ol",
+  "regUsernameLabel": "Kullanıcı adı (3-32 karakter)",
+  "regUsernameError": "3-32 karakter olmalı",
+  "regPasswordLabel": "Şifre (en az 8 karakter)",
+  "regPasswordError": "En az 8 karakter olmalı",
+  "regIReadAccept": "Okudum, onaylıyorum: ",
+  "regKvkkText": "KVKK Aydınlatma Metni",
+  "regAnd": " ve ",
+  "regAgreementText": "Kullanım Sözleşmesi",
+  "regTermsText": "Kullanım Şartları ve Sorumluluk Reddi",
+  "regButton": "Kayıt Ol",
+  "upErrPickFile": "Önce bir dosya seçin.",
+  "upErrEmail": "Geçerli bir e-posta adresi girin.",
+  "upShareSubject": "Şifreli dosya - SecureVault",
+  "upTitle": "Dosya Gönder",
+  "upPickFile": "Dosya Seç",
+  "upRecipientEmail": "Alıcının e-posta adresi",
+  "upRecipientHelper": "Kayıt amaçlı - dosya bu adrese otomatik gönderilmez,\nlinki bir sonraki ekranda istediğiniz uygulamadan paylaşırsınız.",
+  "upExtraPwd": "Ek şifre koruması (opsiyonel)",
+  "upExtraPwdHelper": "Belirlerseniz, alıcıya bu şifreyi ayrıca iletmeniz\ngerekir. Dosya, şifre girilmeden indirilemez.",
+  "upEncryptUpload": "Şifrele ve Yükle",
+  "upMinutes": "{count} dakika",
+  "@upMinutes": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "upHours": "{count} saat",
+  "@upHours": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "upSuccess": "Dosya şifrelenip yüklendi.",
+  "upEmailSent": "📧 İndirme linki {email} adresine gönderildi.",
+  "@upEmailSent": {
+    "placeholders": {
+      "email": {
+        "type": "String"
+      }
+    }
+  },
+  "upEmailFailed": "⚠ E-posta gönderilemedi. Linki aşağıdan paylaşabilirsiniz.",
+  "upLinkExpiry": "Bu link {ttl} içinde geçersiz olur ve sadece BİR KEZ kullanılabilir.",
+  "@upLinkExpiry": {
+    "placeholders": {
+      "ttl": {
+        "type": "String"
+      }
+    }
+  },
+  "upExtraPwdWarning": "Ek şifre belirlediniz. Alıcıya bu şifreyi ayrıca (linkten farklı bir kanaldan) iletmeyi unutmayın.",
+  "upShareLink": "Linki Paylaş",
+  "upSendAnother": "Başka bir dosya gönder"
 }
