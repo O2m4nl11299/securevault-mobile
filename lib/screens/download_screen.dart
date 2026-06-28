@@ -223,7 +223,7 @@ class _DownloadScreenState extends State<DownloadScreen> {
           FilledButton.icon(
             onPressed: () => _shareFile(result.filePath),
             icon: const Icon(Icons.share),
-            label: const Text('Paylaş'),
+            label: Text(l.dlShare),
           ),
           const SizedBox(height: 8),
           Text(
