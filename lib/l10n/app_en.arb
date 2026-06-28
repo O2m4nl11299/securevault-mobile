@@ -1,0 +1,13 @@
+{
+  "@@locale": "en",
+  "appName": "SecureVault",
+  "appSlogan": "End-to-End Encrypted File Sharing",
+  "loginUsername": "Username",
+  "loginPassword": "Password",
+  "loginMin3": "At least 3 characters",
+  "loginMin8": "At least 8 characters",
+  "loginRemember": "Remember me",
+  "loginRememberSub": "Stay signed in when you close and reopen the app",
+  "loginButton": "Sign In",
+  "loginNoAccount": "Don't have an account? Sign up"
+}

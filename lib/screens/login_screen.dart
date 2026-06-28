@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import '../l10n/app_localizations.dart';
+import '../main.dart';
+import '../services/secure_storage_service.dart';
 import '../services/auth_service.dart';
 import 'home_screen.dart';
 import 'register_screen.dart';
@@ -68,6 +71,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final l = AppLocalizations.of(context);
     return Scaffold(
       body: SafeArea(
         child: Center(
@@ -88,35 +92,37 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                   const SizedBox(height: 6),
                   Text(
-                    'Uçtan Uca Şifreli Dosya Paylaşımı',
+                    l.appSlogan,
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       fontSize: 13,
                       color: Colors.grey.shade500,
                     ),
                   ),
-                  const SizedBox(height: 32),
+                  const SizedBox(height: 20),
+                  _LanguageSelector(),
+                  const SizedBox(height: 20),
                   TextFormField(
                     controller: _usernameCtrl,
                     autofillHints: const [AutofillHints.username],
-                    decoration: const InputDecoration(
-                      labelText: 'Kullanıcı adı',
-                      border: OutlineInputBorder(),
+                    decoration: InputDecoration(
+                      labelText: l.loginUsername,
+                      border: const OutlineInputBorder(),
                     ),
                     validator: (v) =>
-                        (v == null || v.trim().length < 3) ? 'En az 3 karakter' : null,
+                        (v == null || v.trim().length < 3) ? l.loginMin3 : null,
                   ),
                   const SizedBox(height: 16),
                   TextFormField(
                     controller: _passwordCtrl,
                     obscureText: true,
                     autofillHints: const [AutofillHints.password],
-                    decoration: const InputDecoration(
-                      labelText: 'Şifre',
-                      border: OutlineInputBorder(),
+                    decoration: InputDecoration(
+                      labelText: l.loginPassword,
+                      border: const OutlineInputBorder(),
                     ),
                     validator: (v) =>
-                        (v == null || v.length < 8) ? 'En az 8 karakter' : null,
+                        (v == null || v.length < 8) ? l.loginMin8 : null,
                     onFieldSubmitted: (_) => _submit(),
                   ),
                   const SizedBox(height: 4),
@@ -125,9 +131,9 @@ class _LoginScreenState extends State<LoginScreen> {
                     onChanged: _loading
                         ? null
                         : (v) => setState(() => _remember = v ?? true),
-                    title: const Text('Beni hatırla'),
-                    subtitle: const Text(
-                      'Kapatıp açtığınızda oturum açık kalsın',
+                    title: Text(l.loginRemember),
+                    subtitle: Text(
+                      l.loginRememberSub,
                       style: TextStyle(fontSize: 12),
                     ),
                     controlAffinity: ListTileControlAffinity.leading,
@@ -147,7 +153,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             width: 20,
                             child: CircularProgressIndicator(strokeWidth: 2),
                           )
-                        : const Text('Giriş Yap'),
+                        : Text(l.loginButton),
                   ),
                   const SizedBox(height: 12),
                   TextButton(
@@ -156,7 +162,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         : () => Navigator.of(context).push(
                               MaterialPageRoute(builder: (_) => const RegisterScreen()),
                             ),
-                    child: const Text('Hesabın yok mu? Kayıt ol'),
+                    child: Text(l.loginNoAccount),
                   ),
                 ],
               ),
@@ -164,6 +170,37 @@ class _LoginScreenState extends State<LoginScreen> {
           ),
         ),
       ),
+    );
+  }
+}
+
+/// Giris ekraninda dil secimi. Secilen dil kaydedilir ve aninda uygulanir.
+class _LanguageSelector extends StatelessWidget {
+  static const _langs = [
+    ('tr', 'Türkçe'),
+    ('en', 'English'),
+    ('de', 'Deutsch'),
+    ('ru', 'Русский'),
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    final current = localeNotifier.value?.languageCode ??
+        Localizations.localeOf(context).languageCode;
+    return Wrap(
+      alignment: WrapAlignment.center,
+      spacing: 8,
+      children: _langs.map((lang) {
+        final selected = lang.$1 == current;
+        return ChoiceChip(
+          label: Text(lang.$2, style: const TextStyle(fontSize: 12)),
+          selected: selected,
+          onSelected: (_) async {
+            localeNotifier.value = Locale(lang.$1);
+            await SecureStorageService.saveLocale(lang.$1);
+          },
+        );
+      }).toList(),
     );
   }
 }

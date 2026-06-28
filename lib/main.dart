@@ -1,4 +1,5 @@
 ﻿import 'package:flutter/material.dart';
+import 'l10n/app_localizations.dart';
 import 'package:cryptography_flutter/cryptography_flutter.dart';
 import 'services/api_client.dart';
 import 'services/secure_storage_service.dart';
@@ -10,12 +11,30 @@ import 'screens/home_screen.dart';
 /// olmadan navigasyon yapabilmesi iÃ§in global anahtar.
 final GlobalKey<NavigatorState> rootNavigatorKey = GlobalKey<NavigatorState>();
 
-void main() {
+/// Uygulamanin secili dili. Dil degisince MaterialApp yeniden cizilir.
+/// null = cihazin sistem dili kullanilir.
+final ValueNotifier<Locale?> localeNotifier = ValueNotifier<Locale?>(null);
+
+/// Desteklenen diller (ARB dosyalariyla eslesir).
+const List<Locale> kSupportedLocales = [
+  Locale('tr'),
+  Locale('en'),
+  Locale('de'),
+  Locale('ru'),
+];
+
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   // KRÄ°TÄ°K: bu satÄ±r olmadan Sv02Codec saf-Dart'a dÃ¼ÅŸer (spike'ta ~18 MB/s
   // Ã¶lÃ§Ã¼ldÃ¼ â€” 2GB dosyada ~2 dakika). Bu satÄ±rla native AES-256-GCM
   // (CryptoKit/Conscrypt) kullanÄ±lÄ±r, saniyeler mertebesine iner.
   FlutterCryptography.enable();
   ApiClient.instance.onSessionExpired = _handleSessionExpired;
+  // Kayitli dil tercihini yukle (varsa).
+  final savedLocale = await SecureStorageService.readLocale();
+  if (savedLocale != null && savedLocale.isNotEmpty) {
+    localeNotifier.value = Locale(savedLocale);
+  }
   runApp(const SecureVaultApp());
 }
 
@@ -39,16 +58,24 @@ class SecureVaultApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      navigatorKey: rootNavigatorKey,
-      title: 'SecureVault',
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        colorSchemeSeed: const Color(0xFF00E0A4), // web sitesindeki teal/cyberpunk vurgu
-        brightness: Brightness.dark,
-        useMaterial3: true,
-      ),
-      home: const _StartupGate(),
+    return ValueListenableBuilder<Locale?>(
+      valueListenable: localeNotifier,
+      builder: (context, locale, _) {
+        return MaterialApp(
+          navigatorKey: rootNavigatorKey,
+          title: 'SecureVault',
+          debugShowCheckedModeBanner: false,
+          locale: locale,
+          localizationsDelegates: AppLocalizations.localizationsDelegates,
+          supportedLocales: kSupportedLocales,
+          theme: ThemeData(
+            colorSchemeSeed: const Color(0xFF00E0A4),
+            brightness: Brightness.dark,
+            useMaterial3: true,
+          ),
+          home: const _StartupGate(),
+        );
+      },
     );
   }
 }

@@ -1,0 +1,13 @@
+{
+  "@@locale": "ru",
+  "appName": "SecureVault",
+  "appSlogan": "Сквозное шифрование при обмене файлами",
+  "loginUsername": "Имя пользователя",
+  "loginPassword": "Пароль",
+  "loginMin3": "Минимум 3 символа",
+  "loginMin8": "Минимум 8 символов",
+  "loginRemember": "Запомнить меня",
+  "loginRememberSub": "Оставаться в системе после закрытия и повторного открытия",
+  "loginButton": "Войти",
+  "loginNoAccount": "Нет аккаунта? Зарегистрироваться"
+}

@@ -1,0 +1,15 @@
+{
+  "@@locale": "tr",
+  "appName": "SecureVault",
+  "@appName": { "description": "Uygulama adi" },
+  "appSlogan": "Uçtan Uca Şifreli Dosya Paylaşımı",
+  "@appSlogan": { "description": "Giris ekrani slogani" },
+  "loginUsername": "Kullanıcı adı",
+  "loginPassword": "Şifre",
+  "loginMin3": "En az 3 karakter",
+  "loginMin8": "En az 8 karakter",
+  "loginRemember": "Beni hatırla",
+  "loginRememberSub": "Kapatıp açtığınızda oturum açık kalsın",
+  "loginButton": "Giriş Yap",
+  "loginNoAccount": "Hesabın yok mu? Kayıt ol"
+}
