@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../l10n/app_localizations.dart';
 import '../services/purchase_service.dart';
 
 /// Premium abonelik satin alma ekrani.
@@ -13,7 +14,8 @@ class PremiumScreen extends StatefulWidget {
 class _PremiumScreenState extends State<PremiumScreen> {
   final _ps = PurchaseService.instance;
   bool _busy = false;
-  String? _message;
+  String? _msgType; // 'success' veya 'error'
+  String? _msgArg;  // error mesaji
   bool _ready = false;
 
   @override
@@ -26,15 +28,16 @@ class _PremiumScreenState extends State<PremiumScreen> {
       if (!mounted) return;
       setState(() {
         _busy = false;
-        _message = '🎉 Premium aktif edildi! Tekrar giriş yaparak yeni '
-            'limitlerinizi görebilirsiniz.';
+        _msgType = 'success';
+        _msgArg = null;
       });
     };
     _ps.onPurchaseError = (msg) {
       if (mounted) {
         setState(() {
           _busy = false;
-          _message = '⚠ $msg';
+          _msgType = 'error';
+          _msgArg = msg;
         });
       }
     };
@@ -57,11 +60,12 @@ class _PremiumScreenState extends State<PremiumScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final l = AppLocalizations.of(context);
     final product = _ps.premiumProduct;
     final priceText = product?.price ?? '—';
 
     return Scaffold(
-      appBar: AppBar(title: const Text('Premium')),
+      appBar: AppBar(title: Text(l.premTitle)),
       body: SafeArea(
         child: SingleChildScrollView(
           padding: const EdgeInsets.all(24),
@@ -72,39 +76,39 @@ class _PremiumScreenState extends State<PremiumScreen> {
                   size: 64, color: Colors.amber),
               const SizedBox(height: 16),
               Text(
-                'SecureVault Premium',
+                l.premHeader,
                 textAlign: TextAlign.center,
                 style: Theme.of(context).textTheme.headlineSmall,
               ),
               const SizedBox(height: 8),
-              const Text(
-                'Aylık yenilenen abonelik',
+              Text(
+                l.premMonthlySub,
                 textAlign: TextAlign.center,
-                style: TextStyle(color: Colors.grey),
+                style: const TextStyle(color: Colors.grey),
               ),
               const SizedBox(height: 24),
-              _benefit('2 GB dosya boyutu limiti'),
-              _benefit('Günde 20 gönderim'),
-              _benefit('Uçtan uca şifreli, sınırsız güvenlik'),
-              _benefit('Öncelikli destek'),
+              _benefit(l.premBenefit1),
+              _benefit(l.premBenefit2),
+              _benefit(l.premBenefit3),
+              _benefit(l.premBenefit4),
               const SizedBox(height: 24),
               if (!_ready) ...[
                 const Center(child: CircularProgressIndicator()),
                 const SizedBox(height: 12),
-                const Text('Mağaza bilgileri yükleniyor...',
+                Text(l.premLoadingStore,
                     textAlign: TextAlign.center,
-                    style: TextStyle(color: Colors.grey)),
+                    style: const TextStyle(color: Colors.grey)),
               ] else if (!_ps.isAvailable) ...[
-                const Text(
-                  'Mağaza şu an kullanılamıyor. Lütfen daha sonra tekrar deneyin.',
+                Text(
+                  l.premStoreUnavailable,
                   textAlign: TextAlign.center,
-                  style: TextStyle(color: Colors.amber),
+                  style: const TextStyle(color: Colors.amber),
                 ),
               ] else if (product == null) ...[
-                const Text(
-                  'Premium ürün henüz hazır değil. Lütfen daha sonra tekrar deneyin.',
+                Text(
+                  l.premProductUnavailable,
                   textAlign: TextAlign.center,
-                  style: TextStyle(color: Colors.amber),
+                  style: const TextStyle(color: Colors.amber),
                 ),
               ] else ...[
                 FilledButton(
@@ -114,15 +118,15 @@ class _PremiumScreenState extends State<PremiumScreen> {
                           height: 20, width: 20,
                           child: CircularProgressIndicator(strokeWidth: 2),
                         )
-                      : Text('$priceText / ay - Premium Ol'),
+                      : Text(l.premBuyButton(priceText)),
                 ),
                 const SizedBox(height: 8),
                 TextButton(
                   onPressed: _busy ? null : _ps.restorePurchases,
-                  child: const Text('Satın alımları geri yükle'),
+                  child: Text(l.premRestore),
                 ),
               ],
-              if (_message != null) ...[
+              if (_msgType != null) ...[
                 const SizedBox(height: 16),
                 Container(
                   padding: const EdgeInsets.all(12),
@@ -131,18 +135,19 @@ class _PremiumScreenState extends State<PremiumScreen> {
                     borderRadius: BorderRadius.circular(8),
                   ),
                   child: Text(
-                    _message!,
+                    _msgType == 'success'
+                        ? l.premSuccess
+                        : '⚠ ${_msgArg ?? ''}',
                     textAlign: TextAlign.center,
                     style: const TextStyle(fontSize: 13),
                   ),
                 ),
               ],
               const SizedBox(height: 24),
-              const Text(
-                'Abonelik, dönem sonunda otomatik yenilenir. Google Play '
-                'hesabınızdan istediğiniz zaman iptal edebilirsiniz.',
+              Text(
+                l.premAutoRenewInfo,
                 textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 11, color: Colors.grey),
+                style: const TextStyle(fontSize: 11, color: Colors.grey),
               ),
             ],
           ),

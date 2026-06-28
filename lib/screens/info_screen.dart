@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../l10n/app_localizations.dart';
 import '../services/secure_storage_service.dart';
 import 'terms_screen.dart';
 
@@ -39,65 +40,63 @@ class _InfoScreenState extends State<InfoScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final l = AppLocalizations.of(context);
     return Scaffold(
-      appBar: AppBar(title: const Text('Bilgi ve Güvenlik')),
+      appBar: AppBar(title: Text(l.infoTitle)),
       body: SafeArea(
         child: ListView(
           padding: const EdgeInsets.all(16),
           children: [
-            _section(context, 'GÜVENLİK AKIŞI'),
-            _numbered(context, 1, 'Dosya cihazınızda AES-256-GCM ile parçalar halinde şifrelenir.'),
-            _numbered(context, 2, 'Şifreli veri TLS üzerinden sunucuya yüklenir — anahtar gönderilmez.'),
-            _numbered(context, 3, 'Sunucu token üretir, indirme linki cihazda oluşturulur.'),
-            _numbered(context, 4, 'Alıcı linke tıklar — anahtar (#KEY) asla sunucuya gitmez.'),
-            _numbered(context, 5, 'Şifreli dosya stream olarak indirilir, anında çözülür — düşük RAM.'),
-            _numbered(context, 6, 'Token atomik olarak silinir, dosya tek kullanımlıktır.'),
+            _section(context, l.infoSecFlow),
+            _numbered(context, 1, l.infoFlow1),
+            _numbered(context, 2, l.infoFlow2),
+            _numbered(context, 3, l.infoFlow3),
+            _numbered(context, 4, l.infoFlow4),
+            _numbered(context, 5, l.infoFlow5),
+            _numbered(context, 6, l.infoFlow6),
 
             const SizedBox(height: 24),
-            _section(context, 'KRİPTOGRAFİ'),
-            _kv(context, 'Algoritma', 'AES-256-GCM'),
-            _kv(context, 'Kuantum Direnci', 'Var', highlight: true),
-            _kv(context, 'Anahtar', '256-bit CSPRNG'),
-            _kv(context, 'Nonce / IV', '96-bit CSPRNG (her parça)'),
-            _kv(context, 'Auth Tag', '128-bit (her parça)'),
-            _kv(context, 'Transport', 'TLS 1.3'),
-            _kv(context, 'Dosya Limitiniz', _fileLimit),
-            _kv(context, 'Token Ömrü', '1 saat'),
-            _kv(context, 'Kullanım', 'Tek sefer', highlight: true),
-            _kv(context, 'Sunucu Anahtar Erişimi', 'Asla', highlight: true),
+            _section(context, l.infoCrypto),
+            _kv(context, l.infoKeyAlgo, 'AES-256-GCM'),
+            _kv(context, l.infoKeyQuantum, l.infoValYes, highlight: true),
+            _kv(context, l.infoKeyKey, '256-bit CSPRNG'),
+            _kv(context, l.infoKeyNonce, l.infoValNonce),
+            _kv(context, l.infoKeyAuthTag, l.infoValAuthTag),
+            _kv(context, l.infoKeyTransport, 'TLS 1.3'),
+            _kv(context, l.infoKeyFileLimit, _fileLimit),
+            _kv(context, l.infoKeyTokenLife, l.infoValTokenLife),
+            _kv(context, l.infoKeyUsage, l.infoValOnce, highlight: true),
+            _kv(context, l.infoKeyServerKey, l.infoValNever, highlight: true),
 
             const SizedBox(height: 24),
-            _section(context, 'NEDEN SECUREVAULT?'),
-            _bullet(context, '🔐', 'Sıfır Bilgi', 'Dosya cihazınızda şifrelenir. Sunucu içeriği asla görmez.'),
-            _bullet(context, '🗑️', 'Tek Kullanım', 'İndirildikten sonra token atomik olarak silinir.'),
-            _bullet(context, '🔑', 'Ek Şifre', 'İkinci güvenlik katmanı — alıcıya ayrı kanaldan iletin.'),
-            _bullet(context, '☁️', 'Cloudflare R2', 'Küresel CDN altyapısı, sıfır egress ücreti.'),
-            _bullet(context, '🔬', 'Kuantum Dirençli', 'AES-256-GCM simetrik şifrelemesi, kuantum bilgisayarlara karşı da güvenli kabul edilir. Anahtarlar cihazınızda üretilir, ağ üzerinden asimetrik anahtar değişimi yapılmaz.'),
+            _section(context, l.infoWhy),
+            _bullet(context, '🔐', l.infoWhy1Title, l.infoWhy1Desc),
+            _bullet(context, '🗑️', l.infoWhy2Title, l.infoWhy2Desc),
+            _bullet(context, '🔑', l.infoWhy3Title, l.infoWhy3Desc),
+            _bullet(context, '☁️', l.infoWhy4Title, l.infoWhy4Desc),
+            _bullet(context, '🔬', l.infoWhy5Title, l.infoWhy5Desc),
 
             const SizedBox(height: 24),
-            _section(context, 'VİRÜS TARAMASI HAKKINDA'),
-            _bullet(context, '🛡️', 'Neden Tarama Yok?', 'Zero-knowledge mimarisi gereği sunucu şifreli dosyanın içeriğini göremez, bu yüzden virüs taraması yapamaz.'),
-            _bullet(context, '✅', 'Önerimiz', 'İndirdiğiniz dosyaları kendi antivirüs yazılımınızla taramanızı öneririz.'),
+            _section(context, l.infoVirus),
+            _bullet(context, '🛡️', l.infoVirus1Title, l.infoVirus1Desc),
+            _bullet(context, '✅', l.infoVirus2Title, l.infoVirus2Desc),
 
             const SizedBox(height: 24),
-            _section(context, 'KİMLER İÇİN?'),
-            _bullet(context, '⚖️', 'Avukatlar ve Noterler', 'Müvekkil belgelerini güvenle gönderin.'),
-            _bullet(context, '💰', 'Muhasebeciler', 'Finansal dökümanları güvenli paylaşın.'),
-            _bullet(context, '👥', 'İnsan Kaynakları', 'Maaş bordrosu ve sözleşmeler.'),
-            _bullet(context, '🏥', 'Sağlık Profesyonelleri', 'Hasta raporu ve test sonuçları.'),
-            _bullet(context, '🚀', 'Girişimler', 'Yatırımcıya sunulan gizli dokümanlar.'),
-            _bullet(context, '👤', 'Bireyler', 'Kimlik fotokopisi, pasaport, banka belgesi.'),
+            _section(context, l.infoWhoFor),
+            _bullet(context, '⚖️', l.infoWho1Title, l.infoWho1Desc),
+            _bullet(context, '💰', l.infoWho2Title, l.infoWho2Desc),
+            _bullet(context, '👥', l.infoWho3Title, l.infoWho3Desc),
+            _bullet(context, '🏥', l.infoWho4Title, l.infoWho4Desc),
+            _bullet(context, '🚀', l.infoWho5Title, l.infoWho5Desc),
+            _bullet(context, '👤', l.infoWho6Title, l.infoWho6Desc),
 
             const SizedBox(height: 24),
-            _section(context, 'SORUMLULUK REDDİ'),
-            const Padding(
-              padding: EdgeInsets.symmetric(vertical: 4),
+            _section(context, l.infoDisclaimer),
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 4),
               child: Text(
-                'SecureVault geçici bir aktarım aracıdır, kalıcı depolama değildir. '
-                'Dosyalar kısa süre sonra otomatik silinir; içeriğe erişemeyiz ve '
-                'veri kaybından sorumlu tutulamayız. Önemli dosyalarınızın yedeğini '
-                'kendiniz saklayın.',
-                style: TextStyle(fontSize: 13, height: 1.5, color: Colors.grey),
+                l.infoDisclaimerText,
+                style: const TextStyle(fontSize: 13, height: 1.5, color: Colors.grey),
               ),
             ),
             const SizedBox(height: 8),
@@ -106,7 +105,7 @@ class _InfoScreenState extends State<InfoScreen> {
                 MaterialPageRoute(builder: (_) => const TermsScreen()),
               ),
               icon: const Icon(Icons.gavel, size: 18),
-              label: const Text('Kullanım Şartlarını Oku'),
+              label: Text(l.infoReadTerms),
             ),
 
             const SizedBox(height: 16),

@@ -437,6 +437,432 @@ abstract class AppLocalizations {
   /// In tr, this message translates to:
   /// **'Başka bir dosya gönder'**
   String get upSendAnother;
+
+  /// No description provided for @premSuccess.
+  ///
+  /// In tr, this message translates to:
+  /// **'🎉 Premium aktif edildi! Tekrar giriş yaparak yeni limitlerinizi görebilirsiniz.'**
+  String get premSuccess;
+
+  /// No description provided for @premTitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Premium'**
+  String get premTitle;
+
+  /// No description provided for @premHeader.
+  ///
+  /// In tr, this message translates to:
+  /// **'SecureVault Premium'**
+  String get premHeader;
+
+  /// No description provided for @premMonthlySub.
+  ///
+  /// In tr, this message translates to:
+  /// **'Aylık yenilenen abonelik'**
+  String get premMonthlySub;
+
+  /// No description provided for @premBenefit1.
+  ///
+  /// In tr, this message translates to:
+  /// **'2 GB dosya boyutu limiti'**
+  String get premBenefit1;
+
+  /// No description provided for @premBenefit2.
+  ///
+  /// In tr, this message translates to:
+  /// **'Günde 20 gönderim'**
+  String get premBenefit2;
+
+  /// No description provided for @premBenefit3.
+  ///
+  /// In tr, this message translates to:
+  /// **'Uçtan uca şifreli, sınırsız güvenlik'**
+  String get premBenefit3;
+
+  /// No description provided for @premBenefit4.
+  ///
+  /// In tr, this message translates to:
+  /// **'Öncelikli destek'**
+  String get premBenefit4;
+
+  /// No description provided for @premLoadingStore.
+  ///
+  /// In tr, this message translates to:
+  /// **'Mağaza bilgileri yükleniyor...'**
+  String get premLoadingStore;
+
+  /// No description provided for @premStoreUnavailable.
+  ///
+  /// In tr, this message translates to:
+  /// **'Mağaza şu an kullanılamıyor. Lütfen daha sonra tekrar deneyin.'**
+  String get premStoreUnavailable;
+
+  /// No description provided for @premProductUnavailable.
+  ///
+  /// In tr, this message translates to:
+  /// **'Premium ürün henüz hazır değil. Lütfen daha sonra tekrar deneyin.'**
+  String get premProductUnavailable;
+
+  /// No description provided for @premBuyButton.
+  ///
+  /// In tr, this message translates to:
+  /// **'{price} / ay - Premium Ol'**
+  String premBuyButton(String price);
+
+  /// No description provided for @premRestore.
+  ///
+  /// In tr, this message translates to:
+  /// **'Satın alımları geri yükle'**
+  String get premRestore;
+
+  /// No description provided for @premAutoRenewInfo.
+  ///
+  /// In tr, this message translates to:
+  /// **'Abonelik, dönem sonunda otomatik yenilenir. Google Play hesabınızdan istediğiniz zaman iptal edebilirsiniz.'**
+  String get premAutoRenewInfo;
+
+  /// No description provided for @infoTitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bilgi ve Güvenlik'**
+  String get infoTitle;
+
+  /// No description provided for @infoSecFlow.
+  ///
+  /// In tr, this message translates to:
+  /// **'GÜVENLİK AKIŞI'**
+  String get infoSecFlow;
+
+  /// No description provided for @infoFlow1.
+  ///
+  /// In tr, this message translates to:
+  /// **'Dosya cihazınızda AES-256-GCM ile parçalar halinde şifrelenir.'**
+  String get infoFlow1;
+
+  /// No description provided for @infoFlow2.
+  ///
+  /// In tr, this message translates to:
+  /// **'Şifreli veri TLS üzerinden sunucuya yüklenir — anahtar gönderilmez.'**
+  String get infoFlow2;
+
+  /// No description provided for @infoFlow3.
+  ///
+  /// In tr, this message translates to:
+  /// **'Sunucu token üretir, indirme linki cihazda oluşturulur.'**
+  String get infoFlow3;
+
+  /// No description provided for @infoFlow4.
+  ///
+  /// In tr, this message translates to:
+  /// **'Alıcı linke tıklar — anahtar (#KEY) asla sunucuya gitmez.'**
+  String get infoFlow4;
+
+  /// No description provided for @infoFlow5.
+  ///
+  /// In tr, this message translates to:
+  /// **'Şifreli dosya stream olarak indirilir, anında çözülür — düşük RAM.'**
+  String get infoFlow5;
+
+  /// No description provided for @infoFlow6.
+  ///
+  /// In tr, this message translates to:
+  /// **'Token atomik olarak silinir, dosya tek kullanımlıktır.'**
+  String get infoFlow6;
+
+  /// No description provided for @infoCrypto.
+  ///
+  /// In tr, this message translates to:
+  /// **'KRİPTOGRAFİ'**
+  String get infoCrypto;
+
+  /// No description provided for @infoKeyAlgo.
+  ///
+  /// In tr, this message translates to:
+  /// **'Algoritma'**
+  String get infoKeyAlgo;
+
+  /// No description provided for @infoKeyQuantum.
+  ///
+  /// In tr, this message translates to:
+  /// **'Kuantum Direnci'**
+  String get infoKeyQuantum;
+
+  /// No description provided for @infoValYes.
+  ///
+  /// In tr, this message translates to:
+  /// **'Var'**
+  String get infoValYes;
+
+  /// No description provided for @infoKeyKey.
+  ///
+  /// In tr, this message translates to:
+  /// **'Anahtar'**
+  String get infoKeyKey;
+
+  /// No description provided for @infoKeyNonce.
+  ///
+  /// In tr, this message translates to:
+  /// **'Nonce / IV'**
+  String get infoKeyNonce;
+
+  /// No description provided for @infoValNonce.
+  ///
+  /// In tr, this message translates to:
+  /// **'96-bit CSPRNG (her parça)'**
+  String get infoValNonce;
+
+  /// No description provided for @infoKeyAuthTag.
+  ///
+  /// In tr, this message translates to:
+  /// **'Auth Tag'**
+  String get infoKeyAuthTag;
+
+  /// No description provided for @infoValAuthTag.
+  ///
+  /// In tr, this message translates to:
+  /// **'128-bit (her parça)'**
+  String get infoValAuthTag;
+
+  /// No description provided for @infoKeyTransport.
+  ///
+  /// In tr, this message translates to:
+  /// **'Transport'**
+  String get infoKeyTransport;
+
+  /// No description provided for @infoKeyFileLimit.
+  ///
+  /// In tr, this message translates to:
+  /// **'Dosya Limitiniz'**
+  String get infoKeyFileLimit;
+
+  /// No description provided for @infoKeyTokenLife.
+  ///
+  /// In tr, this message translates to:
+  /// **'Token Ömrü'**
+  String get infoKeyTokenLife;
+
+  /// No description provided for @infoValTokenLife.
+  ///
+  /// In tr, this message translates to:
+  /// **'1 saat'**
+  String get infoValTokenLife;
+
+  /// No description provided for @infoKeyUsage.
+  ///
+  /// In tr, this message translates to:
+  /// **'Kullanım'**
+  String get infoKeyUsage;
+
+  /// No description provided for @infoValOnce.
+  ///
+  /// In tr, this message translates to:
+  /// **'Tek sefer'**
+  String get infoValOnce;
+
+  /// No description provided for @infoKeyServerKey.
+  ///
+  /// In tr, this message translates to:
+  /// **'Sunucu Anahtar Erişimi'**
+  String get infoKeyServerKey;
+
+  /// No description provided for @infoValNever.
+  ///
+  /// In tr, this message translates to:
+  /// **'Asla'**
+  String get infoValNever;
+
+  /// No description provided for @infoWhy.
+  ///
+  /// In tr, this message translates to:
+  /// **'NEDEN SECUREVAULT?'**
+  String get infoWhy;
+
+  /// No description provided for @infoWhy1Title.
+  ///
+  /// In tr, this message translates to:
+  /// **'Sıfır Bilgi'**
+  String get infoWhy1Title;
+
+  /// No description provided for @infoWhy1Desc.
+  ///
+  /// In tr, this message translates to:
+  /// **'Dosya cihazınızda şifrelenir. Sunucu içeriği asla görmez.'**
+  String get infoWhy1Desc;
+
+  /// No description provided for @infoWhy2Title.
+  ///
+  /// In tr, this message translates to:
+  /// **'Tek Kullanım'**
+  String get infoWhy2Title;
+
+  /// No description provided for @infoWhy2Desc.
+  ///
+  /// In tr, this message translates to:
+  /// **'İndirildikten sonra token atomik olarak silinir.'**
+  String get infoWhy2Desc;
+
+  /// No description provided for @infoWhy3Title.
+  ///
+  /// In tr, this message translates to:
+  /// **'Ek Şifre'**
+  String get infoWhy3Title;
+
+  /// No description provided for @infoWhy3Desc.
+  ///
+  /// In tr, this message translates to:
+  /// **'İkinci güvenlik katmanı — alıcıya ayrı kanaldan iletin.'**
+  String get infoWhy3Desc;
+
+  /// No description provided for @infoWhy4Title.
+  ///
+  /// In tr, this message translates to:
+  /// **'Cloudflare R2'**
+  String get infoWhy4Title;
+
+  /// No description provided for @infoWhy4Desc.
+  ///
+  /// In tr, this message translates to:
+  /// **'Küresel CDN altyapısı, sıfır egress ücreti.'**
+  String get infoWhy4Desc;
+
+  /// No description provided for @infoWhy5Title.
+  ///
+  /// In tr, this message translates to:
+  /// **'Kuantum Dirençli'**
+  String get infoWhy5Title;
+
+  /// No description provided for @infoWhy5Desc.
+  ///
+  /// In tr, this message translates to:
+  /// **'AES-256-GCM simetrik şifrelemesi, kuantum bilgisayarlara karşı da güvenli kabul edilir. Anahtarlar cihazınızda üretilir, ağ üzerinden asimetrik anahtar değişimi yapılmaz.'**
+  String get infoWhy5Desc;
+
+  /// No description provided for @infoVirus.
+  ///
+  /// In tr, this message translates to:
+  /// **'VİRÜS TARAMASI HAKKINDA'**
+  String get infoVirus;
+
+  /// No description provided for @infoVirus1Title.
+  ///
+  /// In tr, this message translates to:
+  /// **'Neden Tarama Yok?'**
+  String get infoVirus1Title;
+
+  /// No description provided for @infoVirus1Desc.
+  ///
+  /// In tr, this message translates to:
+  /// **'Zero-knowledge mimarisi gereği sunucu şifreli dosyanın içeriğini göremez, bu yüzden virüs taraması yapamaz.'**
+  String get infoVirus1Desc;
+
+  /// No description provided for @infoVirus2Title.
+  ///
+  /// In tr, this message translates to:
+  /// **'Önerimiz'**
+  String get infoVirus2Title;
+
+  /// No description provided for @infoVirus2Desc.
+  ///
+  /// In tr, this message translates to:
+  /// **'İndirdiğiniz dosyaları kendi antivirüs yazılımınızla taramanızı öneririz.'**
+  String get infoVirus2Desc;
+
+  /// No description provided for @infoWhoFor.
+  ///
+  /// In tr, this message translates to:
+  /// **'KİMLER İÇİN?'**
+  String get infoWhoFor;
+
+  /// No description provided for @infoWho1Title.
+  ///
+  /// In tr, this message translates to:
+  /// **'Avukatlar ve Noterler'**
+  String get infoWho1Title;
+
+  /// No description provided for @infoWho1Desc.
+  ///
+  /// In tr, this message translates to:
+  /// **'Müvekkil belgelerini güvenle gönderin.'**
+  String get infoWho1Desc;
+
+  /// No description provided for @infoWho2Title.
+  ///
+  /// In tr, this message translates to:
+  /// **'Muhasebeciler'**
+  String get infoWho2Title;
+
+  /// No description provided for @infoWho2Desc.
+  ///
+  /// In tr, this message translates to:
+  /// **'Finansal dökümanları güvenli paylaşın.'**
+  String get infoWho2Desc;
+
+  /// No description provided for @infoWho3Title.
+  ///
+  /// In tr, this message translates to:
+  /// **'İnsan Kaynakları'**
+  String get infoWho3Title;
+
+  /// No description provided for @infoWho3Desc.
+  ///
+  /// In tr, this message translates to:
+  /// **'Maaş bordrosu ve sözleşmeler.'**
+  String get infoWho3Desc;
+
+  /// No description provided for @infoWho4Title.
+  ///
+  /// In tr, this message translates to:
+  /// **'Sağlık Profesyonelleri'**
+  String get infoWho4Title;
+
+  /// No description provided for @infoWho4Desc.
+  ///
+  /// In tr, this message translates to:
+  /// **'Hasta raporu ve test sonuçları.'**
+  String get infoWho4Desc;
+
+  /// No description provided for @infoWho5Title.
+  ///
+  /// In tr, this message translates to:
+  /// **'Girişimler'**
+  String get infoWho5Title;
+
+  /// No description provided for @infoWho5Desc.
+  ///
+  /// In tr, this message translates to:
+  /// **'Yatırımcıya sunulan gizli dokümanlar.'**
+  String get infoWho5Desc;
+
+  /// No description provided for @infoWho6Title.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bireyler'**
+  String get infoWho6Title;
+
+  /// No description provided for @infoWho6Desc.
+  ///
+  /// In tr, this message translates to:
+  /// **'Kimlik fotokopisi, pasaport, banka belgesi.'**
+  String get infoWho6Desc;
+
+  /// No description provided for @infoDisclaimer.
+  ///
+  /// In tr, this message translates to:
+  /// **'SORUMLULUK REDDİ'**
+  String get infoDisclaimer;
+
+  /// No description provided for @infoDisclaimerText.
+  ///
+  /// In tr, this message translates to:
+  /// **'SecureVault geçici bir aktarım aracıdır, kalıcı depolama değildir. Dosyalar kısa süre sonra otomatik silinir; içeriğe erişemeyiz ve veri kaybından sorumlu tutulamayız. Önemli dosyalarınızın yedeğini kendiniz saklayın.'**
+  String get infoDisclaimerText;
+
+  /// No description provided for @infoReadTerms.
+  ///
+  /// In tr, this message translates to:
+  /// **'Kullanım Şartlarını Oku'**
+  String get infoReadTerms;
 }
 
 class _AppLocalizationsDelegate
