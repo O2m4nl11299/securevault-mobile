@@ -749,4 +749,114 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get termsFooter =>
       'This text is general information and does not constitute legal advice.';
+
+  @override
+  String get svcFolderNotFound => 'Folder not found.';
+
+  @override
+  String get svcFolderEmpty => 'The folder appears to be empty.';
+
+  @override
+  String get svcFileEmpty =>
+      'The file appears to be empty; please select another file.';
+
+  @override
+  String get svcPackaging => 'Packing the folder (uncompressed zip)...';
+
+  @override
+  String get svcPackDone => '✅ Packing complete.';
+
+  @override
+  String get svcGenKey => 'Generating the AES-256 key on your device...';
+
+  @override
+  String get svcInitUpload => 'Starting the upload session...';
+
+  @override
+  String get svcEncrypting =>
+      'Encrypting and uploading (AES-256-GCM, 5 MB chunks)...';
+
+  @override
+  String get svcUploadDone => '✅ Encrypted upload complete.';
+
+  @override
+  String get svcSendingEmail => 'Sending the download link by email...';
+
+  @override
+  String svcEmailSent(String email) {
+    return '✅ Email sent → $email';
+  }
+
+  @override
+  String get svcEmailFailed =>
+      '⚠ Email could not be sent — you can share the link manually.';
+
+  @override
+  String get svcInitFailed => 'Could not start the upload.';
+
+  @override
+  String get svcChunkFailed => 'Could not upload chunk.';
+
+  @override
+  String get svcFinalizeFailed => 'Could not finalize the upload.';
+
+  @override
+  String get svcTimeout =>
+      'Could not connect to the server (timeout). Check your internet connection.';
+
+  @override
+  String get svcConnError =>
+      'Could not establish a connection. Check your internet connection.';
+
+  @override
+  String svcUnexpected(String error) {
+    return 'An unexpected error occurred: $error';
+  }
+
+  @override
+  String get dlsvcInvalidKey => 'Invalid encryption key.';
+
+  @override
+  String get dlsvcDecryptFailed =>
+      'Decryption failed: the key may be wrong or the file may be corrupted.';
+
+  @override
+  String get dlsvcLinkExpired =>
+      'This link is no longer valid — it was either used or has expired.';
+
+  @override
+  String dlsvcDownloadFailed(String code) {
+    return 'Download failed (HTTP $code).';
+  }
+
+  @override
+  String get dlsvcTimeout => 'Could not connect to the server (timeout).';
+
+  @override
+  String get dlsvcConnError =>
+      'Could not establish a connection. Check your internet connection.';
+
+  @override
+  String dlsvcUnexpected(String error) {
+    return 'An unexpected error occurred: $error';
+  }
+
+  @override
+  String get dlsvcDefaultFile => 'file';
+
+  @override
+  String get authRegisterFailed => 'Registration failed.';
+
+  @override
+  String get authLoginFailed => 'Sign-in failed.';
+
+  @override
+  String get authRecoverFailed => 'Recovery failed.';
+
+  @override
+  String get authDeleteFailed => 'Account deletion failed.';
+
+  @override
+  String get authUnexpectedRetry =>
+      'An unexpected error occurred. Please try again.';
 }

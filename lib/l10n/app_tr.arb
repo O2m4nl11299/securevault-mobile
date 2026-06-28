@@ -310,5 +310,64 @@
   "terms5Body": "SecureVault yalnızca yasal amaçlarla kullanılabilir. Gönderdiğiniz içeriğin yasalara uygunluğundan tamamen siz sorumlusunuz. İçerik şifreli olduğu için denetlenemez; bu nedenle hizmetin kötüye kullanımından doğan her türlü hukuki ve cezai sorumluluk gönderen kullanıcıya aittir.",
   "terms6Title": "Hizmet \"Olduğu Gibi\" Sunulur",
   "terms6Body": "SecureVault, herhangi bir garanti verilmeksizin \"olduğu gibi\" sunulur. Hizmette kesinti, gecikme veya hata olabilir. Hizmetin kesintisiz veya hatasız çalışacağı garanti edilmez.",
-  "termsFooter": "Bu metin genel bir bilgilendirme niteliğindedir ve hukuki tavsiye yerine geçmez."
+  "termsFooter": "Bu metin genel bir bilgilendirme niteliğindedir ve hukuki tavsiye yerine geçmez.",
+  "svcFolderNotFound": "Klasör bulunamadı.",
+  "svcFolderEmpty": "Klasör boş görünüyor.",
+  "svcFileEmpty": "Dosya boş görünüyor, başka bir dosya seçin.",
+  "svcPackaging": "Klasör paketleniyor (sıkıştırmasız zip)...",
+  "svcPackDone": "✅ Paketleme tamamlandı.",
+  "svcGenKey": "AES-256 anahtarı cihazınızda üretiliyor...",
+  "svcInitUpload": "Yükleme oturumu başlatılıyor...",
+  "svcEncrypting": "Şifreleniyor ve yükleniyor (AES-256-GCM, 5 MB parçalar)...",
+  "svcUploadDone": "✅ Şifreli yükleme tamamlandı.",
+  "svcSendingEmail": "İndirme linki e-posta ile gönderiliyor...",
+  "svcEmailSent": "✅ E-posta gönderildi → {email}",
+  "@svcEmailSent": {
+    "placeholders": {
+      "email": {
+        "type": "String"
+      }
+    }
+  },
+  "svcEmailFailed": "⚠ E-posta gönderilemedi — linki manuel paylaşabilirsiniz.",
+  "svcInitFailed": "Yükleme başlatılamadı.",
+  "svcChunkFailed": "Parça yüklenemedi.",
+  "svcFinalizeFailed": "Yükleme tamamlanamadı.",
+  "svcTimeout": "Sunucuya bağlanılamadı (zaman aşımı). İnternet bağlantınızı kontrol edin.",
+  "svcConnError": "Bağlantı kurulamadı. İnternet bağlantınızı kontrol edin.",
+  "svcUnexpected": "Beklenmeyen bir hata oluştu: {error}",
+  "@svcUnexpected": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "dlsvcInvalidKey": "Geçersiz şifreleme anahtarı.",
+  "dlsvcDecryptFailed": "Şifre çözme başarısız: anahtar hatalı veya dosya bozuk olabilir.",
+  "dlsvcLinkExpired": "Bu link artık geçerli değil — ya kullanıldı, ya da süresi doldu.",
+  "dlsvcDownloadFailed": "İndirme başarısız (HTTP {code}).",
+  "@dlsvcDownloadFailed": {
+    "placeholders": {
+      "code": {
+        "type": "String"
+      }
+    }
+  },
+  "dlsvcTimeout": "Sunucuya bağlanılamadı (zaman aşımı).",
+  "dlsvcConnError": "Bağlantı kurulamadı. İnternet bağlantınızı kontrol edin.",
+  "dlsvcUnexpected": "Beklenmeyen bir hata oluştu: {error}",
+  "@dlsvcUnexpected": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "dlsvcDefaultFile": "dosya",
+  "authRegisterFailed": "Kayıt başarısız.",
+  "authLoginFailed": "Giriş başarısız.",
+  "authRecoverFailed": "Kurtarma başarısız.",
+  "authDeleteFailed": "Hesap silme başarısız.",
+  "authUnexpectedRetry": "Beklenmeyen bir hata oluştu. Lütfen tekrar deneyin."
 }

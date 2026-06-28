@@ -62,6 +62,7 @@ class _UploadScreenState extends State<UploadScreen> {
     });
     try {
       final result = await _uploadService.uploadFile(
+        l: AppLocalizations.of(context),
         filePath: path,
         originalName: file.name,
         recipientEmail: email,

@@ -1427,6 +1427,192 @@ abstract class AppLocalizations {
   /// In tr, this message translates to:
   /// **'Bu metin genel bir bilgilendirme niteliğindedir ve hukuki tavsiye yerine geçmez.'**
   String get termsFooter;
+
+  /// No description provided for @svcFolderNotFound.
+  ///
+  /// In tr, this message translates to:
+  /// **'Klasör bulunamadı.'**
+  String get svcFolderNotFound;
+
+  /// No description provided for @svcFolderEmpty.
+  ///
+  /// In tr, this message translates to:
+  /// **'Klasör boş görünüyor.'**
+  String get svcFolderEmpty;
+
+  /// No description provided for @svcFileEmpty.
+  ///
+  /// In tr, this message translates to:
+  /// **'Dosya boş görünüyor, başka bir dosya seçin.'**
+  String get svcFileEmpty;
+
+  /// No description provided for @svcPackaging.
+  ///
+  /// In tr, this message translates to:
+  /// **'Klasör paketleniyor (sıkıştırmasız zip)...'**
+  String get svcPackaging;
+
+  /// No description provided for @svcPackDone.
+  ///
+  /// In tr, this message translates to:
+  /// **'✅ Paketleme tamamlandı.'**
+  String get svcPackDone;
+
+  /// No description provided for @svcGenKey.
+  ///
+  /// In tr, this message translates to:
+  /// **'AES-256 anahtarı cihazınızda üretiliyor...'**
+  String get svcGenKey;
+
+  /// No description provided for @svcInitUpload.
+  ///
+  /// In tr, this message translates to:
+  /// **'Yükleme oturumu başlatılıyor...'**
+  String get svcInitUpload;
+
+  /// No description provided for @svcEncrypting.
+  ///
+  /// In tr, this message translates to:
+  /// **'Şifreleniyor ve yükleniyor (AES-256-GCM, 5 MB parçalar)...'**
+  String get svcEncrypting;
+
+  /// No description provided for @svcUploadDone.
+  ///
+  /// In tr, this message translates to:
+  /// **'✅ Şifreli yükleme tamamlandı.'**
+  String get svcUploadDone;
+
+  /// No description provided for @svcSendingEmail.
+  ///
+  /// In tr, this message translates to:
+  /// **'İndirme linki e-posta ile gönderiliyor...'**
+  String get svcSendingEmail;
+
+  /// No description provided for @svcEmailSent.
+  ///
+  /// In tr, this message translates to:
+  /// **'✅ E-posta gönderildi → {email}'**
+  String svcEmailSent(String email);
+
+  /// No description provided for @svcEmailFailed.
+  ///
+  /// In tr, this message translates to:
+  /// **'⚠ E-posta gönderilemedi — linki manuel paylaşabilirsiniz.'**
+  String get svcEmailFailed;
+
+  /// No description provided for @svcInitFailed.
+  ///
+  /// In tr, this message translates to:
+  /// **'Yükleme başlatılamadı.'**
+  String get svcInitFailed;
+
+  /// No description provided for @svcChunkFailed.
+  ///
+  /// In tr, this message translates to:
+  /// **'Parça yüklenemedi.'**
+  String get svcChunkFailed;
+
+  /// No description provided for @svcFinalizeFailed.
+  ///
+  /// In tr, this message translates to:
+  /// **'Yükleme tamamlanamadı.'**
+  String get svcFinalizeFailed;
+
+  /// No description provided for @svcTimeout.
+  ///
+  /// In tr, this message translates to:
+  /// **'Sunucuya bağlanılamadı (zaman aşımı). İnternet bağlantınızı kontrol edin.'**
+  String get svcTimeout;
+
+  /// No description provided for @svcConnError.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bağlantı kurulamadı. İnternet bağlantınızı kontrol edin.'**
+  String get svcConnError;
+
+  /// No description provided for @svcUnexpected.
+  ///
+  /// In tr, this message translates to:
+  /// **'Beklenmeyen bir hata oluştu: {error}'**
+  String svcUnexpected(String error);
+
+  /// No description provided for @dlsvcInvalidKey.
+  ///
+  /// In tr, this message translates to:
+  /// **'Geçersiz şifreleme anahtarı.'**
+  String get dlsvcInvalidKey;
+
+  /// No description provided for @dlsvcDecryptFailed.
+  ///
+  /// In tr, this message translates to:
+  /// **'Şifre çözme başarısız: anahtar hatalı veya dosya bozuk olabilir.'**
+  String get dlsvcDecryptFailed;
+
+  /// No description provided for @dlsvcLinkExpired.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bu link artık geçerli değil — ya kullanıldı, ya da süresi doldu.'**
+  String get dlsvcLinkExpired;
+
+  /// No description provided for @dlsvcDownloadFailed.
+  ///
+  /// In tr, this message translates to:
+  /// **'İndirme başarısız (HTTP {code}).'**
+  String dlsvcDownloadFailed(String code);
+
+  /// No description provided for @dlsvcTimeout.
+  ///
+  /// In tr, this message translates to:
+  /// **'Sunucuya bağlanılamadı (zaman aşımı).'**
+  String get dlsvcTimeout;
+
+  /// No description provided for @dlsvcConnError.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bağlantı kurulamadı. İnternet bağlantınızı kontrol edin.'**
+  String get dlsvcConnError;
+
+  /// No description provided for @dlsvcUnexpected.
+  ///
+  /// In tr, this message translates to:
+  /// **'Beklenmeyen bir hata oluştu: {error}'**
+  String dlsvcUnexpected(String error);
+
+  /// No description provided for @dlsvcDefaultFile.
+  ///
+  /// In tr, this message translates to:
+  /// **'dosya'**
+  String get dlsvcDefaultFile;
+
+  /// No description provided for @authRegisterFailed.
+  ///
+  /// In tr, this message translates to:
+  /// **'Kayıt başarısız.'**
+  String get authRegisterFailed;
+
+  /// No description provided for @authLoginFailed.
+  ///
+  /// In tr, this message translates to:
+  /// **'Giriş başarısız.'**
+  String get authLoginFailed;
+
+  /// No description provided for @authRecoverFailed.
+  ///
+  /// In tr, this message translates to:
+  /// **'Kurtarma başarısız.'**
+  String get authRecoverFailed;
+
+  /// No description provided for @authDeleteFailed.
+  ///
+  /// In tr, this message translates to:
+  /// **'Hesap silme başarısız.'**
+  String get authDeleteFailed;
+
+  /// No description provided for @authUnexpectedRetry.
+  ///
+  /// In tr, this message translates to:
+  /// **'Beklenmeyen bir hata oluştu. Lütfen tekrar deneyin.'**
+  String get authUnexpectedRetry;
 }
 
 class _AppLocalizationsDelegate

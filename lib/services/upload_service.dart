@@ -3,6 +3,7 @@ import 'package:dio/dio.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:archive/archive_io.dart';
 import '../crypto/sv02_codec.dart';
+import '../l10n/app_localizations.dart';
 import 'api_client.dart';
 
 class UploadException implements Exception {
@@ -40,6 +41,7 @@ class UploadService {
   /// akisindan gecirir (web ile birebir ayni: metin -> metin.txt -> upload).
   /// Islem bitince gecici dosya silinir.
   Future<UploadResult> uploadText({
+    required AppLocalizations l,
     required String text,
     required String recipientEmail,
     String? extraPassword,
@@ -51,6 +53,7 @@ class UploadService {
     try {
       await tmp.writeAsString(text);
       return await uploadFile(
+        l: l,
         filePath: tmp.path,
         originalName: 'metin.txt',
         recipientEmail: recipientEmail,
@@ -72,6 +75,7 @@ class UploadService {
   /// zip dosyasini kendi cihazinda acar. Islem bitince gecici zip silinir.
   /// (Metin akisiyla ayni desen: klasor -> klasor.zip -> uploadFile.)
   Future<UploadResult> uploadFolder({
+    required AppLocalizations l,
     required String folderPath,
     required String recipientEmail,
     String? extraPassword,
@@ -80,7 +84,7 @@ class UploadService {
   }) async {
     final dir = Directory(folderPath);
     if (!await dir.exists()) {
-      throw UploadException('Klasor bulunamadi.');
+      throw UploadException(l.svcFolderNotFound);
     }
 
     // Klasor adini zip dosya adi olarak kullan (yoksa 'klasor').
@@ -91,7 +95,7 @@ class UploadService {
     final zipPath = '${tmpDir.path}/${folderName}_${DateTime.now().millisecondsSinceEpoch}.zip';
 
     try {
-      onLog?.call('info', 'Klasör paketleniyor (sıkıştırmasız zip)...');
+      onLog?.call('info', l.svcPackaging);
       // SIKISTIRMASIZ (store) zip: hizli, telefonu yormaz.
       final encoder = ZipFileEncoder();
       encoder.create(zipPath, level: 0); // level 0 = store, sikistirma yok
@@ -101,11 +105,12 @@ class UploadService {
       final zipFile = File(zipPath);
       final zipSize = await zipFile.length();
       if (zipSize <= 0) {
-        throw UploadException('Klasor bos gorunuyor.');
+        throw UploadException(l.svcFolderEmpty);
       }
 
-      onLog?.call('ok', '✅ Paketleme tamamlandı.');
+      onLog?.call('ok', l.svcPackDone);
       return await uploadFile(
+        l: l,
         filePath: zipPath,
         originalName: '$folderName.zip',
         recipientEmail: recipientEmail,
@@ -124,6 +129,7 @@ class UploadService {
   }
 
   Future<UploadResult> uploadFile({
+    required AppLocalizations l,
     required String filePath,
     required String originalName,
     required String recipientEmail,
@@ -134,29 +140,30 @@ class UploadService {
     final file = File(filePath);
     final totalSize = await file.length();
     if (totalSize <= 0) {
-      throw UploadException('Dosya bos gorunuyor, baska bir dosya secin.');
+      throw UploadException(l.svcFileEmpty);
     }
 
-    onLog?.call('info', 'AES-256 anahtarı cihazınızda üretiliyor...');
+    onLog?.call('info', l.svcGenKey);
     final key = Sv02Codec.generateKey();
     final keyB64 = await Sv02Codec.keyToBase64Url(key);
 
-    onLog?.call('info', 'Yükleme oturumu başlatılıyor...');
+    onLog?.call('info', l.svcInitUpload);
     final uploadId = await _init(
+      l: l,
       recipientEmail: recipientEmail,
       originalName: originalName,
     );
 
-    onLog?.call('info', 'Şifreleniyor ve yükleniyor (AES-256-GCM, 5 MB parçalar)...');
+    onLog?.call('info', l.svcEncrypting);
     var sent = 0;
     await for (final piece in Sv02Codec.encryptStream(filePath, key)) {
-      await _postChunk(uploadId, piece);
+      await _postChunk(l, uploadId, piece);
       sent += piece.length;
       onProgress?.call(sent, totalSize);
     }
 
-    onLog?.call('ok', '✅ Şifreli yükleme tamamlandı.');
-    final fin = await _finalize(uploadId);
+    onLog?.call('ok', l.svcUploadDone);
+    final fin = await _finalize(l, uploadId);
 
     // Ek sifre varsa, web ile birebir ayni sekilde #keyB64|HASH16 ekini uret.
     var pwdSuffix = '';
@@ -174,7 +181,7 @@ class UploadService {
     // server.js isValidKeyB64, base64 padding ('=') bekliyor; uretirken
     // kaldirdigimiz padding'i burada geri ekliyoruz.
     final padded = keyB64 + ('=' * ((4 - keyB64.length % 4) % 4));
-    onLog?.call('info', 'İndirme linki e-posta ile gönderiliyor...');
+    onLog?.call('info', l.svcSendingEmail);
     final emailSent = await _sendLink(
       token: fin.token,
       keyB64WithPwd: '$padded$pwdSuffix',
@@ -184,8 +191,8 @@ class UploadService {
     onLog?.call(
       emailSent ? 'ok' : 'err',
       emailSent
-          ? '✅ E-posta gönderildi → $recipientEmail'
-          : '⚠ E-posta gönderilemedi — linki manuel paylaşabilirsiniz.',
+          ? l.svcEmailSent(recipientEmail)
+          : l.svcEmailFailed,
     );
 
     return UploadResult(
@@ -224,6 +231,7 @@ class UploadService {
   }
 
   Future<String> _init({
+    required AppLocalizations l,
     required String recipientEmail,
     required String originalName,
   }) async {
@@ -235,13 +243,13 @@ class UploadService {
       if (res.statusCode == 200 && res.data['uploadId'] != null) {
         return res.data['uploadId'] as String;
       }
-      throw UploadException(_serverError(res, 'Yukleme baslatilamadi.'));
+      throw UploadException(_serverError(res, l.svcInitFailed));
     } on DioException catch (e) {
-      throw UploadException(_networkError(e));
+      throw UploadException(_networkError(l, e));
     }
   }
 
-  Future<void> _postChunk(String uploadId, List<int> bytes) async {
+  Future<void> _postChunk(AppLocalizations l, String uploadId, List<int> bytes) async {
     try {
       final res = await _dio.post(
         '/upload/chunk/$uploadId',
@@ -249,14 +257,14 @@ class UploadService {
         options: Options(contentType: 'application/octet-stream'),
       );
       if (res.statusCode != 200) {
-        throw UploadException(_serverError(res, 'Parca yuklenemedi.'));
+        throw UploadException(_serverError(res, l.svcChunkFailed));
       }
     } on DioException catch (e) {
-      throw UploadException(_networkError(e));
+      throw UploadException(_networkError(l, e));
     }
   }
 
-  Future<_FinalizeResult> _finalize(String uploadId) async {
+  Future<_FinalizeResult> _finalize(AppLocalizations l, String uploadId) async {
     try {
       final res = await _dio.post('/upload/finalize/$uploadId');
       if (res.statusCode == 200 && res.data['token'] != null) {
@@ -265,9 +273,9 @@ class UploadService {
           ttl: (res.data['ttl'] as num).toInt(),
         );
       }
-      throw UploadException(_serverError(res, 'Yukleme tamamlanamadi.'));
+      throw UploadException(_serverError(res, l.svcFinalizeFailed));
     } on DioException catch (e) {
-      throw UploadException(_networkError(e));
+      throw UploadException(_networkError(l, e));
     }
   }
 
@@ -277,16 +285,16 @@ class UploadService {
     return fallback;
   }
 
-  String _networkError(DioException e) {
+  String _networkError(AppLocalizations l, DioException e) {
     switch (e.type) {
       case DioExceptionType.connectionTimeout:
       case DioExceptionType.sendTimeout:
       case DioExceptionType.receiveTimeout:
-        return 'Sunucuya baglanilamadi (zaman asimi). Internet baglantinizi kontrol edin.';
+        return l.svcTimeout;
       case DioExceptionType.connectionError:
-        return 'Baglanti kurulamadi. Internet baglantinizi kontrol edin.';
+        return l.svcConnError;
       default:
-        return 'Beklenmeyen bir hata olustu: ${e.message}';
+        return l.svcUnexpected(e.message ?? '');
     }
   }
 }

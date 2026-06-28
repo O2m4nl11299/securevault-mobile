@@ -4,6 +4,7 @@ import 'package:cryptography/cryptography.dart';
 import 'package:dio/dio.dart';
 import 'package:path_provider/path_provider.dart';
 import '../crypto/sv02_codec.dart';
+import '../l10n/app_localizations.dart';
 import 'api_client.dart';
 
 class DownloadException implements Exception {
@@ -73,6 +74,7 @@ class DownloadService {
   }
 
   Future<DownloadResult> downloadAndDecrypt({
+    required AppLocalizations l,
     required String token,
     required String keyB64,
     void Function(int received, int total)? onProgress,
@@ -81,7 +83,7 @@ class DownloadService {
     try {
       key = Sv02Codec.keyFromBase64Url(keyB64);
     } catch (_) {
-      throw DownloadException('Geçersiz şifreleme anahtarı.');
+      throw DownloadException(l.dlsvcInvalidKey);
     }
 
     final Response<ResponseBody> res;
@@ -91,14 +93,14 @@ class DownloadService {
         options: Options(responseType: ResponseType.stream),
       );
     } on DioException catch (e) {
-      throw DownloadException(_dioErrorMessage(e));
+      throw DownloadException(_dioErrorMessage(l, e));
     }
 
     if (res.statusCode != 200) {
-      throw DownloadException(await _readJsonError(res));
+      throw DownloadException(await _readJsonError(l, res));
     }
 
-    final fileName = _parseFilename(res.headers.value('content-disposition'));
+    final fileName = _parseFilename(l, res.headers.value('content-disposition'));
     final totalLen =
         int.tryParse(res.headers.value('content-length') ?? '') ?? 0;
 
@@ -125,9 +127,7 @@ class DownloadService {
       try {
         await outFile.delete();
       } catch (_) {}
-      throw DownloadException(
-        'Şifre çözme başarısız: anahtar hatalı veya dosya bozuk olabilir.',
-      );
+      throw DownloadException(l.dlsvcDecryptFailed);
     }
     await sink.flush();
     await sink.close();
@@ -140,8 +140,8 @@ class DownloadService {
     );
   }
 
-  String _parseFilename(String? contentDisposition) {
-    if (contentDisposition == null) return 'dosya';
+  String _parseFilename(AppLocalizations l, String? contentDisposition) {
+    if (contentDisposition == null) return l.dlsvcDefaultFile;
     final star =
         RegExp(r"filename\*=UTF-8''([^;\s]+)").firstMatch(contentDisposition);
     if (star != null) {
@@ -153,10 +153,10 @@ class DownloadService {
     if (plain != null) {
       return plain.group(1)!.replaceAll(RegExp(r'\.enc$'), '');
     }
-    return 'dosya';
+    return l.dlsvcDefaultFile;
   }
 
-  Future<String> _readJsonError(Response<ResponseBody> res) async {
+  Future<String> _readJsonError(AppLocalizations l, Response<ResponseBody> res) async {
     try {
       final bytes = await res.data!.stream
           .fold<List<int>>(<int>[], (acc, c) => acc..addAll(c));
@@ -165,24 +165,24 @@ class DownloadService {
       if (json is Map && json['error'] != null) return json['error'].toString();
     } catch (_) {}
     if (res.statusCode == 410) {
-      return 'Bu link artık geçerli değil — ya kullanıldı, ya da süresi doldu.';
+      return l.dlsvcLinkExpired;
     }
-    return 'İndirme başarısız (HTTP ${res.statusCode}).';
+    return l.dlsvcDownloadFailed(res.statusCode.toString());
   }
 
-  String _dioErrorMessage(DioException e) {
+  String _dioErrorMessage(AppLocalizations l, DioException e) {
     if (e.response?.statusCode == 410) {
-      return 'Bu link artık geçerli değil — ya kullanıldı, ya da süresi doldu.';
+      return l.dlsvcLinkExpired;
     }
     switch (e.type) {
       case DioExceptionType.connectionTimeout:
       case DioExceptionType.sendTimeout:
       case DioExceptionType.receiveTimeout:
-        return 'Sunucuya bağlanılamadı (zaman aşımı).';
+        return l.dlsvcTimeout;
       case DioExceptionType.connectionError:
-        return 'Bağlantı kurulamadı. İnternet bağlantınızı kontrol edin.';
+        return l.dlsvcConnError;
       default:
-        return 'Beklenmeyen bir hata oluştu: ${e.message}';
+        return l.dlsvcUnexpected(e.message ?? '');
     }
   }
 }

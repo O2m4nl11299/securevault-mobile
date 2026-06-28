@@ -64,6 +64,7 @@ class _FolderUploadScreenState extends State<FolderUploadScreen> {
     });
     try {
       final result = await _uploadService.uploadFolder(
+        l: AppLocalizations.of(context),
         folderPath: path,
         recipientEmail: email,
         extraPassword: _extraPwdCtrl.text.trim().isEmpty

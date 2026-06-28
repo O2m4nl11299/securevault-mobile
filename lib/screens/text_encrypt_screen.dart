@@ -56,6 +56,7 @@ class _TextEncryptScreenState extends State<TextEncryptScreen> {
     });
     try {
       final result = await _uploadService.uploadText(
+        l: AppLocalizations.of(context),
         text: text,
         recipientEmail: email,
         extraPassword: _extraPwdCtrl.text.trim().isEmpty

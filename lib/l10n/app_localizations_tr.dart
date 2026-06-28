@@ -748,4 +748,113 @@ class AppLocalizationsTr extends AppLocalizations {
   @override
   String get termsFooter =>
       'Bu metin genel bir bilgilendirme niteliğindedir ve hukuki tavsiye yerine geçmez.';
+
+  @override
+  String get svcFolderNotFound => 'Klasör bulunamadı.';
+
+  @override
+  String get svcFolderEmpty => 'Klasör boş görünüyor.';
+
+  @override
+  String get svcFileEmpty => 'Dosya boş görünüyor, başka bir dosya seçin.';
+
+  @override
+  String get svcPackaging => 'Klasör paketleniyor (sıkıştırmasız zip)...';
+
+  @override
+  String get svcPackDone => '✅ Paketleme tamamlandı.';
+
+  @override
+  String get svcGenKey => 'AES-256 anahtarı cihazınızda üretiliyor...';
+
+  @override
+  String get svcInitUpload => 'Yükleme oturumu başlatılıyor...';
+
+  @override
+  String get svcEncrypting =>
+      'Şifreleniyor ve yükleniyor (AES-256-GCM, 5 MB parçalar)...';
+
+  @override
+  String get svcUploadDone => '✅ Şifreli yükleme tamamlandı.';
+
+  @override
+  String get svcSendingEmail => 'İndirme linki e-posta ile gönderiliyor...';
+
+  @override
+  String svcEmailSent(String email) {
+    return '✅ E-posta gönderildi → $email';
+  }
+
+  @override
+  String get svcEmailFailed =>
+      '⚠ E-posta gönderilemedi — linki manuel paylaşabilirsiniz.';
+
+  @override
+  String get svcInitFailed => 'Yükleme başlatılamadı.';
+
+  @override
+  String get svcChunkFailed => 'Parça yüklenemedi.';
+
+  @override
+  String get svcFinalizeFailed => 'Yükleme tamamlanamadı.';
+
+  @override
+  String get svcTimeout =>
+      'Sunucuya bağlanılamadı (zaman aşımı). İnternet bağlantınızı kontrol edin.';
+
+  @override
+  String get svcConnError =>
+      'Bağlantı kurulamadı. İnternet bağlantınızı kontrol edin.';
+
+  @override
+  String svcUnexpected(String error) {
+    return 'Beklenmeyen bir hata oluştu: $error';
+  }
+
+  @override
+  String get dlsvcInvalidKey => 'Geçersiz şifreleme anahtarı.';
+
+  @override
+  String get dlsvcDecryptFailed =>
+      'Şifre çözme başarısız: anahtar hatalı veya dosya bozuk olabilir.';
+
+  @override
+  String get dlsvcLinkExpired =>
+      'Bu link artık geçerli değil — ya kullanıldı, ya da süresi doldu.';
+
+  @override
+  String dlsvcDownloadFailed(String code) {
+    return 'İndirme başarısız (HTTP $code).';
+  }
+
+  @override
+  String get dlsvcTimeout => 'Sunucuya bağlanılamadı (zaman aşımı).';
+
+  @override
+  String get dlsvcConnError =>
+      'Bağlantı kurulamadı. İnternet bağlantınızı kontrol edin.';
+
+  @override
+  String dlsvcUnexpected(String error) {
+    return 'Beklenmeyen bir hata oluştu: $error';
+  }
+
+  @override
+  String get dlsvcDefaultFile => 'dosya';
+
+  @override
+  String get authRegisterFailed => 'Kayıt başarısız.';
+
+  @override
+  String get authLoginFailed => 'Giriş başarısız.';
+
+  @override
+  String get authRecoverFailed => 'Kurtarma başarısız.';
+
+  @override
+  String get authDeleteFailed => 'Hesap silme başarısız.';
+
+  @override
+  String get authUnexpectedRetry =>
+      'Beklenmeyen bir hata oluştu. Lütfen tekrar deneyin.';
 }

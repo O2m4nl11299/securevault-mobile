@@ -56,6 +56,7 @@ class _DownloadScreenState extends State<DownloadScreen> {
 
     try {
       final result = await _service.downloadAndDecrypt(
+        l: AppLocalizations.of(context),
         token: parsed.token,
         keyB64: parsed.keyB64,
         onProgress: (received, total) {

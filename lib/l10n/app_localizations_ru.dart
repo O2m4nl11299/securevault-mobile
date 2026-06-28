@@ -754,4 +754,114 @@ class AppLocalizationsRu extends AppLocalizations {
   @override
   String get termsFooter =>
       'Этот текст носит общий информационный характер и не заменяет юридическую консультацию.';
+
+  @override
+  String get svcFolderNotFound => 'Папка не найдена.';
+
+  @override
+  String get svcFolderEmpty => 'Папка выглядит пустой.';
+
+  @override
+  String get svcFileEmpty => 'Файл выглядит пустым; выберите другой файл.';
+
+  @override
+  String get svcPackaging => 'Упаковка папки (несжатый zip)...';
+
+  @override
+  String get svcPackDone => '✅ Упаковка завершена.';
+
+  @override
+  String get svcGenKey => 'Создание ключа AES-256 на вашем устройстве...';
+
+  @override
+  String get svcInitUpload => 'Запуск сессии загрузки...';
+
+  @override
+  String get svcEncrypting =>
+      'Шифрование и загрузка (AES-256-GCM, части по 5 МБ)...';
+
+  @override
+  String get svcUploadDone => '✅ Зашифрованная загрузка завершена.';
+
+  @override
+  String get svcSendingEmail =>
+      'Отправка ссылки для скачивания по электронной почте...';
+
+  @override
+  String svcEmailSent(String email) {
+    return '✅ Письмо отправлено → $email';
+  }
+
+  @override
+  String get svcEmailFailed =>
+      '⚠ Не удалось отправить письмо — вы можете поделиться ссылкой вручную.';
+
+  @override
+  String get svcInitFailed => 'Не удалось начать загрузку.';
+
+  @override
+  String get svcChunkFailed => 'Не удалось загрузить часть.';
+
+  @override
+  String get svcFinalizeFailed => 'Не удалось завершить загрузку.';
+
+  @override
+  String get svcTimeout =>
+      'Не удалось подключиться к серверу (тайм-аут). Проверьте подключение к интернету.';
+
+  @override
+  String get svcConnError =>
+      'Не удалось установить соединение. Проверьте подключение к интернету.';
+
+  @override
+  String svcUnexpected(String error) {
+    return 'Произошла непредвиденная ошибка: $error';
+  }
+
+  @override
+  String get dlsvcInvalidKey => 'Недействительный ключ шифрования.';
+
+  @override
+  String get dlsvcDecryptFailed =>
+      'Расшифровка не удалась: ключ может быть неверным или файл повреждён.';
+
+  @override
+  String get dlsvcLinkExpired =>
+      'Эта ссылка больше недействительна — она либо использована, либо истёк её срок.';
+
+  @override
+  String dlsvcDownloadFailed(String code) {
+    return 'Скачивание не удалось (HTTP $code).';
+  }
+
+  @override
+  String get dlsvcTimeout => 'Не удалось подключиться к серверу (тайм-аут).';
+
+  @override
+  String get dlsvcConnError =>
+      'Не удалось установить соединение. Проверьте подключение к интернету.';
+
+  @override
+  String dlsvcUnexpected(String error) {
+    return 'Произошла непредвиденная ошибка: $error';
+  }
+
+  @override
+  String get dlsvcDefaultFile => 'файл';
+
+  @override
+  String get authRegisterFailed => 'Регистрация не удалась.';
+
+  @override
+  String get authLoginFailed => 'Не удалось войти.';
+
+  @override
+  String get authRecoverFailed => 'Восстановление не удалось.';
+
+  @override
+  String get authDeleteFailed => 'Не удалось удалить аккаунт.';
+
+  @override
+  String get authUnexpectedRetry =>
+      'Произошла непредвиденная ошибка. Пожалуйста, попробуйте снова.';
 }

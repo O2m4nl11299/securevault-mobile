@@ -758,4 +758,115 @@ class AppLocalizationsDe extends AppLocalizations {
   @override
   String get termsFooter =>
       'Dieser Text dient der allgemeinen Information und stellt keine Rechtsberatung dar.';
+
+  @override
+  String get svcFolderNotFound => 'Ordner nicht gefunden.';
+
+  @override
+  String get svcFolderEmpty => 'Der Ordner scheint leer zu sein.';
+
+  @override
+  String get svcFileEmpty =>
+      'Die Datei scheint leer zu sein; bitte wählen Sie eine andere Datei.';
+
+  @override
+  String get svcPackaging => 'Ordner wird gepackt (unkomprimiertes Zip)...';
+
+  @override
+  String get svcPackDone => '✅ Packen abgeschlossen.';
+
+  @override
+  String get svcGenKey => 'AES-256-Schlüssel wird auf Ihrem Gerät erzeugt...';
+
+  @override
+  String get svcInitUpload => 'Upload-Sitzung wird gestartet...';
+
+  @override
+  String get svcEncrypting =>
+      'Wird verschlüsselt und hochgeladen (AES-256-GCM, 5-MB-Teile)...';
+
+  @override
+  String get svcUploadDone => '✅ Verschlüsselter Upload abgeschlossen.';
+
+  @override
+  String get svcSendingEmail => 'Download-Link wird per E-Mail gesendet...';
+
+  @override
+  String svcEmailSent(String email) {
+    return '✅ E-Mail gesendet → $email';
+  }
+
+  @override
+  String get svcEmailFailed =>
+      '⚠ E-Mail konnte nicht gesendet werden — Sie können den Link manuell teilen.';
+
+  @override
+  String get svcInitFailed => 'Upload konnte nicht gestartet werden.';
+
+  @override
+  String get svcChunkFailed => 'Teil konnte nicht hochgeladen werden.';
+
+  @override
+  String get svcFinalizeFailed => 'Upload konnte nicht abgeschlossen werden.';
+
+  @override
+  String get svcTimeout =>
+      'Verbindung zum Server fehlgeschlagen (Zeitüberschreitung). Überprüfen Sie Ihre Internetverbindung.';
+
+  @override
+  String get svcConnError =>
+      'Verbindung konnte nicht hergestellt werden. Überprüfen Sie Ihre Internetverbindung.';
+
+  @override
+  String svcUnexpected(String error) {
+    return 'Ein unerwarteter Fehler ist aufgetreten: $error';
+  }
+
+  @override
+  String get dlsvcInvalidKey => 'Ungültiger Verschlüsselungsschlüssel.';
+
+  @override
+  String get dlsvcDecryptFailed =>
+      'Entschlüsselung fehlgeschlagen: Der Schlüssel ist möglicherweise falsch oder die Datei beschädigt.';
+
+  @override
+  String get dlsvcLinkExpired =>
+      'Dieser Link ist nicht mehr gültig — er wurde entweder verwendet oder ist abgelaufen.';
+
+  @override
+  String dlsvcDownloadFailed(String code) {
+    return 'Download fehlgeschlagen (HTTP $code).';
+  }
+
+  @override
+  String get dlsvcTimeout =>
+      'Verbindung zum Server fehlgeschlagen (Zeitüberschreitung).';
+
+  @override
+  String get dlsvcConnError =>
+      'Verbindung konnte nicht hergestellt werden. Überprüfen Sie Ihre Internetverbindung.';
+
+  @override
+  String dlsvcUnexpected(String error) {
+    return 'Ein unerwarteter Fehler ist aufgetreten: $error';
+  }
+
+  @override
+  String get dlsvcDefaultFile => 'Datei';
+
+  @override
+  String get authRegisterFailed => 'Registrierung fehlgeschlagen.';
+
+  @override
+  String get authLoginFailed => 'Anmeldung fehlgeschlagen.';
+
+  @override
+  String get authRecoverFailed => 'Wiederherstellung fehlgeschlagen.';
+
+  @override
+  String get authDeleteFailed => 'Kontolöschung fehlgeschlagen.';
+
+  @override
+  String get authUnexpectedRetry =>
+      'Ein unerwarteter Fehler ist aufgetreten. Bitte versuchen Sie es erneut.';
 }
