@@ -182,7 +182,7 @@
   "sozH3": "3. TERMS OF USE",
   "sozP3": "Sharing the following content is strictly prohibited:\n• Illegal content\n• Copyright infringement\n• Malware\n• Unauthorized sharing of personal data",
   "sozH4": "4. SERVICE LIMITS",
-  "sozP4": "• Non-members: 5 MB file limit, 3 transfers per day\n• Members: 250 MB file limit\n• All files: 1-hour TTL (automatically deleted if not downloaded)",
+  "sozP4": "• Free members: 250 MB file limit, 4-day retention\n• Premium members: 2 GB file limit, 20-day retention\n• All files are single-use (automatically deleted after download)",
   "sozH5": "5. DISCLAIMER",
   "sozP5": "SecureVault is not responsible for the content of shared files. Due to the zero-knowledge architecture, file content cannot be accessed. For more detailed information, please review the Terms of Use and Disclaimer screen.",
   "sozH6": "6. SERVICE CHANGES",

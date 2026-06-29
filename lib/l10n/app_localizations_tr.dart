@@ -616,7 +616,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get sozP4 =>
-      '• Üye olmayanlar: 5 MB dosya limiti, günde 3 gönderim\n• Üyeler: 250 MB dosya limiti\n• Tüm dosyalar: 1 saat TTL (indirilmezse otomatik silinir)';
+      '• Ücretsiz üyeler: 250 MB dosya limiti, 4 gün saklama\n• Premium üyeler: 2 GB dosya limiti, 20 gün saklama\n• Tüm dosyalar tek kullanımlıktır (indirildikten sonra otomatik silinir)';
 
   @override
   String get sozH5 => '5. SORUMLULUK REDDİ';

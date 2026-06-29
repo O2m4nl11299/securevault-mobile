@@ -182,7 +182,7 @@
   "sozH3": "3. NUTZUNGSBEDINGUNGEN",
   "sozP3": "Das Teilen der folgenden Inhalte ist strengstens untersagt:\n• Illegale Inhalte\n• Urheberrechtsverletzungen\n• Schadsoftware\n• Unbefugtes Teilen personenbezogener Daten",
   "sozH4": "4. DIENSTGRENZEN",
-  "sozP4": "• Nichtmitglieder: 5 MB Dateilimit, 3 Übertragungen pro Tag\n• Mitglieder: 250 MB Dateilimit\n• Alle Dateien: 1 Stunde TTL (wird automatisch gelöscht, wenn nicht heruntergeladen)",
+  "sozP4": "• Kostenlose Mitglieder: 250 MB Dateilimit, 4 Tage Aufbewahrung\n• Premium-Mitglieder: 2 GB Dateilimit, 20 Tage Aufbewahrung\n• Alle Dateien sind einmalig nutzbar (nach dem Download automatisch gelöscht)",
   "sozH5": "5. HAFTUNGSAUSSCHLUSS",
   "sozP5": "SecureVault ist nicht für den Inhalt der geteilten Dateien verantwortlich. Aufgrund der Zero-Knowledge-Architektur kann auf den Dateiinhalt nicht zugegriffen werden. Weitere Informationen finden Sie im Bildschirm „Nutzungsbedingungen und Haftungsausschluss“.",
   "sozH6": "6. DIENSTÄNDERUNGEN",

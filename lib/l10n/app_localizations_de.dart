@@ -623,7 +623,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get sozP4 =>
-      '• Nichtmitglieder: 5 MB Dateilimit, 3 Übertragungen pro Tag\n• Mitglieder: 250 MB Dateilimit\n• Alle Dateien: 1 Stunde TTL (wird automatisch gelöscht, wenn nicht heruntergeladen)';
+      '• Kostenlose Mitglieder: 250 MB Dateilimit, 4 Tage Aufbewahrung\n• Premium-Mitglieder: 2 GB Dateilimit, 20 Tage Aufbewahrung\n• Alle Dateien sind einmalig nutzbar (nach dem Download automatisch gelöscht)';
 
   @override
   String get sozH5 => '5. HAFTUNGSAUSSCHLUSS';
