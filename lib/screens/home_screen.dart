@@ -7,6 +7,7 @@ import 'login_screen.dart';
 import 'upload_screen.dart';
 import 'folder_upload_screen.dart';
 import 'text_encrypt_screen.dart';
+import 'text_cipher_screen.dart';
 import 'download_screen.dart';
 import 'delete_account_screen.dart';
 import 'info_screen.dart';
@@ -141,6 +142,14 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               icon: const Icon(Icons.text_fields),
               label: Text(l.homeEncryptText),
+            ),
+            const SizedBox(height: 12),
+            OutlinedButton.icon(
+              onPressed: () => Navigator.of(context).push(
+                MaterialPageRoute(builder: (_) => const TextCipherScreen()),
+              ),
+              icon: const Icon(Icons.enhanced_encryption),
+              label: Text(l.cphTitle),
             ),
             const SizedBox(height: 12),
             OutlinedButton.icon(

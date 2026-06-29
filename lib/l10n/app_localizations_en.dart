@@ -859,4 +859,73 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get authUnexpectedRetry =>
       'An unexpected error occurred. Please try again.';
+
+  @override
+  String get cphTitle => 'Encrypted Message';
+
+  @override
+  String get cphModeEncrypt => 'Encrypt Message';
+
+  @override
+  String get cphModeDecrypt => 'Decrypt Message';
+
+  @override
+  String get cphIntro =>
+      'Your message is encrypted entirely on this device. Nothing is sent to the server. Copy the encrypted text and send it via any app (WhatsApp, SMS...); the recipient decrypts it with the same password.';
+
+  @override
+  String get cphPlainLabel => 'Message to encrypt';
+
+  @override
+  String get cphPlainHint => 'Type your secret message here...';
+
+  @override
+  String get cphPassword => 'Password';
+
+  @override
+  String get cphPasswordHint => 'The password you share with the recipient';
+
+  @override
+  String get cphEncryptBtn => 'Encrypt';
+
+  @override
+  String get cphDecryptBtn => 'Decrypt';
+
+  @override
+  String get cphEncryptedLabel => 'Encrypted message (copy and send)';
+
+  @override
+  String get cphPasteLabel => 'Paste the encrypted message here';
+
+  @override
+  String get cphPasteHint => 'Paste the encrypted block you received...';
+
+  @override
+  String get cphResultLabel => 'Decrypted message';
+
+  @override
+  String get cphCopy => 'Copy';
+
+  @override
+  String get cphPaste => 'Paste';
+
+  @override
+  String get cphCopied => 'Copied to clipboard.';
+
+  @override
+  String get cphErrEmptyText => 'Enter a message to encrypt.';
+
+  @override
+  String get cphErrEmptyPwd => 'Enter a password.';
+
+  @override
+  String get cphErrEmptyEncrypted => 'Paste the encrypted message to decrypt.';
+
+  @override
+  String get cphErrDecrypt =>
+      'Decryption failed. The password may be wrong or the message corrupted.';
+
+  @override
+  String get cphPwdWarning =>
+      'Share the password with the recipient through a secure channel (in person, by phone). The message cannot be decrypted without it.';
 }

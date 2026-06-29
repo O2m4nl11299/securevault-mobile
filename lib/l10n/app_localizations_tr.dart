@@ -857,4 +857,73 @@ class AppLocalizationsTr extends AppLocalizations {
   @override
   String get authUnexpectedRetry =>
       'Beklenmeyen bir hata oluştu. Lütfen tekrar deneyin.';
+
+  @override
+  String get cphTitle => 'Şifreli Mesaj';
+
+  @override
+  String get cphModeEncrypt => 'Mesaj Şifrele';
+
+  @override
+  String get cphModeDecrypt => 'Mesaj Çöz';
+
+  @override
+  String get cphIntro =>
+      'Mesajınız tamamen bu cihazda şifrelenir. Sunucuya hiçbir şey gönderilmez. Şifreli metni kopyalayıp istediğiniz uygulamadan (WhatsApp, SMS...) iletin; alıcı aynı parolayla çözer.';
+
+  @override
+  String get cphPlainLabel => 'Şifrelenecek mesaj';
+
+  @override
+  String get cphPlainHint => 'Gizli mesajınızı buraya yazın...';
+
+  @override
+  String get cphPassword => 'Parola';
+
+  @override
+  String get cphPasswordHint => 'Alıcıyla paylaştığınız parola';
+
+  @override
+  String get cphEncryptBtn => 'Şifrele';
+
+  @override
+  String get cphDecryptBtn => 'Çöz';
+
+  @override
+  String get cphEncryptedLabel => 'Şifreli mesaj (kopyalayıp iletin)';
+
+  @override
+  String get cphPasteLabel => 'Şifreli mesajı buraya yapıştırın';
+
+  @override
+  String get cphPasteHint => 'Size gelen şifreli bloğu yapıştırın...';
+
+  @override
+  String get cphResultLabel => 'Çözülen mesaj';
+
+  @override
+  String get cphCopy => 'Kopyala';
+
+  @override
+  String get cphPaste => 'Yapıştır';
+
+  @override
+  String get cphCopied => 'Panoya kopyalandı.';
+
+  @override
+  String get cphErrEmptyText => 'Şifrelenecek bir mesaj girin.';
+
+  @override
+  String get cphErrEmptyPwd => 'Bir parola girin.';
+
+  @override
+  String get cphErrEmptyEncrypted => 'Çözülecek şifreli mesajı yapıştırın.';
+
+  @override
+  String get cphErrDecrypt =>
+      'Çözme başarısız. Parola yanlış veya mesaj bozuk olabilir.';
+
+  @override
+  String get cphPwdWarning =>
+      'Parolayı alıcıya güvenli bir kanaldan (yüz yüze, telefon) iletin. Parola olmadan mesaj çözülemez.';
 }

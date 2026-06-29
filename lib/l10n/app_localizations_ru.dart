@@ -864,4 +864,75 @@ class AppLocalizationsRu extends AppLocalizations {
   @override
   String get authUnexpectedRetry =>
       'Произошла непредвиденная ошибка. Пожалуйста, попробуйте снова.';
+
+  @override
+  String get cphTitle => 'Зашифрованное сообщение';
+
+  @override
+  String get cphModeEncrypt => 'Зашифровать сообщение';
+
+  @override
+  String get cphModeDecrypt => 'Расшифровать сообщение';
+
+  @override
+  String get cphIntro =>
+      'Ваше сообщение шифруется полностью на этом устройстве. На сервер ничего не отправляется. Скопируйте зашифрованный текст и отправьте его через любое приложение (WhatsApp, SMS...); получатель расшифрует его тем же паролем.';
+
+  @override
+  String get cphPlainLabel => 'Сообщение для шифрования';
+
+  @override
+  String get cphPlainHint => 'Введите здесь ваше секретное сообщение...';
+
+  @override
+  String get cphPassword => 'Пароль';
+
+  @override
+  String get cphPasswordHint => 'Пароль, которым вы делитесь с получателем';
+
+  @override
+  String get cphEncryptBtn => 'Зашифровать';
+
+  @override
+  String get cphDecryptBtn => 'Расшифровать';
+
+  @override
+  String get cphEncryptedLabel =>
+      'Зашифрованное сообщение (скопируйте и отправьте)';
+
+  @override
+  String get cphPasteLabel => 'Вставьте сюда зашифрованное сообщение';
+
+  @override
+  String get cphPasteHint => 'Вставьте полученный зашифрованный блок...';
+
+  @override
+  String get cphResultLabel => 'Расшифрованное сообщение';
+
+  @override
+  String get cphCopy => 'Копировать';
+
+  @override
+  String get cphPaste => 'Вставить';
+
+  @override
+  String get cphCopied => 'Скопировано в буфер обмена.';
+
+  @override
+  String get cphErrEmptyText => 'Введите сообщение для шифрования.';
+
+  @override
+  String get cphErrEmptyPwd => 'Введите пароль.';
+
+  @override
+  String get cphErrEmptyEncrypted =>
+      'Вставьте зашифрованное сообщение для расшифровки.';
+
+  @override
+  String get cphErrDecrypt =>
+      'Расшифровка не удалась. Возможно, пароль неверен или сообщение повреждено.';
+
+  @override
+  String get cphPwdWarning =>
+      'Передайте пароль получателю по безопасному каналу (лично, по телефону). Без пароля сообщение расшифровать нельзя.';
 }

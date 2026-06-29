@@ -869,4 +869,78 @@ class AppLocalizationsDe extends AppLocalizations {
   @override
   String get authUnexpectedRetry =>
       'Ein unerwarteter Fehler ist aufgetreten. Bitte versuchen Sie es erneut.';
+
+  @override
+  String get cphTitle => 'Verschlüsselte Nachricht';
+
+  @override
+  String get cphModeEncrypt => 'Nachricht verschlüsseln';
+
+  @override
+  String get cphModeDecrypt => 'Nachricht entschlüsseln';
+
+  @override
+  String get cphIntro =>
+      'Ihre Nachricht wird vollständig auf diesem Gerät verschlüsselt. Es wird nichts an den Server gesendet. Kopieren Sie den verschlüsselten Text und senden Sie ihn über eine beliebige App (WhatsApp, SMS...); der Empfänger entschlüsselt ihn mit demselben Passwort.';
+
+  @override
+  String get cphPlainLabel => 'Zu verschlüsselnde Nachricht';
+
+  @override
+  String get cphPlainHint => 'Geben Sie hier Ihre geheime Nachricht ein...';
+
+  @override
+  String get cphPassword => 'Passwort';
+
+  @override
+  String get cphPasswordHint =>
+      'Das Passwort, das Sie mit dem Empfänger teilen';
+
+  @override
+  String get cphEncryptBtn => 'Verschlüsseln';
+
+  @override
+  String get cphDecryptBtn => 'Entschlüsseln';
+
+  @override
+  String get cphEncryptedLabel =>
+      'Verschlüsselte Nachricht (kopieren und senden)';
+
+  @override
+  String get cphPasteLabel => 'Fügen Sie hier die verschlüsselte Nachricht ein';
+
+  @override
+  String get cphPasteHint =>
+      'Fügen Sie den erhaltenen verschlüsselten Block ein...';
+
+  @override
+  String get cphResultLabel => 'Entschlüsselte Nachricht';
+
+  @override
+  String get cphCopy => 'Kopieren';
+
+  @override
+  String get cphPaste => 'Einfügen';
+
+  @override
+  String get cphCopied => 'In die Zwischenablage kopiert.';
+
+  @override
+  String get cphErrEmptyText =>
+      'Geben Sie eine zu verschlüsselnde Nachricht ein.';
+
+  @override
+  String get cphErrEmptyPwd => 'Geben Sie ein Passwort ein.';
+
+  @override
+  String get cphErrEmptyEncrypted =>
+      'Fügen Sie die zu entschlüsselnde Nachricht ein.';
+
+  @override
+  String get cphErrDecrypt =>
+      'Entschlüsselung fehlgeschlagen. Das Passwort ist möglicherweise falsch oder die Nachricht beschädigt.';
+
+  @override
+  String get cphPwdWarning =>
+      'Teilen Sie das Passwort mit dem Empfänger über einen sicheren Kanal (persönlich, telefonisch). Ohne das Passwort kann die Nachricht nicht entschlüsselt werden.';
 }

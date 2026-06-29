@@ -1613,6 +1613,138 @@ abstract class AppLocalizations {
   /// In tr, this message translates to:
   /// **'Beklenmeyen bir hata oluştu. Lütfen tekrar deneyin.'**
   String get authUnexpectedRetry;
+
+  /// No description provided for @cphTitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Şifreli Mesaj'**
+  String get cphTitle;
+
+  /// No description provided for @cphModeEncrypt.
+  ///
+  /// In tr, this message translates to:
+  /// **'Mesaj Şifrele'**
+  String get cphModeEncrypt;
+
+  /// No description provided for @cphModeDecrypt.
+  ///
+  /// In tr, this message translates to:
+  /// **'Mesaj Çöz'**
+  String get cphModeDecrypt;
+
+  /// No description provided for @cphIntro.
+  ///
+  /// In tr, this message translates to:
+  /// **'Mesajınız tamamen bu cihazda şifrelenir. Sunucuya hiçbir şey gönderilmez. Şifreli metni kopyalayıp istediğiniz uygulamadan (WhatsApp, SMS...) iletin; alıcı aynı parolayla çözer.'**
+  String get cphIntro;
+
+  /// No description provided for @cphPlainLabel.
+  ///
+  /// In tr, this message translates to:
+  /// **'Şifrelenecek mesaj'**
+  String get cphPlainLabel;
+
+  /// No description provided for @cphPlainHint.
+  ///
+  /// In tr, this message translates to:
+  /// **'Gizli mesajınızı buraya yazın...'**
+  String get cphPlainHint;
+
+  /// No description provided for @cphPassword.
+  ///
+  /// In tr, this message translates to:
+  /// **'Parola'**
+  String get cphPassword;
+
+  /// No description provided for @cphPasswordHint.
+  ///
+  /// In tr, this message translates to:
+  /// **'Alıcıyla paylaştığınız parola'**
+  String get cphPasswordHint;
+
+  /// No description provided for @cphEncryptBtn.
+  ///
+  /// In tr, this message translates to:
+  /// **'Şifrele'**
+  String get cphEncryptBtn;
+
+  /// No description provided for @cphDecryptBtn.
+  ///
+  /// In tr, this message translates to:
+  /// **'Çöz'**
+  String get cphDecryptBtn;
+
+  /// No description provided for @cphEncryptedLabel.
+  ///
+  /// In tr, this message translates to:
+  /// **'Şifreli mesaj (kopyalayıp iletin)'**
+  String get cphEncryptedLabel;
+
+  /// No description provided for @cphPasteLabel.
+  ///
+  /// In tr, this message translates to:
+  /// **'Şifreli mesajı buraya yapıştırın'**
+  String get cphPasteLabel;
+
+  /// No description provided for @cphPasteHint.
+  ///
+  /// In tr, this message translates to:
+  /// **'Size gelen şifreli bloğu yapıştırın...'**
+  String get cphPasteHint;
+
+  /// No description provided for @cphResultLabel.
+  ///
+  /// In tr, this message translates to:
+  /// **'Çözülen mesaj'**
+  String get cphResultLabel;
+
+  /// No description provided for @cphCopy.
+  ///
+  /// In tr, this message translates to:
+  /// **'Kopyala'**
+  String get cphCopy;
+
+  /// No description provided for @cphPaste.
+  ///
+  /// In tr, this message translates to:
+  /// **'Yapıştır'**
+  String get cphPaste;
+
+  /// No description provided for @cphCopied.
+  ///
+  /// In tr, this message translates to:
+  /// **'Panoya kopyalandı.'**
+  String get cphCopied;
+
+  /// No description provided for @cphErrEmptyText.
+  ///
+  /// In tr, this message translates to:
+  /// **'Şifrelenecek bir mesaj girin.'**
+  String get cphErrEmptyText;
+
+  /// No description provided for @cphErrEmptyPwd.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bir parola girin.'**
+  String get cphErrEmptyPwd;
+
+  /// No description provided for @cphErrEmptyEncrypted.
+  ///
+  /// In tr, this message translates to:
+  /// **'Çözülecek şifreli mesajı yapıştırın.'**
+  String get cphErrEmptyEncrypted;
+
+  /// No description provided for @cphErrDecrypt.
+  ///
+  /// In tr, this message translates to:
+  /// **'Çözme başarısız. Parola yanlış veya mesaj bozuk olabilir.'**
+  String get cphErrDecrypt;
+
+  /// No description provided for @cphPwdWarning.
+  ///
+  /// In tr, this message translates to:
+  /// **'Parolayı alıcıya güvenli bir kanaldan (yüz yüze, telefon) iletin. Parola olmadan mesaj çözülemez.'**
+  String get cphPwdWarning;
 }
 
 class _AppLocalizationsDelegate
