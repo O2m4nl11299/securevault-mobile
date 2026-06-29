@@ -273,5 +273,14 @@
   "cphErrEmptyPwd": "Geben Sie ein Passwort ein.",
   "cphErrEmptyEncrypted": "Fügen Sie die zu entschlüsselnde Nachricht ein.",
   "cphErrDecrypt": "Entschlüsselung fehlgeschlagen. Das Passwort ist möglicherweise falsch oder die Nachricht beschädigt.",
-  "cphPwdWarning": "Teilen Sie das Passwort mit dem Empfänger über einen sicheren Kanal (persönlich, telefonisch). Ohne das Passwort kann die Nachricht nicht entschlüsselt werden."
+  "cphPwdWarning": "Teilen Sie das Passwort mit dem Empfänger über einen sicheren Kanal (persönlich, telefonisch). Ohne das Passwort kann die Nachricht nicht entschlüsselt werden.",
+  "infoFeatures": "APP-FUNKTIONEN",
+  "infoFeatCipherTitle": "Offline verschlüsselte Nachricht",
+  "infoFeatCipherDesc": "Verschlüsseln Sie Ihre Nachricht mit einem Passwort und kopieren Sie sie; senden Sie sie über WhatsApp, SMS oder eine beliebige App. Die Verschlüsselung erfolgt vollständig auf Ihrem Gerät — die Nachricht wird NIE an den Server gesendet. Der Empfänger entschlüsselt sie in der App mit dem von Ihnen geteilten Passwort. Diese Funktion ist nur in der mobilen App verfügbar.",
+  "infoFeatFileTitle": "Verschlüsselte Datei- und Ordnerfreigabe",
+  "infoFeatFileDesc": "Teilen Sie Ihre Dateien und Ordner Ende-zu-Ende-verschlüsselt mit einem Einmal-Link. Der Link funktioniert einmal und wird kurz danach automatisch gelöscht.",
+  "infoFeatTextTitle": "Verschlüsselte Textfreigabe",
+  "infoFeatTextDesc": "Verschlüsseln Sie lange Texte und teilen Sie sie als Link; der Empfänger liest sie sicher durch Klicken auf den Link.",
+  "infoFeatLangTitle": "Unterstützung für 4 Sprachen",
+  "infoFeatLangDesc": "Türkische, englische, deutsche und russische Oberfläche."
 }

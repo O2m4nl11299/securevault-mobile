@@ -47,6 +47,12 @@ class _InfoScreenState extends State<InfoScreen> {
         child: ListView(
           padding: const EdgeInsets.all(16),
           children: [
+            _section(context, l.infoFeatures),
+            _bullet(context, '🔐', l.infoFeatCipherTitle, l.infoFeatCipherDesc),
+            _bullet(context, '📎', l.infoFeatFileTitle, l.infoFeatFileDesc),
+            _bullet(context, '📝', l.infoFeatTextTitle, l.infoFeatTextDesc),
+            _bullet(context, '🌍', l.infoFeatLangTitle, l.infoFeatLangDesc),
+            const SizedBox(height: 24),
             _section(context, l.infoSecFlow),
             _numbered(context, 1, l.infoFlow1),
             _numbered(context, 2, l.infoFlow2),

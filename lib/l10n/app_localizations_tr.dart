@@ -926,4 +926,34 @@ class AppLocalizationsTr extends AppLocalizations {
   @override
   String get cphPwdWarning =>
       'Parolayı alıcıya güvenli bir kanaldan (yüz yüze, telefon) iletin. Parola olmadan mesaj çözülemez.';
+
+  @override
+  String get infoFeatures => 'UYGULAMA ÖZELLİKLERİ';
+
+  @override
+  String get infoFeatCipherTitle => 'Çevrimdışı Şifreli Mesaj';
+
+  @override
+  String get infoFeatCipherDesc =>
+      'Mesajınızı parolayla şifreleyip kopyalayın; WhatsApp, SMS veya istediğiniz uygulamadan iletin. Şifreleme tamamen cihazınızda yapılır — mesaj sunucuya HİÇ gönderilmez. Alıcı, sizinle paylaştığınız parolayla mesajı uygulamada çözer. Bu özellik yalnızca mobil uygulamada vardır.';
+
+  @override
+  String get infoFeatFileTitle => 'Şifreli Dosya ve Klasör Paylaşımı';
+
+  @override
+  String get infoFeatFileDesc =>
+      'Dosya ve klasörlerinizi uçtan uca şifreleyerek tek kullanımlık linkle paylaşın. Link bir kez kullanılır ve kısa sürede otomatik silinir.';
+
+  @override
+  String get infoFeatTextTitle => 'Şifreli Metin Paylaşımı';
+
+  @override
+  String get infoFeatTextDesc =>
+      'Uzun metinleri şifreleyip link olarak paylaşın; alıcı linke tıklayarak güvenle okur.';
+
+  @override
+  String get infoFeatLangTitle => '4 Dil Desteği';
+
+  @override
+  String get infoFeatLangDesc => 'Türkçe, İngilizce, Almanca ve Rusça arayüz.';
 }

@@ -935,4 +935,35 @@ class AppLocalizationsRu extends AppLocalizations {
   @override
   String get cphPwdWarning =>
       'Передайте пароль получателю по безопасному каналу (лично, по телефону). Без пароля сообщение расшифровать нельзя.';
+
+  @override
+  String get infoFeatures => 'ВОЗМОЖНОСТИ ПРИЛОЖЕНИЯ';
+
+  @override
+  String get infoFeatCipherTitle => 'Офлайн зашифрованное сообщение';
+
+  @override
+  String get infoFeatCipherDesc =>
+      'Зашифруйте сообщение паролем и скопируйте его; отправьте через WhatsApp, SMS или любое приложение. Шифрование выполняется полностью на вашем устройстве — сообщение НИКОГДА не отправляется на сервер. Получатель расшифровывает его в приложении паролем, которым вы поделились. Эта функция доступна только в мобильном приложении.';
+
+  @override
+  String get infoFeatFileTitle => 'Зашифрованный обмен файлами и папками';
+
+  @override
+  String get infoFeatFileDesc =>
+      'Делитесь файлами и папками со сквозным шифрованием по одноразовой ссылке. Ссылка работает один раз и вскоре автоматически удаляется.';
+
+  @override
+  String get infoFeatTextTitle => 'Зашифрованный обмен текстом';
+
+  @override
+  String get infoFeatTextDesc =>
+      'Шифруйте длинные тексты и делитесь ими по ссылке; получатель безопасно читает их, нажав на ссылку.';
+
+  @override
+  String get infoFeatLangTitle => 'Поддержка 4 языков';
+
+  @override
+  String get infoFeatLangDesc =>
+      'Турецкий, английский, немецкий и русский интерфейс.';
 }

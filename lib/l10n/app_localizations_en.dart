@@ -928,4 +928,35 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get cphPwdWarning =>
       'Share the password with the recipient through a secure channel (in person, by phone). The message cannot be decrypted without it.';
+
+  @override
+  String get infoFeatures => 'APP FEATURES';
+
+  @override
+  String get infoFeatCipherTitle => 'Offline Encrypted Message';
+
+  @override
+  String get infoFeatCipherDesc =>
+      'Encrypt your message with a password and copy it; send it via WhatsApp, SMS, or any app you like. Encryption happens entirely on your device — the message is NEVER sent to the server. The recipient decrypts it in the app with the password you shared. This feature is available only in the mobile app.';
+
+  @override
+  String get infoFeatFileTitle => 'Encrypted File and Folder Sharing';
+
+  @override
+  String get infoFeatFileDesc =>
+      'Share your files and folders end-to-end encrypted with a single-use link. The link works once and is automatically deleted shortly after.';
+
+  @override
+  String get infoFeatTextTitle => 'Encrypted Text Sharing';
+
+  @override
+  String get infoFeatTextDesc =>
+      'Encrypt long texts and share them as a link; the recipient reads them securely by clicking the link.';
+
+  @override
+  String get infoFeatLangTitle => '4-Language Support';
+
+  @override
+  String get infoFeatLangDesc =>
+      'Turkish, English, German, and Russian interface.';
 }

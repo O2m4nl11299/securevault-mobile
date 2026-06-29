@@ -943,4 +943,35 @@ class AppLocalizationsDe extends AppLocalizations {
   @override
   String get cphPwdWarning =>
       'Teilen Sie das Passwort mit dem Empfänger über einen sicheren Kanal (persönlich, telefonisch). Ohne das Passwort kann die Nachricht nicht entschlüsselt werden.';
+
+  @override
+  String get infoFeatures => 'APP-FUNKTIONEN';
+
+  @override
+  String get infoFeatCipherTitle => 'Offline verschlüsselte Nachricht';
+
+  @override
+  String get infoFeatCipherDesc =>
+      'Verschlüsseln Sie Ihre Nachricht mit einem Passwort und kopieren Sie sie; senden Sie sie über WhatsApp, SMS oder eine beliebige App. Die Verschlüsselung erfolgt vollständig auf Ihrem Gerät — die Nachricht wird NIE an den Server gesendet. Der Empfänger entschlüsselt sie in der App mit dem von Ihnen geteilten Passwort. Diese Funktion ist nur in der mobilen App verfügbar.';
+
+  @override
+  String get infoFeatFileTitle => 'Verschlüsselte Datei- und Ordnerfreigabe';
+
+  @override
+  String get infoFeatFileDesc =>
+      'Teilen Sie Ihre Dateien und Ordner Ende-zu-Ende-verschlüsselt mit einem Einmal-Link. Der Link funktioniert einmal und wird kurz danach automatisch gelöscht.';
+
+  @override
+  String get infoFeatTextTitle => 'Verschlüsselte Textfreigabe';
+
+  @override
+  String get infoFeatTextDesc =>
+      'Verschlüsseln Sie lange Texte und teilen Sie sie als Link; der Empfänger liest sie sicher durch Klicken auf den Link.';
+
+  @override
+  String get infoFeatLangTitle => 'Unterstützung für 4 Sprachen';
+
+  @override
+  String get infoFeatLangDesc =>
+      'Türkische, englische, deutsche und russische Oberfläche.';
 }

@@ -1745,6 +1745,60 @@ abstract class AppLocalizations {
   /// In tr, this message translates to:
   /// **'Parolayı alıcıya güvenli bir kanaldan (yüz yüze, telefon) iletin. Parola olmadan mesaj çözülemez.'**
   String get cphPwdWarning;
+
+  /// No description provided for @infoFeatures.
+  ///
+  /// In tr, this message translates to:
+  /// **'UYGULAMA ÖZELLİKLERİ'**
+  String get infoFeatures;
+
+  /// No description provided for @infoFeatCipherTitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Çevrimdışı Şifreli Mesaj'**
+  String get infoFeatCipherTitle;
+
+  /// No description provided for @infoFeatCipherDesc.
+  ///
+  /// In tr, this message translates to:
+  /// **'Mesajınızı parolayla şifreleyip kopyalayın; WhatsApp, SMS veya istediğiniz uygulamadan iletin. Şifreleme tamamen cihazınızda yapılır — mesaj sunucuya HİÇ gönderilmez. Alıcı, sizinle paylaştığınız parolayla mesajı uygulamada çözer. Bu özellik yalnızca mobil uygulamada vardır.'**
+  String get infoFeatCipherDesc;
+
+  /// No description provided for @infoFeatFileTitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Şifreli Dosya ve Klasör Paylaşımı'**
+  String get infoFeatFileTitle;
+
+  /// No description provided for @infoFeatFileDesc.
+  ///
+  /// In tr, this message translates to:
+  /// **'Dosya ve klasörlerinizi uçtan uca şifreleyerek tek kullanımlık linkle paylaşın. Link bir kez kullanılır ve kısa sürede otomatik silinir.'**
+  String get infoFeatFileDesc;
+
+  /// No description provided for @infoFeatTextTitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Şifreli Metin Paylaşımı'**
+  String get infoFeatTextTitle;
+
+  /// No description provided for @infoFeatTextDesc.
+  ///
+  /// In tr, this message translates to:
+  /// **'Uzun metinleri şifreleyip link olarak paylaşın; alıcı linke tıklayarak güvenle okur.'**
+  String get infoFeatTextDesc;
+
+  /// No description provided for @infoFeatLangTitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'4 Dil Desteği'**
+  String get infoFeatLangTitle;
+
+  /// No description provided for @infoFeatLangDesc.
+  ///
+  /// In tr, this message translates to:
+  /// **'Türkçe, İngilizce, Almanca ve Rusça arayüz.'**
+  String get infoFeatLangDesc;
 }
 
 class _AppLocalizationsDelegate
