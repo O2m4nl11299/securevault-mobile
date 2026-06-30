@@ -1197,7 +1197,7 @@ abstract class AppLocalizations {
   /// No description provided for @sozP4.
   ///
   /// In tr, this message translates to:
-  /// **'• Ücretsiz üyeler: 250 MB dosya limiti, 4 gün saklama\n• Premium üyeler: 2 GB dosya limiti, 20 gün saklama\n• Tüm dosyalar tek kullanımlıktır (indirildikten sonra otomatik silinir)'**
+  /// **'• Ücretsiz üyeler: 250 MB dosya limiti, günde 4 gönderim\n• Premium üyeler: 2 GB dosya limiti, günde 20 gönderim\n• Tüm dosyalar tek kullanımlıktır (indirildikten sonra otomatik silinir)'**
   String get sozP4;
 
   /// No description provided for @sozH5.

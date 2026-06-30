@@ -616,7 +616,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get sozP4 =>
-      '• Free members: 250 MB file limit, 4-day retention\n• Premium members: 2 GB file limit, 20-day retention\n• All files are single-use (automatically deleted after download)';
+      '• Free members: 250 MB file limit, 4 uploads per day\n• Premium members: 2 GB file limit, 20 uploads per day\n• All files are single-use (automatically deleted after download)';
 
   @override
   String get sozH5 => '5. DISCLAIMER';
