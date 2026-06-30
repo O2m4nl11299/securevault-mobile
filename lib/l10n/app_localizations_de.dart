@@ -974,4 +974,46 @@ class AppLocalizationsDe extends AppLocalizations {
   @override
   String get infoFeatLangDesc =>
       'Türkische, englische, deutsche und russische Oberfläche.';
+
+  @override
+  String get recoverTitle => 'Passwort vergessen';
+
+  @override
+  String get recoverLink => 'Passwort vergessen';
+
+  @override
+  String get recoverIntro =>
+      'Um Ihr Konto wiederherzustellen, geben Sie Ihren Benutzernamen, den bei der Registrierung erhaltenen Wiederherstellungscode und Ihr neues Passwort ein.';
+
+  @override
+  String get recoverUsername => 'Benutzername';
+
+  @override
+  String get recoverToken => 'Wiederherstellungscode';
+
+  @override
+  String get recoverTokenHint => 'Der bei der Registrierung erhaltene Code';
+
+  @override
+  String get recoverNewPassword => 'Neues Passwort';
+
+  @override
+  String get recoverNewPasswordHint => 'Mindestens 8 Zeichen';
+
+  @override
+  String get recoverButton => 'Passwort zurücksetzen';
+
+  @override
+  String get recoverSuccess =>
+      'Ihr Passwort wurde erfolgreich zurückgesetzt. Sie können sich mit Ihrem neuen Passwort anmelden.';
+
+  @override
+  String get recoverErrEmpty => 'Bitte füllen Sie alle Felder aus.';
+
+  @override
+  String get recoverErrShortPwd =>
+      'Das neue Passwort muss mindestens 8 Zeichen lang sein.';
+
+  @override
+  String get recoverBackToLogin => 'Zurück zur Anmeldung';
 }

@@ -966,4 +966,46 @@ class AppLocalizationsRu extends AppLocalizations {
   @override
   String get infoFeatLangDesc =>
       'Турецкий, английский, немецкий и русский интерфейс.';
+
+  @override
+  String get recoverTitle => 'Забыли пароль';
+
+  @override
+  String get recoverLink => 'Забыли пароль';
+
+  @override
+  String get recoverIntro =>
+      'Чтобы восстановить аккаунт, введите имя пользователя, код восстановления, выданный при регистрации, и новый пароль.';
+
+  @override
+  String get recoverUsername => 'Имя пользователя';
+
+  @override
+  String get recoverToken => 'Код восстановления';
+
+  @override
+  String get recoverTokenHint => 'Код, выданный вам при регистрации';
+
+  @override
+  String get recoverNewPassword => 'Новый пароль';
+
+  @override
+  String get recoverNewPasswordHint => 'Не менее 8 символов';
+
+  @override
+  String get recoverButton => 'Сбросить пароль';
+
+  @override
+  String get recoverSuccess =>
+      'Ваш пароль успешно сброшен. Вы можете войти с новым паролем.';
+
+  @override
+  String get recoverErrEmpty => 'Пожалуйста, заполните все поля.';
+
+  @override
+  String get recoverErrShortPwd =>
+      'Новый пароль должен содержать не менее 8 символов.';
+
+  @override
+  String get recoverBackToLogin => 'Вернуться к входу';
 }

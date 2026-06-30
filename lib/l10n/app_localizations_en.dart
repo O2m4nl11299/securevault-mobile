@@ -959,4 +959,46 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get infoFeatLangDesc =>
       'Turkish, English, German, and Russian interface.';
+
+  @override
+  String get recoverTitle => 'Forgot Password';
+
+  @override
+  String get recoverLink => 'Forgot password';
+
+  @override
+  String get recoverIntro =>
+      'To recover your account, enter your username, the recovery code given to you at registration, and your new password.';
+
+  @override
+  String get recoverUsername => 'Username';
+
+  @override
+  String get recoverToken => 'Recovery code';
+
+  @override
+  String get recoverTokenHint => 'The code given to you at registration';
+
+  @override
+  String get recoverNewPassword => 'New password';
+
+  @override
+  String get recoverNewPasswordHint => 'At least 8 characters';
+
+  @override
+  String get recoverButton => 'Reset Password';
+
+  @override
+  String get recoverSuccess =>
+      'Your password has been reset successfully. You can sign in with your new password.';
+
+  @override
+  String get recoverErrEmpty => 'Please fill in all fields.';
+
+  @override
+  String get recoverErrShortPwd =>
+      'The new password must be at least 8 characters.';
+
+  @override
+  String get recoverBackToLogin => 'Back to sign in';
 }

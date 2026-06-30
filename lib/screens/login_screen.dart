@@ -5,6 +5,7 @@ import '../services/secure_storage_service.dart';
 import '../services/auth_service.dart';
 import 'home_screen.dart';
 import 'register_screen.dart';
+import 'recover_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   /// Oturum süresi dolduğu için buraya yönlendirildiğinde gösterilecek mesaj
@@ -155,7 +156,15 @@ class _LoginScreenState extends State<LoginScreen> {
                           )
                         : Text(l.loginButton),
                   ),
-                  const SizedBox(height: 12),
+                  const SizedBox(height: 4),
+                  TextButton(
+                    onPressed: _loading
+                        ? null
+                        : () => Navigator.of(context).push(
+                              MaterialPageRoute(builder: (_) => const RecoverScreen()),
+                            ),
+                    child: Text(l.recoverLink),
+                  ),
                   TextButton(
                     onPressed: _loading
                         ? null

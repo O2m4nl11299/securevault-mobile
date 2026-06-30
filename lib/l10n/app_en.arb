@@ -282,5 +282,18 @@
   "infoFeatTextTitle": "Encrypted Text Sharing",
   "infoFeatTextDesc": "Encrypt long texts and share them as a link; the recipient reads them securely by clicking the link.",
   "infoFeatLangTitle": "4-Language Support",
-  "infoFeatLangDesc": "Turkish, English, German, and Russian interface."
+  "infoFeatLangDesc": "Turkish, English, German, and Russian interface.",
+  "recoverTitle": "Forgot Password",
+  "recoverLink": "Forgot password",
+  "recoverIntro": "To recover your account, enter your username, the recovery code given to you at registration, and your new password.",
+  "recoverUsername": "Username",
+  "recoverToken": "Recovery code",
+  "recoverTokenHint": "The code given to you at registration",
+  "recoverNewPassword": "New password",
+  "recoverNewPasswordHint": "At least 8 characters",
+  "recoverButton": "Reset Password",
+  "recoverSuccess": "Your password has been reset successfully. You can sign in with your new password.",
+  "recoverErrEmpty": "Please fill in all fields.",
+  "recoverErrShortPwd": "The new password must be at least 8 characters.",
+  "recoverBackToLogin": "Back to sign in"
 }

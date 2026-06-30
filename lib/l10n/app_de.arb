@@ -282,5 +282,18 @@
   "infoFeatTextTitle": "Verschlüsselte Textfreigabe",
   "infoFeatTextDesc": "Verschlüsseln Sie lange Texte und teilen Sie sie als Link; der Empfänger liest sie sicher durch Klicken auf den Link.",
   "infoFeatLangTitle": "Unterstützung für 4 Sprachen",
-  "infoFeatLangDesc": "Türkische, englische, deutsche und russische Oberfläche."
+  "infoFeatLangDesc": "Türkische, englische, deutsche und russische Oberfläche.",
+  "recoverTitle": "Passwort vergessen",
+  "recoverLink": "Passwort vergessen",
+  "recoverIntro": "Um Ihr Konto wiederherzustellen, geben Sie Ihren Benutzernamen, den bei der Registrierung erhaltenen Wiederherstellungscode und Ihr neues Passwort ein.",
+  "recoverUsername": "Benutzername",
+  "recoverToken": "Wiederherstellungscode",
+  "recoverTokenHint": "Der bei der Registrierung erhaltene Code",
+  "recoverNewPassword": "Neues Passwort",
+  "recoverNewPasswordHint": "Mindestens 8 Zeichen",
+  "recoverButton": "Passwort zurücksetzen",
+  "recoverSuccess": "Ihr Passwort wurde erfolgreich zurückgesetzt. Sie können sich mit Ihrem neuen Passwort anmelden.",
+  "recoverErrEmpty": "Bitte füllen Sie alle Felder aus.",
+  "recoverErrShortPwd": "Das neue Passwort muss mindestens 8 Zeichen lang sein.",
+  "recoverBackToLogin": "Zurück zur Anmeldung"
 }

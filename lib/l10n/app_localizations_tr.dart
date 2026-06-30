@@ -956,4 +956,45 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get infoFeatLangDesc => 'Türkçe, İngilizce, Almanca ve Rusça arayüz.';
+
+  @override
+  String get recoverTitle => 'Şifremi Unuttum';
+
+  @override
+  String get recoverLink => 'Şifremi unuttum';
+
+  @override
+  String get recoverIntro =>
+      'Hesabınızı kurtarmak için kullanıcı adınızı, kayıt sırasında size verilen kurtarma kodunu ve yeni şifrenizi girin.';
+
+  @override
+  String get recoverUsername => 'Kullanıcı adı';
+
+  @override
+  String get recoverToken => 'Kurtarma kodu';
+
+  @override
+  String get recoverTokenHint => 'Kayıtta size verilen kod';
+
+  @override
+  String get recoverNewPassword => 'Yeni şifre';
+
+  @override
+  String get recoverNewPasswordHint => 'En az 8 karakter';
+
+  @override
+  String get recoverButton => 'Şifreyi Sıfırla';
+
+  @override
+  String get recoverSuccess =>
+      'Şifreniz başarıyla sıfırlandı. Yeni şifrenizle giriş yapabilirsiniz.';
+
+  @override
+  String get recoverErrEmpty => 'Lütfen tüm alanları doldurun.';
+
+  @override
+  String get recoverErrShortPwd => 'Yeni şifre en az 8 karakter olmalıdır.';
+
+  @override
+  String get recoverBackToLogin => 'Girişe dön';
 }

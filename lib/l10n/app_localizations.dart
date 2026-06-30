@@ -1799,6 +1799,84 @@ abstract class AppLocalizations {
   /// In tr, this message translates to:
   /// **'Türkçe, İngilizce, Almanca ve Rusça arayüz.'**
   String get infoFeatLangDesc;
+
+  /// No description provided for @recoverTitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Şifremi Unuttum'**
+  String get recoverTitle;
+
+  /// No description provided for @recoverLink.
+  ///
+  /// In tr, this message translates to:
+  /// **'Şifremi unuttum'**
+  String get recoverLink;
+
+  /// No description provided for @recoverIntro.
+  ///
+  /// In tr, this message translates to:
+  /// **'Hesabınızı kurtarmak için kullanıcı adınızı, kayıt sırasında size verilen kurtarma kodunu ve yeni şifrenizi girin.'**
+  String get recoverIntro;
+
+  /// No description provided for @recoverUsername.
+  ///
+  /// In tr, this message translates to:
+  /// **'Kullanıcı adı'**
+  String get recoverUsername;
+
+  /// No description provided for @recoverToken.
+  ///
+  /// In tr, this message translates to:
+  /// **'Kurtarma kodu'**
+  String get recoverToken;
+
+  /// No description provided for @recoverTokenHint.
+  ///
+  /// In tr, this message translates to:
+  /// **'Kayıtta size verilen kod'**
+  String get recoverTokenHint;
+
+  /// No description provided for @recoverNewPassword.
+  ///
+  /// In tr, this message translates to:
+  /// **'Yeni şifre'**
+  String get recoverNewPassword;
+
+  /// No description provided for @recoverNewPasswordHint.
+  ///
+  /// In tr, this message translates to:
+  /// **'En az 8 karakter'**
+  String get recoverNewPasswordHint;
+
+  /// No description provided for @recoverButton.
+  ///
+  /// In tr, this message translates to:
+  /// **'Şifreyi Sıfırla'**
+  String get recoverButton;
+
+  /// No description provided for @recoverSuccess.
+  ///
+  /// In tr, this message translates to:
+  /// **'Şifreniz başarıyla sıfırlandı. Yeni şifrenizle giriş yapabilirsiniz.'**
+  String get recoverSuccess;
+
+  /// No description provided for @recoverErrEmpty.
+  ///
+  /// In tr, this message translates to:
+  /// **'Lütfen tüm alanları doldurun.'**
+  String get recoverErrEmpty;
+
+  /// No description provided for @recoverErrShortPwd.
+  ///
+  /// In tr, this message translates to:
+  /// **'Yeni şifre en az 8 karakter olmalıdır.'**
+  String get recoverErrShortPwd;
+
+  /// No description provided for @recoverBackToLogin.
+  ///
+  /// In tr, this message translates to:
+  /// **'Girişe dön'**
+  String get recoverBackToLogin;
 }
 
 class _AppLocalizationsDelegate

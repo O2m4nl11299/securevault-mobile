@@ -400,5 +400,18 @@
   "infoFeatTextTitle": "Şifreli Metin Paylaşımı",
   "infoFeatTextDesc": "Uzun metinleri şifreleyip link olarak paylaşın; alıcı linke tıklayarak güvenle okur.",
   "infoFeatLangTitle": "4 Dil Desteği",
-  "infoFeatLangDesc": "Türkçe, İngilizce, Almanca ve Rusça arayüz."
+  "infoFeatLangDesc": "Türkçe, İngilizce, Almanca ve Rusça arayüz.",
+  "recoverTitle": "Şifremi Unuttum",
+  "recoverLink": "Şifremi unuttum",
+  "recoverIntro": "Hesabınızı kurtarmak için kullanıcı adınızı, kayıt sırasında size verilen kurtarma kodunu ve yeni şifrenizi girin.",
+  "recoverUsername": "Kullanıcı adı",
+  "recoverToken": "Kurtarma kodu",
+  "recoverTokenHint": "Kayıtta size verilen kod",
+  "recoverNewPassword": "Yeni şifre",
+  "recoverNewPasswordHint": "En az 8 karakter",
+  "recoverButton": "Şifreyi Sıfırla",
+  "recoverSuccess": "Şifreniz başarıyla sıfırlandı. Yeni şifrenizle giriş yapabilirsiniz.",
+  "recoverErrEmpty": "Lütfen tüm alanları doldurun.",
+  "recoverErrShortPwd": "Yeni şifre en az 8 karakter olmalıdır.",
+  "recoverBackToLogin": "Girişe dön"
 }
