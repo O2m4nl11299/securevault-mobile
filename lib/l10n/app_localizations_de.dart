@@ -598,39 +598,39 @@ class AppLocalizationsDe extends AppLocalizations {
   String get sozLastUpdate => 'Zuletzt aktualisiert: Juni 2026';
 
   @override
-  String get sozH1 => '1. ANNAHME';
+  String get sozH1 => '1. PARTEIEN UND ANNAHME';
 
   @override
   String get sozP1 =>
-      'Durch die Nutzung des SecureVault-Dienstes gilt diese Vereinbarung als von Ihnen akzeptiert.';
+      'Diese Nutzungsbedingungen und Dienstleistungsvereinbarung (die „Vereinbarung“) wird zwischen Fatih Göktürk (das „Unternehmen“) und dem Nutzer (der „Nutzer“) geschlossen, der den Ende-zu-Ende-verschlüsselten, temporären Datenübertragungsdienst (der „Dienst“) über die mobile Anwendung SecureVault und die Website sifreliveritransferi.com nutzt. Mit der Nutzung des Dienstes gelten alle Bedingungen dieser Vereinbarung als im Voraus akzeptiert.';
 
   @override
-  String get sozH2 => '2. DIENSTBESCHREIBUNG';
+  String get sozH2 => '2. BESCHREIBUNG UND ARCHITEKTUR DES DIENSTES';
 
   @override
   String get sozP2 =>
-      'SecureVault ist ein Dateifreigabedienst mit einer Zero-Knowledge-Architektur, der clientseitige AES-256-GCM-Verschlüsselung verwendet. Dateien werden verschlüsselt auf dem Server gespeichert, und der Schlüssel wird nie an den Server übertragen.';
+      'SecureVault ist ein temporäres Datenübertragungstool mit einer clientseitigen Zero-Knowledge-Architektur. Im Rahmen des Dienstes gilt:\n• Vom Nutzer hochgeladene Dateien und Texte werden auf dem eigenen Gerät des Nutzers mit dem AES-256-GCM-Algorithmus verschlüsselt, BEVOR sie an den Server gesendet werden.\n• Der Entschlüsselungsschlüssel wird unter keinen Umständen an die Server des Unternehmens übermittelt, dort gespeichert oder verarbeitet.\n• Das Unternehmen kann den Inhalt der auf seinen Servern gehosteten verschlüsselten Daten weder einsehen noch lesen, ändern oder im Falle eines Datenverlusts wiederherstellen.';
 
   @override
-  String get sozH3 => '3. NUTZUNGSBEDINGUNGEN';
+  String get sozH3 => '3. ABONNEMENTMODELL UND ZAHLUNGSBEDINGUNGEN';
 
   @override
   String get sozP3 =>
-      'Das Teilen der folgenden Inhalte ist strengstens untersagt:\n• Illegale Inhalte\n• Urheberrechtsverletzungen\n• Schadsoftware\n• Unbefugtes Teilen personenbezogener Daten';
+      'Der Dienst wird in zwei verschiedenen Nutzungsstufen angeboten, Kostenlos und Premium:\n• Kostenloser Plan: Begrenzt auf maximal 250 MB Dateigröße pro Übertragung und maximal 4 Uploads pro Tag.\n• Premium-Plan (Abonnement): Bietet maximal 2 GB Dateigröße pro Übertragung und 20 Uploads pro Tag.\n\nZahlungsinfrastruktur: Premium-Mitgliedschaften und Zahlungsabwicklung erfolgen vollständig über die In-App-Kauf- und Abonnementinfrastruktur des Google Play Store (Google LLC). Das Unternehmen verarbeitet oder speichert die Kreditkarten-, Bankkonto- oder sonstigen direkten Finanzdaten des Nutzers nicht auf eigenen Servern. Abonnementgebühren, Verlängerungszeiträume und Kündigungsprozesse unterliegen vollständig den Richtlinien des Google Play Store. Der Nutzer hat das Recht, sein Abonnement jederzeit über die Kontoeinstellungen von Google Play zu kündigen.';
 
   @override
-  String get sozH4 => '4. DIENSTGRENZEN';
+  String get sozH4 => '4. NUTZUNGSBEDINGUNGEN UND VERBOTE';
 
   @override
   String get sozP4 =>
-      '• Kostenlose Mitglieder: 250 MB Dateilimit, 4 Uploads pro Tag\n• Premium-Mitglieder: 2 GB Dateilimit, 20 Uploads pro Tag\n• Alle Dateien sind einmalig nutzbar (nach dem Download automatisch gelöscht)';
+      'Obwohl SecureVault aufgrund seiner Architektur verschlüsselte Inhalte nicht prüfen kann, verpflichtet sich der Nutzer, den Dienst nur für rechtmäßige Zwecke zu nutzen. Die Übertragung folgender Inhalte oder die Nutzung des Dienstes zu diesen Zwecken ist strengstens untersagt:\n• Inhalte, die geltendem Recht widersprechen, eine Straftat darstellen oder illegale Aktivitäten erleichtern\n• Dateien, die Urheberrechte, Patente, Geschäftsgeheimnisse oder andere Rechte des geistigen Eigentums verletzen\n• Schadsoftware, Viren oder Code, der Zielsysteme schädigen soll\n• Personenbezogene Daten oder private Inhalte, die ohne Zustimmung der betroffenen Personen erlangt wurden\n\nAuf ordnungsgemäße Anfragen rechtmäßiger Behörden hin ist das Unternehmen verpflichtet, die in seinem Besitz befindlichen Zugriffsprotokolle (siehe Datenschutzerklärung/KVKK) mit Justiz- oder Verwaltungsbehörden zu teilen. Da der Inhalt verschlüsselter Dateien/Texte aufgrund der Architektur des Dienstes niemals vom Unternehmen eingesehen werden kann, kann dieser Inhalt nicht Gegenstand dieser Weitergabepflicht sein.';
 
   @override
-  String get sozH5 => '5. HAFTUNGSAUSSCHLUSS';
+  String get sozH5 => '5. ÄNDERUNGEN DER VEREINBARUNG UND DES DIENSTES';
 
   @override
   String get sozP5 =>
-      'SecureVault ist nicht für den Inhalt der geteilten Dateien verantwortlich. Aufgrund der Zero-Knowledge-Architektur kann auf den Dateiinhalt nicht zugegriffen werden. Weitere Informationen finden Sie im Bildschirm „Nutzungsbedingungen und Haftungsausschluss“.';
+      'Das Unternehmen kann die Bedingungen dieser Vereinbarung oder die Planlimits aufgrund technischer Anforderungen des Dienstes, Änderungen der Google-Play-Store-Richtlinien oder zur Einhaltung geltenden Rechts ändern. Updates, die wesentliche, für den Nutzer nachteilige Änderungen enthalten, werden den Nutzern mindestens 7 Tage vor Inkrafttreten in angemessener Weise über die App oder die Website mitgeteilt. Akzeptiert der Nutzer die neuen Bedingungen nicht, hat er das Recht, die Nutzung des Dienstes zu beenden und sein Abonnement über Google Play zu kündigen.';
 
   @override
   String get sozH6 => '6. DIENSTÄNDERUNGEN';
@@ -660,39 +660,41 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get kvkkP1 =>
-      'Als SecureVault (sifreliveritransferi.com) handeln wir als Verantwortlicher im Sinne des türkischen Gesetzes Nr. 6698 zum Schutz personenbezogener Daten.';
+      'Gemäß dem türkischen Gesetz Nr. 6698 zum Schutz personenbezogener Daten („KVKK“) verarbeitet Fatih Göktürk („SecureVault“ oder das „Unternehmen“) die nachstehend genannten begrenzten personenbezogenen Daten in Übereinstimmung mit dem Gesetz und dem Grundsatz von Treu und Glauben.';
 
   @override
-  String get kvkkH2 => '2. VERARBEITETE PERSONENBEZOGENE DATEN';
+  String get kvkkH2 =>
+      '2. VERARBEITETE PERSONENBEZOGENE DATEN UND TECHNISCHE SICHERHEIT';
 
   @override
   String get kvkkP2a =>
-      'Unser System ist mit einer Zero-Knowledge-Architektur konzipiert. Verarbeitete Daten:';
+      'Unser System ist mit einer Zero-Knowledge-Architektur konzipiert, um Ihre personenbezogenen Daten auf ein Mindestmaß zu beschränken. Dementsprechend werden folgende Datenkategorien verarbeitet:';
 
   @override
   String get kvkkP2b =>
-      '• Benutzername: Wird als SHA-256-Hash gespeichert. Der ursprüngliche Benutzername wird nicht auf dem Server aufbewahrt.\n• Passwort: Wird mit dem Argon2id-Algorithmus gehasht gespeichert. Klartext-Passwörter werden niemals aufbewahrt.\n• IP-Adresse: Wird als SHA-256-Hash kurzfristig (24 Stunden) in Redis aufbewahrt.\n• E-Mail-Adresse (Empfänger): Wird nur zum Senden des Links verwendet und nicht gespeichert.\n• Dateiinhalt: Erreicht den Server verschlüsselt. Der Schlüssel wird niemals an den Server gesendet.';
+      '• Benutzername / Kontoinformationen — Wird unumkehrbar mit dem SHA-256-Algorithmus gehasht gespeichert; der Originaltext wird nicht auf dem Server gespeichert. Speicherdauer: solange das Konto aktiv ist; wird nach 90 Tagen Inaktivität automatisch gelöscht.\n• Kontopasswort — Wird mit der kryptografischen Funktion Argon2id gehasht gespeichert; Ihr Klartext-Passwort erreicht den Server niemals. Speicherdauer: bis zur Löschung des Kontos.\n• IP-Adresse (Sitzungssicherheit) — Wird zur Überprüfung gleichzeitiger Sitzungen/IP-Adressen als SHA-256-Hash in einer In-Memory-Datenbank (Redis) gespeichert. Speicherdauer: höchstens 24 Stunden, danach automatisch und dauerhaft gelöscht.\n• Zugriffsprotokoll (IP + Konto + Zeit) — Zum Zweck der Verhinderung von Missbrauch des Dienstes, zur Abschreckung und zur Ermöglichung der Offenlegung gegenüber zuständigen Justiz-/Verwaltungsbehörden auf rechtmäßiges Verlangen werden bei jeder Anmeldung an Ihrem Konto Ihre IP-Adresse (im Klartext), der unumkehrbare Hashwert Ihres Kontos und der Anmeldezeitpunkt in einem separaten Sicherheitsprotokoll gespeichert. Speicherdauer: 90 Tage (3 Monate), danach automatisch und dauerhaft gelöscht.\n• E-Mail-Adresse des Empfängers — Wird nur auf Wunsch des Nutzers augenblicklich verarbeitet, um den Download-Link per E-Mail zu senden; wird nicht in der Datenbank gespeichert, sofort vernichtet.\n• Abonnement- und Zahlungsdaten — Da Zahlungen über Google Play erfolgen, werden Ihre Finanzdaten nicht bei uns gespeichert; es werden nur die von Google generierten Abonnementstatus-Verifizierungstoken und Ihre Mitgliedschaftsstufe verarbeitet. Speicherdauer: für die Dauer des Abonnements und im Rahmen gesetzlicher finanzieller Verpflichtungen.\n• Dateiinhalt — Wird zwar nicht als personenbezogenes Datum betrachtet, hochgeladene Dateien werden jedoch vor Erreichen des Servers auf Ihrem Gerät verschlüsselt; das Unternehmen kann nicht auf den Inhalt zugreifen. Speicherdauer: wird sofort nach dem Download oder, falls nicht heruntergeladen, innerhalb von maximal 1 Stunde dauerhaft gelöscht.';
 
   @override
-  String get kvkkH3 => '3. ZWECK DER DATENVERARBEITUNG';
+  String get kvkkH3 => '3. ZWECKE DER VERARBEITUNG UND RECHTSGRUNDLAGEN';
 
   @override
   String get kvkkP3 =>
-      '• Erstellung und Verwaltung des Benutzerkontos\n• Bereitstellung des sicheren Dateifreigabedienstes\n• Verhinderung von Missbrauch des Dienstes';
+      'Ihre personenbezogenen Daten werden gemäß Artikel 5/2 des KVKK auf folgenden Rechtsgrundlagen verarbeitet:\n• Abschluss und Erfüllung eines Vertrags (Art. 5/2-c): Erstellung des Benutzerkontos, Bereitstellung des Premium-Abonnementdienstes durch die Integration mit dem Google Play Store und Betrieb des Dateiübertragungsdienstes.\n• Berechtigtes Interesse des Verantwortlichen (Art. 5/2-f): Verarbeitung von IP-Adressen und Zugriffsprotokollen zur Verhinderung von Missbrauch des Dienstes, zur Gewährleistung der Cybersicherheit (z. B. DDoS-Angriffe, Bot-Zugriffe) und zur Abschreckung.\n• Erfüllung einer gesetzlichen Verpflichtung (Art. 5/2-ç): Weitergabe der in unserem Besitz befindlichen Zugriffsprotokolle an zuständige Justiz- und Verwaltungsbehörden auf deren rechtmäßiges Verlangen.';
 
   @override
-  String get kvkkH4 => '4. SPEICHERDAUER DER DATEN';
+  String get kvkkH4 =>
+      '4. ÜBERMITTLUNG PERSONENBEZOGENER DATEN UND HINWEIS ZUR AUSLANDSÜBERMITTLUNG';
 
   @override
   String get kvkkP4 =>
-      '• Benutzerkonto: Wird automatisch gelöscht, wenn es 90 Tage lang nicht aktiv genutzt wird.\n• Dateien: Werden sofort nach dem Download gelöscht oder innerhalb von 1 Stunde, wenn sie nicht heruntergeladen werden.\n• IP-Hash: Wird nach 24 Stunden automatisch gelöscht.';
+      'SecureVault führt seine technischen Vorgänge und das Hosting verschlüsselter Daten über die Cloud-Infrastruktur Cloudflare R2 durch. Ihre verschlüsselten Datenblöcke sowie die oben beschriebenen begrenzten Kontodaten (SHA-256-Hashes) werden ins Ausland übermittelt, da sich die Rechenzentrumsinfrastruktur außerhalb der Türkei befindet. Darüber hinaus werden zur Abwicklung der Abonnementprozesse Abonnement-Verifizierungstoken gegenseitig mit den Systemen des Google Play Store (Google LLC, USA) ausgetauscht. Diese Übermittlungen erfolgen sicher auf der Grundlage der ausdrücklichen In-App-Einwilligung des Nutzers und der mit den jeweiligen Dienstanbietern geschlossenen Standardvertragsklauseln (SCC) im Rahmen von Artikel 9 des KVKK. Ihre Daten werden niemals an lokale Dritte oder Werbeunternehmen weitergegeben. Auf ein ordnungsgemäßes rechtmäßiges Verlangen zuständiger Justiz-/Verwaltungsbehörden können die oben beschriebenen Zugriffsprotokolle (Artikel 2) an die betreffenden Behörden weitergegeben werden.';
 
   @override
-  String get kvkkH5 => '5. RECHTE DER BETROFFENEN PERSON';
+  String get kvkkH5 => '5. RECHTE DER BETROFFENEN PERSON UND ANTRAGSTELLUNG';
 
   @override
   String get kvkkP5 =>
-      'Gemäß Artikel 11 des KVKK;\n• Zu erfahren, ob Ihre Daten verarbeitet werden\n• Die Löschung Ihrer Daten zu verlangen\n• Sie können Ihr Konto über die Option „Mein Konto löschen“ löschen.';
+      'Gemäß Artikel 11 des KVKK haben Sie das Recht, zu erfahren, ob Ihre personenbezogenen Daten verarbeitet werden, bei Verarbeitung Auskunft zu verlangen sowie deren Löschung oder Berichtigung zu verlangen. Da Ihre Klartextdaten (z. B. Ihr Benutzername) aufgrund unserer Sicherheitsarchitektur gehasht werden, können Sie zur Identitätsprüfung Ihre Anträge direkt über die Schaltfläche „Mein Konto löschen“ in der App stellen oder sich zur Ausübung Ihrer gesetzlichen Rechte an destek@sifreliveritransferi.com wenden.';
 
   @override
   String get kvkkH6 => '6. KONTAKT';
@@ -701,14 +703,14 @@ class AppLocalizationsDe extends AppLocalizations {
   String get kvkkP6 => 'Bei Fragen: no-reply@sifreliveritransferi.com';
 
   @override
-  String get termsTitle => 'Nutzungsbedingungen';
+  String get termsTitle => 'Haftungsausschluss';
 
   @override
-  String get termsHeader => 'Nutzungsbedingungen und Haftungsausschluss';
+  String get termsHeader => 'HAFTUNGSAUSSCHLUSSERKLÄRUNG';
 
   @override
   String get termsIntro =>
-      'Durch die Nutzung des SecureVault-Dienstes akzeptieren Sie die folgenden Bedingungen.';
+      'Durch die Nutzung des SecureVault-Dienstes gilt jeder Nutzer aufgrund der Natur und Architektur des Systems als im Voraus mit den folgenden Punkten einverstanden und entbindet das Unternehmen diesbezüglich im weitestmöglichen Umfang von der Haftung:';
 
   @override
   String get terms1Title =>
@@ -1018,31 +1020,31 @@ class AppLocalizationsDe extends AppLocalizations {
   String get recoverBackToLogin => 'Zurück zur Anmeldung';
 
   @override
-  String get termsH1 => '1. TEKNİK SAKLAMA VE SİLİNME KOŞULLARI';
+  String get termsH1 => '1. TECHNISCHE SPEICHERUNGS- UND LÖSCHUNGSBEDINGUNGEN';
 
   @override
   String get termsP1 =>
-      'SecureVault bir bulut depolama, kalıcı arşiv veya veri yedekleme (backup) hizmeti DEĞİLDİR. Hizmete yüklenen tüm şifreli içerikler, alıcı tarafından indirildiği anda veya indirilmediği takdirde belirlenen süre (varsayılan 1 saat) dolduğunda sistemden otomatik, kalıcı ve geri döndürülemez şekilde silinir. Dosyaların asıl kopyalarının güvenli bir şekilde saklanması ve yedeklenmesi tamamen Kullanıcının kendi sorumluluğundadır. Süresi dolduğu için veya teknik nedenlerle silinen verilerin kurtarılmamasından doğan zararlardan Şirket sorumlu tutulamaz.';
+      'SecureVault ist KEIN Cloud-Speicher-, dauerhafter Archiv- oder Datensicherungsdienst (Backup). Alle in den Dienst hochgeladenen verschlüsselten Inhalte werden automatisch, dauerhaft und unwiderruflich aus dem System gelöscht, sobald sie vom Empfänger heruntergeladen wurden oder der festgelegte Zeitraum (standardmäßig 1 Stunde) abgelaufen ist, falls sie nicht heruntergeladen wurden. Die sichere Aufbewahrung und Sicherung der Originalkopien von Dateien liegt vollständig in der Verantwortung des Nutzers. Das Unternehmen haftet nicht für Schäden, die dadurch entstehen, dass aufgrund von Fristablauf oder aus technischen Gründen gelöschte Daten nicht wiederhergestellt werden.';
 
   @override
-  String get termsH2 => '2. \"SIFIR BİLGİ\" (ZERO-KNOWLEDGE) VE ŞİFRE KAYBI';
+  String get termsH2 => '2. „ZERO-KNOWLEDGE“-ARCHITEKTUR UND PASSWORTVERLUST';
 
   @override
   String get termsP2 =>
-      'Hizmetin kriptografik yapısı uyarınca şifreleme anahtarları yalnızca Kullanıcı cihazında üretilir ve sunucuya iletilmez. Kullanıcının şifresini veya indirme linkine ait anahtarı kaybetmesi, unutması veya üçüncü kişilere kaptırması durumunda; Şirketin bu şifreyi yenileme, değiştirme veya şifreli dosyayı açıp Kullanıcıya teslim etme yeteneği teknik olarak bulunmamaktadır. Şifre ve anahtar yönetimindeki ihmallerden kaynaklanan veri kayıplarından münhasıran Kullanıcı sorumludur.';
+      'Gemäß der kryptografischen Struktur des Dienstes werden Verschlüsselungsschlüssel ausschließlich auf dem Gerät des Nutzers erzeugt und nicht an den Server übermittelt. Verliert oder vergisst der Nutzer sein Passwort oder den zum Download-Link gehörenden Schlüssel oder gelangt dieser in die Hände Dritter, ist das Unternehmen technisch NICHT in der Lage, dieses Passwort zu erneuern, zu ändern oder die verschlüsselte Datei zu öffnen und dem Nutzer zu übergeben. Für Datenverluste aufgrund von Versäumnissen bei der Passwort- und Schlüsselverwaltung ist ausschließlich der Nutzer verantwortlich.';
 
   @override
-  String get termsH3 => '3. HİZMETİN \"OLDUĞU GİBİ\" (AS IS) SUNULMASI';
+  String get termsH3 => '3. BEREITSTELLUNG DES DIENSTES „WIE BESEHEN“';
 
   @override
   String get termsP3 =>
-      'SecureVault, Türk Borçlar Kanunu Madde 115 ve ilgili mevzuatın izin verdiği en geniş sınırlar dahilinde, Hizmeti \"olduğu gibi\" ve \"mümkün olduğu ölçüde\" esasıyla sunmaktadır. Şirket; Hizmetin kesintisiz, hatasız, siber saldırılardan tamamen ari veya belirli bir amaca uygun olacağına dair sarih veya zımni hiçbir garanti vermemektedir. Google Play Store altyapısından, Cloudflare kesintilerinden, küresel internet omurgasındaki arızalardan veya mücbir sebeplerden kaynaklanan gecikme, veri iletilememe veya erişim sorunlarından Şirketin hukuki veya cezai sorumluluğu bulunmamaktadır.';
+      'Im weitestmöglichen, nach Artikel 115 des türkischen Obligationenrechts und den einschlägigen Rechtsvorschriften zulässigen Umfang stellt SecureVault den Dienst „wie besehen“ und „nach Möglichkeit“ bereit. Das Unternehmen gibt keine ausdrückliche oder stillschweigende Garantie dafür ab, dass der Dienst unterbrechungsfrei, fehlerfrei, vollständig frei von Cyberangriffen oder für einen bestimmten Zweck geeignet ist. Das Unternehmen haftet weder zivil- noch strafrechtlich für Verzögerungen, nicht übertragbare Daten oder Zugriffsprobleme, die durch die Infrastruktur des Google Play Store, Cloudflare-Ausfälle, Störungen im globalen Internet-Backbone oder höhere Gewalt verursacht werden.';
 
   @override
   String get termsH4 =>
-      '4. TÜRK BORÇLAR KANUNU (TBK M. 115) UYARINCA SINIRLAMA';
+      '4. BESCHRÄNKUNG GEMÄSS DEM TÜRKISCHEN OBLIGATIONENRECHT (ART. 115)';
 
   @override
   String get termsP4 =>
-      'İşbu sorumluluk reddi metninde yer alan hiçbir hüküm, Şirketin kanundan doğan \"ağır kusur\" veya \"hile\" hallerindeki yasal sorumluluğunu ortadan kaldırmaz veya sınırlandırmaz. Şirketin hafif kusurundan kaynaklanabilecek zararlarda sorumluluğu, Kullanıcının Google Play Store üzerinden Şirkete son 12 ay içinde ödediği toplam abonelik ücreti ile sınırlıdır.';
+      'Keine Bestimmung dieser Haftungsausschlusserklärung hebt die gesetzliche Haftung des Unternehmens bei „grober Fahrlässigkeit“ oder „Arglist“ auf oder beschränkt diese. Für Schäden, die durch leichte Fahrlässigkeit des Unternehmens entstehen können, ist die Haftung des Unternehmens auf die Gesamtsumme der vom Nutzer in den letzten 12 Monaten über den Google Play Store an das Unternehmen gezahlten Abonnementgebühren beschränkt.';
 }
