@@ -591,39 +591,39 @@ class AppLocalizationsTr extends AppLocalizations {
   String get sozLastUpdate => 'Son güncelleme: Haziran 2026';
 
   @override
-  String get sozH1 => '1. KABUL';
+  String get sozH1 => '1. TARAFLAR VE KABUL';
 
   @override
   String get sozP1 =>
-      'SecureVault hizmetini kullanarak bu sözleşmeyi kabul etmiş sayılırsınız.';
+      'İşbu Kullanım Şartları ve Hizmet Sözleşmesi (\"Sözleşme\"), Fatih Göktürk (\"Şirket\") ile SecureVault mobil uygulaması ve sifreliveritransferi.com web sitesi (\"Hizmet\") üzerinden sunulan uçtan uca şifreli geçici veri aktarım servisinden yararlanan kullanıcı (\"Kullanıcı\") arasında akdedilmiştir. Hizmeti kullanmaya başlayarak, işbu Sözleşme\'deki tüm şartları peşinen kabul etmiş sayılırsınız.';
 
   @override
-  String get sozH2 => '2. HİZMET TANIMI';
+  String get sozH2 => '2. HİZMETİN TANIMI VE MİMARİSİ';
 
   @override
   String get sozP2 =>
-      'SecureVault, istemci tarafı AES-256-GCM şifreleme kullanan, sıfır bilgi mimarisine sahip bir dosya paylaşım hizmetidir. Dosyalar sunucuda şifreli saklanır ve şifre anahtarı sunucuya iletilmez.';
+      'SecureVault, istemci taraflı (client-side) sıfır bilgi (zero-knowledge) mimarisine sahip bir geçici veri aktarım aracıdır. Hizmet kapsamında:\n• Kullanıcı tarafından yüklenen dosyalar ve metinler, sunucuya gönderilmeden ÖNCE Kullanıcı\'nın kendi cihazında AES-256-GCM algoritması ile şifrelenir.\n• Şifre çözme anahtarı (key) hiçbir koşulda Şirket sunucularına iletilmez, saklanmaz veya işlenmez.\n• Şirket, sunucularında barındırılan şifreli verilerin içeriğini görüntüleyemez, okuyamaz, değiştiremez veya herhangi bir veri kaybı durumunda bu verileri geri kurtaramaz.';
 
   @override
-  String get sozH3 => '3. KULLANIM KOŞULLARI';
+  String get sozH3 => '3. ABONELİK MODELİ VE ÖDEME KOŞULLARI';
 
   @override
   String get sozP3 =>
-      'Aşağıdaki içerikleri paylaşmak kesinlikle yasaktır:\n• Yasadışı içerik\n• Telif hakkı ihlali\n• Kötü amaçlı yazılım\n• Kişisel verilerin izinsiz paylaşımı';
+      'Hizmet, Ücretsiz (Free) ve Premium olmak üzere iki farklı kullanım seviyesiyle sunulmaktadır:\n• Ücretsiz Plan: Tek seferde maksimum 250 MB dosya boyutu ve günde en fazla 4 gönderim limiti ile sınırlıdır.\n• Premium Plan (Abonelik): Tek seferde maksimum 2 GB dosya boyutu ve günde 20 gönderim limiti sağlar.\n\nÖdeme Altyapısı: Premium plan üyelikleri ve tahsilat işlemleri tamamen Google Play Store (Google LLC) uygulama içi satın alım ve abonelik altyapısı üzerinden gerçekleştirilir. Şirket, Kullanıcıların kredi kartı, banka hesap bilgileri veya doğrudan finansal verilerini kendi sunucularında işlemez ve saklamaz. Abonelik ücretleri, yenileme periyotları ve iptal süreçleri tamamen Google Play Store politikalarına tabidir. Kullanıcı, aboneliğini dilediği zaman Google Play hesap ayarları üzerinden iptal etme hakkına sahiptir.';
 
   @override
-  String get sozH4 => '4. HİZMET SINIRLARI';
+  String get sozH4 => '4. KULLANIM KOŞULLARI VE YASAKLAR';
 
   @override
   String get sozP4 =>
-      '• Ücretsiz üyeler: 250 MB dosya limiti, günde 4 gönderim\n• Premium üyeler: 2 GB dosya limiti, günde 20 gönderim\n• Tüm dosyalar tek kullanımlıktır (indirildikten sonra otomatik silinir)';
+      'SecureVault mimari gereği şifreli içerikleri denetleyemese de, Kullanıcı Hizmeti hukuka uygun amaçlarla kullanmayı taahhüt eder. Aşağıdaki içeriklerin aktarılması veya Hizmetin bu amaçlarla kullanılması kesinlikle yasaktır:\n• Yürürlükteki yasalara aykırı, suç teşkil eden veya yasa dışı faaliyetleri kolaylaştıran içerikler\n• Telif hakları, patent, ticari sır veya diğer fikri mülkiyet haklarını ihlal eden dosyalar\n• Kötü amaçlı yazılım (malware), virüs veya hedef sistemlere zarar verme amaçlı kodlar\n• Kişilerin rızası dışında elde edilmiş kişisel veriler veya mahrem içerikler\n\nYasal makamlardan gelen usulüne uygun talepler doğrultusunda, Şirket elinde bulunan giriş erişim kayıtlarını (bkz. KVKK Aydınlatma Metni) adli/idari mercilerle paylaşmakla yükümlüdür. Şifreli dosya/metin içeriği ise mimari gereği Şirket tarafından hiçbir koşulda görüntülenemediğinden bu paylaşıma konu edilemez.';
 
   @override
-  String get sozH5 => '5. SORUMLULUK REDDİ';
+  String get sozH5 => '5. SÖZLEŞME VE HİZMET DEĞİŞİKLİKLERİ';
 
   @override
   String get sozP5 =>
-      'SecureVault, paylaşılan dosyaların içeriğinden sorumlu değildir. Sıfır bilgi mimarisi gereği dosya içeriğine erişilememektedir. Daha kapsamlı bilgi için Kullanım Şartları ve Sorumluluk Reddi ekranını inceleyebilirsiniz.';
+      'Şirket, Hizmetin teknik gereksinimleri, Google Play Store politika değişiklikleri veya yasal mevzuata uyum amacıyla işbu Sözleşme şartlarında veya plan limitlerinde değişiklik yapabilir. Kullanıcı aleyhine esaslı değişiklik barındıran güncellemeler, yürürlüğe girmeden en az 7 gün önce uygulama içinden veya web sitesinden Kullanıcılara makul bir şekilde bildirilir. Kullanıcı, yeni şartları kabul etmemesi halinde Hizmet kullanımını sonlandırma ve Google Play üzerinden aboneliğini iptal etme hakkına sahiptir.';
 
   @override
   String get sozH6 => '6. HİZMET DEĞİŞİKLİKLERİ';
@@ -653,39 +653,41 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get kvkkP1 =>
-      'SecureVault (sifreliveritransferi.com) olarak, 6698 sayılı Kişisel Verilerin Korunması Kanunu kapsamında veri sorumlusu sıfatıyla hareket etmekteyiz.';
+      '6698 sayılı Kişisel Verilerin Korunması Kanunu (\"KVKK\") uyarınca, Fatih Göktürk (\"SecureVault\" veya \"Şirket\"), aşağıda belirtilen sınırlı kişisel verilerinizi kanuna ve dürüstlük kurallarına uygun olarak işlemektedir.';
 
   @override
-  String get kvkkH2 => '2. İŞLENEN KİŞİSEL VERİLER';
+  String get kvkkH2 => '2. İŞLENEN KİŞİSEL VERİLER VE TEKNİK GÜVENLİK';
 
   @override
   String get kvkkP2a =>
-      'Sistemimiz sıfır bilgi (zero-knowledge) mimarisi ile tasarlanmıştır. İşlenen veriler:';
+      'Sistemimiz sıfır bilgi (zero-knowledge) mimarisi ile tasarlanmış olup, kişisel verilerinizin asgari düzeyde tutulması amaçlanmıştır. Bu doğrultuda işlenen verileriniz kategorik olarak şunlardır:';
 
   @override
   String get kvkkP2b =>
-      '• Kullanıcı adı: SHA-256 hash olarak saklanır. Orijinal kullanıcı adı sunucuda tutulmaz.\n• Şifre: Argon2id algoritması ile hash\'lenerek saklanır. Düz metin şifre asla tutulmaz.\n• IP adresi: SHA-256 hash olarak kısa süreli (24 saat) Redis\'te tutulur.\n• E-posta adresi (alıcı): Yalnızca link gönderimi için kullanılır, saklanmaz.\n• Dosya içeriği: Sunucuya şifreli olarak ulaşır. Şifre anahtarı sunucuya hiçbir zaman gönderilmez.';
+      '• Kullanıcı Adı / Hesap Bilgisi — Geri döndürülemez şekilde SHA-256 algoritması ile hash\'lenerek saklanır; orijinal metin sunucuda tutulmaz. Saklama süresi: hesap aktif olduğu sürece; 90 gün inaktiflikte otomatik silinir.\n• Hesap Şifresi — Argon2id kriptografik fonksiyonu ile hash\'lenerek saklanır; düz metin şifreniz asla sunucuya ulaşmaz. Saklama süresi: hesap silinene kadar.\n• IP Adresi (Oturum Güvenliği) — Eşzamanlı oturum/IP doğrulaması amacıyla SHA-256 ile hash\'lenerek bellek içi veri tabanında (Redis) tutulur. Saklama süresi: en fazla 24 saat, sonra otomatik ve kalıcı olarak silinir.\n• Giriş Erişim Kaydı (IP + Hesap + Zaman) — Hizmetin kötüye kullanımının önlenmesi, caydırıcılık sağlanması ve yetkili adli/idari makamların yasal talebi halinde paylaşılabilmesi amacıyla; hesabınıza yapılan girişlerde IP adresiniz (düz metin), hesabınızın geri döndürülemez hash değeri ve giriş zamanı ayrı bir güvenlik kaydında tutulur. Saklama süresi: 90 gün (3 ay), sonrasında otomatik olarak kalıcı şekilde silinir.\n• Alıcı E-posta Adresi — Yalnızca Kullanıcı talebiyle indirme linkinin otomatik e-posta olarak iletilmesi amacıyla anlık işlenir; veri tabanına kaydedilmez, anında imha edilir.\n• Abonelik ve Ödeme Verisi — Ödemeler Google Play üzerinden yapıldığından finansal verileriniz bizde tutulmaz; yalnızca Google tarafından üretilen abonelik durum doğrulama jetonları (token) ve üyelik seviyesi bilgisi işlenir. Saklama süresi: abonelik süresince ve yasal mali yükümlülükler boyunca.\n• Dosya İçeriği — Kişisel veri olarak kabul edilmemekle birlikte, yüklenen dosyalar sunucuya ulaşmadan önce cihazınızda şifrelenir; Şirket içeriğe erişemez. Saklama süresi: indirildiği an veya indirilmezse maksimum 1 saat içinde kalıcı olarak silinir.';
 
   @override
-  String get kvkkH3 => '3. VERİLERİN İŞLENME AMACI';
+  String get kvkkH3 =>
+      '3. KİŞİSEL VERİLERİN İŞLENME AMAÇLARI VE HUKUKİ SEBEPLERİ';
 
   @override
   String get kvkkP3 =>
-      '• Kullanıcı hesabının oluşturulması ve yönetimi\n• Güvenli dosya paylaşımı hizmetinin sunulması\n• Hizmet kötüye kullanımının önlenmesi';
+      'Kişisel verileriniz, KVKK m. 5/2 uyarınca aşağıdaki hukuki sebeplere dayalı olarak işlenmektedir:\n• Sözleşmenin Kurulması ve İfası (m.5/2-c): Kullanıcı hesabının oluşturulması, Premium abonelik hizmetinin Google Play Store entegrasyonu ile sunulabilmesi ve dosya aktarım hizmetinin yürütülmesi.\n• Veri Sorumlusunun Meşru Menfaati (m.5/2-f): Hizmetin kötüye kullanımının önlenmesi, siber güvenliğin (DDoS saldırıları, bot girişleri vb.) sağlanması amacıyla IP adreslerinin ve giriş kayıtlarının işlenmesi ve caydırıcılık sağlanması.\n• Hukuki Yükümlülüğün Yerine Getirilmesi (m.5/2-ç): Yetkili adli ve idari makamların yasal talebi halinde, elde bulunan giriş erişim kayıtlarının usulüne uygun şekilde paylaşılması.';
 
   @override
-  String get kvkkH4 => '4. VERİLERİN SAKLANMA SÜRESİ';
+  String get kvkkH4 =>
+      '4. İŞLENEN KİŞİSEL VERİLERİN AKTARILMASI VE YURT DIŞI AKTARIM BEYANI';
 
   @override
   String get kvkkP4 =>
-      '• Kullanıcı hesabı: 90 gün aktif kullanım olmaması halinde otomatik silinir.\n• Dosyalar: İndirildikten sonra anında, indirilmezse 1 saat içinde silinir.\n• IP hash: 24 saat sonra otomatik silinir.';
+      'SecureVault, teknik operasyonlarını ve şifreli veri barındırma hizmetini Cloudflare R2 bulut altyapısı üzerinde yürütmektedir. Şifreli veri bloklarınız ile yukarıda belirtilen sınırlı hesap verileriniz (SHA-256 hash\'leri), veri merkezi altyapısının yurt dışında yer alması sebebiyle yurt dışına aktarılmaktadır. Ayrıca abonelik süreçlerinin yürütülmesi amacıyla abonelik doğrulama jetonları Google Play Store (Google LLC, ABD) sistemleri ile karşılıklı olarak paylaşılmaktadır. Bu aktarımlar, KVKK Madde 9 kapsamında Kullanıcının uygulama içi açık rızası ve ilgili hizmet sağlayıcılarla akdedilen standart sözleşme hükümleri (SCC) mekanizmalarına dayanarak güvenli bir şekilde gerçekleştirilmektedir. Veriler, yerel üçüncü şahıslara veya reklam şirketlerine asla aktarılmaz. Yetkili adli/idari makamların usulüne uygun yasal talebi halinde, yukarıda tanımlanan giriş erişim kayıtları (madde 2) ilgili makamlarla paylaşılabilir.';
 
   @override
-  String get kvkkH5 => '5. VERİ SAHİBİNİN HAKLARI';
+  String get kvkkH5 => '5. VERİ SAHİBİNİN HAKLARI VE BAŞVURU';
 
   @override
   String get kvkkP5 =>
-      'KVKK madde 11 kapsamında;\n• Verilerinizin işlenip işlenmediğini öğrenme\n• Verilerinizin silinmesini talep etme\n• Hesabınızı \"Hesabımı Sil\" seçeneğinden silebilirsiniz.';
+      'KVKK\'nın 11. maddesi uyarınca; kişisel verilerinizin işlenip işlenmediğini öğrenme, işlenmişse bilgi talep etme, silinmesini veya düzeltilmesini isteme haklarına sahipsiniz. Güvenlik mimarimiz gereği, düz metin verileriniz (kullanıcı adı vb.) hash\'lendiğinden, kimlik doğrulaması yapılabilmesi adına başvurularınızı uygulama içerisindeki \"Hesabımı Sil\" butonuyla doğrudan yapabilir veya yasal haklarınız için destek@sifreliveritransferi.com adresinden bize ulaşabilirsiniz.';
 
   @override
   String get kvkkH6 => '6. İLETİŞİM';
@@ -694,14 +696,14 @@ class AppLocalizationsTr extends AppLocalizations {
   String get kvkkP6 => 'Sorularınız için: no-reply@sifreliveritransferi.com';
 
   @override
-  String get termsTitle => 'Kullanım Şartları';
+  String get termsTitle => 'Sorumluluk Reddi';
 
   @override
-  String get termsHeader => 'Kullanım Şartları ve Sorumluluk Reddi';
+  String get termsHeader => 'SORUMLULUK REDDİ (DISCLAIMER) BEYANI';
 
   @override
   String get termsIntro =>
-      'SecureVault hizmetini kullanarak aşağıdaki şartları kabul etmiş olursunuz.';
+      'SecureVault hizmetini kullanan her kullanıcı, sistemin doğası ve mimari yapısı gereği aşağıdaki hususları peşinen kabul etmiş ve Şirketi bu konularda en geniş anlamda ibra etmiş sayılır:';
 
   @override
   String get terms1Title => 'Uçtan Uca Şifreleme — İçeriğe Erişemeyiz';
@@ -997,4 +999,33 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get recoverBackToLogin => 'Girişe dön';
+
+  @override
+  String get termsH1 => '1. TEKNİK SAKLAMA VE SİLİNME KOŞULLARI';
+
+  @override
+  String get termsP1 =>
+      'SecureVault bir bulut depolama, kalıcı arşiv veya veri yedekleme (backup) hizmeti DEĞİLDİR. Hizmete yüklenen tüm şifreli içerikler, alıcı tarafından indirildiği anda veya indirilmediği takdirde belirlenen süre (varsayılan 1 saat) dolduğunda sistemden otomatik, kalıcı ve geri döndürülemez şekilde silinir. Dosyaların asıl kopyalarının güvenli bir şekilde saklanması ve yedeklenmesi tamamen Kullanıcının kendi sorumluluğundadır. Süresi dolduğu için veya teknik nedenlerle silinen verilerin kurtarılmamasından doğan zararlardan Şirket sorumlu tutulamaz.';
+
+  @override
+  String get termsH2 => '2. \"SIFIR BİLGİ\" (ZERO-KNOWLEDGE) VE ŞİFRE KAYBI';
+
+  @override
+  String get termsP2 =>
+      'Hizmetin kriptografik yapısı uyarınca şifreleme anahtarları yalnızca Kullanıcı cihazında üretilir ve sunucuya iletilmez. Kullanıcının şifresini veya indirme linkine ait anahtarı kaybetmesi, unutması veya üçüncü kişilere kaptırması durumunda; Şirketin bu şifreyi yenileme, değiştirme veya şifreli dosyayı açıp Kullanıcıya teslim etme yeteneği teknik olarak bulunmamaktadır. Şifre ve anahtar yönetimindeki ihmallerden kaynaklanan veri kayıplarından münhasıran Kullanıcı sorumludur.';
+
+  @override
+  String get termsH3 => '3. HİZMETİN \"OLDUĞU GİBİ\" (AS IS) SUNULMASI';
+
+  @override
+  String get termsP3 =>
+      'SecureVault, Türk Borçlar Kanunu Madde 115 ve ilgili mevzuatın izin verdiği en geniş sınırlar dahilinde, Hizmeti \"olduğu gibi\" ve \"mümkün olduğu ölçüde\" esasıyla sunmaktadır. Şirket; Hizmetin kesintisiz, hatasız, siber saldırılardan tamamen ari veya belirli bir amaca uygun olacağına dair sarih veya zımni hiçbir garanti vermemektedir. Google Play Store altyapısından, Cloudflare kesintilerinden, küresel internet omurgasındaki arızalardan veya mücbir sebeplerden kaynaklanan gecikme, veri iletilememe veya erişim sorunlarından Şirketin hukuki veya cezai sorumluluğu bulunmamaktadır.';
+
+  @override
+  String get termsH4 =>
+      '4. TÜRK BORÇLAR KANUNU (TBK M. 115) UYARINCA SINIRLAMA';
+
+  @override
+  String get termsP4 =>
+      'İşbu sorumluluk reddi metninde yer alan hiçbir hüküm, Şirketin kanundan doğan \"ağır kusur\" veya \"hile\" hallerindeki yasal sorumluluğunu ortadan kaldırmaz veya sınırlandırmaz. Şirketin hafif kusurundan kaynaklanabilecek zararlarda sorumluluğu, Kullanıcının Google Play Store üzerinden Şirkete son 12 ay içinde ödediği toplam abonelik ücreti ile sınırlıdır.';
 }
