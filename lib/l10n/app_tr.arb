@@ -421,5 +421,9 @@
   "termsH3": "3. HİZMETİN \"OLDUĞU GİBİ\" (AS IS) SUNULMASI",
   "termsP3": "SecureVault, Türk Borçlar Kanunu Madde 115 ve ilgili mevzuatın izin verdiği en geniş sınırlar dahilinde, Hizmeti \"olduğu gibi\" ve \"mümkün olduğu ölçüde\" esasıyla sunmaktadır. Şirket; Hizmetin kesintisiz, hatasız, siber saldırılardan tamamen ari veya belirli bir amaca uygun olacağına dair sarih veya zımni hiçbir garanti vermemektedir. Google Play Store altyapısından, Cloudflare kesintilerinden, küresel internet omurgasındaki arızalardan veya mücbir sebeplerden kaynaklanan gecikme, veri iletilememe veya erişim sorunlarından Şirketin hukuki veya cezai sorumluluğu bulunmamaktadır.",
   "termsH4": "4. TÜRK BORÇLAR KANUNU (TBK M. 115) UYARINCA SINIRLAMA",
-  "termsP4": "İşbu sorumluluk reddi metninde yer alan hiçbir hüküm, Şirketin kanundan doğan \"ağır kusur\" veya \"hile\" hallerindeki yasal sorumluluğunu ortadan kaldırmaz veya sınırlandırmaz. Şirketin hafif kusurundan kaynaklanabilecek zararlarda sorumluluğu, Kullanıcının Google Play Store üzerinden Şirkete son 12 ay içinde ödediği toplam abonelik ücreti ile sınırlıdır."
+  "termsP4": "İşbu sorumluluk reddi metninde yer alan hiçbir hüküm, Şirketin kanundan doğan \"ağır kusur\" veya \"hile\" hallerindeki yasal sorumluluğunu ortadan kaldırmaz veya sınırlandırmaz. Şirketin hafif kusurundan kaynaklanabilecek zararlarda sorumluluğu, Kullanıcının Google Play Store üzerinden Şirkete son 12 ay içinde ödediği toplam abonelik ücreti ile sınırlıdır.",
+  "regKvkkInfoPrefix": "Kişisel verilerinizin işlenmesine ilişkin detaylara ",
+  "regKvkkInfoSuffix": " üzerinden ulaşabilirsiniz.",
+  "regTransferConsentText": "Verilerimin, teknik operasyonların yürütülmesi amacıyla yurt dışı yerleşik altyapı sağlayıcılarında (Cloudflare R2) güvenli şekilde işlenmesine açık rıza veriyorum.",
+  "regErrTransferConsent": "Yurt dışı veri aktarımı onayını vermeniz gerekmektedir."
 }

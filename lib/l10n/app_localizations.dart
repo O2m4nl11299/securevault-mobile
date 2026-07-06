@@ -1925,6 +1925,30 @@ abstract class AppLocalizations {
   /// In tr, this message translates to:
   /// **'İşbu sorumluluk reddi metninde yer alan hiçbir hüküm, Şirketin kanundan doğan \"ağır kusur\" veya \"hile\" hallerindeki yasal sorumluluğunu ortadan kaldırmaz veya sınırlandırmaz. Şirketin hafif kusurundan kaynaklanabilecek zararlarda sorumluluğu, Kullanıcının Google Play Store üzerinden Şirkete son 12 ay içinde ödediği toplam abonelik ücreti ile sınırlıdır.'**
   String get termsP4;
+
+  /// No description provided for @regKvkkInfoPrefix.
+  ///
+  /// In tr, this message translates to:
+  /// **'Kişisel verilerinizin işlenmesine ilişkin detaylara '**
+  String get regKvkkInfoPrefix;
+
+  /// No description provided for @regKvkkInfoSuffix.
+  ///
+  /// In tr, this message translates to:
+  /// **' üzerinden ulaşabilirsiniz.'**
+  String get regKvkkInfoSuffix;
+
+  /// No description provided for @regTransferConsentText.
+  ///
+  /// In tr, this message translates to:
+  /// **'Verilerimin, teknik operasyonların yürütülmesi amacıyla yurt dışı yerleşik altyapı sağlayıcılarında (Cloudflare R2) güvenli şekilde işlenmesine açık rıza veriyorum.'**
+  String get regTransferConsentText;
+
+  /// No description provided for @regErrTransferConsent.
+  ///
+  /// In tr, this message translates to:
+  /// **'Yurt dışı veri aktarımı onayını vermeniz gerekmektedir.'**
+  String get regErrTransferConsent;
 }
 
 class _AppLocalizationsDelegate

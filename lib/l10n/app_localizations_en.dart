@@ -1032,4 +1032,19 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get termsP4 =>
       'Nothing in this disclaimer statement eliminates or limits the Company\'s statutory liability arising from \"gross negligence\" or \"fraud\" under the law. For damages that may arise from the Company\'s slight negligence, the Company\'s liability is limited to the total subscription fee paid by the User to the Company through the Google Play Store in the preceding 12 months.';
+
+  @override
+  String get regKvkkInfoPrefix =>
+      'You can find details about the processing of your personal data in the ';
+
+  @override
+  String get regKvkkInfoSuffix => '.';
+
+  @override
+  String get regTransferConsentText =>
+      'I give my explicit consent to the secure processing of my data by infrastructure providers based abroad (Cloudflare R2) for the purpose of carrying out technical operations.';
+
+  @override
+  String get regErrTransferConsent =>
+      'You must give consent to the cross-border data transfer.';
 }

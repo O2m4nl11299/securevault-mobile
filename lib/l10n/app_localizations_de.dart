@@ -1047,4 +1047,19 @@ class AppLocalizationsDe extends AppLocalizations {
   @override
   String get termsP4 =>
       'Keine Bestimmung dieser Haftungsausschlusserklärung hebt die gesetzliche Haftung des Unternehmens bei „grober Fahrlässigkeit“ oder „Arglist“ auf oder beschränkt diese. Für Schäden, die durch leichte Fahrlässigkeit des Unternehmens entstehen können, ist die Haftung des Unternehmens auf die Gesamtsumme der vom Nutzer in den letzten 12 Monaten über den Google Play Store an das Unternehmen gezahlten Abonnementgebühren beschränkt.';
+
+  @override
+  String get regKvkkInfoPrefix =>
+      'Details zur Verarbeitung Ihrer personenbezogenen Daten finden Sie in der ';
+
+  @override
+  String get regKvkkInfoSuffix => '.';
+
+  @override
+  String get regTransferConsentText =>
+      'Ich erteile meine ausdrückliche Einwilligung zur sicheren Verarbeitung meiner Daten durch im Ausland ansässige Infrastrukturanbieter (Cloudflare R2) zum Zweck der Durchführung technischer Vorgänge.';
+
+  @override
+  String get regErrTransferConsent =>
+      'Sie müssen der grenzüberschreitenden Datenübermittlung zustimmen.';
 }

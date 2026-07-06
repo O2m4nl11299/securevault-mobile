@@ -1028,4 +1028,19 @@ class AppLocalizationsTr extends AppLocalizations {
   @override
   String get termsP4 =>
       'İşbu sorumluluk reddi metninde yer alan hiçbir hüküm, Şirketin kanundan doğan \"ağır kusur\" veya \"hile\" hallerindeki yasal sorumluluğunu ortadan kaldırmaz veya sınırlandırmaz. Şirketin hafif kusurundan kaynaklanabilecek zararlarda sorumluluğu, Kullanıcının Google Play Store üzerinden Şirkete son 12 ay içinde ödediği toplam abonelik ücreti ile sınırlıdır.';
+
+  @override
+  String get regKvkkInfoPrefix =>
+      'Kişisel verilerinizin işlenmesine ilişkin detaylara ';
+
+  @override
+  String get regKvkkInfoSuffix => ' üzerinden ulaşabilirsiniz.';
+
+  @override
+  String get regTransferConsentText =>
+      'Verilerimin, teknik operasyonların yürütülmesi amacıyla yurt dışı yerleşik altyapı sağlayıcılarında (Cloudflare R2) güvenli şekilde işlenmesine açık rıza veriyorum.';
+
+  @override
+  String get regErrTransferConsent =>
+      'Yurt dışı veri aktarımı onayını vermeniz gerekmektedir.';
 }

@@ -17,19 +17,24 @@ class _RegisterScreenState extends State<RegisterScreen> {
   final _passwordCtrl = TextEditingController();
   final _authService = AuthService();
   bool _loading = false;
-  bool _kvkkAccepted = false;
+  // Kullanim Sartlari (Sozlesme) + Sorumluluk Reddi: sozlesmenin kurulmasi
+  // icin ZORUNLU tek onay (KVKK'dan ayri - bu bir sozlesme kabuludur).
   bool _termsAccepted = false;
+  // Yurt disi veri aktarimi (Cloudflare R2) icin AYRI ve ACIK riza —
+  // KVKK metninde bu aktarimin hukuki dayanagi olarak "acik riza"
+  // belirtildigi icin genel onaydan BAGIMSIZ, kendi basina zorunlu.
+  bool _transferConsent = false;
   String? _error;
   String? _recoveryToken; // basarili kayittan sonra TEK SEFER gosterilir
 
   Future<void> _submit() async {
     if (!_formKey.currentState!.validate()) return;
-    if (!_kvkkAccepted) {
-      setState(() => _error = AppLocalizations.of(context).regErrKvkk);
-      return;
-    }
     if (!_termsAccepted) {
       setState(() => _error = AppLocalizations.of(context).regErrTerms);
+      return;
+    }
+    if (!_transferConsent) {
+      setState(() => _error = AppLocalizations.of(context).regErrTransferConsent);
       return;
     }
     setState(() {
@@ -130,55 +135,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       (v == null || v.length < 8) ? l.regPasswordError : null,
                 ),
                 const SizedBox(height: 16),
-                // KVKK + Kullanim Sozlesmesi onayi
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Checkbox(
-                      value: _kvkkAccepted,
-                      onChanged: (v) => setState(() {
-                        _kvkkAccepted = v ?? false;
-                        if (_kvkkAccepted) _error = null;
-                      }),
-                    ),
-                    Expanded(
-                      child: Padding(
-                        padding: const EdgeInsets.only(top: 12),
-                        child: Wrap(
-                          children: [
-                            Text(l.regIReadAccept),
-                            GestureDetector(
-                              onTap: () => Navigator.of(context).push(
-                                MaterialPageRoute(builder: (_) => const KvkkScreen()),
-                              ),
-                              child: Text(
-                                l.regKvkkText,
-                                style: TextStyle(
-                                  color: Theme.of(context).colorScheme.primary,
-                                  decoration: TextDecoration.underline,
-                                ),
-                              ),
-                            ),
-                            Text(l.regAnd),
-                            GestureDetector(
-                              onTap: () => Navigator.of(context).push(
-                                MaterialPageRoute(builder: (_) => const SozlesmeScreen()),
-                              ),
-                              child: Text(
-                                l.regAgreementText,
-                                style: TextStyle(
-                                  color: Theme.of(context).colorScheme.primary,
-                                  decoration: TextDecoration.underline,
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-                // Kullanim Sartlari ve Sorumluluk Reddi onayi (uygulama ici ekran)
+
+                // 1) ZORUNLU ONAY: Kullanim Sozlesmesi + Sorumluluk Reddi
+                // (sozlesmenin kurulmasi - tek onayda birlestirilmesi hukuken
+                // sorun degil, cunku ikisi de ayni sozlesme ailesindendir.)
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -197,6 +157,19 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             Text(l.regIReadAccept),
                             GestureDetector(
                               onTap: () => Navigator.of(context).push(
+                                MaterialPageRoute(builder: (_) => const SozlesmeScreen()),
+                              ),
+                              child: Text(
+                                l.regAgreementText,
+                                style: TextStyle(
+                                  color: Theme.of(context).colorScheme.primary,
+                                  decoration: TextDecoration.underline,
+                                ),
+                              ),
+                            ),
+                            Text(l.regAnd),
+                            GestureDetector(
+                              onTap: () => Navigator.of(context).push(
                                 MaterialPageRoute(builder: (_) => const TermsScreen()),
                               ),
                               child: Text(
@@ -213,6 +186,60 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     ),
                   ],
                 ),
+
+                // 2) KUTUCUKSUZ BILGILENDIRME: KVKK Aydinlatma Metni.
+                // Bu bir sozlesme degil, tek tarafli bilgilendirmedir;
+                // "onay" degil sadece erisilebilir olmasi yeterlidir.
+                Padding(
+                  padding: const EdgeInsets.only(left: 12, top: 4, bottom: 12),
+                  child: Wrap(
+                    children: [
+                      Text(
+                        l.regKvkkInfoPrefix,
+                        style: TextStyle(fontSize: 12, color: Theme.of(context).colorScheme.onSurfaceVariant),
+                      ),
+                      GestureDetector(
+                        onTap: () => Navigator.of(context).push(
+                          MaterialPageRoute(builder: (_) => const KvkkScreen()),
+                        ),
+                        child: Text(
+                          l.regKvkkText,
+                          style: TextStyle(
+                            fontSize: 12,
+                            color: Theme.of(context).colorScheme.primary,
+                            decoration: TextDecoration.underline,
+                          ),
+                        ),
+                      ),
+                      Text(
+                        l.regKvkkInfoSuffix,
+                        style: TextStyle(fontSize: 12, color: Theme.of(context).colorScheme.onSurfaceVariant),
+                      ),
+                    ],
+                  ),
+                ),
+
+                // 3) ZORUNLU AYRI ONAY: Yurt disi veri aktarimi (Cloudflare R2)
+                // icin acik riza. Genel onaydan BAGIMSIZ tutulur.
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Checkbox(
+                      value: _transferConsent,
+                      onChanged: (v) => setState(() {
+                        _transferConsent = v ?? false;
+                        if (_transferConsent) _error = null;
+                      }),
+                    ),
+                    Expanded(
+                      child: Padding(
+                        padding: const EdgeInsets.only(top: 12),
+                        child: Text(l.regTransferConsentText, style: const TextStyle(fontSize: 13)),
+                      ),
+                    ),
+                  ],
+                ),
+
                 if (_error != null) ...[
                   const SizedBox(height: 12),
                   Text(_error!, style: const TextStyle(color: Colors.redAccent)),

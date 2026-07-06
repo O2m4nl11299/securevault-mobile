@@ -303,5 +303,9 @@
   "termsH3": "3. THE SERVICE IS PROVIDED \"AS IS\"",
   "termsP3": "To the fullest extent permitted by Article 115 of the Turkish Code of Obligations and applicable legislation, SecureVault provides the Service \"as is\" and on an \"as available\" basis. The Company makes no express or implied warranty that the Service will be uninterrupted, error-free, entirely free from cyber attacks, or fit for a particular purpose. The Company bears no legal or criminal liability for delays, failures to transmit data, or access problems arising from the Google Play Store infrastructure, Cloudflare outages, failures in the global internet backbone, or force majeure events.",
   "termsH4": "4. LIMITATION PURSUANT TO THE TURKISH CODE OF OBLIGATIONS (ART. 115)",
-  "termsP4": "Nothing in this disclaimer statement eliminates or limits the Company's statutory liability arising from \"gross negligence\" or \"fraud\" under the law. For damages that may arise from the Company's slight negligence, the Company's liability is limited to the total subscription fee paid by the User to the Company through the Google Play Store in the preceding 12 months."
+  "termsP4": "Nothing in this disclaimer statement eliminates or limits the Company's statutory liability arising from \"gross negligence\" or \"fraud\" under the law. For damages that may arise from the Company's slight negligence, the Company's liability is limited to the total subscription fee paid by the User to the Company through the Google Play Store in the preceding 12 months.",
+  "regKvkkInfoPrefix": "You can find details about the processing of your personal data in the ",
+  "regKvkkInfoSuffix": ".",
+  "regTransferConsentText": "I give my explicit consent to the secure processing of my data by infrastructure providers based abroad (Cloudflare R2) for the purpose of carrying out technical operations.",
+  "regErrTransferConsent": "You must give consent to the cross-border data transfer."
 }
