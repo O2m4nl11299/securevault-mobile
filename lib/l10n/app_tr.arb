@@ -425,5 +425,9 @@
   "regKvkkInfoPrefix": "Kişisel verilerinizin işlenmesine ilişkin detaylara ",
   "regKvkkInfoSuffix": " üzerinden ulaşabilirsiniz.",
   "regTransferConsentText": "Verilerimin, teknik operasyonların yürütülmesi amacıyla yurt dışı yerleşik altyapı sağlayıcılarında (Cloudflare R2) güvenli şekilde işlenmesine açık rıza veriyorum.",
-  "regErrTransferConsent": "Yurt dışı veri aktarımı onayını vermeniz gerekmektedir."
+  "regErrTransferConsent": "Yurt dışı veri aktarımı onayını vermeniz gerekmektedir.",
+  "cphPremiumTitle": "Premium Özellik",
+  "cphPremiumBody": "Çevrimdışı Şifreli Mesaj özelliği yalnızca Premium üyelere özeldir. Premium'a geçerek bu özelliği ve daha yüksek gönderim limitlerini kullanabilirsiniz.",
+  "cphPremiumCancel": "Vazgeç",
+  "cphPremiumGo": "Premium'a Geç"
 }

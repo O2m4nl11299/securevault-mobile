@@ -1949,6 +1949,30 @@ abstract class AppLocalizations {
   /// In tr, this message translates to:
   /// **'Yurt dışı veri aktarımı onayını vermeniz gerekmektedir.'**
   String get regErrTransferConsent;
+
+  /// No description provided for @cphPremiumTitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Premium Özellik'**
+  String get cphPremiumTitle;
+
+  /// No description provided for @cphPremiumBody.
+  ///
+  /// In tr, this message translates to:
+  /// **'Çevrimdışı Şifreli Mesaj özelliği yalnızca Premium üyelere özeldir. Premium\'a geçerek bu özelliği ve daha yüksek gönderim limitlerini kullanabilirsiniz.'**
+  String get cphPremiumBody;
+
+  /// No description provided for @cphPremiumCancel.
+  ///
+  /// In tr, this message translates to:
+  /// **'Vazgeç'**
+  String get cphPremiumCancel;
+
+  /// No description provided for @cphPremiumGo.
+  ///
+  /// In tr, this message translates to:
+  /// **'Premium\'a Geç'**
+  String get cphPremiumGo;
 }
 
 class _AppLocalizationsDelegate

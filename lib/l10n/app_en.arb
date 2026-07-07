@@ -307,5 +307,9 @@
   "regKvkkInfoPrefix": "You can find details about the processing of your personal data in the ",
   "regKvkkInfoSuffix": ".",
   "regTransferConsentText": "I give my explicit consent to the secure processing of my data by infrastructure providers based abroad (Cloudflare R2) for the purpose of carrying out technical operations.",
-  "regErrTransferConsent": "You must give consent to the cross-border data transfer."
+  "regErrTransferConsent": "You must give consent to the cross-border data transfer.",
+  "cphPremiumTitle": "Premium Feature",
+  "cphPremiumBody": "The Offline Encrypted Message feature is exclusive to Premium members. Upgrade to Premium to use this feature and enjoy higher upload limits.",
+  "cphPremiumCancel": "Cancel",
+  "cphPremiumGo": "Go Premium"
 }

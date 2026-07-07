@@ -62,6 +62,51 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
+  // Cevrimdisi Sifreli Mesaj — YALNIZCA Premium. Ozellik tamamen cihazda
+  // calistigi icin kontrol istemci tarafindadir; plan her tiklamada
+  // SecureStorage'dan taze okunur (satin alma sonrasi donuste guncel olsun).
+  Future<void> _openTextCipher() async {
+    final plan = await SecureStorageService.readPlan();
+    final isAdmin = await SecureStorageService.readIsAdmin();
+    if (!mounted) return;
+    // Premium uyelere VE admin hesabina (test/yonetim) acik.
+    if (plan == 'premium' || isAdmin) {
+      Navigator.of(context).push(
+        MaterialPageRoute(builder: (_) => const TextCipherScreen()),
+      );
+      return;
+    }
+    final l = AppLocalizations.of(context);
+    showDialog(
+      context: context,
+      builder: (ctx) => AlertDialog(
+        title: Row(
+          children: [
+            const Icon(Icons.workspace_premium, color: Colors.amber),
+            const SizedBox(width: 8),
+            Expanded(child: Text(l.cphPremiumTitle)),
+          ],
+        ),
+        content: Text(l.cphPremiumBody),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.of(ctx).pop(),
+            child: Text(l.cphPremiumCancel),
+          ),
+          FilledButton(
+            onPressed: () {
+              Navigator.of(ctx).pop();
+              Navigator.of(context).push(
+                MaterialPageRoute(builder: (_) => const PremiumScreen()),
+              );
+            },
+            child: Text(l.cphPremiumGo),
+          ),
+        ],
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final l = AppLocalizations.of(context);
@@ -145,9 +190,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             const SizedBox(height: 12),
             OutlinedButton.icon(
-              onPressed: () => Navigator.of(context).push(
-                MaterialPageRoute(builder: (_) => const TextCipherScreen()),
-              ),
+              onPressed: _openTextCipher,
               icon: const Icon(Icons.enhanced_encryption),
               label: Text(l.cphTitle),
             ),

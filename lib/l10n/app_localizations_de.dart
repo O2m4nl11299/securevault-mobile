@@ -1062,4 +1062,17 @@ class AppLocalizationsDe extends AppLocalizations {
   @override
   String get regErrTransferConsent =>
       'Sie müssen der grenzüberschreitenden Datenübermittlung zustimmen.';
+
+  @override
+  String get cphPremiumTitle => 'Premium-Funktion';
+
+  @override
+  String get cphPremiumBody =>
+      'Die Funktion „Verschlüsselte Offline-Nachricht“ ist Premium-Mitgliedern vorbehalten. Wechseln Sie zu Premium, um diese Funktion und höhere Upload-Limits zu nutzen.';
+
+  @override
+  String get cphPremiumCancel => 'Abbrechen';
+
+  @override
+  String get cphPremiumGo => 'Premium holen';
 }

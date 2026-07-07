@@ -1054,4 +1054,17 @@ class AppLocalizationsRu extends AppLocalizations {
   @override
   String get regErrTransferConsent =>
       'Вы должны дать согласие на трансграничную передачу данных.';
+
+  @override
+  String get cphPremiumTitle => 'Премиум-функция';
+
+  @override
+  String get cphPremiumBody =>
+      'Функция «Офлайн-зашифрованное сообщение» доступна только участникам Премиум. Перейдите на Премиум, чтобы использовать эту функцию и повышенные лимиты отправки.';
+
+  @override
+  String get cphPremiumCancel => 'Отмена';
+
+  @override
+  String get cphPremiumGo => 'Перейти на Премиум';
 }

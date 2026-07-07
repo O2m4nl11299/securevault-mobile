@@ -1043,4 +1043,17 @@ class AppLocalizationsTr extends AppLocalizations {
   @override
   String get regErrTransferConsent =>
       'Yurt dışı veri aktarımı onayını vermeniz gerekmektedir.';
+
+  @override
+  String get cphPremiumTitle => 'Premium Özellik';
+
+  @override
+  String get cphPremiumBody =>
+      'Çevrimdışı Şifreli Mesaj özelliği yalnızca Premium üyelere özeldir. Premium\'a geçerek bu özelliği ve daha yüksek gönderim limitlerini kullanabilirsiniz.';
+
+  @override
+  String get cphPremiumCancel => 'Vazgeç';
+
+  @override
+  String get cphPremiumGo => 'Premium\'a Geç';
 }

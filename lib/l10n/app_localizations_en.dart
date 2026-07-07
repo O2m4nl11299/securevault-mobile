@@ -1047,4 +1047,17 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get regErrTransferConsent =>
       'You must give consent to the cross-border data transfer.';
+
+  @override
+  String get cphPremiumTitle => 'Premium Feature';
+
+  @override
+  String get cphPremiumBody =>
+      'The Offline Encrypted Message feature is exclusive to Premium members. Upgrade to Premium to use this feature and enjoy higher upload limits.';
+
+  @override
+  String get cphPremiumCancel => 'Cancel';
+
+  @override
+  String get cphPremiumGo => 'Go Premium';
 }

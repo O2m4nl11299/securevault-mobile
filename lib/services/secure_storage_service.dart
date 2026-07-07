@@ -9,6 +9,7 @@ class SecureStorageService {
   static const _kPlan = 'user_plan';
   static const _kUsername = 'username';
   static const _kRemember = 'remember_me';
+  static const _kIsAdmin = 'is_admin';
   static const _kLocale = 'app_locale';
 
   static Future<void> saveSession({
@@ -16,11 +17,13 @@ class SecureStorageService {
     required String plan,
     required String username,
     required bool remember,
+    bool isAdmin = false,
   }) async {
     await _storage.write(key: _kSessionToken, value: token);
     await _storage.write(key: _kPlan, value: plan);
     await _storage.write(key: _kUsername, value: username);
     await _storage.write(key: _kRemember, value: remember ? 'true' : 'false');
+    await _storage.write(key: _kIsAdmin, value: isAdmin ? 'true' : 'false');
   }
 
   static Future<String?> readToken() => _storage.read(key: _kSessionToken);
@@ -28,6 +31,8 @@ class SecureStorageService {
   static Future<String?> readUsername() => _storage.read(key: _kUsername);
   static Future<bool> readRemember() async =>
       (await _storage.read(key: _kRemember)) == 'true';
+  static Future<bool> readIsAdmin() async =>
+      (await _storage.read(key: _kIsAdmin)) == 'true';
 
   // Dil tercihi - clear() ile SILINMEZ (cikis yapinca dil korunur).
   static Future<void> saveLocale(String code) =>
@@ -39,5 +44,6 @@ class SecureStorageService {
     await _storage.delete(key: _kPlan);
     await _storage.delete(key: _kUsername);
     await _storage.delete(key: _kRemember);
+    await _storage.delete(key: _kIsAdmin);
   }
 }

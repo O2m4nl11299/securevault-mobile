@@ -51,12 +51,14 @@ class AuthService {
       if (res.statusCode == 200 && res.data['success'] == true) {
         final token = res.data['sessionToken'] as String;
         final plan = (res.data['plan'] as String?) ?? 'free';
+        final isAdmin = res.data['isAdmin'] == true;
         ApiClient.instance.setSessionToken(token);
         await SecureStorageService.saveSession(
           token: token,
           plan: plan,
           username: username,
           remember: remember,
+          isAdmin: isAdmin,
         );
         return;
       }

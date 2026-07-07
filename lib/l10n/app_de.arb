@@ -307,5 +307,9 @@
   "regKvkkInfoPrefix": "Details zur Verarbeitung Ihrer personenbezogenen Daten finden Sie in der ",
   "regKvkkInfoSuffix": ".",
   "regTransferConsentText": "Ich erteile meine ausdrückliche Einwilligung zur sicheren Verarbeitung meiner Daten durch im Ausland ansässige Infrastrukturanbieter (Cloudflare R2) zum Zweck der Durchführung technischer Vorgänge.",
-  "regErrTransferConsent": "Sie müssen der grenzüberschreitenden Datenübermittlung zustimmen."
+  "regErrTransferConsent": "Sie müssen der grenzüberschreitenden Datenübermittlung zustimmen.",
+  "cphPremiumTitle": "Premium-Funktion",
+  "cphPremiumBody": "Die Funktion „Verschlüsselte Offline-Nachricht“ ist Premium-Mitgliedern vorbehalten. Wechseln Sie zu Premium, um diese Funktion und höhere Upload-Limits zu nutzen.",
+  "cphPremiumCancel": "Abbrechen",
+  "cphPremiumGo": "Premium holen"
 }
