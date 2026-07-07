@@ -1067,4 +1067,62 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get cphPremiumGo => 'Перейти на Премиум';
+
+  @override
+  String get certTitle => 'Сертификат уничтожения';
+
+  @override
+  String get certHomeButton => 'Проверить сертификат уничтожения';
+
+  @override
+  String get certIntro =>
+      'Подтвердите, что ваш файл действительно уничтожен, с помощью криптографически подписанного сертификата. Вставьте ссылку для скачивания или код.';
+
+  @override
+  String get certInputLabel => 'Ссылка для скачивания или код';
+
+  @override
+  String get certInputHint => 'https://sifreliveritransferi.com/dl/...';
+
+  @override
+  String get certQueryButton => 'Проверить сертификат';
+
+  @override
+  String get certPending =>
+      'Файл ещё не уничтожен — он всё ещё активен (не скачан и срок не истёк).';
+
+  @override
+  String get certDestroyed => 'Этот файл был безвозвратно уничтожен.';
+
+  @override
+  String get certNotFound =>
+      'Запись об уничтожении для этой ссылки не найдена. Записи хранятся 90 дней.';
+
+  @override
+  String get certErrInvalid =>
+      'Ссылка или код не распознаны. Вставьте ссылку для скачивания как есть.';
+
+  @override
+  String get certErrNetwork => 'Запрос не выполнен. Проверьте подключение.';
+
+  @override
+  String get certReasonDownloaded => 'Скачан получателем';
+
+  @override
+  String get certReasonExpired => 'Срок истёк';
+
+  @override
+  String get certFieldReason => 'Причина уничтожения';
+
+  @override
+  String get certFieldUploaded => 'Загружен';
+
+  @override
+  String get certFieldDeleted => 'Уничтожен';
+
+  @override
+  String get certFieldSize => 'Размер';
+
+  @override
+  String get certFieldSignature => 'Подпись (Ed25519)';
 }

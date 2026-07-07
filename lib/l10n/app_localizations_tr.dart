@@ -1056,4 +1056,62 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get cphPremiumGo => 'Premium\'a Geç';
+
+  @override
+  String get certTitle => 'İmha Sertifikası';
+
+  @override
+  String get certHomeButton => 'İmha Sertifikası Sorgula';
+
+  @override
+  String get certIntro =>
+      'Gönderdiğiniz dosyanın gerçekten imha edildiğini kriptografik imzalı sertifika ile doğrulayın. İndirme linkini veya kodu yapıştırın.';
+
+  @override
+  String get certInputLabel => 'İndirme linki veya kod';
+
+  @override
+  String get certInputHint => 'https://sifreliveritransferi.com/dl/...';
+
+  @override
+  String get certQueryButton => 'Sertifikayı Sorgula';
+
+  @override
+  String get certPending =>
+      'Dosya henüz imha edilmedi — hâlâ aktif (indirilmedi ve süresi dolmadı).';
+
+  @override
+  String get certDestroyed => 'Bu dosya kalıcı olarak imha edildi.';
+
+  @override
+  String get certNotFound =>
+      'Bu linke ait imha kaydı bulunamadı. Kayıtlar 90 gün saklanır.';
+
+  @override
+  String get certErrInvalid =>
+      'Link veya kod tanınamadı. İndirme linkini olduğu gibi yapıştırın.';
+
+  @override
+  String get certErrNetwork => 'Sorgu başarısız. Bağlantınızı kontrol edin.';
+
+  @override
+  String get certReasonDownloaded => 'Alıcı tarafından indirildi';
+
+  @override
+  String get certReasonExpired => 'Süresi doldu';
+
+  @override
+  String get certFieldReason => 'İmha nedeni';
+
+  @override
+  String get certFieldUploaded => 'Yüklenme';
+
+  @override
+  String get certFieldDeleted => 'İmha';
+
+  @override
+  String get certFieldSize => 'Boyut';
+
+  @override
+  String get certFieldSignature => 'İmza (Ed25519)';
 }

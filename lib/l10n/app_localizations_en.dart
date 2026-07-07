@@ -1060,4 +1060,62 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get cphPremiumGo => 'Go Premium';
+
+  @override
+  String get certTitle => 'Deletion Certificate';
+
+  @override
+  String get certHomeButton => 'Query Deletion Certificate';
+
+  @override
+  String get certIntro =>
+      'Verify that your file was truly destroyed with a cryptographically signed certificate. Paste the download link or code.';
+
+  @override
+  String get certInputLabel => 'Download link or code';
+
+  @override
+  String get certInputHint => 'https://sifreliveritransferi.com/dl/...';
+
+  @override
+  String get certQueryButton => 'Query Certificate';
+
+  @override
+  String get certPending =>
+      'The file has not been destroyed yet — it is still active (not downloaded and not expired).';
+
+  @override
+  String get certDestroyed => 'This file has been permanently destroyed.';
+
+  @override
+  String get certNotFound =>
+      'No deletion record found for this link. Records are kept for 90 days.';
+
+  @override
+  String get certErrInvalid =>
+      'Link or code not recognized. Paste the download link as is.';
+
+  @override
+  String get certErrNetwork => 'Query failed. Check your connection.';
+
+  @override
+  String get certReasonDownloaded => 'Downloaded by the recipient';
+
+  @override
+  String get certReasonExpired => 'Expired';
+
+  @override
+  String get certFieldReason => 'Deletion reason';
+
+  @override
+  String get certFieldUploaded => 'Uploaded';
+
+  @override
+  String get certFieldDeleted => 'Destroyed';
+
+  @override
+  String get certFieldSize => 'Size';
+
+  @override
+  String get certFieldSignature => 'Signature (Ed25519)';
 }

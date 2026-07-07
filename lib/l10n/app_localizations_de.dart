@@ -1075,4 +1075,63 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get cphPremiumGo => 'Premium holen';
+
+  @override
+  String get certTitle => 'Löschzertifikat';
+
+  @override
+  String get certHomeButton => 'Löschzertifikat abfragen';
+
+  @override
+  String get certIntro =>
+      'Überprüfen Sie mit einem kryptografisch signierten Zertifikat, dass Ihre Datei wirklich vernichtet wurde. Fügen Sie den Download-Link oder Code ein.';
+
+  @override
+  String get certInputLabel => 'Download-Link oder Code';
+
+  @override
+  String get certInputHint => 'https://sifreliveritransferi.com/dl/...';
+
+  @override
+  String get certQueryButton => 'Zertifikat abfragen';
+
+  @override
+  String get certPending =>
+      'Die Datei wurde noch nicht vernichtet — sie ist noch aktiv (nicht heruntergeladen und nicht abgelaufen).';
+
+  @override
+  String get certDestroyed => 'Diese Datei wurde dauerhaft vernichtet.';
+
+  @override
+  String get certNotFound =>
+      'Kein Löscheintrag für diesen Link gefunden. Einträge werden 90 Tage aufbewahrt.';
+
+  @override
+  String get certErrInvalid =>
+      'Link oder Code nicht erkannt. Fügen Sie den Download-Link unverändert ein.';
+
+  @override
+  String get certErrNetwork =>
+      'Abfrage fehlgeschlagen. Prüfen Sie Ihre Verbindung.';
+
+  @override
+  String get certReasonDownloaded => 'Vom Empfänger heruntergeladen';
+
+  @override
+  String get certReasonExpired => 'Abgelaufen';
+
+  @override
+  String get certFieldReason => 'Löschgrund';
+
+  @override
+  String get certFieldUploaded => 'Hochgeladen';
+
+  @override
+  String get certFieldDeleted => 'Vernichtet';
+
+  @override
+  String get certFieldSize => 'Größe';
+
+  @override
+  String get certFieldSignature => 'Signatur (Ed25519)';
 }

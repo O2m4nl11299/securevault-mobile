@@ -1973,6 +1973,114 @@ abstract class AppLocalizations {
   /// In tr, this message translates to:
   /// **'Premium\'a Geç'**
   String get cphPremiumGo;
+
+  /// No description provided for @certTitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'İmha Sertifikası'**
+  String get certTitle;
+
+  /// No description provided for @certHomeButton.
+  ///
+  /// In tr, this message translates to:
+  /// **'İmha Sertifikası Sorgula'**
+  String get certHomeButton;
+
+  /// No description provided for @certIntro.
+  ///
+  /// In tr, this message translates to:
+  /// **'Gönderdiğiniz dosyanın gerçekten imha edildiğini kriptografik imzalı sertifika ile doğrulayın. İndirme linkini veya kodu yapıştırın.'**
+  String get certIntro;
+
+  /// No description provided for @certInputLabel.
+  ///
+  /// In tr, this message translates to:
+  /// **'İndirme linki veya kod'**
+  String get certInputLabel;
+
+  /// No description provided for @certInputHint.
+  ///
+  /// In tr, this message translates to:
+  /// **'https://sifreliveritransferi.com/dl/...'**
+  String get certInputHint;
+
+  /// No description provided for @certQueryButton.
+  ///
+  /// In tr, this message translates to:
+  /// **'Sertifikayı Sorgula'**
+  String get certQueryButton;
+
+  /// No description provided for @certPending.
+  ///
+  /// In tr, this message translates to:
+  /// **'Dosya henüz imha edilmedi — hâlâ aktif (indirilmedi ve süresi dolmadı).'**
+  String get certPending;
+
+  /// No description provided for @certDestroyed.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bu dosya kalıcı olarak imha edildi.'**
+  String get certDestroyed;
+
+  /// No description provided for @certNotFound.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bu linke ait imha kaydı bulunamadı. Kayıtlar 90 gün saklanır.'**
+  String get certNotFound;
+
+  /// No description provided for @certErrInvalid.
+  ///
+  /// In tr, this message translates to:
+  /// **'Link veya kod tanınamadı. İndirme linkini olduğu gibi yapıştırın.'**
+  String get certErrInvalid;
+
+  /// No description provided for @certErrNetwork.
+  ///
+  /// In tr, this message translates to:
+  /// **'Sorgu başarısız. Bağlantınızı kontrol edin.'**
+  String get certErrNetwork;
+
+  /// No description provided for @certReasonDownloaded.
+  ///
+  /// In tr, this message translates to:
+  /// **'Alıcı tarafından indirildi'**
+  String get certReasonDownloaded;
+
+  /// No description provided for @certReasonExpired.
+  ///
+  /// In tr, this message translates to:
+  /// **'Süresi doldu'**
+  String get certReasonExpired;
+
+  /// No description provided for @certFieldReason.
+  ///
+  /// In tr, this message translates to:
+  /// **'İmha nedeni'**
+  String get certFieldReason;
+
+  /// No description provided for @certFieldUploaded.
+  ///
+  /// In tr, this message translates to:
+  /// **'Yüklenme'**
+  String get certFieldUploaded;
+
+  /// No description provided for @certFieldDeleted.
+  ///
+  /// In tr, this message translates to:
+  /// **'İmha'**
+  String get certFieldDeleted;
+
+  /// No description provided for @certFieldSize.
+  ///
+  /// In tr, this message translates to:
+  /// **'Boyut'**
+  String get certFieldSize;
+
+  /// No description provided for @certFieldSignature.
+  ///
+  /// In tr, this message translates to:
+  /// **'İmza (Ed25519)'**
+  String get certFieldSignature;
 }
 
 class _AppLocalizationsDelegate
