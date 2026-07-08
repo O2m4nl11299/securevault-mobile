@@ -2081,6 +2081,84 @@ abstract class AppLocalizations {
   /// In tr, this message translates to:
   /// **'İmza (Ed25519)'**
   String get certFieldSignature;
+
+  /// No description provided for @upVaultLabel.
+  ///
+  /// In tr, this message translates to:
+  /// **'İki Anahtarlı Kasa (Premium)'**
+  String get upVaultLabel;
+
+  /// No description provided for @upVaultHint.
+  ///
+  /// In tr, this message translates to:
+  /// **'Anahtar iki parçaya bölünür: Parça 1 linki alıcıya gider, Parça 2 sizde kalır. Alıcı dosyayı ancak siz ikinci parçayı güvenilir bir kanaldan ilettiğinizde açabilir. Bu modda e-posta gönderilmez.'**
+  String get upVaultHint;
+
+  /// No description provided for @upVaultLink1.
+  ///
+  /// In tr, this message translates to:
+  /// **'PARÇA 1 — ALICIYA GÖNDERİN'**
+  String get upVaultLink1;
+
+  /// No description provided for @upVaultLink2.
+  ///
+  /// In tr, this message translates to:
+  /// **'PARÇA 2 — SİZDE KALIR'**
+  String get upVaultLink2;
+
+  /// No description provided for @upVaultShare1.
+  ///
+  /// In tr, this message translates to:
+  /// **'Parça 1\'i Paylaş'**
+  String get upVaultShare1;
+
+  /// No description provided for @upVaultShare2.
+  ///
+  /// In tr, this message translates to:
+  /// **'Parça 2\'yi Paylaş'**
+  String get upVaultShare2;
+
+  /// No description provided for @upVaultEmailSkipped.
+  ///
+  /// In tr, this message translates to:
+  /// **'E-posta bilerek gönderilmedi — sunucu hiçbir anahtar parçası görmedi.'**
+  String get upVaultEmailSkipped;
+
+  /// No description provided for @dlVaultNeeded.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bu dosya İki Anahtarlı Kasa ile korunuyor. Göndericiden aldığınız ikinci parçayı yapıştırın. Parça doğrulanmadan indirme başlamaz — tek kullanımlık hakkınız yanmaz.'**
+  String get dlVaultNeeded;
+
+  /// No description provided for @dlVaultShareLabel.
+  ///
+  /// In tr, this message translates to:
+  /// **'İkinci anahtar parçası'**
+  String get dlVaultShareLabel;
+
+  /// No description provided for @dlVaultShareHint.
+  ///
+  /// In tr, this message translates to:
+  /// **'k2.… veya linkin tamamı'**
+  String get dlVaultShareHint;
+
+  /// No description provided for @dlVaultMismatch.
+  ///
+  /// In tr, this message translates to:
+  /// **'Parçalar eşleşmedi — indirme başlatılmadı. Yanlış parça olabilir ya da aynı parçayı iki kez yapıştırdınız. Hakkınız korundu; doğru parçayla tekrar deneyin.'**
+  String get dlVaultMismatch;
+
+  /// No description provided for @dlVaultInvalid.
+  ///
+  /// In tr, this message translates to:
+  /// **'Parça tanınamadı. k1. veya k2. ile başlayan parçayı ya da linkin tamamını yapıştırın.'**
+  String get dlVaultInvalid;
+
+  /// No description provided for @upVaultSaveWarning.
+  ///
+  /// In tr, this message translates to:
+  /// **'⚠️ Bu ekrandan ayrılmadan iki linki de kaydedin. Özellikle Parça 2 bir daha gösterilmez — kaybederseniz dosya açılamaz.'**
+  String get upVaultSaveWarning;
 }
 
 class _AppLocalizationsDelegate

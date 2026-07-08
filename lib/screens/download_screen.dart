@@ -5,6 +5,7 @@ import '../l10n/app_localizations.dart';
 import 'package:flutter/services.dart';
 import 'package:share_plus/share_plus.dart';
 import '../services/download_service.dart';
+import '../crypto/vault_split.dart';
 
 enum _Phase { idle, working, done, error }
 
@@ -28,6 +29,8 @@ class _DownloadScreenState extends State<DownloadScreen> {
   double _progress = 0;
   String? _error;
   DownloadResult? _result;
+  final _vaultShare2Ctrl = TextEditingController();
+  bool _vaultNeeded = false; // link'te k1./k2. parcasi algilandi
 
   Future<void> _pasteFromClipboard() async {
     final data = await Clipboard.getData(Clipboard.kTextPlain);
@@ -37,7 +40,69 @@ class _DownloadScreenState extends State<DownloadScreen> {
   }
 
   Future<void> _startDownload() async {
+    final l0 = AppLocalizations.of(context);
     final input = _linkCtrl.text.trim();
+
+    // ── Iki Anahtarli Kasa akisi ──
+    // Link'te bir parca (k1./k2.) var mi? Fragment'i ayikla.
+    String? shareInLink;
+    final hashIdx = input.indexOf('#');
+    if (hashIdx >= 0) {
+      final frag = Uri.decodeComponent(input.substring(hashIdx + 1));
+      if (VaultSplit.isShare(frag)) shareInLink = VaultSplit.extractShare(frag);
+    }
+    if (shareInLink != null) {
+      // Bu bir kasa linki. Token'i cikar.
+      final tok = RegExp(r'/dl/([0-9a-fA-F-]{36})').firstMatch(input)?.group(1);
+      if (tok == null) {
+        setState(() => _error = l0.dlErrInvalid);
+        return;
+      }
+      final share2Raw = _vaultShare2Ctrl.text.trim();
+      if (share2Raw.isEmpty) {
+        // Ikinci parca henuz girilmedi — alani goster.
+        setState(() {
+          _vaultNeeded = true;
+          _error = null;
+        });
+        return;
+      }
+      final share2 = VaultSplit.extractShare(share2Raw);
+      if (share2 == null) {
+        setState(() => _error = l0.dlVaultInvalid);
+        return;
+      }
+      final combinedKey = await VaultSplit.combine(shareInLink, share2);
+      if (combinedKey == null) {
+        setState(() => _error = l0.dlVaultMismatch);
+        return;
+      }
+      // Parca dogrulandi — normal indirmeye birlestirilmis anahtarla devam.
+      setState(() {
+        _phase = _Phase.working;
+        _progress = 0;
+        _error = null;
+      });
+      try {
+        final result = await _service.downloadAndDecrypt(
+          l: l0,
+          token: tok,
+          keyB64: combinedKey,
+          onProgress: (received, total) {
+            if (!mounted) return;
+            setState(() => _progress = total > 0 ? received / total : 0);
+          },
+        );
+        if (!mounted) return;
+        setState(() { _result = result; _phase = _Phase.done; });
+      } catch (e) {
+        if (!mounted) return;
+        setState(() { _error = e.toString(); _phase = _Phase.error; });
+      }
+      return;
+    }
+
+    // ── Normal (tek link) akis ──
     final parsed = DownloadService.parseLink(input);
     if (parsed == null) {
       setState(() => _error = AppLocalizations.of(context).dlErrInvalid);
@@ -81,6 +146,8 @@ class _DownloadScreenState extends State<DownloadScreen> {
   void _reset() {
     setState(() {
       _linkCtrl.clear();
+      _vaultShare2Ctrl.clear();
+      _vaultNeeded = false;
       _result = null;
       _error = null;
       _phase = _Phase.idle;
@@ -122,6 +189,7 @@ class _DownloadScreenState extends State<DownloadScreen> {
   @override
   void dispose() {
     _linkCtrl.dispose();
+    _vaultShare2Ctrl.dispose();
     super.dispose();
   }
 
@@ -163,6 +231,30 @@ class _DownloadScreenState extends State<DownloadScreen> {
             ),
           ),
         ),
+        if (_vaultNeeded) ...[
+          const SizedBox(height: 12),
+          Container(
+            padding: const EdgeInsets.all(10),
+            decoration: BoxDecoration(
+              color: Colors.amber.withValues(alpha: 0.12),
+              borderRadius: BorderRadius.circular(8),
+            ),
+            child: Text(l.dlVaultNeeded, style: const TextStyle(fontSize: 12, color: Colors.amber)),
+          ),
+          const SizedBox(height: 12),
+          TextField(
+            controller: _vaultShare2Ctrl,
+            enabled: !busy,
+            minLines: 1,
+            maxLines: 3,
+            decoration: InputDecoration(
+              labelText: l.dlVaultShareLabel,
+              hintText: l.dlVaultShareHint,
+              border: const OutlineInputBorder(),
+              prefixIcon: const Icon(Icons.vpn_key_outlined),
+            ),
+          ),
+        ],
         if (_error != null) ...[
           const SizedBox(height: 12),
           Text(_error!, style: const TextStyle(color: Colors.redAccent)),

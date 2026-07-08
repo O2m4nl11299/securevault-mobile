@@ -329,5 +329,18 @@
   "certFieldUploaded": "Uploaded",
   "certFieldDeleted": "Destroyed",
   "certFieldSize": "Size",
-  "certFieldSignature": "Signature (Ed25519)"
+  "certFieldSignature": "Signature (Ed25519)",
+  "upVaultLabel": "Two-Key Vault (Premium)",
+  "upVaultHint": "The key is split into two shares: the Share 1 link goes to the recipient, Share 2 stays with you. The recipient can open the file only when you deliver the second share over a trusted channel. No email is sent in this mode.",
+  "upVaultLink1": "SHARE 1 — SEND TO THE RECIPIENT",
+  "upVaultLink2": "SHARE 2 — KEEP IT",
+  "upVaultShare1": "Share Part 1",
+  "upVaultShare2": "Share Part 2",
+  "upVaultEmailSkipped": "Email was intentionally not sent — the server never saw any key share.",
+  "dlVaultNeeded": "This file is protected by a Two-Key Vault. Paste the second share you received from the sender. The download will not start until the share is verified — your one-time link is safe.",
+  "dlVaultShareLabel": "Second key share",
+  "dlVaultShareHint": "k2.… or the full link",
+  "dlVaultMismatch": "The shares did not match — the download was not started. It may be the wrong share, or the same share pasted twice. Your link is safe; try again with the correct share.",
+  "dlVaultInvalid": "Share not recognized. Paste the share starting with k1. or k2., or the full link.",
+  "upVaultSaveWarning": "⚠️ Save both links before leaving this screen. Share 2 in particular will not be shown again — if you lose it, the file cannot be opened."
 }

@@ -1125,4 +1125,49 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get certFieldSignature => 'Подпись (Ed25519)';
+
+  @override
+  String get upVaultLabel => 'Сейф с двумя ключами (Премиум)';
+
+  @override
+  String get upVaultHint =>
+      'Ключ делится на две части: ссылка с Частью 1 отправляется получателю, Часть 2 остаётся у вас. Получатель сможет открыть файл только когда вы передадите вторую часть по надёжному каналу. В этом режиме письмо не отправляется.';
+
+  @override
+  String get upVaultLink1 => 'ЧАСТЬ 1 — ОТПРАВЬТЕ ПОЛУЧАТЕЛЮ';
+
+  @override
+  String get upVaultLink2 => 'ЧАСТЬ 2 — ОСТАЁТСЯ У ВАС';
+
+  @override
+  String get upVaultShare1 => 'Поделиться частью 1';
+
+  @override
+  String get upVaultShare2 => 'Поделиться частью 2';
+
+  @override
+  String get upVaultEmailSkipped =>
+      'Письмо намеренно не отправлено — сервер не видел ни одной части ключа.';
+
+  @override
+  String get dlVaultNeeded =>
+      'Этот файл защищён сейфом с двумя ключами. Вставьте вторую часть, полученную от отправителя. Загрузка не начнётся, пока часть не будет проверена — ваша одноразовая ссылка в безопасности.';
+
+  @override
+  String get dlVaultShareLabel => 'Вторая часть ключа';
+
+  @override
+  String get dlVaultShareHint => 'k2.… или ссылка целиком';
+
+  @override
+  String get dlVaultMismatch =>
+      'Части не совпали — загрузка не начата. Возможно, неверная часть или одна и та же часть вставлена дважды. Ваша ссылка в безопасности; попробуйте снова с правильной частью.';
+
+  @override
+  String get dlVaultInvalid =>
+      'Часть не распознана. Вставьте часть, начинающуюся с k1. или k2., либо ссылку целиком.';
+
+  @override
+  String get upVaultSaveWarning =>
+      '⚠️ Сохраните обе ссылки, прежде чем покинуть этот экран. Часть 2 больше не будет показана — если вы её потеряете, файл нельзя будет открыть.';
 }

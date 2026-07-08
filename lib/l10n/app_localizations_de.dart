@@ -1134,4 +1134,49 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get certFieldSignature => 'Signatur (Ed25519)';
+
+  @override
+  String get upVaultLabel => 'Zwei-Schlüssel-Tresor (Premium)';
+
+  @override
+  String get upVaultHint =>
+      'Der Schlüssel wird in zwei Teile aufgeteilt: Der Link zu Teil 1 geht an den Empfänger, Teil 2 bleibt bei Ihnen. Der Empfänger kann die Datei erst öffnen, wenn Sie den zweiten Teil über einen vertrauenswürdigen Kanal übermitteln. In diesem Modus wird keine E-Mail gesendet.';
+
+  @override
+  String get upVaultLink1 => 'TEIL 1 — AN DEN EMPFÄNGER SENDEN';
+
+  @override
+  String get upVaultLink2 => 'TEIL 2 — BEI IHNEN BEHALTEN';
+
+  @override
+  String get upVaultShare1 => 'Teil 1 teilen';
+
+  @override
+  String get upVaultShare2 => 'Teil 2 teilen';
+
+  @override
+  String get upVaultEmailSkipped =>
+      'Die E-Mail wurde absichtlich nicht gesendet — der Server hat keinen Schlüsselteil gesehen.';
+
+  @override
+  String get dlVaultNeeded =>
+      'Diese Datei ist durch einen Zwei-Schlüssel-Tresor geschützt. Fügen Sie den zweiten Teil ein, den Sie vom Absender erhalten haben. Der Download startet erst nach der Überprüfung des Teils — Ihr Einmal-Link bleibt sicher.';
+
+  @override
+  String get dlVaultShareLabel => 'Zweiter Schlüsselteil';
+
+  @override
+  String get dlVaultShareHint => 'k2.… oder der vollständige Link';
+
+  @override
+  String get dlVaultMismatch =>
+      'Die Teile stimmten nicht überein — der Download wurde nicht gestartet. Möglicherweise falscher Teil oder derselbe Teil zweimal eingefügt. Ihr Link ist sicher; versuchen Sie es mit dem richtigen Teil erneut.';
+
+  @override
+  String get dlVaultInvalid =>
+      'Teil nicht erkannt. Fügen Sie den mit k1. oder k2. beginnenden Teil oder den vollständigen Link ein.';
+
+  @override
+  String get upVaultSaveWarning =>
+      '⚠️ Speichern Sie beide Links, bevor Sie diesen Bildschirm verlassen. Besonders Teil 2 wird nicht erneut angezeigt — wenn Sie ihn verlieren, kann die Datei nicht geöffnet werden.';
 }

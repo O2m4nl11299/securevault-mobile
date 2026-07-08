@@ -1118,4 +1118,49 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get certFieldSignature => 'Signature (Ed25519)';
+
+  @override
+  String get upVaultLabel => 'Two-Key Vault (Premium)';
+
+  @override
+  String get upVaultHint =>
+      'The key is split into two shares: the Share 1 link goes to the recipient, Share 2 stays with you. The recipient can open the file only when you deliver the second share over a trusted channel. No email is sent in this mode.';
+
+  @override
+  String get upVaultLink1 => 'SHARE 1 — SEND TO THE RECIPIENT';
+
+  @override
+  String get upVaultLink2 => 'SHARE 2 — KEEP IT';
+
+  @override
+  String get upVaultShare1 => 'Share Part 1';
+
+  @override
+  String get upVaultShare2 => 'Share Part 2';
+
+  @override
+  String get upVaultEmailSkipped =>
+      'Email was intentionally not sent — the server never saw any key share.';
+
+  @override
+  String get dlVaultNeeded =>
+      'This file is protected by a Two-Key Vault. Paste the second share you received from the sender. The download will not start until the share is verified — your one-time link is safe.';
+
+  @override
+  String get dlVaultShareLabel => 'Second key share';
+
+  @override
+  String get dlVaultShareHint => 'k2.… or the full link';
+
+  @override
+  String get dlVaultMismatch =>
+      'The shares did not match — the download was not started. It may be the wrong share, or the same share pasted twice. Your link is safe; try again with the correct share.';
+
+  @override
+  String get dlVaultInvalid =>
+      'Share not recognized. Paste the share starting with k1. or k2., or the full link.';
+
+  @override
+  String get upVaultSaveWarning =>
+      '⚠️ Save both links before leaving this screen. Share 2 in particular will not be shown again — if you lose it, the file cannot be opened.';
 }

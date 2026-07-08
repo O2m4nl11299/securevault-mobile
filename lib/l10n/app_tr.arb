@@ -447,5 +447,18 @@
   "certFieldUploaded": "Yüklenme",
   "certFieldDeleted": "İmha",
   "certFieldSize": "Boyut",
-  "certFieldSignature": "İmza (Ed25519)"
+  "certFieldSignature": "İmza (Ed25519)",
+  "upVaultLabel": "İki Anahtarlı Kasa (Premium)",
+  "upVaultHint": "Anahtar iki parçaya bölünür: Parça 1 linki alıcıya gider, Parça 2 sizde kalır. Alıcı dosyayı ancak siz ikinci parçayı güvenilir bir kanaldan ilettiğinizde açabilir. Bu modda e-posta gönderilmez.",
+  "upVaultLink1": "PARÇA 1 — ALICIYA GÖNDERİN",
+  "upVaultLink2": "PARÇA 2 — SİZDE KALIR",
+  "upVaultShare1": "Parça 1'i Paylaş",
+  "upVaultShare2": "Parça 2'yi Paylaş",
+  "upVaultEmailSkipped": "E-posta bilerek gönderilmedi — sunucu hiçbir anahtar parçası görmedi.",
+  "dlVaultNeeded": "Bu dosya İki Anahtarlı Kasa ile korunuyor. Göndericiden aldığınız ikinci parçayı yapıştırın. Parça doğrulanmadan indirme başlamaz — tek kullanımlık hakkınız yanmaz.",
+  "dlVaultShareLabel": "İkinci anahtar parçası",
+  "dlVaultShareHint": "k2.… veya linkin tamamı",
+  "dlVaultMismatch": "Parçalar eşleşmedi — indirme başlatılmadı. Yanlış parça olabilir ya da aynı parçayı iki kez yapıştırdınız. Hakkınız korundu; doğru parçayla tekrar deneyin.",
+  "dlVaultInvalid": "Parça tanınamadı. k1. veya k2. ile başlayan parçayı ya da linkin tamamını yapıştırın.",
+  "upVaultSaveWarning": "⚠️ Bu ekrandan ayrılmadan iki linki de kaydedin. Özellikle Parça 2 bir daha gösterilmez — kaybederseniz dosya açılamaz."
 }

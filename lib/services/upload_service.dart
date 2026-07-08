@@ -3,6 +3,7 @@ import 'package:dio/dio.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:archive/archive_io.dart';
 import '../crypto/sv02_codec.dart';
+import '../crypto/vault_split.dart';
 import '../l10n/app_localizations.dart';
 import 'api_client.dart';
 
@@ -16,11 +17,15 @@ class UploadException implements Exception {
 class UploadResult {
   final String token;
   final String downloadUrl;
+  final String? vaultLink1; // kasa modu: aliciya giden parca linki
+  final String? vaultLink2; // kasa modu: gonderende kalan parca linki
   final int ttlSeconds;
   final bool emailSent;
   UploadResult({
     required this.token,
     required this.downloadUrl,
+    this.vaultLink1,
+    this.vaultLink2,
     required this.ttlSeconds,
     required this.emailSent,
   });
@@ -134,6 +139,7 @@ class UploadService {
     required String originalName,
     required String recipientEmail,
     String? extraPassword,
+    bool vaultMode = false,
     void Function(int sent, int total)? onProgress,
     void Function(String type, String msg)? onLog,
   }) async {
@@ -171,6 +177,20 @@ class UploadService {
       pwdSuffix = '|${await Sv02Codec.hashPassword(extraPassword)}';
     }
 
+    // Iki Anahtarli Kasa: anahtari cihazda ikiye bol, iki parca linki uret,
+    // OTOMATIK E-POSTA GONDERME (sunucu hicbir parca gormez).
+    if (vaultMode) {
+      final shares = await VaultSplit.split(keyB64);
+      final base = '$_baseUrl/dl/${fin.token}#';
+      return UploadResult(
+        token: fin.token,
+        downloadUrl: '$base${shares.p1}',
+        vaultLink1: '$base${shares.p1}',
+        vaultLink2: '$base${shares.p2}',
+        ttlSeconds: fin.ttl,
+        emailSent: false,
+      );
+    }
     final downloadUrl =
         '$_baseUrl/dl/${fin.token}#${Uri.encodeComponent(keyB64)}$pwdSuffix';
 

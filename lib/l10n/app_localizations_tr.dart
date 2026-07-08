@@ -1114,4 +1114,49 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get certFieldSignature => 'İmza (Ed25519)';
+
+  @override
+  String get upVaultLabel => 'İki Anahtarlı Kasa (Premium)';
+
+  @override
+  String get upVaultHint =>
+      'Anahtar iki parçaya bölünür: Parça 1 linki alıcıya gider, Parça 2 sizde kalır. Alıcı dosyayı ancak siz ikinci parçayı güvenilir bir kanaldan ilettiğinizde açabilir. Bu modda e-posta gönderilmez.';
+
+  @override
+  String get upVaultLink1 => 'PARÇA 1 — ALICIYA GÖNDERİN';
+
+  @override
+  String get upVaultLink2 => 'PARÇA 2 — SİZDE KALIR';
+
+  @override
+  String get upVaultShare1 => 'Parça 1\'i Paylaş';
+
+  @override
+  String get upVaultShare2 => 'Parça 2\'yi Paylaş';
+
+  @override
+  String get upVaultEmailSkipped =>
+      'E-posta bilerek gönderilmedi — sunucu hiçbir anahtar parçası görmedi.';
+
+  @override
+  String get dlVaultNeeded =>
+      'Bu dosya İki Anahtarlı Kasa ile korunuyor. Göndericiden aldığınız ikinci parçayı yapıştırın. Parça doğrulanmadan indirme başlamaz — tek kullanımlık hakkınız yanmaz.';
+
+  @override
+  String get dlVaultShareLabel => 'İkinci anahtar parçası';
+
+  @override
+  String get dlVaultShareHint => 'k2.… veya linkin tamamı';
+
+  @override
+  String get dlVaultMismatch =>
+      'Parçalar eşleşmedi — indirme başlatılmadı. Yanlış parça olabilir ya da aynı parçayı iki kez yapıştırdınız. Hakkınız korundu; doğru parçayla tekrar deneyin.';
+
+  @override
+  String get dlVaultInvalid =>
+      'Parça tanınamadı. k1. veya k2. ile başlayan parçayı ya da linkin tamamını yapıştırın.';
+
+  @override
+  String get upVaultSaveWarning =>
+      '⚠️ Bu ekrandan ayrılmadan iki linki de kaydedin. Özellikle Parça 2 bir daha gösterilmez — kaybederseniz dosya açılamaz.';
 }
