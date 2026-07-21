@@ -31,6 +31,8 @@ class KvkkScreen extends StatelessWidget {
             _p(l.kvkkP4),
             _h(l.kvkkH5),
             _p(l.kvkkP5),
+            _h(l.kvkkH6),
+            _p(l.kvkkP6),
             const SizedBox(height: 16),
           ],
         ),

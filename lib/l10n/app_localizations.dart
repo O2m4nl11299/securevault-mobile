@@ -1263,7 +1263,7 @@ abstract class AppLocalizations {
   /// No description provided for @kvkkP1.
   ///
   /// In tr, this message translates to:
-  /// **'6698 sayılı Kişisel Verilerin Korunması Kanunu (\"KVKK\") uyarınca, Fatih Göktürk (\"SecureVault\" veya \"Şirket\"), aşağıda belirtilen sınırlı kişisel verilerinizi kanuna ve dürüstlük kurallarına uygun olarak işlemektedir.'**
+  /// **'6698 sayılı Kişisel Verilerin Korunması Kanunu (\"KVKK\") uyarınca, Fatih Göktürk (\"SecureVault\" veya \"Şirket\"), aşağıda belirtilen sınırlı kişisel verilerinizi; hukuka ve dürüstlük kurallarına uygun olarak, doğru ve gerektiğinde güncel şekilde, belirli, açık ve meşru amaçlarla, işlendikleri amaçla bağlantılı, sınırlı ve ölçülü olarak işlemektedir.\n\nVeri Sorumlusu: Fatih Göktürk (SecureVault)\nİletişim E-posta Adresi: destek@sifreliveritransferi.com'**
   String get kvkkP1;
 
   /// No description provided for @kvkkH2.
@@ -1275,61 +1275,61 @@ abstract class AppLocalizations {
   /// No description provided for @kvkkP2a.
   ///
   /// In tr, this message translates to:
-  /// **'Sistemimiz sıfır bilgi (zero-knowledge) mimarisi ile tasarlanmış olup, kişisel verilerinizin asgari düzeyde tutulması amaçlanmıştır. Bu doğrultuda işlenen verileriniz kategorik olarak şunlardır:'**
+  /// **'Sistemimiz zero-knowledge (sıfır bilgi) mimarisi ile tasarlanmış olup, kişisel verilerinizin mümkün olan en az seviyede işlenmesi amaçlanmıştır. Bu kapsamda aşağıdaki veriler işlenmektedir:'**
   String get kvkkP2a;
 
   /// No description provided for @kvkkP2b.
   ///
   /// In tr, this message translates to:
-  /// **'• Kullanıcı Adı / Hesap Bilgisi — Geri döndürülemez şekilde SHA-256 algoritması ile hash\'lenerek saklanır; orijinal metin sunucuda tutulmaz. Saklama süresi: hesap aktif olduğu sürece; 90 gün inaktiflikte otomatik silinir.\n• Hesap Şifresi — Argon2id kriptografik fonksiyonu ile hash\'lenerek saklanır; düz metin şifreniz asla sunucuya ulaşmaz. Saklama süresi: hesap silinene kadar.\n• IP Adresi (Oturum Güvenliği) — Eşzamanlı oturum/IP doğrulaması amacıyla SHA-256 ile hash\'lenerek bellek içi veri tabanında (Redis) tutulur. Saklama süresi: en fazla 24 saat, sonra otomatik ve kalıcı olarak silinir.\n• Giriş Erişim Kaydı (IP + Hesap + Zaman) — Hizmetin kötüye kullanımının önlenmesi, caydırıcılık sağlanması ve yetkili adli/idari makamların yasal talebi halinde paylaşılabilmesi amacıyla; hesabınıza yapılan girişlerde IP adresiniz (düz metin), hesabınızın geri döndürülemez hash değeri ve giriş zamanı ayrı bir güvenlik kaydında tutulur. Saklama süresi: 90 gün (3 ay), sonrasında otomatik olarak kalıcı şekilde silinir.\n• Alıcı E-posta Adresi — Yalnızca Kullanıcı talebiyle indirme linkinin otomatik e-posta olarak iletilmesi amacıyla anlık işlenir; veri tabanına kaydedilmez, anında imha edilir.\n• Abonelik ve Ödeme Verisi — Ödemeler Google Play üzerinden yapıldığından finansal verileriniz bizde tutulmaz; yalnızca Google tarafından üretilen abonelik durum doğrulama jetonları (token) ve üyelik seviyesi bilgisi işlenir. Saklama süresi: abonelik süresince ve yasal mali yükümlülükler boyunca.\n• Dosya İçeriği — Kişisel veri olarak kabul edilmemekle birlikte, yüklenen dosyalar sunucuya ulaşmadan önce cihazınızda şifrelenir; Şirket içeriğe erişemez. Saklama süresi: indirildiği an veya indirilmezse maksimum 1 saat içinde kalıcı olarak silinir.'**
+  /// **'• Kullanıcı Adı / Hesap Bilgisi: Güvenlik amacıyla geri döndürülemez şekilde SHA-256 algoritması kullanılarak hash\'lenerek saklanır. Orijinal düz metin veri sunucuda tutulmaz. Saklama Süresi: Hesap aktif olduğu sürece; hesabın silinmesi veya 90 gün boyunca kullanılmaması halinde otomatik olarak kalıcı şekilde silinir.\n• Hesap Şifresi: Şifreniz güvenli iletişim kanalları üzerinden alınır ve yalnızca Argon2id algoritması ile oluşturulan hash değeri saklanır. Düz metin şifreniz veri tabanında hiçbir zaman tutulmaz. Saklama Süresi: Hesap silinene kadar.\n• IP Adresi (Oturum Güvenliği): Eş zamanlı oturum doğrulaması, hesap güvenliği ve yetkisiz erişimlerin önlenmesi amacıyla SHA-256 hash değeri bellek içi veri tabanında (Redis) tutulur. Saklama Süresi: En fazla 24 saat olup, süre sonunda otomatik ve geri döndürülemez şekilde silinir.\n• Giriş Erişim Kaydı (IP + Hesap + Zaman): Hizmetin kötüye kullanımının önlenmesi, siber güvenliğin sağlanması, dolandırıcılık girişimlerinin tespiti ve kanunen yetkili adli/idari makamların usulüne uygun taleplerinin karşılanabilmesi amacıyla; IP adresiniz (düz metin), hesabınızın hash değeri ve giriş zamanı güvenlik kayıtlarında tutulmaktadır. Saklama Süresi: 90 gün (3 ay), sonrasında otomatik olarak kalıcı şekilde silinir.\n• İmha Sertifikası Kaydı: Dosyanız indirildiğinde veya süresi dolarak silindiğinde; imhanın ispatlanabilmesi amacıyla dosya kimliğinin hash değeri, dosya boyutu, yüklenme zamanı, imha zamanı ve imha nedeni kriptografik olarak imzalanarak saklanır. Bu kayıtta dosya adı veya dosya içeriği yer almaz. Saklama Süresi: 90 gün, sonrasında otomatik olarak kalıcı şekilde silinir.\n• Alıcı E-posta Adresi: Yalnızca kullanıcı talebi üzerine indirme bağlantısının e-posta ile gönderilebilmesi amacıyla anlık olarak işlenir. Veri tabanına kaydedilmez ve işlem tamamlandıktan hemen sonra silinir.\n• Abonelik ve Ödeme Verileri: Ödemeler Google Play üzerinden gerçekleştirildiğinden kredi kartı, banka kartı veya finansal ödeme bilgileriniz tarafımızca tutulmaz. Yalnızca Google tarafından oluşturulan abonelik doğrulama jetonları (token), abonelik seviyesi ve abonelik durumu işlenmektedir. Saklama Süresi: Abonelik süresince ve ilgili mevzuattan kaynaklanan yükümlülükler boyunca.\n• Dosya İçeriği: Zero-knowledge mimarisi gereği yüklenen dosyalar cihazınızda şifrelenerek sunucuya aktarılır. Şirketimiz dosyaların içeriğini görüntüleyemez, çözemez, okuyamaz veya erişemez. Saklama Süresi: Dosya indirildiği anda veya indirilmediği takdirde en geç 1 saat içerisinde kalıcı olarak sistemden silinir.'**
   String get kvkkP2b;
 
   /// No description provided for @kvkkH3.
   ///
   /// In tr, this message translates to:
-  /// **'3. KİŞİSEL VERİLERİN İŞLENME AMAÇLARI VE HUKUKİ SEBEPLERİ'**
+  /// **'3. KİŞİSEL VERİLERİN TOPLANMA YÖNTEMİ, AMAÇLARI VE HUKUKİ SEBEPLERİ'**
   String get kvkkH3;
 
   /// No description provided for @kvkkP3.
   ///
   /// In tr, this message translates to:
-  /// **'Kişisel verileriniz, KVKK m. 5/2 uyarınca aşağıdaki hukuki sebeplere dayalı olarak işlenmektedir:\n• Sözleşmenin Kurulması ve İfası (m.5/2-c): Kullanıcı hesabının oluşturulması, Premium abonelik hizmetinin Google Play Store entegrasyonu ile sunulabilmesi ve dosya aktarım hizmetinin yürütülmesi.\n• Veri Sorumlusunun Meşru Menfaati (m.5/2-f): Hizmetin kötüye kullanımının önlenmesi, siber güvenliğin (DDoS saldırıları, bot girişleri vb.) sağlanması amacıyla IP adreslerinin ve giriş kayıtlarının işlenmesi ve caydırıcılık sağlanması.\n• Hukuki Yükümlülüğün Yerine Getirilmesi (m.5/2-ç): Yetkili adli ve idari makamların yasal talebi halinde, elde bulunan giriş erişim kayıtlarının usulüne uygun şekilde paylaşılması.'**
+  /// **'3.1. Kişisel Verilerin Toplanma Yöntemi\nKişisel verileriniz; SecureVault uygulamasını cihazınıza indirmeniz, hesap oluşturmanız, oturum açmanız, uygulama içi satın alma işlemleriniz ve uygulamayı kullanmanız sırasında tamamen otomatik yöntemlerle (API\'ler, sistem logları ve veri tabanı kayıtları aracılığıyla) elektronik ortamda toplanmaktadır.\n\n3.2. İşleme Amaçları ve Hukuki Sebepler\nKişisel verileriniz KVKK\'nın 5. maddesinin 2. fıkrası kapsamında aşağıdaki hukuki sebeplere dayanılarak işlenmektedir:\n• Sözleşmenin Kurulması veya İfası (m.5/2-c): Kullanıcı hesabının oluşturulması, güvenli dosya aktarım hizmetinin sunulması, Premium abonelik hizmetinin yürütülmesi, Google Play abonelik doğrulama işlemlerinin gerçekleştirilmesi.\n• Veri Sorumlusunun Meşru Menfaati (m.5/2-f): Hizmet güvenliğinin sağlanması, yetkisiz erişimlerin önlenmesi, DDoS, bot saldırıları ve kötüye kullanımın engellenmesi, siber güvenliğin sağlanması.\n• Veri Sorumlusunun Hukuki Yükümlülüğünün Yerine Getirilmesi (m.5/2-ç): Kanunen yetkili adli ve idari makamların usulüne uygun bilgi ve belge taleplerinin karşılanması.'**
   String get kvkkP3;
 
   /// No description provided for @kvkkH4.
   ///
   /// In tr, this message translates to:
-  /// **'4. İŞLENEN KİŞİSEL VERİLERİN AKTARILMASI VE YURT DIŞI AKTARIM BEYANI'**
+  /// **'4. İŞLENEN KİŞİSEL VERİLERİN AKTARILMASI VEYA YURT DIŞINA AKTARILMASI'**
   String get kvkkH4;
 
   /// No description provided for @kvkkP4.
   ///
   /// In tr, this message translates to:
-  /// **'SecureVault, teknik operasyonlarını ve şifreli veri barındırma hizmetini Cloudflare R2 bulut altyapısı üzerinde yürütmektedir. Şifreli veri bloklarınız ile yukarıda belirtilen sınırlı hesap verileriniz (SHA-256 hash\'leri), veri merkezi altyapısının yurt dışında yer alması sebebiyle yurt dışına aktarılmaktadır. Ayrıca abonelik süreçlerinin yürütülmesi amacıyla abonelik doğrulama jetonları Google Play Store (Google LLC, ABD) sistemleri ile karşılıklı olarak paylaşılmaktadır. Bu aktarımlar, KVKK Madde 9 kapsamında Kullanıcının uygulama içi açık rızası ve ilgili hizmet sağlayıcılarla akdedilen standart sözleşme hükümleri (SCC) mekanizmalarına dayanarak güvenli bir şekilde gerçekleştirilmektedir. Veriler, yerel üçüncü şahıslara veya reklam şirketlerine asla aktarılmaz. Yetkili adli/idari makamların usulüne uygun yasal talebi halinde, yukarıda tanımlanan giriş erişim kayıtları (madde 2) ilgili makamlarla paylaşılabilir.'**
+  /// **'SecureVault teknik altyapısını Cloudflare R2 bulut hizmeti üzerinde yürütmektedir. Bu kapsamda şifrelenmiş dosyalar ile hizmetin sunulması için gerekli sınırlı teknik veriler, veri merkezlerinin yurt dışından hizmet vermesi nedeniyle yurt dışına aktarılabilmektedir. Premium abonelik hizmetlerinin yürütülmesi amacıyla abonelik doğrulama bilgileri Google LLC (Google Play) sistemleri ile paylaşılmaktadır.\n\nYurt dışına veri aktarımı; KVKK\'nın 9. maddesi kapsamında öngörülen uygun güvenceler (ilgili küresel hizmet sağlayıcılarla akdedilen Standart Sözleşme - SCC mekanizmaları) çerçevesinde veya gerekli olduğu hallerde kullanıcının uygulama içi özgür iradesiyle sağladığı açık rızasına dayanılarak güvenli bir şekilde gerçekleştirilmektedir.\n\nKişisel verileriniz hiçbir şekilde reklam şirketlerine, veri brokerlarına veya ticari amaçlı üçüncü kişilere satılmaz ya da pazarlama amacıyla aktarılmaz. Kanunen yetkili adli ve idari makamların usulüne uygun yasal talepleri saklıdır.'**
   String get kvkkP4;
 
   /// No description provided for @kvkkH5.
   ///
   /// In tr, this message translates to:
-  /// **'5. VERİ SAHİBİNİN HAKLARI VE BAŞVURU'**
+  /// **'5. KİŞİSEL VERİLERİN GÜVENLİĞİ'**
   String get kvkkH5;
 
   /// No description provided for @kvkkP5.
   ///
   /// In tr, this message translates to:
-  /// **'KVKK\'nın 11. maddesi uyarınca; kişisel verilerinizin işlenip işlenmediğini öğrenme, işlenmişse bilgi talep etme, silinmesini veya düzeltilmesini isteme haklarına sahipsiniz. Güvenlik mimarimiz gereği, düz metin verileriniz (kullanıcı adı vb.) hash\'lendiğinden, kimlik doğrulaması yapılabilmesi adına başvurularınızı uygulama içerisindeki \"Hesabımı Sil\" butonuyla doğrudan yapabilir veya yasal haklarınız için destek@sifreliveritransferi.com adresinden bize ulaşabilirsiniz.'**
+  /// **'Şirketimiz, kişisel verilerin hukuka aykırı olarak işlenmesini ve erişilmesini önlemek amacıyla; güçlü şifreleme yöntemleri, erişim kontrolü, loglama sistemleri, ağ güvenliği, güncel yazılım altyapısı ve gerekli teknik ve idari güvenlik tedbirlerini uygulamaktadır.'**
   String get kvkkP5;
 
   /// No description provided for @kvkkH6.
   ///
   /// In tr, this message translates to:
-  /// **'6. İLETİŞİM'**
+  /// **'6. VERİ SAHİBİNİN HAKLARI VE BAŞVURU USULÜ'**
   String get kvkkH6;
 
   /// No description provided for @kvkkP6.
   ///
   /// In tr, this message translates to:
-  /// **'Sorularınız için: no-reply@sifreliveritransferi.com'**
+  /// **'KVKK\'nın 11. maddesi uyarınca; kişisel verilerinizin işlenip işlenmediğini öğrenme, işlenmişse buna ilişkin bilgi talep etme, işlenme amacını öğrenme, yurt içinde veya yurt dışında aktarıldığı üçüncü kişileri öğrenme, eksik veya yanlış işlenmiş verilerin düzeltilmesini isteme, KVKK\'da öngörülen şartlar çerçevesinde silinmesini veya yok edilmesini isteme haklarına sahipsiniz.\n\nÖnemli Teknik ve Güvenlik Notu: Sistemimizin sıfır-bilgi (zero-knowledge) mimarisi gereği, düz metin verileriniz (kullanıcı adı vb.) geri döndürülemez şekilde hash\'lenmekte ve şifrelenmektedir. Bu nedenle sistemlerimizde doğrudan kimlik tespiti yapılması ve manuel veri müdahalesi teknik olarak mümkün olmayabilmektedir. Bu kısıt doğrultusunda, veri silme ve veri düzeltme haklarının öncelikle uygulama içerisindeki \"Hesabımı Sil\" ve \"Profili Düzenle\" menüleri üzerinden doğrudan kullanıcı tarafından kullanılması gerekmektedir.\n\nBu menüler dışındaki başvurularınızı, Veri Sorumlusuna Başvuru Usul ve Esasları Hakkında Tebliğ hükümleri uyarınca, sistemlerimizde kayıtlı olan e-posta adresiniz üzerinden (kimlik doğrulamasına imkan tanıyacak şekilde) destek@sifreliveritransferi.com adresine e-posta göndererek tarafımıza iletebilirsiniz.\n\nKimliğinizi doğrulamayan, sistemdeki hash\'lenmiş verilerle eşleşmeye imkan tanımayan anonim veya yetkisiz başvurular, siber güvenlik ve veri gizliliği politikalarımız gereği işleme alınamayacaktır. Başvurularınız, talebin niteliğine göre en geç 30 gün içinde ücretsiz olarak sonuçlandırılacaktır.'**
   String get kvkkP6;
 
   /// No description provided for @termsTitle.
