@@ -460,5 +460,20 @@
   "dlVaultShareHint": "k2.… veya linkin tamamı",
   "dlVaultMismatch": "Parçalar eşleşmedi — indirme başlatılmadı. Yanlış parça olabilir ya da aynı parçayı iki kez yapıştırdınız. Hakkınız korundu; doğru parçayla tekrar deneyin.",
   "dlVaultInvalid": "Parça tanınamadı. k1. veya k2. ile başlayan parçayı ya da linkin tamamını yapıştırın.",
-  "upVaultSaveWarning": "⚠️ Bu ekrandan ayrılmadan iki linki de kaydedin. Özellikle Parça 2 bir daha gösterilmez — kaybederseniz dosya açılamaz."
+  "upVaultSaveWarning": "⚠️ Bu ekrandan ayrılmadan iki linki de kaydedin. Özellikle Parça 2 bir daha gösterilmez — kaybederseniz dosya açılamaz.",
+  "cphTtlLabel": "Geçerlilik süresi",
+  "cphTtlNone": "Süresiz",
+  "cphTtl1h": "1 saat",
+  "cphTtl24h": "24 saat",
+  "cphTtl7d": "7 gün",
+  "cphTtlNote": "Süre seçerseniz, bu uygulama süresi dolmuş mesajın içeriğini göstermez. Not: Bu, uygulama seviyesinde bir korumadır — şifreli metni elinde tutan ve parolayı bilen kararlı bir kişi başka araçlarla içeriğe ulaşabilir.",
+  "cphExpiredError": "Bu mesajın geçerlilik süresi dolmuş. İçerik gösterilemez.",
+  "cphExpiresAt": "Geçerlilik: {date} tarihine kadar",
+  "@cphExpiresAt": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  }
 }

@@ -1179,4 +1179,32 @@ class AppLocalizationsDe extends AppLocalizations {
   @override
   String get upVaultSaveWarning =>
       '⚠️ Speichern Sie beide Links, bevor Sie diesen Bildschirm verlassen. Besonders Teil 2 wird nicht erneut angezeigt — wenn Sie ihn verlieren, kann die Datei nicht geöffnet werden.';
+
+  @override
+  String get cphTtlLabel => 'Gültigkeitsdauer';
+
+  @override
+  String get cphTtlNone => 'Unbegrenzt';
+
+  @override
+  String get cphTtl1h => '1 Stunde';
+
+  @override
+  String get cphTtl24h => '24 Stunden';
+
+  @override
+  String get cphTtl7d => '7 Tage';
+
+  @override
+  String get cphTtlNote =>
+      'Wenn Sie eine Dauer festlegen, zeigt diese App den Inhalt einer abgelaufenen Nachricht nicht an. Hinweis: Dies ist ein Schutz auf App-Ebene — eine entschlossene Person, die den verschlüsselten Text besitzt und das Passwort kennt, könnte den Inhalt mit anderen Werkzeugen dennoch erreichen.';
+
+  @override
+  String get cphExpiredError =>
+      'Diese Nachricht ist abgelaufen. Der Inhalt kann nicht angezeigt werden.';
+
+  @override
+  String cphExpiresAt(String date) {
+    return 'Gültig bis $date';
+  }
 }

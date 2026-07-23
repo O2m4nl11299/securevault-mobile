@@ -20,6 +20,7 @@ class _TextCipherScreenState extends State<TextCipherScreen> {
   String? _output;
   String? _error;
   bool _busy = false;
+  int _ttlSeconds = 0; // 0 = suresiz (varsayilan, eski davranis)
 
   void _switchMode(bool encrypt) {
     if (_encryptMode == encrypt) return;
@@ -29,6 +30,7 @@ class _TextCipherScreenState extends State<TextCipherScreen> {
       _pwdCtrl.clear();
       _output = null;
       _error = null;
+      _ttlSeconds = 0;
     });
   }
 
@@ -55,10 +57,16 @@ class _TextCipherScreenState extends State<TextCipherScreen> {
 
     try {
       final result = _encryptMode
-          ? await TextCipher.encrypt(_inputCtrl.text, pwd)
+          ? await TextCipher.encrypt(_inputCtrl.text, pwd,
+              ttlSeconds: _ttlSeconds)
           : await TextCipher.decrypt(input, pwd);
       if (!mounted) return;
       setState(() => _output = result);
+    } on FormatException catch (e) {
+      if (!mounted) return;
+      // Suresi dolmus SVT2 blogu — icerik GOSTERILMEZ.
+      setState(() => _error =
+          e.message == 'expired' ? l.cphExpiredError : l.cphErrDecrypt);
     } catch (e) {
       if (!mounted) return;
       setState(() => _error = l.cphErrDecrypt);
@@ -164,6 +172,32 @@ class _TextCipherScreenState extends State<TextCipherScreen> {
                   l.cphPwdWarning,
                   style: const TextStyle(fontSize: 11, color: Colors.amber, height: 1.4),
                 ),
+                const SizedBox(height: 16),
+                DropdownButtonFormField<int>(
+                  initialValue: _ttlSeconds,
+                  decoration: InputDecoration(
+                    labelText: l.cphTtlLabel,
+                    border: const OutlineInputBorder(),
+                    prefixIcon: const Icon(Icons.timer_outlined),
+                  ),
+                  items: [
+                    DropdownMenuItem(value: 0, child: Text(l.cphTtlNone)),
+                    DropdownMenuItem(value: 3600, child: Text(l.cphTtl1h)),
+                    DropdownMenuItem(value: 86400, child: Text(l.cphTtl24h)),
+                    DropdownMenuItem(value: 604800, child: Text(l.cphTtl7d)),
+                  ],
+                  onChanged: _busy
+                      ? null
+                      : (v) => setState(() => _ttlSeconds = v ?? 0),
+                ),
+                if (_ttlSeconds > 0) ...[
+                  const SizedBox(height: 8),
+                  Text(
+                    l.cphTtlNote,
+                    style: const TextStyle(
+                        fontSize: 11, color: Colors.grey, height: 1.4),
+                  ),
+                ],
               ],
               if (_error != null) ...[
                 const SizedBox(height: 12),
@@ -204,6 +238,22 @@ class _TextCipherScreenState extends State<TextCipherScreen> {
                     ),
                   ),
                 ),
+                if (_encryptMode && _ttlSeconds > 0) ...[
+                  const SizedBox(height: 8),
+                  Builder(builder: (_) {
+                    final info = TextCipher.peekExpiry(_output!);
+                    if (info == null) return const SizedBox.shrink();
+                    final d = info.expiresAt;
+                    String p(int n) => n.toString().padLeft(2, '0');
+                    final txt =
+                        '${p(d.day)}.${p(d.month)}.${d.year} ${p(d.hour)}:${p(d.minute)}';
+                    return Text(
+                      l.cphExpiresAt(txt),
+                      style: const TextStyle(
+                          fontSize: 12, color: Colors.amber, height: 1.4),
+                    );
+                  }),
+                ],
                 const SizedBox(height: 12),
                 FilledButton.icon(
                   onPressed: _copyOutput,

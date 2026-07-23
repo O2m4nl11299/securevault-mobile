@@ -2159,6 +2159,54 @@ abstract class AppLocalizations {
   /// In tr, this message translates to:
   /// **'⚠️ Bu ekrandan ayrılmadan iki linki de kaydedin. Özellikle Parça 2 bir daha gösterilmez — kaybederseniz dosya açılamaz.'**
   String get upVaultSaveWarning;
+
+  /// No description provided for @cphTtlLabel.
+  ///
+  /// In tr, this message translates to:
+  /// **'Geçerlilik süresi'**
+  String get cphTtlLabel;
+
+  /// No description provided for @cphTtlNone.
+  ///
+  /// In tr, this message translates to:
+  /// **'Süresiz'**
+  String get cphTtlNone;
+
+  /// No description provided for @cphTtl1h.
+  ///
+  /// In tr, this message translates to:
+  /// **'1 saat'**
+  String get cphTtl1h;
+
+  /// No description provided for @cphTtl24h.
+  ///
+  /// In tr, this message translates to:
+  /// **'24 saat'**
+  String get cphTtl24h;
+
+  /// No description provided for @cphTtl7d.
+  ///
+  /// In tr, this message translates to:
+  /// **'7 gün'**
+  String get cphTtl7d;
+
+  /// No description provided for @cphTtlNote.
+  ///
+  /// In tr, this message translates to:
+  /// **'Süre seçerseniz, bu uygulama süresi dolmuş mesajın içeriğini göstermez. Not: Bu, uygulama seviyesinde bir korumadır — şifreli metni elinde tutan ve parolayı bilen kararlı bir kişi başka araçlarla içeriğe ulaşabilir.'**
+  String get cphTtlNote;
+
+  /// No description provided for @cphExpiredError.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bu mesajın geçerlilik süresi dolmuş. İçerik gösterilemez.'**
+  String get cphExpiredError;
+
+  /// No description provided for @cphExpiresAt.
+  ///
+  /// In tr, this message translates to:
+  /// **'Geçerlilik: {date} tarihine kadar'**
+  String cphExpiresAt(String date);
 }
 
 class _AppLocalizationsDelegate

@@ -1170,4 +1170,32 @@ class AppLocalizationsRu extends AppLocalizations {
   @override
   String get upVaultSaveWarning =>
       '⚠️ Сохраните обе ссылки, прежде чем покинуть этот экран. Часть 2 больше не будет показана — если вы её потеряете, файл нельзя будет открыть.';
+
+  @override
+  String get cphTtlLabel => 'Срок действия';
+
+  @override
+  String get cphTtlNone => 'Без срока';
+
+  @override
+  String get cphTtl1h => '1 час';
+
+  @override
+  String get cphTtl24h => '24 часа';
+
+  @override
+  String get cphTtl7d => '7 дней';
+
+  @override
+  String get cphTtlNote =>
+      'Если задать срок, это приложение не покажет содержимое просроченного сообщения. Примечание: это защита на уровне приложения — настойчивый человек, у которого есть зашифрованный текст и пароль, всё же сможет получить содержимое другими средствами.';
+
+  @override
+  String get cphExpiredError =>
+      'Срок действия этого сообщения истёк. Содержимое не может быть показано.';
+
+  @override
+  String cphExpiresAt(String date) {
+    return 'Действительно до $date';
+  }
 }

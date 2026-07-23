@@ -1160,4 +1160,32 @@ class AppLocalizationsTr extends AppLocalizations {
   @override
   String get upVaultSaveWarning =>
       '⚠️ Bu ekrandan ayrılmadan iki linki de kaydedin. Özellikle Parça 2 bir daha gösterilmez — kaybederseniz dosya açılamaz.';
+
+  @override
+  String get cphTtlLabel => 'Geçerlilik süresi';
+
+  @override
+  String get cphTtlNone => 'Süresiz';
+
+  @override
+  String get cphTtl1h => '1 saat';
+
+  @override
+  String get cphTtl24h => '24 saat';
+
+  @override
+  String get cphTtl7d => '7 gün';
+
+  @override
+  String get cphTtlNote =>
+      'Süre seçerseniz, bu uygulama süresi dolmuş mesajın içeriğini göstermez. Not: Bu, uygulama seviyesinde bir korumadır — şifreli metni elinde tutan ve parolayı bilen kararlı bir kişi başka araçlarla içeriğe ulaşabilir.';
+
+  @override
+  String get cphExpiredError =>
+      'Bu mesajın geçerlilik süresi dolmuş. İçerik gösterilemez.';
+
+  @override
+  String cphExpiresAt(String date) {
+    return 'Geçerlilik: $date tarihine kadar';
+  }
 }

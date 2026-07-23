@@ -342,5 +342,20 @@
   "dlVaultShareHint": "k2.… oder der vollständige Link",
   "dlVaultMismatch": "Die Teile stimmten nicht überein — der Download wurde nicht gestartet. Möglicherweise falscher Teil oder derselbe Teil zweimal eingefügt. Ihr Link ist sicher; versuchen Sie es mit dem richtigen Teil erneut.",
   "dlVaultInvalid": "Teil nicht erkannt. Fügen Sie den mit k1. oder k2. beginnenden Teil oder den vollständigen Link ein.",
-  "upVaultSaveWarning": "⚠️ Speichern Sie beide Links, bevor Sie diesen Bildschirm verlassen. Besonders Teil 2 wird nicht erneut angezeigt — wenn Sie ihn verlieren, kann die Datei nicht geöffnet werden."
+  "upVaultSaveWarning": "⚠️ Speichern Sie beide Links, bevor Sie diesen Bildschirm verlassen. Besonders Teil 2 wird nicht erneut angezeigt — wenn Sie ihn verlieren, kann die Datei nicht geöffnet werden.",
+  "cphTtlLabel": "Gültigkeitsdauer",
+  "cphTtlNone": "Unbegrenzt",
+  "cphTtl1h": "1 Stunde",
+  "cphTtl24h": "24 Stunden",
+  "cphTtl7d": "7 Tage",
+  "cphTtlNote": "Wenn Sie eine Dauer festlegen, zeigt diese App den Inhalt einer abgelaufenen Nachricht nicht an. Hinweis: Dies ist ein Schutz auf App-Ebene — eine entschlossene Person, die den verschlüsselten Text besitzt und das Passwort kennt, könnte den Inhalt mit anderen Werkzeugen dennoch erreichen.",
+  "cphExpiredError": "Diese Nachricht ist abgelaufen. Der Inhalt kann nicht angezeigt werden.",
+  "cphExpiresAt": "Gültig bis {date}",
+  "@cphExpiresAt": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  }
 }

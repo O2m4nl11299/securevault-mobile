@@ -1164,4 +1164,32 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get upVaultSaveWarning =>
       '⚠️ Save both links before leaving this screen. Share 2 in particular will not be shown again — if you lose it, the file cannot be opened.';
+
+  @override
+  String get cphTtlLabel => 'Validity period';
+
+  @override
+  String get cphTtlNone => 'No expiry';
+
+  @override
+  String get cphTtl1h => '1 hour';
+
+  @override
+  String get cphTtl24h => '24 hours';
+
+  @override
+  String get cphTtl7d => '7 days';
+
+  @override
+  String get cphTtlNote =>
+      'If you set a period, this app will not display the content of an expired message. Note: this is an app-level protection — a determined person holding the encrypted text and knowing the password could still reach the content with other tools.';
+
+  @override
+  String get cphExpiredError =>
+      'This message has expired. The content cannot be displayed.';
+
+  @override
+  String cphExpiresAt(String date) {
+    return 'Valid until $date';
+  }
 }
