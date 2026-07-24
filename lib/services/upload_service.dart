@@ -84,6 +84,7 @@ class UploadService {
     required String folderPath,
     required String recipientEmail,
     String? extraPassword,
+    bool vaultMode = false,
     void Function(int sent, int total)? onProgress,
     void Function(String type, String msg)? onLog,
   }) async {
@@ -120,6 +121,7 @@ class UploadService {
         originalName: '$folderName.zip',
         recipientEmail: recipientEmail,
         extraPassword: extraPassword,
+        vaultMode: vaultMode,
         onProgress: onProgress,
         onLog: onLog,
       );
